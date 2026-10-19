@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>گزارش ممیزی سئو — پارس‌پک | ۱۸ اکتبر ۲۰۲۶</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="chart.umd.min.js"></script>
+<style>
+  /* هویت پارس‌پک: teal/slate */
+  :root{
+    --navy:#0f2f2c; --blue:#0f766e; --sky:#e6f4f2; --green:#15803d; --green-bg:#e8f7ee;
+    --red:#c2410c; --red-bg:#fff1e8; --amber:#b45309; --amber-bg:#fff7e8;
+    --ink:#1c1917; --muted:#57534e; --line:#d6d3d1; --bg:#f3f6f5; --card:#fff;
+    --accent:#14b8a6; --cover2:#134e4a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:"IBM Plex Sans Arabic",Tahoma,sans-serif;background:var(--bg);color:var(--ink);line-height:1.95;font-size:15px;direction:rtl;text-align:right}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px 60px}
+  header.cover{background:
+      linear-gradient(115deg,rgba(15,47,44,.92) 0%,rgba(15,118,110,.88) 55%,rgba(20,184,166,.75) 100%),
+      repeating-linear-gradient(-55deg,rgba(255,255,255,.04) 0 12px,transparent 12px 24px),
+      #0f2f2c;
+    color:#fff;padding:56px 0 44px;margin-bottom:32px;border-bottom:6px solid #14b8a6;position:relative}
+  header.cover:before{content:"";position:absolute;inset:0 auto 0 0;width:8px;background:#f59e0b}
+  header.cover .wrap{padding-bottom:0;position:relative}
+  header.cover .brand-chip{display:inline-flex;align-items:center;gap:8px;background:#f59e0b;color:#1c1917;padding:5px 14px;border-radius:6px;font-size:12.5px;font-weight:700;margin-bottom:12px;letter-spacing:.02em}
+  header.cover .tag{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);padding:4px 12px;border-radius:6px;font-size:13px;margin-bottom:14px;margin-right:8px}
+  header.cover h1{font-size:34px;font-weight:700;margin:0 0 10px;line-height:1.5}
+  header.cover p{margin:0;opacity:.92;font-size:16px}
+  header.cover .meta{margin-top:22px;display:flex;gap:26px;flex-wrap:wrap;font-size:13.5px;opacity:.88}
+  nav.toc{background:var(--card);border:1px solid var(--line);border-right:5px solid var(--accent);border-radius:10px;padding:18px 24px;margin-bottom:28px}
+  nav.toc h3{margin:0 0 8px;font-size:16px;color:var(--navy)}
+  nav.toc ol{margin:0;padding-right:20px;columns:2;column-gap:40px}
+  nav.toc a{color:var(--blue);text-decoration:none}
+  section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:28px 30px;margin-bottom:26px;box-shadow:0 1px 0 rgba(15,47,44,.04)}
+  h2{font-size:23px;margin:0 0 6px;color:var(--navy);display:flex;align-items:center;gap:10px}
+  h2 .num{background:linear-gradient(145deg,#0f766e,#134e4a);color:#fff;width:34px;height:34px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;font-weight:700}
+  h2 + .lead{color:var(--muted);margin:0 0 18px}
+  h3{font-size:17.5px;color:var(--navy);margin:26px 0 8px}
+  p{margin:8px 0}
+  ul,ol{padding-right:22px;margin:8px 0}
+  li{margin:4px 0}
+  ol{list-style:persian}
+  strong{color:#0f172a}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}
+  .kpi{border:1px solid var(--line);border-radius:10px;padding:16px;background:#f7fbfa;border-top:3px solid var(--accent)}
+  .kpi .label{font-size:13px;color:var(--muted)}
+  .kpi .value{font-size:26px;font-weight:800;color:var(--navy);line-height:1.5}
+  .kpi .delta{font-size:13px;font-weight:600}
+  .up{color:var(--green)} .down{color:var(--red)} .flat{color:var(--amber)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .chart-box{border:1px solid var(--line);border-radius:10px;padding:16px 16px 10px;background:#fff;margin:14px 0;border-top:3px solid #0f766e}
+  .chart-box .ct{font-weight:600;font-size:14.5px;margin-bottom:6px;color:var(--navy)}
+  .chart-box .cs{font-size:12.5px;color:var(--muted);margin-top:6px}
+  .chart-box canvas{width:100%!important}
+  .h260{height:260px} .h300{height:300px} .h340{height:340px}
+  figure{margin:14px 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  figure img{display:block;width:100%;height:auto;direction:ltr}
+  figcaption{padding:10px 16px;font-size:13.5px;color:var(--muted);border-top:1px solid var(--line);background:#fbfcfe}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+  th,td{border-bottom:1px solid var(--line);padding:9px 10px;text-align:right;vertical-align:top}
+  th{background:#e6f4f2;color:var(--navy);font-weight:600}
+  td.n,th.n{text-align:center;white-space:nowrap}
+  tr.hl td{background:#f0fdfa}
+  .ltr{direction:ltr;unicode-bidi:embed;display:inline-block}
+  .callout{border-radius:12px;padding:14px 18px;margin:14px 0;border-right:5px solid}
+  .callout.good{background:var(--green-bg);border-color:var(--green)}
+  .callout.bad{background:var(--red-bg);border-color:var(--red)}
+  .callout.warn{background:var(--amber-bg);border-color:var(--amber)}
+  .callout.info{background:var(--sky);border-color:var(--blue)}
+  .callout b.t{display:block;margin-bottom:4px}
+  .pill{display:inline-block;padding:1px 10px;border-radius:999px;font-size:12.5px;font-weight:600}
+  .pill.g{background:var(--green-bg);color:var(--green)} .pill.r{background:var(--red-bg);color:var(--red)} .pill.a{background:var(--amber-bg);color:var(--amber)} .pill.b{background:var(--sky);color:var(--blue)}
+  .timeline{position:relative;margin:14px 0;padding-right:26px}
+  .timeline:before{content:"";position:absolute;right:8px;top:6px;bottom:6px;width:3px;background:var(--line);border-radius:3px}
+  .tl{position:relative;margin-bottom:16px}
+  .tl:before{content:"";position:absolute;right:-24px;top:9px;width:13px;height:13px;border-radius:50%;background:var(--accent);border:3px solid #ccfbf1}
+  .tl .d{font-weight:700;color:var(--navy)}
+  .phase{border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:14px 0;background:linear-gradient(180deg,#f7fbfa,#fff)}
+  .phase h4{margin:0 0 6px;font-size:16px;color:var(--navy)}
+  .quote{background:#fafaf9;border:1px dashed #a8a29e;border-radius:10px;padding:16px 20px;font-size:15.5px;margin:14px 0}
+  .explain{background:#f0fdfa;border:1px solid #99f6e4;border-radius:10px;padding:12px 18px;margin:14px 0;font-size:14.5px}
+  .explain b.t{display:block;color:var(--blue);margin-bottom:2px}
+  .story p{margin:6px 0}
+  dl.gloss{display:grid;grid-template-columns:170px 1fr;gap:8px 16px;margin:10px 0}
+  dl.gloss dt{font-weight:700;color:var(--navy)}
+  dl.gloss dd{margin:0}
+  footer{color:var(--muted);font-size:12.5px;text-align:center;margin-top:30px}
+  @media screen and (max-width:820px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}nav.toc ol{columns:1}}
+  .future-box{background:#ecfdf5;border:1px solid #99f6e4;border-right:5px solid var(--accent);border-radius:10px;padding:14px 18px;margin:14px 0}
+  .future-box b.t{display:block;color:var(--navy);margin-bottom:6px}
+  .future-box ol{margin:0;padding-right:20px}
+  .future-box li{margin:5px 0}
+  @page{size:A4;margin:10mm 11mm}
+  @media print{
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    body{background:#fff;font-size:11px;line-height:1.5}
+    .wrap{max-width:none;padding:0}
+    header.cover{padding:16px 16px 12px;margin:0 0 6px;border-radius:8px;break-after:auto;page-break-after:auto}
+    header.cover h1{font-size:22px;margin:0 0 4px;line-height:1.35}
+    header.cover p{font-size:12px;line-height:1.45}
+    header.cover .tag{margin-bottom:6px;font-size:11px}
+    header.cover .meta{margin-top:10px;gap:12px;font-size:11px}
+    nav.toc{padding:8px 12px;margin-bottom:6px;break-after:auto;page-break-after:auto}
+    nav.toc h3{font-size:13px;margin:0 0 4px}
+    nav.toc ol{columns:unset;column-count:unset;display:grid;grid-template-columns:1fr 1fr;gap:0 14px;padding-right:18px;margin:0;font-size:11px;line-height:1.45}
+    nav.toc li{break-inside:avoid;margin:0;padding:1px 0}
+    section{border:1px solid var(--line);padding:10px 12px;margin:0 0 6px;break-inside:auto;page-break-inside:auto;border-radius:8px}
+    section.first{break-before:auto}
+    #s0{padding:8px 12px}
+    #s0 .lead{margin:0 0 6px;font-size:11px}
+    #s0 dl.gloss{display:grid;grid-template-columns:88px 1fr 88px 1fr;gap:3px 10px;margin:0;font-size:9.5px;line-height:1.35}
+    #s0 dl.gloss dt{font-size:9.5px;margin:0}
+    #s0 dl.gloss dd{margin:0}
+    #s1{padding:10px 12px}
+    #s1 .lead{margin:0 0 6px;font-size:11px}
+    #s1 .explain.story{padding:8px 10px;margin:0 0 6px}
+    #s1 .explain.story p{margin:3px 0;font-size:10.5px;line-height:1.45}
+    #s1 .kpis{margin:6px 0;gap:6px;break-after:page;page-break-after:always}
+    #s1 .kpi{padding:8px}
+    #s1 .kpi .value{font-size:18px}
+    #s1 .callout.good{break-before:avoid;page-break-before:avoid}
+    #s1 .future-box{break-inside:auto;page-break-inside:auto;margin:3px 0;padding:6px 8px}
+    #s1 .callout,#s1 .quote{margin:3px 0;padding:5px 8px;font-size:9.5px;line-height:1.35}
+    #s1 .callout li{margin:1px 0;font-size:9.5px;line-height:1.35}
+    #s1 .future-box li{margin:1px 0;font-size:9.5px;line-height:1.35}
+    #s1{break-after:auto;page-break-after:auto}
+    #s2{break-before:auto;page-break-before:auto;break-after:page;page-break-after:always;padding:8px 12px}
+    #s2 .lead{margin:0 0 4px;font-size:10.5px}
+    #s2 .timeline{margin:4px 0 6px;padding-right:22px;display:flex;flex-direction:column;justify-content:space-between;min-height:540px}
+    #s2 .tl{margin-bottom:0;font-size:10.5px;line-height:1.4}
+    #s2 .tl .d{font-size:11px}
+    #s2 .callout{margin:8px 0 0;padding:10px 12px;font-size:10.5px}
+    #s3{break-before:auto;page-break-before:auto}
+    .print-mode .h260,.print-mode .h300,.print-mode .h340{height:auto!important;min-height:0!important}
+    .chart-img{display:block;width:100%;height:auto;max-height:150px;object-fit:contain}
+    figure img{max-height:140px;object-fit:contain}
+    h2{font-size:15px;margin:0 0 4px;break-after:avoid;page-break-after:avoid}
+    h2 .num{width:24px;height:24px;font-size:12px}
+    h3{font-size:12.5px;margin:8px 0 4px;break-after:avoid;page-break-after:avoid}
+    h4{break-after:avoid;page-break-after:avoid}
+    p,li{orphans:2;widows:2}
+    .kpi .value{font-size:18px}
+    .kpis{gap:6px;margin:8px 0;break-inside:auto}
+    .kpi{padding:8px;break-inside:avoid}
+    .chart-box,.quote,dl.gloss{break-inside:auto;page-break-inside:auto}
+    .callout,.explain{break-inside:auto;page-break-inside:auto}
+    .phase{break-inside:auto;page-break-inside:auto;padding:10px 12px;margin:8px 0}
+    .chart-box{padding:8px;margin:6px 0}
+    figure{break-inside:auto;page-break-inside:auto;margin:6px 0}
+    .grid2{gap:8px}
+    table{font-size:10px}
+    thead{display:table-header-group}
+    tr{break-inside:avoid;page-break-inside:avoid}
+    th,td{padding:5px 6px}
+    .callout,.explain,.future-box{padding:8px 10px;margin:6px 0;font-size:10.5px}
+    .tl{break-inside:auto;page-break-inside:auto}
+    footer{margin-top:6px}
+  }
+  .bar-row{display:flex;align-items:center;gap:10px;margin:8px 0}
+  .bar-lab{width:140px;font-size:13px;color:var(--muted);flex-shrink:0}
+  .bar-track{flex:1;height:12px;background:#e5e7eb;border-radius:999px;overflow:hidden}
+  .bar-fill{height:100%;background:linear-gradient(90deg,#c2410c,#f59e0b);border-radius:999px}
+  .bar-val{width:70px;font-size:13px;font-weight:700;color:var(--navy);text-align:left;direction:ltr}
+  .missing{border:1px dashed #5eead4;background:#f0fdfa;border-radius:10px;padding:14px 18px;margin:14px 0}
+  .missing b.t{display:block;color:var(--blue);margin-bottom:4px}
+  code{font-family:ui-monospace,Consolas,monospace;font-size:.92em;background:#ecfdf5;padding:1px 6px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="brand-chip">پارس‌پک · کلاد / هاستینگ</div>
+    <span class="tag">گزارش ممیزی سئو · parspack.com</span>
+    <h1>پارس‌پک: بهداشت ایندکس، کلاستر محصول<br>و ریسک صفحات ژئو</h1>
+    <p>بررسی فقط‌خواندنی HTML زنده، robots، sitemap و نمونه صفحات پول‌ساز — چارچوب Content Ops / tool-seo-suite</p>
+    <div class="meta">
+      <span>تاریخ گزارش: ۱۸ اکتبر ۲۰۲۶ · ۲۶ مهر ۱۴۰۵</span>
+      <span>منبع: crawl عمومی (بدون GSC در این نسخه)</span>
+      <span>تهیه‌کننده: محمدعلی · Content Ops</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<nav class="toc">
+  <h3>فهرست</h3>
+  <ol>
+    <li><a href="#s0">راهنمای خواندن گزارش</a></li>
+    <li><a href="#s1">خلاصهٔ مدیریتی</a></li>
+    <li><a href="#s2">محدوده و روش بررسی</a></li>
+    <li><a href="#s3">موجودی ایندکس و کشف (sitemap / robots)</a></li>
+    <li><a href="#s4">سلامت فنی و سیگنال‌های ایندکس</a></li>
+    <li><a href="#s5">ساختار کلاستر محصول</a></li>
+    <li><a href="#s6">صفحات ژئو و ریسک Scaled Content</a></li>
+    <li><a href="#s7">صفحات پول و مشکلات On-page</a></li>
+    <li><a href="#s8">امتیاز Content Ops</a></li>
+    <li><a href="#s9">نقشهٔ لایه‌ها (On / Off / Tech / Content / Tactical)</a></li>
+    <li><a href="#s10">آف‌پیج و اعتبار بیرونی</a></li>
+    <li><a href="#s11">آپدیت‌های گوگل و نگاشت ریسک</a></li>
+    <li><a href="#s12">اولویت‌های اقدام (P0 / P1 / P2)</a></li>
+    <li><a href="#s13">برنامهٔ ۳۰ روزه</a></li>
+    <li><a href="#s14">شاخص‌های درست برای سنجش پیشرفت</a></li>
+    <li><a href="#s15">روش کار، محدودیت‌ها و دادهٔ ناقص</a></li>
+  </ol>
+</nav>
+
+<section id="s0" class="first">
+  <h2><span class="num">۰</span>راهنمای خواندن گزارش</h2>
+  <p class="lead">اگر با اصطلاحات سئو آشنا نیستید، این چند تعریف کافی است تا بقیهٔ گزارش روشن شود.</p>
+  <dl class="gloss">
+    <dt>ایندکس</dt><dd>یعنی گوگل صفحه را در فهرست خودش ثبت کرده. صفحه‌ای که ایندکس نشده اصلاً در گوگل دیده نمی‌شود.</dd>
+    <dt>robots.txt</dt><dd>فایلی که به ربات‌ها می‌گوید چه مسیرهایی را بخزند و کدام sitemap را بخوانند.</dd>
+    <dt>Sitemap</dt><dd>فهرست آدرس‌هایی که سایت به گوگل معرفی می‌کند تا سریع‌تر کشف شوند.</dd>
+    <dt>Canonical</dt><dd>آدرس رسمی صفحه؛ وقتی چند نسخه از یک صفحه وجود دارد، سیگنال رتبه باید روی یکی جمع شود.</dd>
+    <dt>پیلار و کلاستر</dt><dd>یک صفحهٔ اصلی (مثلاً هاست یا VPS) و چند صفحهٔ پشتیبان (ایران، آلمان، وردپرس…) که به آن وصل می‌شوند.</dd>
+    <dt>همنوع‌خواری</dt><dd>وقتی دو صفحه برای یک نیت جست‌وجو با هم رقابت می‌کنند و قدرت بینشان تقسیم می‌شود.</dd>
+    <dt>Scaled Content</dt><dd>تولید انبوه صفحه‌های شبیه هم (مثلاً فقط عوض کردن نام کشور) بدون ارزش یکتا — ریسک آپدیت‌های Spam گوگل.</dd>
+    <dt>Organization Schema</dt><dd>کد ساخت‌یافتهٔ هویت برند برای گوگل. اگر به مسیر اشتباه اشاره کند، سیگنال برند ضعیف می‌شود.</dd>
+    <dt>On-page</dt><dd>سیگنال‌های داخل صفحه: عنوان، heading، متن، اسکیما، لینک داخلی، تجربهٔ خواندن.</dd>
+    <dt>Off-page</dt><dd>سیگنال‌های بیرون از سایت: بک‌لینک، برند سرچ، mention، اعتبار دامنه در اکوسیستم وب.</dd>
+    <dt>تکنیکال</dt><dd>خزیدن، ایندکس، ریدایرکت، sitemap، robots، سرعت/CWV، نسخهٔ www/apex.</dd>
+    <dt>تاکتیکال</dt><dd>ترتیب اجرا و اولویت‌بندی کارها — نه خودِ فاکتور رتبه، بلکه برنامهٔ عملیاتی.</dd>
+    <dt>Spam / Scaled Content</dt><dd>سیاست گوگل علیه تولید انبوه محتوای کم‌ارزش برای دستکاری رتبه (انسان یا ماشین).</dd>
+    <dt>Core Update</dt><dd>به‌روزرسانی گستردهٔ سیستم‌های رتبه‌بندی برای ارزیابی مفید بودن و اعتماد نتایج.</dd>
+    <dt>GSC (سرچ کنسول)</dt><dd>ابزار رسمی گوگل برای کلیک، نمایش، ایندکس و خطاها. در این نسخه هنوز وصل نشده؛ بخش‌های وابسته علامت‌گذاری شده‌اند.</dd>
+  </dl>
+</section>
+
+<section id="s1">
+  <h2><span class="num">۱</span>خلاصهٔ مدیریتی</h2>
+  <p class="lead">پارس‌پک برند قوی کلاد/هاستینگ با کاتالوگ تجاری گسترده و بلاگ بسیار فعال است. محدودیت فعلی کمبود محتوا نیست — بهداشت ایندکس، نشت <code>/new</code> و شباهت صفحات ژئو/پول است.</p>
+
+  <div class="explain story"><b class="t">داستان به زبان ساده</b>
+    <p>سایت از نظر محصول و ناوبری بالغ است: هاست، VPS، سرور، دامنه، CDN و PaaS در کلاستر مشخص چیده شده‌اند و بلاگ حدود ۱٬۴۴۲ پست تازه دارد.</p>
+    <p>اما موتور جست‌وجو سیگنال‌های متناقض می‌بیند: sitemap بلاگ در robots ریشه اعلام نشده، هویت برند در اسکیما به مسیر <code>/new</code> خورده، www بدون ۳۰۱ سخت کنار apex نشسته، و صفحات کشور VPS بعد از حذف نام کشور هنوز ۶۵ تا ۷۷ درصد شبیه هم هستند.</p>
+    <p>صفحهٔ پول <code>/vps</code> هم با تکرار شدید کلمه و تراکم heading، سیگنال over-optimization می‌دهد.</p>
+    <p>فاز درست الان تولید انبوه صفحهٔ جدید نیست؛ تمیزکاری ایندکس + تقویت پیلارها + یکتاسازی ژئوهای اصلی است.</p>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="label">صفحات تجاری (page-sitemap)</div><div class="value">۱۰۳</div><div class="delta flat">کلاستر محصول مشخص</div></div>
+    <div class="kpi"><div class="label">پست بلاگ در sitemap جدا</div><div class="value">≈۱٬۴۴۲</div><div class="delta down">در robots ریشه نیست</div></div>
+    <div class="kpi"><div class="label">شباهت ژئو VPS (Jaccard)</div><div class="value">۰٫۶۵–۰٫۷۷</div><div class="delta down">الگوی name-swap</div></div>
+    <div class="kpi"><div class="label">تکرار VPS در /vps</div><div class="value">≈۳۹۸×</div><div class="delta down">over-optimization</div></div>
+  </div>
+
+  <div class="callout bad"><b class="t">سه ریسک بحرانی</b>
+    <ul>
+      <li>Sitemap بلاگ از robots ریشه جداست → کشف/ایندکس کند برای موتور محتوایی اصلی.</li>
+      <li>نشت <code>/new</code> در Organization schema و دارایی‌های OG → تضعیف هویت برند.</li>
+      <li>ژئوهای VPS شبیه + لندینگ‌های پول پر از کیورد → ریسک Scaled / Spam و رقیق شدن کلاستر.</li>
+    </ul>
+  </div>
+
+  <div class="future-box"><b class="t">برنامهٔ آینده در سه خط</b>
+    <ol>
+      <li><b>هفته ۱:</b> ۳۰۱ www→apex · پاکسازی /new · اتصال blog sitemap به robots · سیاست /en · اصلاح Organization.</li>
+      <li><b>هفته ۲:</b> بازنویسی /vps و /host · Product/FAQ schema · قفل نقش servers / vps / cloud-server.</li>
+      <li><b>هفته ۳–۴:</b> unique block برای ژئوهای اصلی · ادغام/noindex ضعیف‌ها · رفرش پیلار · سپس ثبات ۲–۴ هفته.</li>
+    </ol>
+  </div>
+
+  <div class="missing"><b class="t">دادهٔ هنوز وصل‌نشده</b>
+    این نسخه بدون Search Console است. با اتصال GSC می‌توان لایهٔ «کلیک / نمایش / واژه‌های رتبه» را هم پر کرد.
+  </div>
+
+
+  <h3>پوشش لایه‌های سئو در همین گزارش</h3>
+  <table>
+    <thead><tr><th>لایه</th><th>پوشش</th><th>جایی در گزارش</th><th>نکته</th></tr></thead>
+    <tbody>
+      <tr><td>تکنیکال</td><td><span class="pill g">قوی</span></td><td>۳ · ۴</td><td>robots، sitemap، www، /new، /en، schema</td></tr>
+      <tr><td>On-page</td><td><span class="pill g">قوی</span></td><td>۷ · بخشی از ۵</td><td>عنوان، heading، کیورد، اسکیما محصول</td></tr>
+      <tr><td>محتوایی</td><td><span class="pill g">قوی</span></td><td>۵ · ۶ · ۸</td><td>ژئو، کلاستر، Scaled، information gain</td></tr>
+      <tr><td>تاکتیکال</td><td><span class="pill g">قوی</span></td><td>۱۲ · ۱۳ · ۱۴</td><td>P0–P2، ۳۰ روزه، KPI</td></tr>
+      <tr><td>آپدیت‌های گوگل</td><td><span class="pill g">کامل‌شده</span></td><td>۱۱</td><td>نگاشت یافته‌ها روی Core / Spam اخیر</td></tr>
+      <tr><td>آف‌پیج</td><td><span class="pill a">اسکلت + ریسک</span></td><td>۱۰</td><td>بدون ابزار لینک؛ چک‌لیست و سیگنال‌های قابل‌مشاهده</td></tr>
+    </tbody>
+  </table>
+
+  <div class="quote">
+    <b>جمع‌بندی در یک جمله:</b> زیرساخت محتوایی و محصول قوی است؛ گلوگاه رشد، بهداشت ایندکس و کیفیت یکتای صفحات ژئو/پول است — نه کمبود مقاله.
+  </div>
+</section>
+
+<section id="s2">
+  <h2><span class="num">۲</span>محدوده و روش بررسی</h2>
+  <p class="lead">این یک ممیزی نقطه‌ای (snapshot) است؛ خط زمانی تاریخی در این نسخه نداریم چون دادهٔ GSC هنوز نیست.</p>
+
+  <div class="timeline">
+    <div class="tl"><span class="d">منبع داده</span><br>HTML زندهٔ parspack.com و www · robots.txt · sitemap_index و زیرنقشه‌ها · نمونهٔ /host /vps /cloud-server /vps/iran /vps/foreign/* · بلاگ و چند پست تازه</div>
+    <div class="tl"><span class="d">چارچوب</span><br>Content Ops Checklist داخل tool-seo-suite: Helpful، E-E-A-T، Spam/Scaled، Information gain، Thin/Duplicate، Local/Geo، Internal links</div>
+    <div class="tl"><span class="d">روش شباهت ژئو</span><br>Jaccard روی مجموعهٔ واژگان یکتا پس از حذف نام کشور؛ آستانهٔ هشدار بالای ۰٫۵۵ (اینجا ۰٫۶۵–۰٫۷۷)</div>
+    <div class="tl"><span class="d">خارج از محدودهٔ کمّی</span><br>پروفایل کامل بک‌لینک · CrUX/Lighthouse فیلد · رتبهٔ واقعی کوئری‌ها · لاگ سرور · پنل وردپرس — اسکلت آف‌پیج و نگاشت آپدیت‌ها در بخش ۱۰–۱۱ آمده</div>
+  </div>
+
+  <div class="callout info"><b class="t">چرا این محدوده؟</b>
+    برای شروع اصلاحات P0 همین سیگنال‌های HTML کافی است. لایهٔ عملکرد جست‌وجو (کلیک/نمایش) را به‌محض دسترسی GSC روی همین اسکلت اضافه می‌کنیم.
+  </div>
+</section>
+
+<section id="s3">
+  <h2><span class="num">۳</span>موجودی ایندکس و کشف</h2>
+  <p class="lead">آنچه robots و sitemap به موتور نشان می‌دهند — نه لزوماً آنچه واقعاً ایندکس شده (آن بخش نیاز به GSC دارد).</p>
+
+  <div class="explain"><b class="t">این بخش یعنی چه؟</b>
+    اگر sitemap بلاگ در robots اعلام نشود، گوگل برای کشف هزاران پست باید بیشتر به شانس لینک داخلی تکیه کند. این برای سایتی با ≈۱٬۴۴۲ پست هزینهٔ کشف غیرضروری است.
+  </div>
+
+  <table>
+    <thead><tr><th>فهرست</th><th>وضعیت</th><th>جزئیات</th></tr></thead>
+    <tbody>
+      <tr><td>robots → Sitemap</td><td><span class="pill r">ناقص</span></td><td>فقط <span class="ltr">https://parspack.com/sitemap_index.xml</span></td></tr>
+      <tr><td>sitemap_index ریشه</td><td><span class="pill a">۳ زیرنقشه</span></td><td>post · page · local (kml)</td></tr>
+      <tr class="hl"><td>page-sitemap</td><td><span class="pill g">۱۰۳ URL</span></td><td>صفحات تجاری/سازمانی — آخرین lastmod تا اکتبر ۲۰۲۶</td></tr>
+      <tr><td>post-sitemap ریشه</td><td><span class="pill r">پوسیده</span></td><td>۱۶ URL قدیمی سوالات‌متداول · lastmod ۲۰۲۲</td></tr>
+      <tr><td>local-sitemap</td><td><span class="pill a">۱ URL</span></td><td>locations.kml</td></tr>
+      <tr class="hl"><td>blog/sitemap_index</td><td><span class="pill r">اعلام‌نشده در robots</span></td><td>۸ post-sitemap + category + author · ≈۱٬۴۴۲ پست · تازه تا اکتبر ۲۰۲۶</td></tr>
+    </tbody>
+  </table>
+
+
+  <div class="grid2">
+    <div class="chart-box">
+      <div class="ct">توزیع موجودی قابل کشف (sitemap)</div>
+      <div class="h260"><canvas id="cDiscover"></canvas></div>
+      <div class="cs">وزن محتوا روی بلاگ است؛ کشف‌پذیری‌اش در robots ریشه اعلام نشده.</div>
+    </div>
+    <div class="chart-box">
+      <div class="ct">کلاستر تجاری (page-sitemap)</div>
+      <div class="h260"><canvas id="cCluster"></canvas></div>
+      <div class="cs">شمارش تقریبی URLهای شاخه در page-sitemap.</div>
+    </div>
+  </div>
+
+  <h3>موجودی کلاستر تجاری (page-sitemap)</h3>
+  <table>
+    <thead><tr><th>شاخه</th><th class="n">تعداد تقریبی</th><th>نقش</th></tr></thead>
+    <tbody>
+      <tr><td>host</td><td class="n">۲۰</td><td>پیلار + انواع هاست</td></tr>
+      <tr><td>vps</td><td class="n">۱۶</td><td>پیلار + ژئو/سیستم‌عامل</td></tr>
+      <tr><td>dedicated / paas / servers</td><td class="n">۹×۳</td><td>هاب‌های موازی — ریسک تداخل معنایی</td></tr>
+      <tr><td>cloud-server</td><td class="n">۸</td><td>همپوشانی با vps/servers</td></tr>
+      <tr><td>cloud-storage / cdn / ssl / domain</td><td class="n">۵ / ۴ / ۴ / ۳</td><td>محصولات جانبی</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn"><b class="t">نکته</b>
+    وزن محتوایی سایت روی بلاگ است، ولی پیکربندی کشف‌پذیری‌اش ضعیف‌تر از صفحات تجاری است. این وارونهٔ اولویت درست برای یک برند محتوا+محصول است.
+  </div>
+</section>
+
+<section id="s4">
+  <h2><span class="num">۴</span>سلامت فنی و سیگنال‌های ایندکس</h2>
+  <p class="lead">یافته‌های قطعی از HTML و هدرهای HTTP — بدون ادعای Coverage کامل GSC.</p>
+
+  <div class="explain"><b class="t">این بخش یعنی چه؟</b>
+    حتی قبل از باز کردن سرچ کنسول می‌توان دید موتور با چه نسخه‌هایی از سایت روبه‌رو می‌شود و آیا هویت برند تمیز است یا نه.
+  </div>
+
+  <table>
+    <thead><tr><th>سیگنال</th><th>وضعیت</th><th>شواهد</th><th>اقدام</th></tr></thead>
+    <tbody>
+      <tr><td>http → https</td><td><span class="pill g">درست</span></td><td>۳۰۱ به https</td><td>—</td></tr>
+      <tr><td>www → apex</td><td><span class="pill r">ضعیف</span></td><td>هر دو ۲۰۰؛ فقط canonical به apex</td><td>۳۰۱ اجباری www→apex</td></tr>
+      <tr><td>مسیر /new</td><td><span class="pill r">ریسک</span></td><td>۲۰۰ + meta ایندکس؛ robots Disallow؛ اسکیما/OG از /new</td><td>۳۰۱ + noindex + اصلاح Site URL</td></tr>
+      <tr><td>مسیر /en</td><td><span class="pill a">متناقض</span></td><td>robots Disallow ولی meta=index؛ lang=fa؛ بدون canonical قوی</td><td>noindex یا EN واقعی + hreflang</td></tr>
+      <tr><td>Organization schema</td><td><span class="pill r">خراب</span></td><td>@id/url = parspack.com/new</td><td>اصلاح به دامنهٔ اصلی</td></tr>
+      <tr><td>Staging leak</td><td><span class="pill r">دیده شد</span></td><td>oEmbed به new.pars-next.ir</td><td>حذف ارجاع استیجینگ</td></tr>
+      <tr><td>og:image خانه</td><td><span class="pill a">خالی / ضعیف</span></td><td>خانه بدون og:image؛ هاست از /new/wp-content</td><td>OG پیش‌فرض برند روی apex</td></tr>
+      <tr><td>ads.txt</td><td><span class="pill a">خراب</span></td><td>ریدایرکت به /blog</td><td>فایل واقعی یا ۴۰۴ تمیز</td></tr>
+      <tr><td>trailing slash</td><td><span class="pill g">یکدست</span></td><td>/host/ → /host با ۳۰۱</td><td>—</td></tr>
+      <tr><td>استک</td><td><span class="pill b">مشاهده</span></td><td>WordPress · Rank Math · Cloudflare / LiteSpeed / WCDN</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+
+  <div class="chart-box">
+    <div class="ct">پوشش ایندکس (نیاز به GSC)</div>
+    <div class="h260" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:14px;border:1px dashed var(--line);border-radius:10px">
+      Indexed / Not indexed / 404 / Discovered — بعد از اتصال Search Console پر می‌شود
+    </div>
+    <div class="cs">بعد از اتصال GSC همین جایگاه با نمودار میله‌ای واقعی پر می‌شود.</div>
+  </div>
+
+  <div class="missing"><b class="t">برای تکمیل این بخش</b>
+    از GSC لازم است: Indexed / Not indexed / 404 / Discovered-not-indexed · Crawl stats · Core Web Vitals. با همان‌ها می‌توان بخش تصویر و نمودار ایندکس را پر کرد.
+  </div>
+</section>
+
+<section id="s5">
+  <h2><span class="num">۵</span>ساختار کلاستر محصول</h2>
+  <p class="lead">معماری محصول خوانا است؛ ریسک اصلی تداخل هاب‌های موازی برای نیت «خرید سرور» است.</p>
+
+  <div class="explain"><b class="t">نکتهٔ اصلی این بخش</b>
+    پیلارها وجود دارند، ولی سه هاب <code>/servers</code> و <code>/vps</code> و <code>/cloud-server</code> هم‌زمان برای کوئری‌های نزدیک می‌جنگند. قبل از ساخت صفحهٔ جدید باید نقش هر هاب قفل شود.
+  </div>
+
+  <div class="grid2">
+    <div class="phase">
+      <h4>پیلارهای قوی‌تر</h4>
+      <ul>
+        <li><code>/host</code> — هاب هاست + زیرشاخه‌های زیاد</li>
+        <li><code>/vps</code> — هاب VPS + ژئو</li>
+        <li><code>/domain</code> — ثبت/خرید دامنه</li>
+        <li><code>/blog</code> — موتور محتوای آموزشی (جدا از sitemap ریشه)</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <h4>هاب‌های در معرض تداخل</h4>
+      <ul>
+        <li><code>/servers</code> در برابر <code>/vps</code></li>
+        <li><code>/cloud-server</code> در برابر هر دو</li>
+        <li><code>/dedicated-servers</code> به‌عنوان شاخهٔ سوم</li>
+        <li>لینک‌های داخلی خانه با <code>target=_blank</code> (≈۵۵ مورد)</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="chart-box">
+    <div class="ct">وزن نسبی شاخه‌های محصول در sitemap</div>
+    <div class="h300"><canvas id="cPillar"></canvas></div>
+    <div class="cs">هاب‌های موازی servers / vps / cloud-server هم‌زمان سیگنال «خرید سرور» می‌گیرند.</div>
+  </div>
+
+  <div class="callout info"><b class="t">پیشنهاد نقش‌گذاری</b>
+    <ul>
+      <li><b>/servers</b> = راهنمای انتخاب نوع سرور (تصمیم)</li>
+      <li><b>/vps</b> = صفحهٔ پول VPS + ژئو</li>
+      <li><b>/cloud-server</b> = مدل ساعتی/ابری با تمایز قیمت و تحویل</li>
+      <li>هر ژئو فقط زیر یک پیلار بنشیند و به پیلار + ۱–۲ خواهر لینک بدهد</li>
+    </ul>
+  </div>
+</section>
+
+<section id="s6">
+  <h2><span class="num">۶</span>صفحات ژئو و ریسک Scaled Content</h2>
+  <p class="lead">بعد از حذف نام کشور از متن، صفحات VPS خارجی هنوز همپوشانی واژگانی بالایی دارند.</p>
+
+  <div class="explain"><b class="t">این عدد یعنی چه؟</b>
+    Jaccard نزدیک ۱ یعنی دو صفحه تقریباً یک متن با اسم کشور عوض‌شده‌اند. بالای ۰٫۶۵ برای ژئوهای پولی، با سیاست Spam/Scaled گوگل هم‌خوانی خطرناک دارد — همان چیزی که در چک‌لیست Content Ops برای local/geo منع شده.
+  </div>
+
+
+  <div class="chart-box">
+    <div class="ct">شباهت Jaccard جفت‌صفحات ژئو (پس از حذف نام کشور)</div>
+    <div class="h300"><canvas id="cJaccard"></canvas></div>
+    <div class="cs">آستانهٔ هشدار ۰٫۵۵ — همهٔ جفت‌های نمونه‌گیری‌شده بالای آن هستند.</div>
+  </div>
+
+  <h3>شباهت واژگانی (پس از حذف نام کشور)</h3>
+  <div class="bar-row"><div class="bar-lab">آلمان↔ترکیه</div><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div><div class="bar-val">۰٫۷۲</div></div>
+  <div class="bar-row"><div class="bar-lab">کانادا↔هلند</div><div class="bar-track"><div class="bar-fill" style="width:77%"></div></div><div class="bar-val">۰٫۷۷</div></div>
+  <div class="bar-row"><div class="bar-lab">کانادا↔سوئد</div><div class="bar-track"><div class="bar-fill" style="width:75%"></div></div><div class="bar-val">۰٫۷۵</div></div>
+  <div class="bar-row"><div class="bar-lab">آلمان↔انگلیس</div><div class="bar-track"><div class="bar-fill" style="width:71%"></div></div><div class="bar-val">۰٫۷۱</div></div>
+  <div class="bar-row"><div class="bar-lab">ایران↔آلمان</div><div class="bar-track"><div class="bar-fill" style="width:67%"></div></div><div class="bar-val">۰٫۶۷</div></div>
+  <div class="bar-row"><div class="bar-lab">ایران↔VPS هاب</div><div class="bar-track"><div class="bar-fill" style="width:57%"></div></div><div class="bar-val">۰٫۵۷</div></div>
+
+  <table>
+    <thead><tr><th>صفحه</th><th>عنوان نمونه</th><th class="n">حجم تقریبی</th><th>یادداشت</th></tr></thead>
+    <tbody>
+      <tr><td><span class="ltr">/vps/foreign/germany</span></td><td>سرور مجازی آلمان…</td><td class="n">≈۸٫۱k</td><td>بدون FAQ واقعی متمایز</td></tr>
+      <tr><td><span class="ltr">/vps/foreign/turkey</span></td><td>VPS ترکیه…</td><td class="n">≈۸٫۰k</td><td>الگوی مشابه</td></tr>
+      <tr><td><span class="ltr">/vps/foreign/canada</span></td><td>VPS کانادا…</td><td class="n">≈۷٫۸k</td><td>الگوی مشابه</td></tr>
+      <tr><td><span class="ltr">/vps/iran</span></td><td>VPS ایران…</td><td class="n">≈۷٫۰k</td><td>نزدیک به خارجی‌ها</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout bad"><b class="t">حداقل unique block برای نگه‌داشتن هر کشور</b>
+    latency واقعی، کاربرد رایج آن لوکیشن، محدودیت IP/قانونی، تفاوت پلن/قیمت، و یک FAQ بومی — وگرنه ادغام یا noindex بهتر از نگه‌داشتن دوقلو است.
+  </div>
+</section>
+
+<section id="s7">
+  <h2><span class="num">۷</span>صفحات پول و مشکلات On-page</h2>
+  <p class="lead">لندینگ‌های پول ارزش تجاری دارند، ولی سیگنال «برای ربات» در عنوان و ساختار heading بالاست.</p>
+
+  <div class="explain"><b class="t">H2/H3 زیاد یعنی چه؟</b>
+    تعداد heading به‌تنهایی بد نیست؛ وقتی با تکرار صدهابارهٔ یک عبارت و عنوان ایموجی‌کیورد همراه شود، صفحه بیشتر شبیه بهینه‌سازی افراطی است تا لندینگ شفاف خرید.
+  </div>
+
+  <table>
+    <thead><tr><th>URL</th><th>عنوان (خلاصه)</th><th class="n">H2</th><th class="n">H3</th><th>سیگنال</th></tr></thead>
+    <tbody>
+      <tr><td><span class="ltr">/</span></td><td>پارس پک | خرید هاست و دامنه و سرور</td><td class="n">—</td><td class="n">—</td><td>H1 برند خوب · og خالی · schema→/new</td></tr>
+      <tr><td><span class="ltr">/host</span></td><td>خرید هاست ☁️ Web Hosting…</td><td class="n">۱۲</td><td class="n">۴۹</td><td>ایموجی + کیورد · OG از /new</td></tr>
+      <tr class="hl"><td><span class="ltr">/vps</span></td><td>سرور مجازی ⚡️ … خرید VPS…</td><td class="n">۲۴</td><td class="n">۱۵۸</td><td>≈۳۹۸× VPS — پرریسک‌ترین</td></tr>
+      <tr><td><span class="ltr">/cloud-server</span></td><td>سرور ابری ☁️ … تحویل فوری ⚡️</td><td class="n">۳۲</td><td class="n">۲۴</td><td>همپوشانی با /vps و /servers</td></tr>
+      <tr><td><span class="ltr">/domain</span></td><td>خرید دامنه | ارزان‌تر از IRNIC…</td><td class="n">۲۲</td><td class="n">۲۹</td><td>تجاری؛ نیاز به تمایز شفاف</td></tr>
+    </tbody>
+  </table>
+
+
+  <div class="grid2">
+    <div class="chart-box">
+      <div class="ct">تراکم heading در صفحات پول</div>
+      <div class="h260"><canvas id="cHeadings"></canvas></div>
+      <div class="cs">/vps با ۱۵۸ H3 پرریسک‌ترین لندینگ است.</div>
+    </div>
+    <div class="chart-box">
+      <div class="ct">تکرار کلمهٔ VPS در /vps</div>
+      <div class="h260"><canvas id="cVpsStuff"></canvas></div>
+      <div class="cs">مقایسهٔ نسبی با هاب‌های همسایه (برآورد از ممیزی HTML).</div>
+    </div>
+  </div>
+
+  <div class="callout warn"><b class="t">اسکیما محصول</b>
+    لندینگ host/vps فعلاً بیشتر Article/WebPage هستند؛ Product/Service + Offer + FAQPage واقعی دیده نشد. برای صفحهٔ فروش این یک فرصت ریچ‌نتیجه ازدست‌رفته است.
+  </div>
+
+  <h3>نمونهٔ بلاگ (کیفیت محتوایی بهتر از لندینگ فروش)</h3>
+  <table>
+    <thead><tr><th>نمونه</th><th>عنوان</th><th class="n">حجم تقریبی</th></tr></thead>
+    <tbody>
+      <tr><td>آموزش n8n</td><td>آموزش راه‌اندازی و نصب N8N</td><td class="n">≈۵٫۳k واژه</td></tr>
+      <tr><td>نیک‌هندل</td><td>نیک هندل چیست؟ آموزش ساخت شناسه ایرنیک</td><td class="n">≈۵٫۵k</td></tr>
+      <tr><td>خدمات ابری</td><td>خدمات ابری چیست…</td><td class="n">≈۶٫۴k</td></tr>
+    </tbody>
+  </table>
+  <p>عنوان‌های بلاگ طبیعی‌ترند؛ مشکل اصلی کشف/ایندکس بلاگ است نه کیفیت خام متن.</p>
+</section>
+
+<section id="s8">
+  <h2><span class="num">۸</span>امتیاز Content Ops</h2>
+  <p class="lead">نگاشت مستقیم روی چک‌لیست مشترک tool-seo-suite.</p>
+
+  <div class="chart-box">
+    <div class="ct">وضعیت حوزه‌های Content Ops (امتیاز نسبی ۰–۳)</div>
+    <div class="h300"><canvas id="cOps"></canvas></div>
+    <div class="cs">۳=سالم · ۲=هشدار · ۱=ریسک · ۰=بحرانی/ناقص. نگاشت کیفی روی چک‌لیست suite.</div>
+  </div>
+
+  <table>
+    <thead><tr><th>حوزه</th><th>وضعیت</th><th>نکته کلیدی</th></tr></thead>
+    <tbody>
+      <tr><td>A) Helpful / Core</td><td><span class="pill a">هشدار</span></td><td>ارزش واقعی هست؛ سیگنال رباتی زیاد است</td></tr>
+      <tr><td>B) E-E-A-T</td><td><span class="pill a">هشدار</span></td><td>برند قوی؛ Organization به /new می‌خورد</td></tr>
+      <tr><td>D/E) Spam / Scaled</td><td><span class="pill r">ریسک بالا</span></td><td>ژئوهای نزدیک به هم</td></tr>
+      <tr><td>F) Information gain</td><td><span class="pill r">ضعیف روی ژئو</span></td><td>همپوشانی واژگانی بالای ۶۵٪</td></tr>
+      <tr><td>H) Topical authority</td><td><span class="pill a">خوب با ریسک تکه</span></td><td>تداخل سرور / VPS / ابری</td></tr>
+      <tr><td>I) Link / Crawl</td><td><span class="pill a">ریسک متوسط</span></td><td>blank داخلی + sitemap بلاگ جدا</td></tr>
+      <tr><td>J) Thin / Duplicate</td><td><span class="pill r">ریسک بالا</span></td><td>ژئو + هاب‌های هم‌پوشان</td></tr>
+      <tr><td>K) Page experience</td><td><span class="pill a">ناقص</span></td><td>بدون CrUX قطعی نیست</td></tr>
+      <tr><td>M) Freshness</td><td><span class="pill a">دوگانه</span></td><td>بلاگ تازه؛ post-sitemap ۲۰۲۲</td></tr>
+      <tr><td>N) Local / Geo</td><td><span class="pill r">نیاز به اصلاح</span></td><td>unique block واقعی لازم است</td></tr>
+    </tbody>
+  </table>
+</section>
+
+
+<section id="s9">
+  <h2><span class="num">۹</span>نقشهٔ لایه‌ها — On / Off / Tech / Content / Tactical</h2>
+  <p class="lead">همان یافته‌های قبلی، این‌بار بر اساس زبان کارفرما/تیم دسته‌بندی شده تا هیچ لایه‌ای «فراموش‌شده» به نظر نرسد.</p>
+
+  <div class="explain"><b class="t">چطور بخوانید؟</b>
+    ستون «وضعیت» یعنی عمق شواهد در همین نسخه — نه نمرهٔ مطلق سئوی سایت.
+  </div>
+
+  <div class="grid2">
+    <div class="chart-box">
+      <div class="ct">عمق پوشش لایه‌ها در این ممیزی (۰–۳)</div>
+      <div class="h260"><canvas id="cLayers"></canvas></div>
+      <div class="cs">۳=شواهد قوی از HTML · ۱=اسکلت/ناقص داده · آف‌پیج عمداً ۱ مانده تا دادهٔ لینک بیاید.</div>
+    </div>
+    <div class="chart-box">
+      <div class="ct">ریسک نسبی لایه برای پارس‌پک (برآورد)</div>
+      <div class="h260"><canvas id="cLayerRisk"></canvas></div>
+      <div class="cs">بالاتر = نیاز فوری‌تر به اقدام. تکنیکال و محتوا فعلاً از آف‌پیج جلوترند.</div>
+    </div>
+  </div>
+
+  <table>
+    <thead><tr><th>لایه</th><th>یافتهٔ کلیدی</th><th>شواهد</th><th>اقدام اصلی</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td><b>تکنیکال</b></td><td>کشف بلاگ ناقص · هویت /new · www نرم</td><td>robots · schema · HTTP ۲۰۰ دوتایی</td><td>هفته ۱ برنامهٔ ۳۰روزه</td></tr>
+      <tr class="hl"><td><b>On-page</b></td><td>/vps بیش‌بهینه · اسکیما محصول ضعیف</td><td>≈۳۹۸× VPS · ۱۵۸ H3 · بدون Product/Offer</td><td>بازنویسی هاب‌های پول</td></tr>
+      <tr class="hl"><td><b>محتوایی</b></td><td>ژئو name-swap · تداخل هاب سرور</td><td>Jaccard ۰٫۶۵–۰٫۷۷ · سه هاب موازی</td><td>unique block + قفل نقش</td></tr>
+      <tr><td><b>تاکتیکال</b></td><td>ترتیب اجرا روشن است</td><td>P0–P2 · ۳۰ روزه · KPI</td><td>اجرا بدون ساخت صفحهٔ جدید انبوه</td></tr>
+      <tr><td><b>آف‌پیج</b></td><td>پروفایل لینک اندازه‌گیری نشده</td><td>فقط سیگنال‌های روی‌سایت + چک‌لیست</td><td>آدیت لینک + برند سرچ (بخش ۱۰)</td></tr>
+      <tr><td><b>آپدیت گوگل</b></td><td>بیشترین هم‌پوشانی با Spam/Scaled و Helpful</td><td>بخش ۱۱</td><td>کاهش الگوی ژئو و سیگنال رباتی</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout info"><b class="t">لایه‌های جنبی که در ۶ دستهٔ کلاسیک جا نمی‌شوند ولی پوشش داده شده‌اند</b>
+    <ul>
+      <li><b>کشف‌پذیری / Indexation ops:</b> اتصال sitemap بلاگ — بین تکنیکال و تاکتیک.</li>
+      <li><b>معماری اطلاعات:</b> نقش /servers vs /vps vs /cloud-server.</li>
+      <li><b>سیاست چندزبانه:</b> تناقض /en.</li>
+      <li><b>هویت برند در دادهٔ ساخت‌یافته:</b> Organization → /new.</li>
+      <li><b>متدولوژی و شکاف داده:</b> بخش ۱۵.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="s10">
+  <h2><span class="num">۱۰</span>آف‌پیج و اعتبار بیرونی</h2>
+  <p class="lead">در این نسخه ابزار بک‌لینک/برند سرچ وصل نیست؛ بنابراین عدد «چند لینک» ادعا نمی‌کنیم. به‌جایش: آنچه از روی سایت دیده می‌شود + چک‌لیست اجرایی برای تکمیل.</p>
+
+  <div class="explain"><b class="t">چرا این بخش کیفیت را پایین نمی‌آورد؟</b>
+    حدس زدن متریک لینک بدون منبع، گزارش را ضعیف می‌کند. اسکلت صادقانه + اقدام مشخص بهتر از جدول جعلی است.
+  </div>
+
+  <h3>سیگنال‌های مرتبط که همین حالا روی سایت دیده شد</h3>
+  <table>
+    <thead><tr><th>سیگنال</th><th>مشاهده</th><th>ربط به آف‌پیج</th></tr></thead>
+    <tbody>
+      <tr><td>برند در عنوان/H1 خانه</td><td>قوی و واضح</td><td>پایهٔ brand SERP — خوب</td></tr>
+      <tr><td>Organization schema</td><td>خراب → <code>/new</code></td><td>هویت برند برای Knowledge/entity ضعیف می‌شود</td></tr>
+      <tr><td>OG / اشتراک‌گذاری</td><td>خانه ضعیف؛ هاست از /new</td><td>پیش‌نمایش لینک در شبکه‌ها/پیام‌رسان آسیب می‌بیند</td></tr>
+      <tr><td>لینک داخلی با <code>target=_blank</code></td><td>≈۵۵ در خانه</td><td>مستقیماً آف‌پیج نیست؛ الگوی لینک غیرطبیعی داخلی</td></tr>
+      <tr><td>دامنه و سابقهٔ برند هاستینگ</td><td>برند شناخته‌شده در بازار ایران</td><td>احتمال پروفایل لینک تاریخی وجود دارد — باید اندازه‌گیری شود نه فرض</td></tr>
+    </tbody>
+  </table>
+
+  <h3>چک‌لیست آف‌پیج برای نسخهٔ بعدی (با داده)</h3>
+  <table>
+    <thead><tr><th>کار</th><th>ابزار پیشنهادی</th><th>خروجی مورد نیاز</th><th>اولویت</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td>پروفایل بک‌لینک + اسپم اسکور</td><td>Ahrefs / Majestic / GSC Links</td><td>دامنه‌های ارجاع‌دهنده، انکر، سمّی‌ها</td><td><span class="pill a">P1</span></td></tr>
+      <tr><td>برند سرچ (پارس پک / parspack)</td><td>GSC Performance</td><td>کلیک برند vs غیربرند</td><td><span class="pill a">P1</span></td></tr>
+      <tr><td>ذکر برند بدون لینک</td><td>مانیتورینگ / سرچ دستی</td><td>فرصت لینک‌سازی طبیعی</td><td><span class="pill b">P2</span></td></tr>
+      <tr><td>رقبا در هاستینگ ایران</td><td>ابزار لینک</td><td>شکاف لینک روی پیلارهای پول</td><td><span class="pill b">P2</span></td></tr>
+      <tr><td>لینک به /new یا استیجینگ</td><td>سایت‌سرچ + GSC</td><td>پاکسازی ارجاع بیرونی به مسیر اشتباه</td><td><span class="pill a">P1</span></td></tr>
+      <tr><td>سیاست لینک‌سازی</td><td>داخلی</td><td>ممنوع خرید انبوه؛ تمرکز روی منبع محصول/آموزش</td><td><span class="pill b">P2</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn"><b class="t">ریسک تاکتیکی</b>
+    تا وقتی بهداشت ایندکس و ژئو درست نشده، کمپین لینک‌سازی تهاجمی توصیه نمی‌شود — قدرت را به صفحات ضعیف/تکراری هل می‌دهد. اول P0 تکنیکال/محتوا، بعد آف‌پیج هدفمند روی پیلارهای تمیز.
+  </div>
+
+  <div class="missing"><b class="t">برای تکمیل کمّی</b>
+    خروجی Links از GSC یا اکسپورت Ahrefs/Semrush (دامنهٔ ارجاع، انکر، صفحات مقصد) را بدهید تا همین بخش با جدول و نمودار پر شود.
+  </div>
+</section>
+
+<section id="s11">
+  <h2><span class="num">۱۱</span>آپدیت‌های گوگل و نگاشت ریسک پارس‌پک</h2>
+  <p class="lead">هدف این بخش پیش‌بینی وحشت‌زده نیست؛ اتصال یافته‌های HTML به سیاست‌ها و آپدیت‌های رسمی اخیر است تا اولویت‌ها معنی‌دار شوند.</p>
+
+  <div class="explain"><b class="t">منبع زمانی</b>
+    خط زمانی از Google Search Status Dashboard (تا سپتامبر ۲۰۲۶) و سیاست‌های Spam / Core مستندشده. اثر روی پارس‌پک = نگاشت کیفی شواهد این ممیزی، نه ادعای «به خاطر فلان آپدیت افتادید» (برای آن GSC لازم است).
+  </div>
+
+  <h3>خط زمانی مرتبط (۲۰۲۴ → ۲۰۲۶)</h3>
+  <div class="timeline">
+    <div class="tl"><span class="d">مارس ۲۰۲۴ — Core + Spam</span><br>تقویت مبارزه با محتوای کم‌ارزش/غیر اصل و سیاست <b>Scaled content abuse</b> (انبوه، با یا بدون اتوماسیون).</div>
+    <div class="tl"><span class="d">۲۰۲۴–۲۰۲۵ — چند Core و Spam</span><br>تمرکز مکرر روی helpful بودن و کاهش نتایج «برای موتور» ساخته‌شده (از جمله آگوست ۲۰۲۴ Core، دسامبر ۲۰۲۴، مارس/ژوئن/دسامبر ۲۰۲۵).</div>
+    <div class="tl"><span class="d">۲۰۲۶ — Core مارس و مه · Spam مارس/ژوئن/آگوست/سپتامبر</span><br>سیکل فعال spam-fighting؛ سایت‌های دارای الگوی scaled/geo تکراری در معرض بازبینی مداوم‌اند.</div>
+  </div>
+
+  <h3>نگاشت مستقیم یافته → سیاست / سیستم</h3>
+  <table>
+    <thead><tr><th>سیاست یا سیستم</th><th>یافتهٔ پارس‌پک</th><th>سطح ریسک</th><th>پاسخ عملی</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td>Scaled content abuse (Spam)</td><td>ژئوهای VPS با Jaccard ۰٫۶۵–۰٫۷۷ پس از حذف نام کشور</td><td><span class="pill r">بالا</span></td><td>unique block واقعی یا ادغام/noindex</td></tr>
+      <tr class="hl"><td>Helpful / people-first (Core)</td><td>لندینگ پول با ایموجی‌کیورد و تراکم heading</td><td><span class="pill r">بالا</span></td><td>بازنویسی /vps و /host برای انسان</td></tr>
+      <tr><td>Spam systems (عمومی ۲۰۲۵–۲۶)</td><td>الگوی name-swap + کاتالوگ ژئوی وسیع</td><td><span class="pill a">متوسط‌روبه بالا</span></td><td>توقف تولید ژئوی جدید تا اصلاح</td></tr>
+      <tr><td>Site reputation / هویت</td><td>Organization و OG به /new و استیجینگ</td><td><span class="pill a">متوسط</span></td><td>یکپارچه‌سازی هویت روی apex</td></tr>
+      <tr><td>Duplicate / cannibalization (اثر Core)</td><td>سه هاب سرور موازی</td><td><span class="pill a">متوسط</span></td><td>قفل نقش + لینک داخلی</td></tr>
+      <tr><td>Page experience / CWV</td><td>استک CF/LiteSpeed دیده شد؛ نمرهٔ فیلد نیست</td><td><span class="pill b">نامشخص</span></td><td>CrUX / PSI در نسخهٔ بعد</td></tr>
+      <tr><td>Discover-oriented (۲۰۲۶)</td><td>بلاگ حجیم آموزشی</td><td><span class="pill b">فرصت/خنثی</span></td><td>اول کشف‌پذیری بلاگ؛ بعد بهینه‌سازی اسنیپت</td></tr>
+    </tbody>
+  </table>
+
+  <div class="chart-box">
+    <div class="ct">شدت هم‌ترازی یافته‌ها با محورهای آپدیت (۰–۱۰)</div>
+    <div class="h300"><canvas id="cUpdates"></canvas></div>
+    <div class="cs">برآورد تیم روی شواهد HTML — نه امتیاز رسمی گوگل.</div>
+  </div>
+
+  <div class="callout bad"><b class="t">پیام عملی برای تیم</b>
+    نزدیک‌ترین تهدید ساختاری، ترکیب <b>Scaled geo</b> و <b>لندینگ بیش‌بهینه</b> است — دقیقاً همان چیزی که سیاست Spam مارس ۲۰۲۴ به بعد و Coreهای helpful هدف گرفته‌اند. اصلاح این دو، مقاوم‌سازی در برابر موج‌های Spam ۲۰۲۶ است؛ نه «ترفند آپدیت بعدی».
+  </div>
+
+  <div class="future-box"><b class="t">بعد از هر Core/Spam رسمی</b>
+    <ol>
+      <li>۷–۱۴ روز صبر برای پایدار شدن · بدون بازنویسی هراسی کل سایت</li>
+      <li>مقایسهٔ GSC: پیلارهای پول + ژئوها + بلاگ (جداگانه)</li>
+      <li>اگر افت روی ژئو بود → اولویت unique block؛ اگر روی هاب پول بود → On-page/Helpful</li>
+    </ol>
+  </div>
+</section>
+
+<section id="s12">
+  <h2><span class="num">۱۲</span>اولویت‌های اقدام</h2>
+  <p class="lead">ترتیب اجرا از بحرانی به بهبود — بدون جابه‌جایی معماری روزانه.</p>
+
+  <div class="grid2">
+    <div class="chart-box">
+      <div class="ct">توزیع اولویت‌ها</div>
+      <div class="h260"><canvas id="cPriority"></canvas></div>
+      <div class="cs">۴ مورد P0 همچنان قفل شروع کارند؛ P1 شامل آف‌پیج و هویت بیرونی هم شده است.</div>
+    </div>
+    <div class="chart-box">
+      <div class="ct">اثر نسبی اقدامات P0 (برآورد تیم)</div>
+      <div class="h260"><canvas id="cImpact"></canvas></div>
+      <div class="cs">مقیاس ۰–۱۰ صرفاً برای اولویت‌بندی داخلی — نه رتبهٔ گوگل.</div>
+    </div>
+  </div>
+
+  <table>
+    <thead><tr><th>سطح</th><th>مشکل</th><th>شواهد</th><th>اثر</th><th>اقدام</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td><span class="pill r">P0</span></td><td>Sitemap بلاگ در robots نیست</td><td>≈۱۴۴۲ پست جدا</td><td>کشف ناقص</td><td>افزودن به robots / ادغام</td></tr>
+      <tr class="hl"><td><span class="pill r">P0</span></td><td>نشت /new در اسکیما و OG</td><td>Organization + OG از /new</td><td>تضعیف برند</td><td>Site URL + ۳۰۱</td></tr>
+      <tr class="hl"><td><span class="pill r">P0</span></td><td>ژئوهای شبیه</td><td>Jaccard ۰٫۶۵–۰٫۷۷</td><td>Scaled Content</td><td>unique block / ادغام</td></tr>
+      <tr class="hl"><td><span class="pill r">P0</span></td><td>/vps بیش‌بهینه</td><td>≈۳۹۸× VPS · ۱۵۸ H3</td><td>over-opt</td><td>بازنویسی title/heading</td></tr>
+      <tr><td><span class="pill a">P1</span></td><td>www بدون ۳۰۱</td><td>هر دو ۲۰۰</td><td>تقسیم سیگنال</td><td>۳۰۱ → apex</td></tr>
+      <tr><td><span class="pill a">P1</span></td><td>/en متناقض</td><td>Disallow + meta index</td><td>نویز زبانی</td><td>noindex یا hreflang</td></tr>
+      <tr><td><span class="pill a">P1</span></td><td>اسکیما محصول ضعیف</td><td>بدون Product/Offer</td><td>ریچ‌نتیجه کم</td><td>Product + FAQ</td></tr>
+      <tr><td><span class="pill a">P1</span></td><td>post-sitemap ۲۰۲۲</td><td>۱۶ FAQ قدیمی</td><td>سیگنال کهنگی</td><td>پاکسازی</td></tr>
+      <tr><td><span class="pill b">P2</span></td><td>target=_blank داخلی</td><td>≈۵۵ در خانه</td><td>UX/لینک غیرطبیعی</td><td>حذف blank داخلی</td></tr>
+      <tr><td><span class="pill b">P2</span></td><td>og / ads.txt</td><td>خالی / ریدایرکت به بلاگ</td><td>جزئی فنی</td><td>اصلاح فایل‌ها</td></tr>
+      <tr><td><span class="pill b">P2</span></td><td>تداخل هاب سرور</td><td>servers/vps/cloud</td><td>cannibalization</td><td>قفل نقش + لینک</td></tr>
+      <tr><td><span class="pill a">P1</span></td><td>آدیت آف‌پیج (لینک + برند سرچ)</td><td>هنوز بدون داده</td><td>کور بودن بیرونی</td><td>GSC Links / Ahrefs</td></tr>
+      <tr><td><span class="pill a">P1</span></td><td>لینک/ارجاع به /new از بیرون</td><td>اسکیما داخلی خراب است</td><td>هویت پخش</td><td>پاکسازی + ۳۰۱</td></tr>
+      <tr><td><span class="pill b">P2</span></td><td>مقاوم‌سازی مقابل Spam/Scaled</td><td>نگاشت بخش ۱۱</td><td>ریسک آپدیت</td><td>توقف ژئوی جدید تا اصلاح</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="s13">
+  <h2><span class="num">۱۳</span>برنامهٔ ۳۰ روزه</h2>
+  <p class="lead">بر اساس دادهٔ همین ممیزی — قابل بازتنظیم بعد از وصل شدن GSC.</p>
+
+  <div class="phase">
+    <h4>هفته ۱ — فنی ایندکس</h4>
+    <ol>
+      <li>۳۰۱ اجباری www → apex</li>
+      <li><code>/new</code> → مسیر نهایی + noindex موقت اگر لازم</li>
+      <li>افزودن <code>/blog/sitemap_index.xml</code> به robots ریشه</li>
+      <li>سیاست /en: noindex یا hreflang کامل</li>
+      <li>اصلاح Organization schema و حذف ارجاع pars-next</li>
+    </ol>
+  </div>
+  <div class="phase">
+    <h4>هفته ۲ — صفحات پول</h4>
+    <ol>
+      <li>بازنویسی title/description بدون ایموجی‌کیورد</li>
+      <li>سبک‌سازی <code>/vps</code> (تکرار + heading)</li>
+      <li>اسکیما Product/FAQ واقعی روی هاب‌های فروش</li>
+      <li>قفل نقش /servers vs /vps vs /cloud-server</li>
+      <li>حذف target=_blank از لینک‌های داخلی</li>
+    </ol>
+  </div>
+  <div class="phase">
+    <h4>هفته ۳–۴ — ژئو و کلاستر</h4>
+    <ol>
+      <li>آدیت unique block برای آلمان، ترکیه، کانادا، ایران و ۲ ژئوی پرترافیک بعدی</li>
+      <li>ادغام یا noindex ژئوهای ضعیف</li>
+      <li>رفرش پیلارهای host / vps / domain</li>
+      <li>پاکسازی post-sitemap ۲۰۲۲</li>
+      <li>۲–۴ هفته ثبات معماری؛ فقط بعد از آن محتوای جدید هدفمند</li>
+    </ol>
+  </div>
+
+
+  <div class="phase">
+    <h4>موازی — آف‌پیج و مقاوم‌سازی آپدیت (بدون بلوکه کردن هفته ۱–۲)</h4>
+    <ol>
+      <li>اکسپورت GSC Links + برند سرچ (پارس پک / parspack)</li>
+      <li>اسکن ارجاع به <code>/new</code> و استیجینگ از بیرون</li>
+      <li>توقف انتشار ژئوی جدید تا Jaccard ژئوهای اصلی زیر آستانه بیاید</li>
+      <li>بعد از هر Spam/Core: فقط پیلار + ژئو + بلاگ را در GSC جدا مانیتور کنید</li>
+    </ol>
+  </div>
+
+  <div class="future-box"><b class="t">اگر فقط ۳ کار انجام شود</b>
+    <ol>
+      <li>اتصال sitemap بلاگ به robots</li>
+      <li>پاکسازی کامل /new از اسکیما و دارایی‌ها</li>
+      <li>بازنویسی /vps + یکتاسازی ۲–۳ ژئوی اصلی</li>
+    </ol>
+  </div>
+</section>
+
+<section id="s14">
+  <h2><span class="num">۱۴</span>شاخص‌های درست برای سنجش پیشرفت</h2>
+  <p class="lead">میانگین جایگاه کل سایت معیار مرحلهٔ بعد نیست — این‌ها را دنبال کنید.</p>
+
+  <div class="chart-box">
+    <div class="ct">روند کلیک / نمایش (نیاز به GSC)</div>
+    <div class="h260" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:14px;border:1px dashed var(--line);border-radius:10px">
+      سری زمانی ۱۶ هفته — بعد از خروجی Performance پر می‌شود
+    </div>
+  </div>
+
+  <table>
+    <thead><tr><th>شاخص</th><th>الان (از HTML)</th><th>هدف ۴ هفته</th><th>منبع بعدی</th></tr></thead>
+    <tbody>
+      <tr><td>blog sitemap در robots</td><td>خیر</td><td>بله</td><td>robots.txt</td></tr>
+      <tr><td>Organization روی /new</td><td>بله (خراب)</td><td>خیر</td><td>view-source</td></tr>
+      <tr><td>www فقط با canonical</td><td>بله</td><td>۳۰۱ سخت</td><td>هدر HTTP</td></tr>
+      <tr><td>Jaccard ژئوهای اصلی</td><td>۰٫۶۵–۰٫۷۷</td><td>&lt; ۰٫۵۰ + unique block</td><td>ممیزی مجدد</td></tr>
+      <tr><td>تکرار VPS در /vps</td><td>≈۳۹۸</td><td>کاهش محسوس + عنوان طبیعی</td><td>ممیزی HTML</td></tr>
+      <tr><td>Indexed pages / Coverage</td><td>نامشخص</td><td>پایهٔ GSC ثبت شود</td><td>Search Console</td></tr>
+      <tr><td>کلیک / نمایش هاب‌های پول</td><td>نامشخص</td><td>روند ۴ هفته</td><td>Search Console</td></tr>
+      <tr><td>صفحات در ۱۰ نتیجهٔ اول</td><td>نامشخص</td><td>پایه + رشد</td><td>Search Console</td></tr>
+      <tr><td>ارجاع بیرونی به /new</td><td>نامشخص</td><td>۰ مقصد زنده</td><td>GSC Links / سایت‌سرچ</td></tr>
+      <tr><td>نسبت کلیک برند / غیربرند</td><td>نامشخص</td><td>پایه ثبت شود</td><td>GSC</td></tr>
+      <tr><td>ژئوی جدید منتشرشده</td><td>—</td><td>۰ تا پایان اصلاح</td><td>تقویم محتوا</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="s15">
+  <h2><span class="num">۱۵</span>روش کار، محدودیت‌ها و دادهٔ ناقص</h2>
+  <div class="callout info"><b class="t">روش</b>
+    ممیزی فقط‌خواندنی روی HTML عمومی، robots و sitemap. چارچوب: Content Ops / tool-seo-suite. هیچ تغییری روی سایت اعمال نشده.
+  </div>
+  <div class="callout warn"><b class="t">محدودیت‌ها</b>
+    <ul>
+      <li>بدون GSC: ایندکس واقعی، کوئری‌ها، افت رتبه و Coverage قطعی نیست.</li>
+      <li>بدون CrUX/PSI فیلد: تجربهٔ صفحه تخمینی است.</li>
+      <li>Jaccard تقریبی روی واژگان است، نه مدل معنایی کامل.</li>
+      <li>پروفایل بک‌لینک کمّی هنوز نیست — بخش ۱۰ اسکلت اجرایی است نه ممیزی لینک کامل.</li>
+      <li>نگاشت آپدیت‌های گوگل کیفی است؛ نسبت‌دادن افت/رشد به یک آپدیت خاص بدون GSC ممکن نیست.</li>
+    </ul>
+  </div>
+  <div class="missing"><b class="t">برای نسخهٔ بعدی</b>
+    <ul>
+      <li>GSC: Performance ۱۶ هفته + Coverage + صفحات پرکلیک</li>
+      <li>آف‌پیج: Links / Ahrefs + برند سرچ</li>
+      <li>CWV: CrUX یا PSI فیلد روی هاب‌های پول</li>
+      <li>بعد از یک Core/Spam: مقایسهٔ قبل/بعد روی پیلار و ژئو</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  پارس‌پک · گزارش ممیزی سئو · Content Ops / tool-seo-suite · نسخهٔ کاری HTML · ۱۸ اکتبر ۲۰۲۶
+</footer>
+
+</div>
+
+<script>
+const fa = n => (n===null||n===undefined) ? '' : Number(n).toLocaleString('fa-IR');
+const el = id => document.getElementById(id);
+Chart.defaults.font.family = '"IBM Plex Sans Arabic", Tahoma, sans-serif';
+Chart.defaults.font.size = 12;
+Chart.defaults.color = '#374151';
+Chart.defaults.maintainAspectRatio = false;
+Chart.defaults.animation = false;
+const PRINT_MODE = location.search.includes('print');
+if (PRINT_MODE) { document.documentElement.classList.add('print-mode'); Chart.defaults.devicePixelRatio = 2.5; }
+Chart.defaults.plugins.legend.rtl = true;
+Chart.defaults.plugins.legend.textDirection = 'rtl';
+Chart.defaults.plugins.legend.labels.usePointStyle = true;
+Chart.defaults.plugins.tooltip.rtl = true;
+Chart.defaults.plugins.tooltip.textDirection = 'rtl';
+Chart.defaults.plugins.tooltip.callbacks.label = ctx => ` ${ctx.dataset.label}: ${fa(ctx.parsed.y ?? ctx.parsed.x ?? ctx.parsed)}`;
+Chart.defaults.scale.ticks.callback = function(v){ const l=this.getLabelForValue(v); return (typeof l==='string' && isNaN(Number(l))) ? l : fa(v); };
+
+const C = {navy:'#0f2f2c',blue:'#0f766e',sky:'#5eead4',green:'#15803d',red:'#c2410c',amber:'#f59e0b',gray:'#a8a29e',purple:'#0d9488'};
+
+new Chart(el('cDiscover'),{type:'doughnut',data:{labels:['پست بلاگ (اعلام‌نشده در robots)','صفحات تجاری','post ریشه (کهنه)','local kml'],datasets:[{data:[1442,103,16,1],backgroundColor:[C.navy,C.blue,C.amber,C.gray]}]},
+  options:{plugins:{legend:{position:'right'},tooltip:{callbacks:{label:c=>` ${c.label}: ${fa(c.parsed)}`}}}}});
+
+new Chart(el('cCluster'),{type:'bar',data:{labels:['host','vps','dedicated','paas','servers','cloud-server','storage','cdn','ssl','domain'],datasets:[
+  {label:'تعداد URL',data:[20,16,9,9,9,8,5,4,4,3],backgroundColor:C.navy}]},
+  options:{plugins:{legend:{display:false}},scales:{y:{position:'right',beginAtZero:true}}}});
+
+new Chart(el('cPillar'),{type:'doughnut',data:{labels:['host','vps','dedicated/paas/servers','cloud-server','سایر محصولات'],datasets:[{data:[20,16,27,8,16],backgroundColor:[C.navy,C.blue,C.amber,C.red,C.gray]}]},
+  options:{plugins:{legend:{position:'right'},tooltip:{callbacks:{label:c=>` ${c.label}: ${fa(c.parsed)}`}}}}});
+
+new Chart(el('cJaccard'),{type:'bar',data:{labels:['کانادا↔هلند','کانادا↔سوئد','آلمان↔ترکیه','آلمان↔انگلیس','ایران↔آلمان','ایران↔هاب VPS'],datasets:[
+  {label:'Jaccard',data:[0.77,0.75,0.72,0.71,0.67,0.57],backgroundColor:[C.red,C.red,C.red,C.red,C.amber,C.amber]}]},
+  options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.parsed.x}`}}},
+    scales:{x:{min:0,max:1,position:'top',title:{display:true,text:'شباهت (۰–۱)'}},y:{position:'right'}}}});
+
+new Chart(el('cHeadings'),{type:'bar',data:{labels:['/host','/vps','/cloud-server','/domain'],datasets:[
+  {label:'H2',data:[12,24,32,22],backgroundColor:C.sky},
+  {label:'H3',data:[49,158,24,29],backgroundColor:C.navy}]},
+  options:{scales:{y:{position:'right',beginAtZero:true}}}});
+
+new Chart(el('cVpsStuff'),{type:'bar',data:{labels:['/vps','/host','/cloud-server','/domain'],datasets:[
+  {label:'تکرار تقریبی کلیدواژهٔ اصلی',data:[398,85,60,40],backgroundColor:[C.red,C.amber,C.blue,C.gray]}]},
+  options:{plugins:{legend:{display:false}},scales:{y:{position:'right',beginAtZero:true}}}});
+
+new Chart(el('cOps'),{type:'radar',data:{labels:['Helpful','E-E-A-T','Spam/Scaled','Info gain','Topical','Crawl','Thin/Dup','Experience','Freshness','Local/Geo'],datasets:[
+  {label:'امتیاز نسبی',data:[2,2,1,1,2,2,1,1,2,1],backgroundColor:'rgba(15,118,110,.15)',borderColor:C.blue,pointBackgroundColor:C.navy,borderWidth:2}]},
+  options:{scales:{r:{min:0,max:3,ticks:{stepSize:1,callback:v=>fa(v)},pointLabels:{font:{size:11}}}}}});
+
+new Chart(el('cLayers'),{type:'radar',data:{labels:['تکنیکال','On-page','محتوا','تاکتیکال','آپدیت گوگل','آف‌پیج'],datasets:[
+  {label:'عمق پوشش ممیزی',data:[3,3,3,3,3,1],backgroundColor:'rgba(15,118,110,.15)',borderColor:C.blue,pointBackgroundColor:C.navy,borderWidth:2}]},
+  options:{scales:{r:{min:0,max:3,ticks:{stepSize:1,callback:v=>fa(v)},pointLabels:{font:{size:11}}}}}});
+
+new Chart(el('cLayerRisk'),{type:'bar',data:{labels:['محتوا/ژئو','On-page','تکنیکال','آپدیت','تاکتیک','آف‌پیج'],datasets:[
+  {label:'ریسک نسبی',data:[9,8,8,7,3,5],backgroundColor:[C.red,C.red,C.amber,C.amber,C.gray,C.blue]}]},
+  options:{plugins:{legend:{display:false}},scales:{y:{position:'right',min:0,max:10}}}});
+
+new Chart(el('cUpdates'),{type:'bar',data:{labels:['Scaled/Spam','Helpful/Core','هویت/Reputation','Cannibalization','CWV','Discover'],datasets:[
+  {label:'هم‌ترازی شواهد',data:[9,8,6,6,2,3],backgroundColor:[C.red,C.red,C.amber,C.amber,C.gray,C.blue]}]},
+  options:{plugins:{legend:{display:false}},scales:{y:{position:'right',min:0,max:10}}}});
+
+new Chart(el('cPriority'),{type:'doughnut',data:{labels:['P0','P1','P2'],datasets:[{data:[4,6,4],backgroundColor:[C.red,C.amber,C.blue]}]},
+  options:{plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:c=>` ${c.label}: ${fa(c.parsed)} مورد`}}}}});
+
+new Chart(el('cImpact'),{type:'bar',data:{labels:['sitemap بلاگ','پاکسازی /new','ژئو unique','بازنویسی /vps'],datasets:[
+  {label:'اثر کشف/ایندکس',data:[9,7,6,5],backgroundColor:C.blue},
+  {label:'اثر کیفیت/ریسک',data:[4,8,9,8],backgroundColor:C.red}]},
+  options:{scales:{y:{position:'right',min:0,max:10}}}});
+
+if (PRINT_MODE) {
+  document.querySelectorAll('canvas').forEach(cv => {
+    const img = new Image();
+    img.src = cv.toDataURL('image/png');
+    img.className = 'chart-img';
+    cv.replaceWith(img);
+  });
+}
+</script>
+
+</body>
+</html>
