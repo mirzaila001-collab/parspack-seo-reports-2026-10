@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>گزارش ممیزی سئو — پارس‌پک | ۱۸ اکتبر ۲۰۲۶</title>
+<title>گزارش ممیزی سئو — پارس‌پک | ۱۸ اکتبر ۲۰۲۶ · بازبینی ۲۴ اکتبر</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
 <script src="chart.umd.min.js"></script>
@@ -163,7 +163,8 @@
   .bar-row{display:flex;align-items:center;gap:10px;margin:8px 0}
   .bar-lab{width:140px;font-size:13px;color:var(--muted);flex-shrink:0}
   .bar-track{flex:1;height:12px;background:#e5e7eb;border-radius:999px;overflow:hidden}
-  .bar-fill{height:100%;background:linear-gradient(90deg,#c2410c,#f59e0b);border-radius:999px}
+  .bar-fill{height:100%;background:linear-gradient(90deg,#0f766e,#14b8a6);border-radius:999px}
+  .bar-fill.mid{background:linear-gradient(90deg,#b45309,#f59e0b)}
   .bar-val{width:70px;font-size:13px;font-weight:700;color:var(--navy);text-align:left;direction:ltr}
   .missing{border:1px dashed #5eead4;background:#f0fdfa;border-radius:10px;padding:14px 18px;margin:14px 0}
   .missing b.t{display:block;color:var(--blue);margin-bottom:4px}
@@ -176,12 +177,13 @@
   <div class="wrap">
     <div class="brand-chip">پارس‌پک · کلاد / هاستینگ</div>
     <span class="tag">گزارش ممیزی سئو · parspack.com</span>
-    <h1>پارس‌پک: بهداشت ایندکس، کلاستر محصول<br>و ریسک صفحات ژئو</h1>
-    <p>بررسی فقط‌خواندنی HTML زنده، robots، sitemap و نمونه صفحات پول‌ساز — چارچوب Content Ops / tool-seo-suite</p>
+    <h1>پارس‌پک: indexation، topic cluster<br>و location pageها</h1>
+    <p>ممیزی فقط‌خواندنی HTML زنده، robots.txt، XML sitemap و money pageها. بازبینی ۲۴ اکتبر: اصطلاح‌های استاندارد سئو، و محاسبهٔ دوبارهٔ duplicate content.</p>
     <div class="meta">
       <span>تاریخ گزارش: ۱۸ اکتبر ۲۰۲۶ · ۲۶ مهر ۱۴۰۵</span>
+      <span>بازبینی: ۲۴ اکتبر ۲۰۲۶ · ۲ آبان ۱۴۰۵</span>
       <span>منبع: crawl عمومی (بدون GSC در این نسخه)</span>
-      <span>تهیه‌کننده: محمدعلی · Content Ops</span>
+      <span>تهیه‌کننده: محمدعلی</span>
     </div>
   </div>
 </header>
@@ -196,11 +198,11 @@
     <li><a href="#s2">محدوده و روش بررسی</a></li>
     <li><a href="#s3">موجودی ایندکس و کشف (sitemap / robots)</a></li>
     <li><a href="#s4">سلامت فنی و سیگنال‌های ایندکس</a></li>
-    <li><a href="#s5">ساختار کلاستر محصول</a></li>
-    <li><a href="#s6">صفحات ژئو و ریسک Scaled Content</a></li>
-    <li><a href="#s7">صفحات پول و مشکلات On-page</a></li>
-    <li><a href="#s8">امتیاز Content Ops</a></li>
-    <li><a href="#s9">نقشهٔ لایه‌ها (On / Off / Tech / Content / Tactical)</a></li>
+    <li><a href="#s5">ساختار topic cluster</a></li>
+    <li><a href="#s6">Location page و duplicate content</a></li>
+    <li><a href="#s7">Money page و on-page SEO</a></li>
+    <li><a href="#s8">حوزه‌های استاندارد ممیزی</a></li>
+    <li><a href="#s9">Technical / On-page / Content / Off-page</a></li>
     <li><a href="#s10">آف‌پیج و اعتبار بیرونی</a></li>
     <li><a href="#s11">آپدیت‌های گوگل و نگاشت ریسک</a></li>
     <li><a href="#s12">اولویت‌های اقدام (P0 / P1 / P2)</a></li>
@@ -214,55 +216,67 @@
   <h2><span class="num">۰</span>راهنمای خواندن گزارش</h2>
   <p class="lead">اگر با اصطلاحات سئو آشنا نیستید، این چند تعریف کافی است تا بقیهٔ گزارش روشن شود.</p>
   <dl class="gloss">
-    <dt>ایندکس</dt><dd>یعنی گوگل صفحه را در فهرست خودش ثبت کرده. صفحه‌ای که ایندکس نشده اصلاً در گوگل دیده نمی‌شود.</dd>
-    <dt>robots.txt</dt><dd>فایلی که به ربات‌ها می‌گوید چه مسیرهایی را بخزند و کدام sitemap را بخوانند.</dd>
-    <dt>Sitemap</dt><dd>فهرست آدرس‌هایی که سایت به گوگل معرفی می‌کند تا سریع‌تر کشف شوند.</dd>
-    <dt>Canonical</dt><dd>آدرس رسمی صفحه؛ وقتی چند نسخه از یک صفحه وجود دارد، سیگنال رتبه باید روی یکی جمع شود.</dd>
-    <dt>پیلار و کلاستر</dt><dd>یک صفحهٔ اصلی (مثلاً هاست یا VPS) و چند صفحهٔ پشتیبان (ایران، آلمان، وردپرس…) که به آن وصل می‌شوند.</dd>
-    <dt>همنوع‌خواری</dt><dd>وقتی دو صفحه برای یک نیت جست‌وجو با هم رقابت می‌کنند و قدرت بینشان تقسیم می‌شود.</dd>
-    <dt>Scaled Content</dt><dd>تولید انبوه صفحه‌های شبیه هم (مثلاً فقط عوض کردن نام کشور) بدون ارزش یکتا — ریسک آپدیت‌های Spam گوگل.</dd>
-    <dt>Organization Schema</dt><dd>کد ساخت‌یافتهٔ هویت برند برای گوگل. اگر به مسیر اشتباه اشاره کند، سیگنال برند ضعیف می‌شود.</dd>
-    <dt>On-page</dt><dd>سیگنال‌های داخل صفحه: عنوان، heading، متن، اسکیما، لینک داخلی، تجربهٔ خواندن.</dd>
-    <dt>Off-page</dt><dd>سیگنال‌های بیرون از سایت: بک‌لینک، برند سرچ، mention، اعتبار دامنه در اکوسیستم وب.</dd>
-    <dt>تکنیکال</dt><dd>خزیدن، ایندکس، ریدایرکت، sitemap، robots، سرعت/CWV، نسخهٔ www/apex.</dd>
-    <dt>تاکتیکال</dt><dd>ترتیب اجرا و اولویت‌بندی کارها — نه خودِ فاکتور رتبه، بلکه برنامهٔ عملیاتی.</dd>
-    <dt>Spam / Scaled Content</dt><dd>سیاست گوگل علیه تولید انبوه محتوای کم‌ارزش برای دستکاری رتبه (انسان یا ماشین).</dd>
-    <dt>Core Update</dt><dd>به‌روزرسانی گستردهٔ سیستم‌های رتبه‌بندی برای ارزیابی مفید بودن و اعتماد نتایج.</dd>
-    <dt>GSC (سرچ کنسول)</dt><dd>ابزار رسمی گوگل برای کلیک، نمایش، ایندکس و خطاها. در این نسخه هنوز وصل نشده؛ بخش‌های وابسته علامت‌گذاری شده‌اند.</dd>
+    <dt>Indexation</dt><dd>ثبت شدن صفحه در ایندکس گوگل. صفحه‌ای که index نشده در نتایج دیده نمی‌شود.</dd>
+    <dt>Technical SEO</dt><dd>خزش، indexation، redirect، XML sitemap، robots.txt، canonical، نسخهٔ www و apex، و Core Web Vitals.</dd>
+    <dt>robots.txt</dt><dd>فایلی که به خزنده‌ها می‌گوید کدام مسیر را crawl کنند و کدام XML sitemap را بخوانند.</dd>
+    <dt>XML sitemap</dt><dd>فهرست URLهایی که سایت برای کشف سریع‌تر به گوگل معرفی می‌کند.</dd>
+    <dt>Canonical</dt><dd>URL رسمی صفحه. وقتی چند نسخه وجود دارد، سیگنال رتبه باید روی یکی جمع شود.</dd>
+    <dt>Pillar page و topic cluster</dt><dd>یک صفحهٔ ستون (مثلاً هاست یا VPS) و صفحه‌های پشتیبان (ایران، آلمان، وردپرس) که با internal linking به آن وصل می‌شوند.</dd>
+    <dt>Keyword cannibalization</dt><dd>وقتی دو URL برای یک search intent رقابت می‌کنند و سیگنال رتبه بینشان تقسیم می‌شود.</dd>
+    <dt>Money page</dt><dd>صفحهٔ فروش که قرار است روی کوئری معاملاتی رتبه بگیرد؛ مثل /host و /vps.</dd>
+    <dt>Location page</dt><dd>صفحهٔ محصول برای یک لوکیشن، مثل VPS آلمان یا VPS ترکیه.</dd>
+    <dt>Duplicate content</dt><dd>متن یکسان یا near-duplicate بین URLها. Boilerplate مشترک قالب (هدر، فوتر، کارت پلن) را نباید جزو این درصد شمرد.</dd>
+    <dt>Boilerplate</dt><dd>بخش‌های تکراری قالب: منو، فوتر، ماژول قیمت و بلوک‌های ثابت طراحی. در همهٔ صفحه‌های یک قالب تکرار می‌شوند و duplicate content مقاله نیستند.</dd>
+    <dt>Keyword stuffing</dt><dd>تکرار غیرطبیعی keyword در title tag، heading یا متن. زیرمجموعهٔ over-optimization.</dd>
+    <dt>Scaled content abuse</dt><dd>سیاست اسپم گوگل (از مارس ۲۰۲۴) علیه تولید انبوه صفحه برای دستکاری رتبه، وقتی محتوا ارزش یکتا ندارد. نام سیاست گوگل است، نه برچسب خودکار این سایت.</dd>
+    <dt>Structured data</dt><dd>دادهٔ Schema.org، از جمله Organization و Product. اگر URL اشتباه باشد، entity برند را به مسیر غلط وصل می‌کند.</dd>
+    <dt>On-page SEO</dt><dd>سیگنال‌های داخل URL: title tag، meta description، heading، متن، schema، internal linking.</dd>
+    <dt>Off-page SEO</dt><dd>سیگنال‌های بیرون سایت: backlink، brand search، mention.</dd>
+    <dt>Helpful content</dt><dd>معیار سیستم‌های Core گوگل برای محتوای مفید برای کاربر، نه نوشته‌شده فقط برای موتور.</dd>
+    <dt>E-E-A-T</dt><dd>Experience, Expertise, Authoritativeness, Trust. چارچوب کیفی گوگل برای اعتماد به صفحه و برند.</dd>
+    <dt>Core update</dt><dd>به‌روزرسانی گستردهٔ سیستم‌های رتبه‌بندی گوگل.</dd>
+    <dt>Search Console</dt><dd>ابزار رسمی گوگل برای click، impression، indexation و coverage. در این نسخه وصل نیست.</dd>
   </dl>
 </section>
 
 <section id="s1">
   <h2><span class="num">۱</span>خلاصهٔ مدیریتی</h2>
-  <p class="lead">پارس‌پک برند قوی کلاد/هاستینگ با کاتالوگ تجاری گسترده و بلاگ بسیار فعال است. محدودیت فعلی کمبود محتوا نیست — بهداشت ایندکس، نشت <code>/new</code> و شباهت صفحات ژئو/پول است.</p>
+  <p class="lead">پارس‌پک برند قوی کلاد/هاستینگ با کاتالوگ تجاری گسترده و بلاگ بسیار فعال است. محدودیت فعلی کمبود محتوا نیست: indexation بلاگ، staging URL داخل structured data، و over-optimization در money page اصلی.</p>
+
+  <div class="callout warn"><b class="t">بازبینی ۲۴ اکتبر — دو اصلاح کارفرما</b>
+    <ul>
+      <li>اصطلاح‌ها فقط واژه‌های رایج سئو هستند: technical SEO، indexation، topic cluster، money page، location page، duplicate content، keyword stuffing، keyword cannibalization، helpful content، E-E-A-T، scaled content abuse.</li>
+      <li>درصد شباهت ۶۵ تا ۷۷٪ کنار گذاشته شد. آن رقم Jaccard روی توکن‌های کل HTML بود و class، اسکریپت و ماژول مشترک طراحی را هم شمرده. روی متن مقاله، همان جفت‌ها حدود ۳ تا ۱۰٪ شباهت دارند.</li>
+    </ul>
+  </div>
 
   <div class="explain story"><b class="t">داستان به زبان ساده</b>
-    <p>سایت از نظر محصول و ناوبری بالغ است: هاست، VPS، سرور، دامنه، CDN و PaaS در کلاستر مشخص چیده شده‌اند و بلاگ حدود ۱٬۴۴۲ پست تازه دارد.</p>
-    <p>اما موتور جست‌وجو سیگنال‌های متناقض می‌بیند: sitemap بلاگ در robots ریشه اعلام نشده، هویت برند در اسکیما به مسیر <code>/new</code> خورده، www بدون ۳۰۱ سخت کنار apex نشسته، و صفحات کشور VPS بعد از حذف نام کشور هنوز ۶۵ تا ۷۷ درصد شبیه هم هستند.</p>
-    <p>صفحهٔ پول <code>/vps</code> هم با تکرار شدید کلمه و تراکم heading، سیگنال over-optimization می‌دهد.</p>
-    <p>فاز درست الان تولید انبوه صفحهٔ جدید نیست؛ تمیزکاری ایندکس + تقویت پیلارها + یکتاسازی ژئوهای اصلی است.</p>
+    <p>سایت از نظر محصول و ناوبری بالغ است: هاست، VPS، سرور، دامنه، CDN و PaaS در topic cluster مشخص چیده شده‌اند و بلاگ حدود ۱٬۴۴۲ پست تازه دارد.</p>
+    <p>موتور جست‌وجو هنوز سیگنال متناقض می‌بیند: XML sitemap بلاگ در robots.txt ریشه اعلام نشده، Organization schema به <code>/new</code> اشاره می‌کند، و www بدون 301 کنار apex روی ۲۰۰ می‌ماند.</p>
+    <p>Money page مسیر <code>/vps</code> با تکرار keyword و تراکم heading، over-optimization دارد.</p>
+    <p>Location pageهای VPS قالب مشترک دارند، ولی متن مقاله‌شان near-duplicate نیست. اولویت، تمیز کردن indexation و pillar pageهاست؛ نه noindex کردن صفحه‌های کشور.</p>
   </div>
 
   <div class="kpis">
-    <div class="kpi"><div class="label">صفحات تجاری (page-sitemap)</div><div class="value">۱۰۳</div><div class="delta flat">کلاستر محصول مشخص</div></div>
+    <div class="kpi"><div class="label">صفحات تجاری (page-sitemap)</div><div class="value">۱۰۳</div><div class="delta flat">topic cluster مشخص</div></div>
     <div class="kpi"><div class="label">پست بلاگ در sitemap جدا</div><div class="value">≈۱٬۴۴۲</div><div class="delta down">در robots ریشه نیست</div></div>
-    <div class="kpi"><div class="label">شباهت ژئو VPS (Jaccard)</div><div class="value">۰٫۶۵–۰٫۷۷</div><div class="delta down">الگوی name-swap</div></div>
-    <div class="kpi"><div class="label">تکرار VPS در /vps</div><div class="value">≈۳۹۸×</div><div class="delta down">over-optimization</div></div>
+    <div class="kpi"><div class="label">شباهت متن location page</div><div class="value">۳–۱۰٪</div><div class="delta up">جفت‌های گزارش قبل؛ سقف نمونه ۲۹٪</div></div>
+    <div class="kpi"><div class="label">تکرار VPS در /vps</div><div class="value">≈۳۹۸×</div><div class="delta down">keyword stuffing</div></div>
   </div>
 
-  <div class="callout bad"><b class="t">سه ریسک بحرانی</b>
+  <div class="callout bad"><b class="t">سه ریسک اصلی</b>
     <ul>
-      <li>Sitemap بلاگ از robots ریشه جداست → کشف/ایندکس کند برای موتور محتوایی اصلی.</li>
-      <li>نشت <code>/new</code> در Organization schema و دارایی‌های OG → تضعیف هویت برند.</li>
-      <li>ژئوهای VPS شبیه + لندینگ‌های پول پر از کیورد → ریسک Scaled / Spam و رقیق شدن کلاستر.</li>
+      <li>XML sitemap بلاگ در robots.txt ریشه نیست → crawl و indexation کند برای حجم اصلی محتوا.</li>
+      <li>Staging URL مسیر <code>/new</code> داخل Organization schema و Open Graph → entity برند به URL غلط وصل است.</li>
+      <li>Money page مسیر <code>/vps</code> با keyword stuffing و heading متراکم → ریسک over-optimization، جدا از location pageها.</li>
     </ul>
   </div>
 
   <div class="future-box"><b class="t">برنامهٔ آینده در سه خط</b>
     <ol>
-      <li><b>هفته ۱:</b> ۳۰۱ www→apex · پاکسازی /new · اتصال blog sitemap به robots · سیاست /en · اصلاح Organization.</li>
-      <li><b>هفته ۲:</b> بازنویسی /vps و /host · Product/FAQ schema · قفل نقش servers / vps / cloud-server.</li>
-      <li><b>هفته ۳–۴:</b> unique block برای ژئوهای اصلی · ادغام/noindex ضعیف‌ها · رفرش پیلار · سپس ثبات ۲–۴ هفته.</li>
+      <li><b>هفته ۱:</b> 301 از www به apex · پاکسازی /new · اتصال blog sitemap به robots.txt · تعیین تکلیف /en · اصلاح Organization.</li>
+      <li><b>هفته ۲:</b> بازنویسی /vps و /host · Product و FAQ schema · تفکیک search intent بین /servers و /vps و /cloud-server.</li>
+      <li><b>هفته ۳–۴:</b> فقط جمله‌های مشترک انگلیس/فرانسه را یکتا کنید · pillar pageها را به‌روز کنید · دو تا چهار هفته معماری را ثابت نگه دارید.</li>
     </ol>
   </div>
 
@@ -275,17 +289,16 @@
   <table>
     <thead><tr><th>لایه</th><th>پوشش</th><th>جایی در گزارش</th><th>نکته</th></tr></thead>
     <tbody>
-      <tr><td>تکنیکال</td><td><span class="pill g">قوی</span></td><td>۳ · ۴</td><td>robots، sitemap، www، /new، /en، schema</td></tr>
-      <tr><td>On-page</td><td><span class="pill g">قوی</span></td><td>۷ · بخشی از ۵</td><td>عنوان، heading، کیورد، اسکیما محصول</td></tr>
-      <tr><td>محتوایی</td><td><span class="pill g">قوی</span></td><td>۵ · ۶ · ۸</td><td>ژئو، کلاستر، Scaled، information gain</td></tr>
-      <tr><td>تاکتیکال</td><td><span class="pill g">قوی</span></td><td>۱۲ · ۱۳ · ۱۴</td><td>P0–P2، ۳۰ روزه، KPI</td></tr>
-      <tr><td>آپدیت‌های گوگل</td><td><span class="pill g">کامل‌شده</span></td><td>۱۱</td><td>نگاشت یافته‌ها روی Core / Spam اخیر</td></tr>
-      <tr><td>آف‌پیج</td><td><span class="pill a">اسکلت + ریسک</span></td><td>۱۰</td><td>بدون ابزار لینک؛ چک‌لیست و سیگنال‌های قابل‌مشاهده</td></tr>
+      <tr><td>Technical SEO</td><td><span class="pill g">قوی</span></td><td>۳ · ۴</td><td>robots.txt، XML sitemap، www، /new، /en، schema</td></tr>
+      <tr><td>On-page SEO</td><td><span class="pill g">قوی</span></td><td>۷ · بخشی از ۵</td><td>title tag، heading، keyword، schema محصول</td></tr>
+      <tr><td>Content</td><td><span class="pill g">قوی</span></td><td>۵ · ۶ · ۸</td><td>location page، topic cluster، duplicate content</td></tr>
+      <tr><td>Algorithm updates</td><td><span class="pill g">کامل‌شده</span></td><td>۱۱</td><td>نگاشت یافته‌ها روی Core update و spam policy</td></tr>
+      <tr><td>Off-page SEO</td><td><span class="pill a">داده ناقص</span></td><td>۱۰</td><td>بدون ابزار backlink؛ فقط سیگنال قابل‌مشاهده روی سایت</td></tr>
     </tbody>
   </table>
 
   <div class="quote">
-    <b>جمع‌بندی در یک جمله:</b> زیرساخت محتوایی و محصول قوی است؛ گلوگاه رشد، بهداشت ایندکس و کیفیت یکتای صفحات ژئو/پول است — نه کمبود مقاله.
+    <b>جمع‌بندی در یک جمله:</b> زیرساخت محتوا و محصول قوی است. گلوگاه، indexation بلاگ و over-optimization در /vps است؛ location pageها کپی ۶۵ درصدی نیستند.
   </div>
 </section>
 
@@ -295,13 +308,13 @@
 
   <div class="timeline">
     <div class="tl"><span class="d">منبع داده</span><br>HTML زندهٔ parspack.com و www · robots.txt · sitemap_index و زیرنقشه‌ها · نمونهٔ /host /vps /cloud-server /vps/iran /vps/foreign/* · بلاگ و چند پست تازه</div>
-    <div class="tl"><span class="d">چارچوب</span><br>Content Ops Checklist داخل tool-seo-suite: Helpful، E-E-A-T، Spam/Scaled، Information gain، Thin/Duplicate، Local/Geo، Internal links</div>
-    <div class="tl"><span class="d">روش شباهت ژئو</span><br>Jaccard روی مجموعهٔ واژگان یکتا پس از حذف نام کشور؛ آستانهٔ هشدار بالای ۰٫۵۵ (اینجا ۰٫۶۵–۰٫۷۷)</div>
-    <div class="tl"><span class="d">خارج از محدودهٔ کمّی</span><br>پروفایل کامل بک‌لینک · CrUX/Lighthouse فیلد · رتبهٔ واقعی کوئری‌ها · لاگ سرور · پنل وردپرس — اسکلت آف‌پیج و نگاشت آپدیت‌ها در بخش ۱۰–۱۱ آمده</div>
+    <div class="tl"><span class="d">چارچوب</span><br>حوزه‌های استاندارد ممیزی: technical SEO، on-page SEO، helpful content، E-E-A-T، spam policies، duplicate content، internal linking، page experience.</div>
+    <div class="tl"><span class="d">روش duplicate content</span><br>بازبینی ۲۴ اکتبر. فقط متن مقالهٔ location page (بلوک «… چیست؟»). Boilerplate حذف شد: هدر، فوتر، منو، کارت پلن، ویژگی‌ها، FAQ و نام کشور. درصد = شباهت دنبالهٔ متن. رقم قبلی ۶۵–۷۷٪ Jaccard کل HTML بود و بازنشسته است.</div>
+    <div class="tl"><span class="d">خارج از محدودهٔ کمّی</span><br>پروفایل backlink · CrUX فیلد · رتبهٔ کوئری‌ها · لاگ سرور · پنل وردپرس. Off-page در بخش ۱۰ چک‌لیست است، نه ممیزی لینک.</div>
   </div>
 
   <div class="callout info"><b class="t">چرا این محدوده؟</b>
-    برای شروع اصلاحات P0 همین سیگنال‌های HTML کافی است. لایهٔ عملکرد جست‌وجو (کلیک/نمایش) را به‌محض دسترسی GSC روی همین اسکلت اضافه می‌کنیم.
+    برای P0های technical SEO همین HTML کافی است. Click و impression را با Search Console به همین گزارش اضافه می‌کنیم.
   </div>
 </section>
 
@@ -319,7 +332,7 @@
       <tr><td>robots → Sitemap</td><td><span class="pill r">ناقص</span></td><td>فقط <span class="ltr">https://parspack.com/sitemap_index.xml</span></td></tr>
       <tr><td>sitemap_index ریشه</td><td><span class="pill a">۳ زیرنقشه</span></td><td>post · page · local (kml)</td></tr>
       <tr class="hl"><td>page-sitemap</td><td><span class="pill g">۱۰۳ URL</span></td><td>صفحات تجاری/سازمانی — آخرین lastmod تا اکتبر ۲۰۲۶</td></tr>
-      <tr><td>post-sitemap ریشه</td><td><span class="pill r">پوسیده</span></td><td>۱۶ URL قدیمی سوالات‌متداول · lastmod ۲۰۲۲</td></tr>
+      <tr><td>post-sitemap ریشه</td><td><span class="pill r">outdated</span></td><td>۱۶ URL قدیمی سوالات‌متداول · lastmod ۲۰۲۲</td></tr>
       <tr><td>local-sitemap</td><td><span class="pill a">۱ URL</span></td><td>locations.kml</td></tr>
       <tr class="hl"><td>blog/sitemap_index</td><td><span class="pill r">اعلام‌نشده در robots</span></td><td>۸ post-sitemap + category + author · ≈۱٬۴۴۲ پست · تازه تا اکتبر ۲۰۲۶</td></tr>
     </tbody>
@@ -333,19 +346,19 @@
       <div class="cs">وزن محتوا روی بلاگ است؛ کشف‌پذیری‌اش در robots ریشه اعلام نشده.</div>
     </div>
     <div class="chart-box">
-      <div class="ct">کلاستر تجاری (page-sitemap)</div>
+      <div class="ct">Topic cluster تجاری (page-sitemap)</div>
       <div class="h260"><canvas id="cCluster"></canvas></div>
       <div class="cs">شمارش تقریبی URLهای شاخه در page-sitemap.</div>
     </div>
   </div>
 
-  <h3>موجودی کلاستر تجاری (page-sitemap)</h3>
+  <h3>موجودی topic cluster (page-sitemap)</h3>
   <table>
     <thead><tr><th>شاخه</th><th class="n">تعداد تقریبی</th><th>نقش</th></tr></thead>
     <tbody>
-      <tr><td>host</td><td class="n">۲۰</td><td>پیلار + انواع هاست</td></tr>
-      <tr><td>vps</td><td class="n">۱۶</td><td>پیلار + ژئو/سیستم‌عامل</td></tr>
-      <tr><td>dedicated / paas / servers</td><td class="n">۹×۳</td><td>هاب‌های موازی — ریسک تداخل معنایی</td></tr>
+      <tr><td>host</td><td class="n">۲۰</td><td>pillar page + انواع هاست</td></tr>
+      <tr><td>vps</td><td class="n">۱۶</td><td>pillar + location page / سیستم‌عامل</td></tr>
+      <tr><td>dedicated / paas / servers</td><td class="n">۹×۳</td><td>هاب‌های موازی — ریسک keyword cannibalization</td></tr>
       <tr><td>cloud-server</td><td class="n">۸</td><td>همپوشانی با vps/servers</td></tr>
       <tr><td>cloud-storage / cdn / ssl / domain</td><td class="n">۵ / ۴ / ۴ / ۳</td><td>محصولات جانبی</td></tr>
     </tbody>
@@ -395,11 +408,11 @@
 </section>
 
 <section id="s5">
-  <h2><span class="num">۵</span>ساختار کلاستر محصول</h2>
+  <h2><span class="num">۵</span>ساختار topic cluster</h2>
   <p class="lead">معماری محصول خوانا است؛ ریسک اصلی تداخل هاب‌های موازی برای نیت «خرید سرور» است.</p>
 
   <div class="explain"><b class="t">نکتهٔ اصلی این بخش</b>
-    پیلارها وجود دارند، ولی سه هاب <code>/servers</code> و <code>/vps</code> و <code>/cloud-server</code> هم‌زمان برای کوئری‌های نزدیک می‌جنگند. قبل از ساخت صفحهٔ جدید باید نقش هر هاب قفل شود.
+    Pillar pageها وجود دارند، ولی سه URL <code>/servers</code> و <code>/vps</code> و <code>/cloud-server</code> هم‌زمان برای کوئری‌های نزدیک رقابت می‌کنند. قبل از صفحهٔ جدید باید search intent هر کدام جدا شود تا keyword cannibalization کم شود.
   </div>
 
   <div class="grid2">
@@ -407,7 +420,7 @@
       <h4>پیلارهای قوی‌تر</h4>
       <ul>
         <li><code>/host</code> — هاب هاست + زیرشاخه‌های زیاد</li>
-        <li><code>/vps</code> — هاب VPS + ژئو</li>
+        <li><code>/vps</code> — هاب VPS و location pageها</li>
         <li><code>/domain</code> — ثبت/خرید دامنه</li>
         <li><code>/blog</code> — موتور محتوای آموزشی (جدا از sitemap ریشه)</li>
       </ul>
@@ -430,68 +443,75 @@
     <div class="cs">هاب‌های موازی servers / vps / cloud-server هم‌زمان سیگنال «خرید سرور» می‌گیرند.</div>
   </div>
 
-  <div class="callout info"><b class="t">پیشنهاد نقش‌گذاری</b>
+  <div class="callout info"><b class="t">تفکیک search intent</b>
     <ul>
-      <li><b>/servers</b> = راهنمای انتخاب نوع سرور (تصمیم)</li>
-      <li><b>/vps</b> = صفحهٔ پول VPS + ژئو</li>
+      <li><b>/servers</b> = راهنمای انتخاب نوع سرور</li>
+      <li><b>/vps</b> = money page سرور مجازی، به‌همراه location pageها</li>
       <li><b>/cloud-server</b> = مدل ساعتی/ابری با تمایز قیمت و تحویل</li>
-      <li>هر ژئو فقط زیر یک پیلار بنشیند و به پیلار + ۱–۲ خواهر لینک بدهد</li>
+      <li>هر location page فقط زیر یک pillar page بنشیند و به pillar و یکی دو صفحهٔ خواهر internal link بدهد</li>
     </ul>
   </div>
 </section>
 
 <section id="s6">
-  <h2><span class="num">۶</span>صفحات ژئو و ریسک Scaled Content</h2>
-  <p class="lead">بعد از حذف نام کشور از متن، صفحات VPS خارجی هنوز همپوشانی واژگانی بالایی دارند.</p>
+  <h2><span class="num">۶</span>Location page و duplicate content</h2>
+  <p class="lead">قالب صفحه مشترک است. متن مقاله مشترک نیست. رقم قبلی این بخش بازنشسته شد.</p>
 
-  <div class="explain"><b class="t">این عدد یعنی چه؟</b>
-    Jaccard نزدیک ۱ یعنی دو صفحه تقریباً یک متن با اسم کشور عوض‌شده‌اند. بالای ۰٫۶۵ برای ژئوهای پولی، با سیاست Spam/Scaled گوگل هم‌خوانی خطرناک دارد — همان چیزی که در چک‌لیست Content Ops برای local/geo منع شده.
+  <div class="explain"><b class="t">چرا ۶۵ تا ۷۷٪ غلط بود؟</b>
+    محاسبهٔ قبلی Jaccard روی مجموعهٔ واژه‌های کل فایل HTML بود. Class name، اسکریپت و ماژول‌های ثابت طراحی (کارت پلن، منو، فوتر) در هر دو صفحه یکی‌اند و درصد را بالا می‌برند. برای duplicate content فقط متن مقاله را می‌سنجند، بعد از حذف boilerplate.
   </div>
 
+  <div class="callout info"><b class="t">روش این بازبینی — ۲۴ اکتبر ۲۰۲۶</b>
+    URLهای زندهٔ /vps/iran و /vps/foreign/{germany,turkey,canada,netherlands,sweden,england,france} به‌همراه هاب /vps. از هر صفحه فقط بلوک مقاله («… چیست؟») برداشته شد. نام کشور حذف شد. درصد = شباهت دنبالهٔ همان متن. کارت پلن، ویژگی‌ها، کامنت، محصولات مرتبط و فوتر داخل عدد نیستند.
+  </div>
 
   <div class="chart-box">
-    <div class="ct">شباهت Jaccard جفت‌صفحات ژئو (پس از حذف نام کشور)</div>
-    <div class="h300"><canvas id="cJaccard"></canvas></div>
-    <div class="cs">آستانهٔ هشدار ۰٫۵۵ — همهٔ جفت‌های نمونه‌گیری‌شده بالای آن هستند.</div>
+    <div class="ct">شباهت متن مقالهٔ location pageها</div>
+    <div class="h340"><canvas id="cJaccard"></canvas></div>
+    <div class="cs">۰٪ متن کاملاً جدا · ۱۰۰٪ near-duplicate. جفت‌های گزارش قبل بین ۳ و ۱۰٪ هستند.</div>
   </div>
 
-  <h3>شباهت واژگانی (پس از حذف نام کشور)</h3>
-  <div class="bar-row"><div class="bar-lab">آلمان↔ترکیه</div><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div><div class="bar-val">۰٫۷۲</div></div>
-  <div class="bar-row"><div class="bar-lab">کانادا↔هلند</div><div class="bar-track"><div class="bar-fill" style="width:77%"></div></div><div class="bar-val">۰٫۷۷</div></div>
-  <div class="bar-row"><div class="bar-lab">کانادا↔سوئد</div><div class="bar-track"><div class="bar-fill" style="width:75%"></div></div><div class="bar-val">۰٫۷۵</div></div>
-  <div class="bar-row"><div class="bar-lab">آلمان↔انگلیس</div><div class="bar-track"><div class="bar-fill" style="width:71%"></div></div><div class="bar-val">۰٫۷۱</div></div>
-  <div class="bar-row"><div class="bar-lab">ایران↔آلمان</div><div class="bar-track"><div class="bar-fill" style="width:67%"></div></div><div class="bar-val">۰٫۶۷</div></div>
-  <div class="bar-row"><div class="bar-lab">ایران↔VPS هاب</div><div class="bar-track"><div class="bar-fill" style="width:57%"></div></div><div class="bar-val">۰٫۵۷</div></div>
+  <h3>درصد شباهت متن (بعد از حذف boilerplate و نام کشور)</h3>
+  <div class="bar-row"><div class="bar-lab">انگلیس↔فرانسه</div><div class="bar-track"><div class="bar-fill mid" style="width:29%"></div></div><div class="bar-val">۲۹٪</div></div>
+  <div class="bar-row"><div class="bar-lab">ترکیه↔فرانسه</div><div class="bar-track"><div class="bar-fill mid" style="width:19%"></div></div><div class="bar-val">۱۹٪</div></div>
+  <div class="bar-row"><div class="bar-lab">آلمان↔ترکیه</div><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div><div class="bar-val">۱۰٪</div></div>
+  <div class="bar-row"><div class="bar-lab">آلمان↔انگلیس</div><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div><div class="bar-val">۱۰٪</div></div>
+  <div class="bar-row"><div class="bar-lab">کانادا↔هلند</div><div class="bar-track"><div class="bar-fill" style="width:9%"></div></div><div class="bar-val">۹٪</div></div>
+  <div class="bar-row"><div class="bar-lab">کانادا↔سوئد</div><div class="bar-track"><div class="bar-fill" style="width:5%"></div></div><div class="bar-val">۵٪</div></div>
+  <div class="bar-row"><div class="bar-lab">ایران↔آلمان</div><div class="bar-track"><div class="bar-fill" style="width:3%"></div></div><div class="bar-val">۳٪</div></div>
+  <div class="bar-row"><div class="bar-lab">ایران↔هاب /vps</div><div class="bar-track"><div class="bar-fill" style="width:3%"></div></div><div class="bar-val">۳٪</div></div>
 
   <table>
-    <thead><tr><th>صفحه</th><th>عنوان نمونه</th><th class="n">حجم تقریبی</th><th>یادداشت</th></tr></thead>
+    <thead><tr><th>صفحه</th><th>عنوان</th><th class="n">حجم مقاله</th><th>نسبت به جفت‌ها</th></tr></thead>
     <tbody>
-      <tr><td><span class="ltr">/vps/foreign/germany</span></td><td>سرور مجازی آلمان…</td><td class="n">≈۸٫۱k</td><td>بدون FAQ واقعی متمایز</td></tr>
-      <tr><td><span class="ltr">/vps/foreign/turkey</span></td><td>VPS ترکیه…</td><td class="n">≈۸٫۰k</td><td>الگوی مشابه</td></tr>
-      <tr><td><span class="ltr">/vps/foreign/canada</span></td><td>VPS کانادا…</td><td class="n">≈۷٫۸k</td><td>الگوی مشابه</td></tr>
-      <tr><td><span class="ltr">/vps/iran</span></td><td>VPS ایران…</td><td class="n">≈۷٫۰k</td><td>نزدیک به خارجی‌ها</td></tr>
+      <tr><td><span class="ltr">/vps/foreign/england</span></td><td>سرور مجازی انگلیس</td><td class="n">≈۱۸k نویسه</td><td>بالاترین هم‌پوشانی با فرانسه</td></tr>
+      <tr><td><span class="ltr">/vps/foreign/france</span></td><td>سرور مجازی فرانسه</td><td class="n">≈۱۷k نویسه</td><td>جمله‌های مشترک سفارش و OS</td></tr>
+      <tr><td><span class="ltr">/vps/foreign/germany</span></td><td>سرور مجازی آلمان</td><td class="n">≈۱۱k نویسه</td><td>حدود ۱۰٪ با ترکیه و انگلیس</td></tr>
+      <tr><td><span class="ltr">/vps/foreign/turkey</span></td><td>VPS ترکیه</td><td class="n">≈۱۵k نویسه</td><td>حدود ۱۰٪ با آلمان، ۱۹٪ با فرانسه</td></tr>
+      <tr><td><span class="ltr">/vps/iran</span></td><td>VPS ایران</td><td class="n">≈۱۲k نویسه</td><td>حدود ۳٪ با آلمان و با هاب</td></tr>
     </tbody>
   </table>
 
-  <div class="callout bad"><b class="t">حداقل unique block برای نگه‌داشتن هر کشور</b>
-    latency واقعی، کاربرد رایج آن لوکیشن، محدودیت IP/قانونی، تفاوت پلن/قیمت، و یک FAQ بومی — وگرنه ادغام یا noindex بهتر از نگه‌داشتن دوقلو است.
+  <div class="callout good"><b class="t">جمع‌بندی duplicate content</b>
+    این URLها location page با قالب محصول مشترک‌اند، نه near-duplicate. سیاست scaled content abuse را با این نمونه نمی‌شود «ریسک بالا» خواند. ادغام یا noindex به‌خاطر شباهت توصیه نمی‌شود.
+    بالاترین مورد، انگلیس و فرانسه با حدود ۲۹٪ است: بیشتر جمله‌های راهنمای ثبت سفارش، انتخاب سیستم‌عامل و دسترسی root. همان چند پاراگراف را اگر یکتا کنید کافی است.
   </div>
 </section>
 
 <section id="s7">
-  <h2><span class="num">۷</span>صفحات پول و مشکلات On-page</h2>
-  <p class="lead">لندینگ‌های پول ارزش تجاری دارند، ولی سیگنال «برای ربات» در عنوان و ساختار heading بالاست.</p>
+  <h2><span class="num">۷</span>Money page و on-page SEO</h2>
+  <p class="lead">Money pageها ارزش تجاری دارند. در title tag و heading نشانه‌های keyword stuffing دیده می‌شود.</p>
 
   <div class="explain"><b class="t">H2/H3 زیاد یعنی چه؟</b>
-    تعداد heading به‌تنهایی بد نیست؛ وقتی با تکرار صدهابارهٔ یک عبارت و عنوان ایموجی‌کیورد همراه شود، صفحه بیشتر شبیه بهینه‌سازی افراطی است تا لندینگ شفاف خرید.
+    تعداد heading به‌تنهایی ایراد نیست. وقتی با صدها بار تکرار یک keyword و emoji داخل title tag همراه شود، over-optimization است.
   </div>
 
   <table>
     <thead><tr><th>URL</th><th>عنوان (خلاصه)</th><th class="n">H2</th><th class="n">H3</th><th>سیگنال</th></tr></thead>
     <tbody>
       <tr><td><span class="ltr">/</span></td><td>پارس پک | خرید هاست و دامنه و سرور</td><td class="n">—</td><td class="n">—</td><td>H1 برند خوب · og خالی · schema→/new</td></tr>
-      <tr><td><span class="ltr">/host</span></td><td>خرید هاست ☁️ Web Hosting…</td><td class="n">۱۲</td><td class="n">۴۹</td><td>ایموجی + کیورد · OG از /new</td></tr>
-      <tr class="hl"><td><span class="ltr">/vps</span></td><td>سرور مجازی ⚡️ … خرید VPS…</td><td class="n">۲۴</td><td class="n">۱۵۸</td><td>≈۳۹۸× VPS — پرریسک‌ترین</td></tr>
+      <tr><td><span class="ltr">/host</span></td><td>خرید هاست ☁️ Web Hosting…</td><td class="n">۱۲</td><td class="n">۴۹</td><td>emoji در title · Open Graph از /new</td></tr>
+      <tr class="hl"><td><span class="ltr">/vps</span></td><td>سرور مجازی ⚡️ … خرید VPS…</td><td class="n">۲۴</td><td class="n">۱۵۸</td><td>≈۳۹۸× VPS — keyword stuffing</td></tr>
       <tr><td><span class="ltr">/cloud-server</span></td><td>سرور ابری ☁️ … تحویل فوری ⚡️</td><td class="n">۳۲</td><td class="n">۲۴</td><td>همپوشانی با /vps و /servers</td></tr>
       <tr><td><span class="ltr">/domain</span></td><td>خرید دامنه | ارزان‌تر از IRNIC…</td><td class="n">۲۲</td><td class="n">۲۹</td><td>تجاری؛ نیاز به تمایز شفاف</td></tr>
     </tbody>
@@ -500,7 +520,7 @@
 
   <div class="grid2">
     <div class="chart-box">
-      <div class="ct">تراکم heading در صفحات پول</div>
+      <div class="ct">تراکم heading در money pageها</div>
       <div class="h260"><canvas id="cHeadings"></canvas></div>
       <div class="cs">/vps با ۱۵۸ H3 پرریسک‌ترین لندینگ است.</div>
     </div>
@@ -528,36 +548,36 @@
 </section>
 
 <section id="s8">
-  <h2><span class="num">۸</span>امتیاز Content Ops</h2>
-  <p class="lead">نگاشت مستقیم روی چک‌لیست مشترک tool-seo-suite.</p>
+  <h2><span class="num">۸</span>حوزه‌های استاندارد ممیزی</h2>
+  <p class="lead">همان محورهایی که در technical SEO، on-page، content و spam policy رایج است. امتیاز ۰ تا ۳ فقط وضعیت این ممیزی است، نه متریک گوگل.</p>
 
   <div class="chart-box">
-    <div class="ct">وضعیت حوزه‌های Content Ops (امتیاز نسبی ۰–۳)</div>
+    <div class="ct">وضعیت حوزه‌ها (۰–۳)</div>
     <div class="h300"><canvas id="cOps"></canvas></div>
-    <div class="cs">۳=سالم · ۲=هشدار · ۱=ریسک · ۰=بحرانی/ناقص. نگاشت کیفی روی چک‌لیست suite.</div>
+    <div class="cs">۳=سالم · ۲=هشدار · ۱=داده ناقص یا ریسک · ۰=بحرانی. Duplicate content بعد از بازبینی از ریسک بالا خارج شد.</div>
   </div>
 
   <table>
-    <thead><tr><th>حوزه</th><th>وضعیت</th><th>نکته کلیدی</th></tr></thead>
+    <thead><tr><th>حوزه</th><th>وضعیت</th><th>نکته</th></tr></thead>
     <tbody>
-      <tr><td>A) Helpful / Core</td><td><span class="pill a">هشدار</span></td><td>ارزش واقعی هست؛ سیگنال رباتی زیاد است</td></tr>
-      <tr><td>B) E-E-A-T</td><td><span class="pill a">هشدار</span></td><td>برند قوی؛ Organization به /new می‌خورد</td></tr>
-      <tr><td>D/E) Spam / Scaled</td><td><span class="pill r">ریسک بالا</span></td><td>ژئوهای نزدیک به هم</td></tr>
-      <tr><td>F) Information gain</td><td><span class="pill r">ضعیف روی ژئو</span></td><td>همپوشانی واژگانی بالای ۶۵٪</td></tr>
-      <tr><td>H) Topical authority</td><td><span class="pill a">خوب با ریسک تکه</span></td><td>تداخل سرور / VPS / ابری</td></tr>
-      <tr><td>I) Link / Crawl</td><td><span class="pill a">ریسک متوسط</span></td><td>blank داخلی + sitemap بلاگ جدا</td></tr>
-      <tr><td>J) Thin / Duplicate</td><td><span class="pill r">ریسک بالا</span></td><td>ژئو + هاب‌های هم‌پوشان</td></tr>
-      <tr><td>K) Page experience</td><td><span class="pill a">ناقص</span></td><td>بدون CrUX قطعی نیست</td></tr>
-      <tr><td>M) Freshness</td><td><span class="pill a">دوگانه</span></td><td>بلاگ تازه؛ post-sitemap ۲۰۲۲</td></tr>
-      <tr><td>N) Local / Geo</td><td><span class="pill r">نیاز به اصلاح</span></td><td>unique block واقعی لازم است</td></tr>
+      <tr><td>Helpful content</td><td><span class="pill a">هشدار</span></td><td>محصول واقعی است؛ /vps نشانه‌های keyword stuffing دارد</td></tr>
+      <tr><td>E-E-A-T</td><td><span class="pill a">هشدار</span></td><td>برند قوی؛ Organization schema به /new اشاره می‌کند</td></tr>
+      <tr><td>Spam policies</td><td><span class="pill a">هشدار محدود</span></td><td>scaled content abuse با این نمونه‌ها پشتیبانی نمی‌شود؛ over-optimization در /vps جداست</td></tr>
+      <tr><td>Duplicate content</td><td><span class="pill g">پایین</span></td><td>متن location pageها ۳–۱۰٪؛ سقف نمونه انگلیس↔فرانسه ۲۹٪</td></tr>
+      <tr><td>Topical authority</td><td><span class="pill a">هشدار</span></td><td>keyword cannibalization احتمالی بین /servers و /vps و /cloud-server</td></tr>
+      <tr><td>Crawlability</td><td><span class="pill a">هشدار</span></td><td>blog sitemap خارج از robots.txt · چند internal link با target=_blank</td></tr>
+      <tr><td>Thin content</td><td><span class="pill g">سالم</span></td><td>مقالهٔ location pageها حدود ۶ تا ۱۸ هزار نویسه است</td></tr>
+      <tr><td>Page experience</td><td><span class="pill a">سنجیده نشده</span></td><td>بدون CrUX نمی‌شود Core Web Vitals را نمره داد</td></tr>
+      <tr><td>Freshness</td><td><span class="pill a">دوگانه</span></td><td>بلاگ تازه است؛ post-sitemap ریشه lastmod سال ۲۰۲۲ دارد</td></tr>
+      <tr><td>Location page</td><td><span class="pill b">قابل‌بهبود</span></td><td>قالب مشترک طبیعی است؛ فقط پاراگراف‌های مشترک انگلیس/فرانسه ارزش بازنویسی دارند</td></tr>
     </tbody>
   </table>
 </section>
 
 
 <section id="s9">
-  <h2><span class="num">۹</span>نقشهٔ لایه‌ها — On / Off / Tech / Content / Tactical</h2>
-  <p class="lead">همان یافته‌های قبلی، این‌بار بر اساس زبان کارفرما/تیم دسته‌بندی شده تا هیچ لایه‌ای «فراموش‌شده» به نظر نرسد.</p>
+  <h2><span class="num">۹</span>Technical SEO، on-page، content، off-page</h2>
+  <p class="lead">همان یافته‌ها در چهار لایهٔ استاندارد سئو، به‌اضافهٔ algorithm updates.</p>
 
   <div class="explain"><b class="t">چطور بخوانید؟</b>
     ستون «وضعیت» یعنی عمق شواهد در همین نسخه — نه نمرهٔ مطلق سئوی سایت.
@@ -567,33 +587,32 @@
     <div class="chart-box">
       <div class="ct">عمق پوشش لایه‌ها در این ممیزی (۰–۳)</div>
       <div class="h260"><canvas id="cLayers"></canvas></div>
-      <div class="cs">۳=شواهد قوی از HTML · ۱=اسکلت/ناقص داده · آف‌پیج عمداً ۱ مانده تا دادهٔ لینک بیاید.</div>
+      <div class="cs">۳=شواهد قوی از HTML · ۱=داده ناقص. Off-page تا رسیدن backlink روی ۱ می‌ماند.</div>
     </div>
     <div class="chart-box">
       <div class="ct">ریسک نسبی لایه برای پارس‌پک (برآورد)</div>
       <div class="h260"><canvas id="cLayerRisk"></canvas></div>
-      <div class="cs">بالاتر = نیاز فوری‌تر به اقدام. تکنیکال و محتوا فعلاً از آف‌پیج جلوترند.</div>
+      <div class="cs">بالاتر = اقدام فوری‌تر. On-page و technical SEO جلوتر از duplicate content هستند.</div>
     </div>
   </div>
 
   <table>
     <thead><tr><th>لایه</th><th>یافتهٔ کلیدی</th><th>شواهد</th><th>اقدام اصلی</th></tr></thead>
     <tbody>
-      <tr class="hl"><td><b>تکنیکال</b></td><td>کشف بلاگ ناقص · هویت /new · www نرم</td><td>robots · schema · HTTP ۲۰۰ دوتایی</td><td>هفته ۱ برنامهٔ ۳۰روزه</td></tr>
-      <tr class="hl"><td><b>On-page</b></td><td>/vps بیش‌بهینه · اسکیما محصول ضعیف</td><td>≈۳۹۸× VPS · ۱۵۸ H3 · بدون Product/Offer</td><td>بازنویسی هاب‌های پول</td></tr>
-      <tr class="hl"><td><b>محتوایی</b></td><td>ژئو name-swap · تداخل هاب سرور</td><td>Jaccard ۰٫۶۵–۰٫۷۷ · سه هاب موازی</td><td>unique block + قفل نقش</td></tr>
-      <tr><td><b>تاکتیکال</b></td><td>ترتیب اجرا روشن است</td><td>P0–P2 · ۳۰ روزه · KPI</td><td>اجرا بدون ساخت صفحهٔ جدید انبوه</td></tr>
-      <tr><td><b>آف‌پیج</b></td><td>پروفایل لینک اندازه‌گیری نشده</td><td>فقط سیگنال‌های روی‌سایت + چک‌لیست</td><td>آدیت لینک + برند سرچ (بخش ۱۰)</td></tr>
-      <tr><td><b>آپدیت گوگل</b></td><td>بیشترین هم‌پوشانی با Spam/Scaled و Helpful</td><td>بخش ۱۱</td><td>کاهش الگوی ژئو و سیگنال رباتی</td></tr>
+      <tr class="hl"><td><b>Technical SEO</b></td><td>crawl بلاگ ناقص · schema روی /new · www بدون 301</td><td>robots.txt · schema · دو پاسخ ۲۰۰</td><td>هفته ۱</td></tr>
+      <tr class="hl"><td><b>On-page SEO</b></td><td>keyword stuffing در /vps · Product schema نیست</td><td>≈۳۹۸× VPS · ۱۵۸ H3 · بدون Product/Offer</td><td>بازنویسی money page</td></tr>
+      <tr><td><b>Content</b></td><td>duplicate content پایین · cannibalization هاب‌ها</td><td>شباهت متن ۳–۱۰٪ · سه URL سرور</td><td>تفکیک search intent؛ بازنویسی جزئی انگلیس/فرانسه</td></tr>
+      <tr><td><b>Off-page SEO</b></td><td>backlink اندازه گرفته نشده</td><td>فقط سیگنال روی خود سایت</td><td>Search Console Links (بخش ۱۰)</td></tr>
+      <tr><td><b>Algorithm updates</b></td><td>نزدیک‌ترین سیاست: helpful content و over-optimization</td><td>بخش ۱۱</td><td>اصلاح title و heading در /vps</td></tr>
     </tbody>
   </table>
 
-  <div class="callout info"><b class="t">لایه‌های جنبی که در ۶ دستهٔ کلاسیک جا نمی‌شوند ولی پوشش داده شده‌اند</b>
+  <div class="callout info"><b class="t">موضوع‌هایی که داخل همان چهار لایه جا می‌گیرند</b>
     <ul>
-      <li><b>کشف‌پذیری / Indexation ops:</b> اتصال sitemap بلاگ — بین تکنیکال و تاکتیک.</li>
-      <li><b>معماری اطلاعات:</b> نقش /servers vs /vps vs /cloud-server.</li>
-      <li><b>سیاست چندزبانه:</b> تناقض /en.</li>
-      <li><b>هویت برند در دادهٔ ساخت‌یافته:</b> Organization → /new.</li>
+      <li><b>Indexation:</b> وصل کردن XML sitemap بلاگ به robots.txt.</li>
+      <li><b>Information architecture:</b> search intent مسیرهای /servers و /vps و /cloud-server.</li>
+      <li><b>hreflang:</b> تناقض /en.</li>
+      <li><b>Structured data:</b> Organization به /new اشاره می‌کند.</li>
       <li><b>متدولوژی و شکاف داده:</b> بخش ۱۵.</li>
     </ul>
   </div>
@@ -604,7 +623,7 @@
   <p class="lead">در این نسخه ابزار بک‌لینک/برند سرچ وصل نیست؛ بنابراین عدد «چند لینک» ادعا نمی‌کنیم. به‌جایش: آنچه از روی سایت دیده می‌شود + چک‌لیست اجرایی برای تکمیل.</p>
 
   <div class="explain"><b class="t">چرا این بخش کیفیت را پایین نمی‌آورد؟</b>
-    حدس زدن متریک لینک بدون منبع، گزارش را ضعیف می‌کند. اسکلت صادقانه + اقدام مشخص بهتر از جدول جعلی است.
+    حدس زدن متریک backlink بدون منبع، گزارش را ضعیف می‌کند. چک‌لیست با دادهٔ خالی بهتر از جدول ساختگی است.
   </div>
 
   <h3>سیگنال‌های مرتبط که همین حالا روی سایت دیده شد</h3>
@@ -626,14 +645,14 @@
       <tr class="hl"><td>پروفایل بک‌لینک + اسپم اسکور</td><td>Ahrefs / Majestic / GSC Links</td><td>دامنه‌های ارجاع‌دهنده، انکر، سمّی‌ها</td><td><span class="pill a">P1</span></td></tr>
       <tr><td>برند سرچ (پارس پک / parspack)</td><td>GSC Performance</td><td>کلیک برند vs غیربرند</td><td><span class="pill a">P1</span></td></tr>
       <tr><td>ذکر برند بدون لینک</td><td>مانیتورینگ / سرچ دستی</td><td>فرصت لینک‌سازی طبیعی</td><td><span class="pill b">P2</span></td></tr>
-      <tr><td>رقبا در هاستینگ ایران</td><td>ابزار لینک</td><td>شکاف لینک روی پیلارهای پول</td><td><span class="pill b">P2</span></td></tr>
+      <tr><td>رقبا در هاستینگ ایران</td><td>ابزار لینک</td><td>شکاف backlink روی money page و pillar page</td><td><span class="pill b">P2</span></td></tr>
       <tr><td>لینک به /new یا استیجینگ</td><td>سایت‌سرچ + GSC</td><td>پاکسازی ارجاع بیرونی به مسیر اشتباه</td><td><span class="pill a">P1</span></td></tr>
       <tr><td>سیاست لینک‌سازی</td><td>داخلی</td><td>ممنوع خرید انبوه؛ تمرکز روی منبع محصول/آموزش</td><td><span class="pill b">P2</span></td></tr>
     </tbody>
   </table>
 
-  <div class="callout warn"><b class="t">ریسک تاکتیکی</b>
-    تا وقتی بهداشت ایندکس و ژئو درست نشده، کمپین لینک‌سازی تهاجمی توصیه نمی‌شود — قدرت را به صفحات ضعیف/تکراری هل می‌دهد. اول P0 تکنیکال/محتوا، بعد آف‌پیج هدفمند روی پیلارهای تمیز.
+  <div class="callout warn"><b class="t">ترتیب off-page</b>
+    تا وقتی blog sitemap و schema مسیر /new درست نشده، کمپین link building توصیه نمی‌شود. اول P0های technical SEO و on-page، بعد off-page روی pillar pageهای تمیز.
   </div>
 
   <div class="missing"><b class="t">برای تکمیل کمّی</b>
@@ -653,18 +672,18 @@
   <div class="timeline">
     <div class="tl"><span class="d">مارس ۲۰۲۴ — Core + Spam</span><br>تقویت مبارزه با محتوای کم‌ارزش/غیر اصل و سیاست <b>Scaled content abuse</b> (انبوه، با یا بدون اتوماسیون).</div>
     <div class="tl"><span class="d">۲۰۲۴–۲۰۲۵ — چند Core و Spam</span><br>تمرکز مکرر روی helpful بودن و کاهش نتایج «برای موتور» ساخته‌شده (از جمله آگوست ۲۰۲۴ Core، دسامبر ۲۰۲۴، مارس/ژوئن/دسامبر ۲۰۲۵).</div>
-    <div class="tl"><span class="d">۲۰۲۶ — Core مارس و مه · Spam مارس/ژوئن/آگوست/سپتامبر</span><br>سیکل فعال spam-fighting؛ سایت‌های دارای الگوی scaled/geo تکراری در معرض بازبینی مداوم‌اند.</div>
+    <div class="tl"><span class="d">۲۰۲۶ — Core مارس و مه · Spam مارس/ژوئن/آگوست/سپتامبر</span><br>سیکل فعال spam update. صفحه‌های near-duplicate و keyword stuffing در این پنجره حساس‌ترند. نمونهٔ location page پارس‌پک در دستهٔ اول نیست.</div>
   </div>
 
   <h3>نگاشت مستقیم یافته → سیاست / سیستم</h3>
   <table>
     <thead><tr><th>سیاست یا سیستم</th><th>یافتهٔ پارس‌پک</th><th>سطح ریسک</th><th>پاسخ عملی</th></tr></thead>
     <tbody>
-      <tr class="hl"><td>Scaled content abuse (Spam)</td><td>ژئوهای VPS با Jaccard ۰٫۶۵–۰٫۷۷ پس از حذف نام کشور</td><td><span class="pill r">بالا</span></td><td>unique block واقعی یا ادغام/noindex</td></tr>
-      <tr class="hl"><td>Helpful / people-first (Core)</td><td>لندینگ پول با ایموجی‌کیورد و تراکم heading</td><td><span class="pill r">بالا</span></td><td>بازنویسی /vps و /host برای انسان</td></tr>
-      <tr><td>Spam systems (عمومی ۲۰۲۵–۲۶)</td><td>الگوی name-swap + کاتالوگ ژئوی وسیع</td><td><span class="pill a">متوسط‌روبه بالا</span></td><td>توقف تولید ژئوی جدید تا اصلاح</td></tr>
-      <tr><td>Site reputation / هویت</td><td>Organization و OG به /new و استیجینگ</td><td><span class="pill a">متوسط</span></td><td>یکپارچه‌سازی هویت روی apex</td></tr>
-      <tr><td>Duplicate / cannibalization (اثر Core)</td><td>سه هاب سرور موازی</td><td><span class="pill a">متوسط</span></td><td>قفل نقش + لینک داخلی</td></tr>
+      <tr><td>Scaled content abuse</td><td>متن location pageها ۳–۱۰٪ شباهت؛ سقف انگلیس↔فرانسه ۲۹٪</td><td><span class="pill b">پایین</span></td><td>noindex لازم نیست؛ فقط پاراگراف مشترک آن دو URL</td></tr>
+      <tr class="hl"><td>Helpful content (Core)</td><td>Money page با emoji در title tag و keyword stuffing</td><td><span class="pill r">بالا</span></td><td>بازنویسی title و heading در /vps و /host</td></tr>
+      <tr><td>Spam updates ۲۰۲۵–۲۶</td><td>شواهد اصلی over-optimization است، نه کاتالوگ لوکیشن</td><td><span class="pill a">متوسط</span></td><td>اول /vps؛ location page جدید را با متن خود صفحه بنویسید</td></tr>
+      <tr><td>Site reputation</td><td>Organization و Open Graph به /new و staging</td><td><span class="pill a">متوسط</span></td><td>یک URL برند روی apex</td></tr>
+      <tr><td>Keyword cannibalization</td><td>سه هاب سرور موازی</td><td><span class="pill a">متوسط</span></td><td>تفکیک search intent و internal linking</td></tr>
       <tr><td>Page experience / CWV</td><td>استک CF/LiteSpeed دیده شد؛ نمرهٔ فیلد نیست</td><td><span class="pill b">نامشخص</span></td><td>CrUX / PSI در نسخهٔ بعد</td></tr>
       <tr><td>Discover-oriented (۲۰۲۶)</td><td>بلاگ حجیم آموزشی</td><td><span class="pill b">فرصت/خنثی</span></td><td>اول کشف‌پذیری بلاگ؛ بعد بهینه‌سازی اسنیپت</td></tr>
     </tbody>
@@ -676,15 +695,15 @@
     <div class="cs">برآورد تیم روی شواهد HTML — نه امتیاز رسمی گوگل.</div>
   </div>
 
-  <div class="callout bad"><b class="t">پیام عملی برای تیم</b>
-    نزدیک‌ترین تهدید ساختاری، ترکیب <b>Scaled geo</b> و <b>لندینگ بیش‌بهینه</b> است — دقیقاً همان چیزی که سیاست Spam مارس ۲۰۲۴ به بعد و Coreهای helpful هدف گرفته‌اند. اصلاح این دو، مقاوم‌سازی در برابر موج‌های Spam ۲۰۲۶ است؛ نه «ترفند آپدیت بعدی».
+  <div class="callout warn"><b class="t">پیام عملی برای تیم</b>
+    نزدیک‌ترین مورد به helpful content و over-optimization، money page مسیر <code>/vps</code> است. Location pageها را با سیاست scaled content abuse یکی نکنید؛ اندازه‌گیری اصلاح‌شده این را نشان نمی‌دهد.
   </div>
 
-  <div class="future-box"><b class="t">بعد از هر Core/Spam رسمی</b>
+  <div class="future-box"><b class="t">بعد از هر Core update یا spam update</b>
     <ol>
-      <li>۷–۱۴ روز صبر برای پایدار شدن · بدون بازنویسی هراسی کل سایت</li>
-      <li>مقایسهٔ GSC: پیلارهای پول + ژئوها + بلاگ (جداگانه)</li>
-      <li>اگر افت روی ژئو بود → اولویت unique block؛ اگر روی هاب پول بود → On-page/Helpful</li>
+      <li>۷ تا ۱۴ روز صبر · بدون بازنویسی کل سایت</li>
+      <li>در Search Console جدا مقایسه کنید: pillar page، location page، بلاگ</li>
+      <li>اگر افت روی money page بود → on-page و helpful content. اگر روی یک location page بود → همان URL را با صفحهٔ خواهرش مقایسه کنید، نه کل کاتالوگ را noindex.</li>
     </ol>
   </div>
 </section>
@@ -697,7 +716,7 @@
     <div class="chart-box">
       <div class="ct">توزیع اولویت‌ها</div>
       <div class="h260"><canvas id="cPriority"></canvas></div>
-      <div class="cs">۴ مورد P0 همچنان قفل شروع کارند؛ P1 شامل آف‌پیج و هویت بیرونی هم شده است.</div>
+      <div class="cs">سه P0 شروع کارند. شباهت location page دیگر P0 نیست.</div>
     </div>
     <div class="chart-box">
       <div class="ct">اثر نسبی اقدامات P0 (برآورد تیم)</div>
@@ -710,19 +729,18 @@
     <thead><tr><th>سطح</th><th>مشکل</th><th>شواهد</th><th>اثر</th><th>اقدام</th></tr></thead>
     <tbody>
       <tr class="hl"><td><span class="pill r">P0</span></td><td>Sitemap بلاگ در robots نیست</td><td>≈۱۴۴۲ پست جدا</td><td>کشف ناقص</td><td>افزودن به robots / ادغام</td></tr>
-      <tr class="hl"><td><span class="pill r">P0</span></td><td>نشت /new در اسکیما و OG</td><td>Organization + OG از /new</td><td>تضعیف برند</td><td>Site URL + ۳۰۱</td></tr>
-      <tr class="hl"><td><span class="pill r">P0</span></td><td>ژئوهای شبیه</td><td>Jaccard ۰٫۶۵–۰٫۷۷</td><td>Scaled Content</td><td>unique block / ادغام</td></tr>
-      <tr class="hl"><td><span class="pill r">P0</span></td><td>/vps بیش‌بهینه</td><td>≈۳۹۸× VPS · ۱۵۸ H3</td><td>over-opt</td><td>بازنویسی title/heading</td></tr>
+      <tr class="hl"><td><span class="pill r">P0</span></td><td>Staging URL در schema و Open Graph</td><td>Organization + OG از /new</td><td>entity برند</td><td>Site URL + 301</td></tr>
+      <tr class="hl"><td><span class="pill r">P0</span></td><td>Keyword stuffing در /vps</td><td>≈۳۹۸× VPS · ۱۵۸ H3</td><td>over-optimization</td><td>بازنویسی title tag و heading</td></tr>
       <tr><td><span class="pill a">P1</span></td><td>www بدون ۳۰۱</td><td>هر دو ۲۰۰</td><td>تقسیم سیگنال</td><td>۳۰۱ → apex</td></tr>
-      <tr><td><span class="pill a">P1</span></td><td>/en متناقض</td><td>Disallow + meta index</td><td>نویز زبانی</td><td>noindex یا hreflang</td></tr>
+      <tr><td><span class="pill a">P1</span></td><td>/en متناقض</td><td>Disallow + meta index</td><td>تناقض indexation</td><td>noindex یا hreflang</td></tr>
       <tr><td><span class="pill a">P1</span></td><td>اسکیما محصول ضعیف</td><td>بدون Product/Offer</td><td>ریچ‌نتیجه کم</td><td>Product + FAQ</td></tr>
-      <tr><td><span class="pill a">P1</span></td><td>post-sitemap ۲۰۲۲</td><td>۱۶ FAQ قدیمی</td><td>سیگنال کهنگی</td><td>پاکسازی</td></tr>
+      <tr><td><span class="pill a">P1</span></td><td>post-sitemap ۲۰۲۲</td><td>۱۶ FAQ قدیمی</td><td>sitemap قدیمی</td><td>پاکسازی</td></tr>
       <tr><td><span class="pill b">P2</span></td><td>target=_blank داخلی</td><td>≈۵۵ در خانه</td><td>UX/لینک غیرطبیعی</td><td>حذف blank داخلی</td></tr>
       <tr><td><span class="pill b">P2</span></td><td>og / ads.txt</td><td>خالی / ریدایرکت به بلاگ</td><td>جزئی فنی</td><td>اصلاح فایل‌ها</td></tr>
-      <tr><td><span class="pill b">P2</span></td><td>تداخل هاب سرور</td><td>servers/vps/cloud</td><td>cannibalization</td><td>قفل نقش + لینک</td></tr>
-      <tr><td><span class="pill a">P1</span></td><td>آدیت آف‌پیج (لینک + برند سرچ)</td><td>هنوز بدون داده</td><td>کور بودن بیرونی</td><td>GSC Links / Ahrefs</td></tr>
-      <tr><td><span class="pill a">P1</span></td><td>لینک/ارجاع به /new از بیرون</td><td>اسکیما داخلی خراب است</td><td>هویت پخش</td><td>پاکسازی + ۳۰۱</td></tr>
-      <tr><td><span class="pill b">P2</span></td><td>مقاوم‌سازی مقابل Spam/Scaled</td><td>نگاشت بخش ۱۱</td><td>ریسک آپدیت</td><td>توقف ژئوی جدید تا اصلاح</td></tr>
+      <tr><td><span class="pill b">P2</span></td><td>تداخل هاب سرور</td><td>/servers · /vps · /cloud-server</td><td>keyword cannibalization</td><td>تفکیک search intent</td></tr>
+      <tr><td><span class="pill b">P2</span></td><td>هم‌پوشانی انگلیس و فرانسه</td><td>حدود ۲۹٪ شباهت متن</td><td>duplicate content جزئی</td><td>بازنویسی پاراگراف‌های مشترک</td></tr>
+      <tr><td><span class="pill a">P1</span></td><td>Off-page (backlink + brand search)</td><td>هنوز بدون داده</td><td>لایهٔ بیرونی خالی</td><td>Search Console Links / Ahrefs</td></tr>
+      <tr><td><span class="pill a">P1</span></td><td>ارجاع بیرونی به /new</td><td>schema داخلی غلط است</td><td>URL برند اشتباه</td><td>پاکسازی + 301</td></tr>
     </tbody>
   </table>
 </section>
@@ -732,7 +750,7 @@
   <p class="lead">بر اساس دادهٔ همین ممیزی — قابل بازتنظیم بعد از وصل شدن GSC.</p>
 
   <div class="phase">
-    <h4>هفته ۱ — فنی ایندکس</h4>
+    <h4>هفته ۱ — technical SEO و indexation</h4>
     <ol>
       <li>۳۰۱ اجباری www → apex</li>
       <li><code>/new</code> → مسیر نهایی + noindex موقت اگر لازم</li>
@@ -742,42 +760,41 @@
     </ol>
   </div>
   <div class="phase">
-    <h4>هفته ۲ — صفحات پول</h4>
+    <h4>هفته ۲ — money page</h4>
     <ol>
-      <li>بازنویسی title/description بدون ایموجی‌کیورد</li>
-      <li>سبک‌سازی <code>/vps</code> (تکرار + heading)</li>
-      <li>اسکیما Product/FAQ واقعی روی هاب‌های فروش</li>
-      <li>قفل نقش /servers vs /vps vs /cloud-server</li>
-      <li>حذف target=_blank از لینک‌های داخلی</li>
+      <li>بازنویسی title tag و meta description؛ emoji را از title بردارید</li>
+      <li>کم کردن تکرار keyword و heading در <code>/vps</code></li>
+      <li>Schema از نوع Product و FAQ روی هاب‌های فروش</li>
+      <li>تفکیک search intent بین /servers و /vps و /cloud-server</li>
+      <li>حذف target=_blank از internal linkها</li>
     </ol>
   </div>
   <div class="phase">
-    <h4>هفته ۳–۴ — ژئو و کلاستر</h4>
+    <h4>هفته ۳–۴ — location page و topic cluster</h4>
     <ol>
-      <li>آدیت unique block برای آلمان، ترکیه، کانادا، ایران و ۲ ژئوی پرترافیک بعدی</li>
-      <li>ادغام یا noindex ژئوهای ضعیف</li>
-      <li>رفرش پیلارهای host / vps / domain</li>
-      <li>پاکسازی post-sitemap ۲۰۲۲</li>
-      <li>۲–۴ هفته ثبات معماری؛ فقط بعد از آن محتوای جدید هدفمند</li>
+      <li>بازنویسی پاراگراف‌های مشترک انگلیس و فرانسه (سفارش، سیستم‌عامل، root)</li>
+      <li>بقیهٔ location pageها را noindex یا ادغام نکنید؛ متنشان جداست</li>
+      <li>به‌روزرسانی pillar pageهای host و vps و domain</li>
+      <li>پاکسازی post-sitemap با lastmod سال ۲۰۲۲</li>
+      <li>دو تا چهار هفته معماری ثابت؛ location page جدید فقط با متن اختصاصی همان کشور</li>
     </ol>
   </div>
 
 
   <div class="phase">
-    <h4>موازی — آف‌پیج و مقاوم‌سازی آپدیت (بدون بلوکه کردن هفته ۱–۲)</h4>
+    <h4>موازی — off-page (هفته ۱ و ۲ را بلوکه نکند)</h4>
     <ol>
-      <li>اکسپورت GSC Links + برند سرچ (پارس پک / parspack)</li>
-      <li>اسکن ارجاع به <code>/new</code> و استیجینگ از بیرون</li>
-      <li>توقف انتشار ژئوی جدید تا Jaccard ژئوهای اصلی زیر آستانه بیاید</li>
-      <li>بعد از هر Spam/Core: فقط پیلار + ژئو + بلاگ را در GSC جدا مانیتور کنید</li>
+      <li>خروجی Links از Search Console به‌همراه brand search (پارس پک / parspack)</li>
+      <li>پیدا کردن ارجاع بیرونی به <code>/new</code> و دامنهٔ staging</li>
+      <li>بعد از هر spam update یا Core update: pillar page، location page و بلاگ را در Search Console جدا ببینید</li>
     </ol>
   </div>
 
   <div class="future-box"><b class="t">اگر فقط ۳ کار انجام شود</b>
     <ol>
-      <li>اتصال sitemap بلاگ به robots</li>
-      <li>پاکسازی کامل /new از اسکیما و دارایی‌ها</li>
-      <li>بازنویسی /vps + یکتاسازی ۲–۳ ژئوی اصلی</li>
+      <li>اتصال XML sitemap بلاگ به robots.txt</li>
+      <li>حذف /new از structured data و Open Graph</li>
+      <li>بازنویسی title tag و heading در /vps</li>
     </ol>
   </div>
 </section>
@@ -798,15 +815,15 @@
     <tbody>
       <tr><td>blog sitemap در robots</td><td>خیر</td><td>بله</td><td>robots.txt</td></tr>
       <tr><td>Organization روی /new</td><td>بله (خراب)</td><td>خیر</td><td>view-source</td></tr>
-      <tr><td>www فقط با canonical</td><td>بله</td><td>۳۰۱ سخت</td><td>هدر HTTP</td></tr>
-      <tr><td>Jaccard ژئوهای اصلی</td><td>۰٫۶۵–۰٫۷۷</td><td>&lt; ۰٫۵۰ + unique block</td><td>ممیزی مجدد</td></tr>
-      <tr><td>تکرار VPS در /vps</td><td>≈۳۹۸</td><td>کاهش محسوس + عنوان طبیعی</td><td>ممیزی HTML</td></tr>
+      <tr><td>www فقط با canonical</td><td>بله</td><td>301 به apex</td><td>هدر HTTP</td></tr>
+      <tr><td>شباهت متن location page</td><td>۳–۱۰٪ (سقف ۲۹٪)</td><td>انگلیس/فرانسه پایین‌تر بیاید؛ بقیه لازم نیست به صفر برسد</td><td>همان روش بخش ۶</td></tr>
+      <tr><td>تکرار VPS در /vps</td><td>≈۳۹۸</td><td>کاهش محسوس + title tag طبیعی</td><td>ممیزی HTML</td></tr>
       <tr><td>Indexed pages / Coverage</td><td>نامشخص</td><td>پایهٔ GSC ثبت شود</td><td>Search Console</td></tr>
-      <tr><td>کلیک / نمایش هاب‌های پول</td><td>نامشخص</td><td>روند ۴ هفته</td><td>Search Console</td></tr>
+      <tr><td>Click / impression روی money page</td><td>نامشخص</td><td>روند ۴ هفته</td><td>Search Console</td></tr>
       <tr><td>صفحات در ۱۰ نتیجهٔ اول</td><td>نامشخص</td><td>پایه + رشد</td><td>Search Console</td></tr>
       <tr><td>ارجاع بیرونی به /new</td><td>نامشخص</td><td>۰ مقصد زنده</td><td>GSC Links / سایت‌سرچ</td></tr>
       <tr><td>نسبت کلیک برند / غیربرند</td><td>نامشخص</td><td>پایه ثبت شود</td><td>GSC</td></tr>
-      <tr><td>ژئوی جدید منتشرشده</td><td>—</td><td>۰ تا پایان اصلاح</td><td>تقویم محتوا</td></tr>
+      <tr><td>Location page جدید</td><td>—</td><td>فقط با متن اختصاصی همان کشور</td><td>تقویم محتوا</td></tr>
     </tbody>
   </table>
 </section>
@@ -814,29 +831,30 @@
 <section id="s15">
   <h2><span class="num">۱۵</span>روش کار، محدودیت‌ها و دادهٔ ناقص</h2>
   <div class="callout info"><b class="t">روش</b>
-    ممیزی فقط‌خواندنی روی HTML عمومی، robots و sitemap. چارچوب: Content Ops / tool-seo-suite. هیچ تغییری روی سایت اعمال نشده.
+    ممیزی فقط‌خواندنی روی HTML عمومی، robots.txt و XML sitemap. هیچ تغییری روی سایت اعمال نشده. بازبینی ۲۴ اکتبر ۲۰۲۶ درصد duplicate content را فقط روی متن مقاله دوباره حساب کرد.
   </div>
   <div class="callout warn"><b class="t">محدودیت‌ها</b>
     <ul>
-      <li>بدون GSC: ایندکس واقعی، کوئری‌ها، افت رتبه و Coverage قطعی نیست.</li>
-      <li>بدون CrUX/PSI فیلد: تجربهٔ صفحه تخمینی است.</li>
-      <li>Jaccard تقریبی روی واژگان است، نه مدل معنایی کامل.</li>
-      <li>پروفایل بک‌لینک کمّی هنوز نیست — بخش ۱۰ اسکلت اجرایی است نه ممیزی لینک کامل.</li>
-      <li>نگاشت آپدیت‌های گوگل کیفی است؛ نسبت‌دادن افت/رشد به یک آپدیت خاص بدون GSC ممکن نیست.</li>
+      <li>بدون Search Console: indexation واقعی، query، افت رتبه و coverage قطعی نیست.</li>
+      <li>بدون CrUX: page experience را نمی‌شود نمره داد.</li>
+      <li>درصد شباهت، شباهت دنبالهٔ متن مقاله است نه درک معنایی. قالب مشترک محصول عمداً کنار گذاشته شد.</li>
+      <li>رقم ۶۵–۷۷٪ نسخهٔ قبل معتبر نیست.</li>
+      <li>پروفایل backlink هنوز کمّی نیست.</li>
+      <li>نگاشت algorithm update کیفی است. بدون Search Console نمی‌شود افت را به یک update خاص نسبت داد.</li>
     </ul>
   </div>
   <div class="missing"><b class="t">برای نسخهٔ بعدی</b>
     <ul>
-      <li>GSC: Performance ۱۶ هفته + Coverage + صفحات پرکلیک</li>
-      <li>آف‌پیج: Links / Ahrefs + برند سرچ</li>
-      <li>CWV: CrUX یا PSI فیلد روی هاب‌های پول</li>
-      <li>بعد از یک Core/Spam: مقایسهٔ قبل/بعد روی پیلار و ژئو</li>
+      <li>Search Console: Performance ۱۶ هفته + coverage + صفحه‌های پرکلیک</li>
+      <li>Off-page: Links یا Ahrefs، به‌همراه brand search</li>
+      <li>Core Web Vitals: CrUX روی money pageها</li>
+      <li>بعد از Core update یا spam update: مقایسهٔ قبل و بعد روی pillar page و location page</li>
     </ul>
   </div>
 </section>
 
 <footer>
-  پارس‌پک · گزارش ممیزی سئو · Content Ops / tool-seo-suite · نسخهٔ کاری HTML · ۱۸ اکتبر ۲۰۲۶
+  پارس‌پک · ممیزی سئو · بازبینی ۲۴ اکتبر ۲۰۲۶ · نسخهٔ کاری HTML · گزارش اصلی ۱۸ اکتبر ۲۰۲۶
 </footer>
 
 </div>
@@ -871,10 +889,10 @@ new Chart(el('cCluster'),{type:'bar',data:{labels:['host','vps','dedicated','paa
 new Chart(el('cPillar'),{type:'doughnut',data:{labels:['host','vps','dedicated/paas/servers','cloud-server','سایر محصولات'],datasets:[{data:[20,16,27,8,16],backgroundColor:[C.navy,C.blue,C.amber,C.red,C.gray]}]},
   options:{plugins:{legend:{position:'right'},tooltip:{callbacks:{label:c=>` ${c.label}: ${fa(c.parsed)}`}}}}});
 
-new Chart(el('cJaccard'),{type:'bar',data:{labels:['کانادا↔هلند','کانادا↔سوئد','آلمان↔ترکیه','آلمان↔انگلیس','ایران↔آلمان','ایران↔هاب VPS'],datasets:[
-  {label:'Jaccard',data:[0.77,0.75,0.72,0.71,0.67,0.57],backgroundColor:[C.red,C.red,C.red,C.red,C.amber,C.amber]}]},
-  options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.parsed.x}`}}},
-    scales:{x:{min:0,max:1,position:'top',title:{display:true,text:'شباهت (۰–۱)'}},y:{position:'right'}}}});
+new Chart(el('cJaccard'),{type:'bar',data:{labels:['انگلیس↔فرانسه','ترکیه↔فرانسه','آلمان↔ترکیه','آلمان↔انگلیس','کانادا↔هلند','کانادا↔سوئد','ایران↔آلمان','ایران↔هاب'],datasets:[
+  {label:'شباهت متن',data:[0.29,0.19,0.10,0.10,0.09,0.05,0.03,0.03],backgroundColor:[C.amber,C.amber,C.blue,C.blue,C.blue,C.blue,C.green,C.green]}]},
+  options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${Math.round(c.parsed.x*100)}٪`}}},
+    scales:{x:{min:0,max:1,position:'top',title:{display:true,text:'شباهت متن مقاله (۰–۱)'}},y:{position:'right'}}}});
 
 new Chart(el('cHeadings'),{type:'bar',data:{labels:['/host','/vps','/cloud-server','/domain'],datasets:[
   {label:'H2',data:[12,24,32,22],backgroundColor:C.sky},
@@ -885,28 +903,28 @@ new Chart(el('cVpsStuff'),{type:'bar',data:{labels:['/vps','/host','/cloud-serve
   {label:'تکرار تقریبی کلیدواژهٔ اصلی',data:[398,85,60,40],backgroundColor:[C.red,C.amber,C.blue,C.gray]}]},
   options:{plugins:{legend:{display:false}},scales:{y:{position:'right',beginAtZero:true}}}});
 
-new Chart(el('cOps'),{type:'radar',data:{labels:['Helpful','E-E-A-T','Spam/Scaled','Info gain','Topical','Crawl','Thin/Dup','Experience','Freshness','Local/Geo'],datasets:[
-  {label:'امتیاز نسبی',data:[2,2,1,1,2,2,1,1,2,1],backgroundColor:'rgba(15,118,110,.15)',borderColor:C.blue,pointBackgroundColor:C.navy,borderWidth:2}]},
+new Chart(el('cOps'),{type:'radar',data:{labels:['Helpful','E-E-A-T','Spam policy','Duplicate','Topical','Crawl','Thin','Experience','Freshness','Location'],datasets:[
+  {label:'وضعیت ممیزی',data:[2,2,2,3,2,2,3,1,2,2],backgroundColor:'rgba(15,118,110,.15)',borderColor:C.blue,pointBackgroundColor:C.navy,borderWidth:2}]},
   options:{scales:{r:{min:0,max:3,ticks:{stepSize:1,callback:v=>fa(v)},pointLabels:{font:{size:11}}}}}});
 
-new Chart(el('cLayers'),{type:'radar',data:{labels:['تکنیکال','On-page','محتوا','تاکتیکال','آپدیت گوگل','آف‌پیج'],datasets:[
-  {label:'عمق پوشش ممیزی',data:[3,3,3,3,3,1],backgroundColor:'rgba(15,118,110,.15)',borderColor:C.blue,pointBackgroundColor:C.navy,borderWidth:2}]},
+new Chart(el('cLayers'),{type:'radar',data:{labels:['Technical','On-page','Content','Off-page','Updates'],datasets:[
+  {label:'عمق پوشش ممیزی',data:[3,3,3,1,3],backgroundColor:'rgba(15,118,110,.15)',borderColor:C.blue,pointBackgroundColor:C.navy,borderWidth:2}]},
   options:{scales:{r:{min:0,max:3,ticks:{stepSize:1,callback:v=>fa(v)},pointLabels:{font:{size:11}}}}}});
 
-new Chart(el('cLayerRisk'),{type:'bar',data:{labels:['محتوا/ژئو','On-page','تکنیکال','آپدیت','تاکتیک','آف‌پیج'],datasets:[
-  {label:'ریسک نسبی',data:[9,8,8,7,3,5],backgroundColor:[C.red,C.red,C.amber,C.amber,C.gray,C.blue]}]},
+new Chart(el('cLayerRisk'),{type:'bar',data:{labels:['On-page','Technical','Content','Updates','Off-page'],datasets:[
+  {label:'ریسک نسبی',data:[8,8,4,5,5],backgroundColor:[C.red,C.amber,C.blue,C.amber,C.blue]}]},
   options:{plugins:{legend:{display:false}},scales:{y:{position:'right',min:0,max:10}}}});
 
-new Chart(el('cUpdates'),{type:'bar',data:{labels:['Scaled/Spam','Helpful/Core','هویت/Reputation','Cannibalization','CWV','Discover'],datasets:[
-  {label:'هم‌ترازی شواهد',data:[9,8,6,6,2,3],backgroundColor:[C.red,C.red,C.amber,C.amber,C.gray,C.blue]}]},
+new Chart(el('cUpdates'),{type:'bar',data:{labels:['Scaled abuse','Helpful/Core','Reputation','Cannibalization','CWV','Discover'],datasets:[
+  {label:'هم‌ترازی شواهد',data:[3,8,6,6,2,3],backgroundColor:[C.blue,C.red,C.amber,C.amber,C.gray,C.blue]}]},
   options:{plugins:{legend:{display:false}},scales:{y:{position:'right',min:0,max:10}}}});
 
-new Chart(el('cPriority'),{type:'doughnut',data:{labels:['P0','P1','P2'],datasets:[{data:[4,6,4],backgroundColor:[C.red,C.amber,C.blue]}]},
+new Chart(el('cPriority'),{type:'doughnut',data:{labels:['P0','P1','P2'],datasets:[{data:[3,6,4],backgroundColor:[C.red,C.amber,C.blue]}]},
   options:{plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:c=>` ${c.label}: ${fa(c.parsed)} مورد`}}}}});
 
-new Chart(el('cImpact'),{type:'bar',data:{labels:['sitemap بلاگ','پاکسازی /new','ژئو unique','بازنویسی /vps'],datasets:[
-  {label:'اثر کشف/ایندکس',data:[9,7,6,5],backgroundColor:C.blue},
-  {label:'اثر کیفیت/ریسک',data:[4,8,9,8],backgroundColor:C.red}]},
+new Chart(el('cImpact'),{type:'bar',data:{labels:['sitemap بلاگ','پاکسازی /new','بازنویسی /vps'],datasets:[
+  {label:'اثر crawl / indexation',data:[9,7,5],backgroundColor:C.blue},
+  {label:'اثر on-page',data:[4,8,8],backgroundColor:C.red}]},
   options:{scales:{y:{position:'right',min:0,max:10}}}});
 
 if (PRINT_MODE) {
