@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>پارس‌پک — گزارش سئو پارس‌پک | ۲ آبان ۱۴۰۵</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2f2c; --blue:#0f766e; --sky:#e6f4f2; --green:#15803d; --green-bg:#e8f7ee;
+    --amber:#b45309; --amber-bg:#fff7e8;
+    --ink:#1c1917; --muted:#57534e; --line:#d6d3d1; --bg:#f3f6f5; --card:#fff;
+    --accent:#14b8a6;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:"IBM Plex Sans Arabic",Tahoma,sans-serif;background:var(--bg);color:var(--ink);line-height:1.9;font-size:16.5px;direction:rtl;text-align:right}
+  .wrap{max-width:860px;margin:0 auto;padding:0 22px 64px}
+  header.cover{background:
+      linear-gradient(115deg,rgba(15,47,44,.94) 0%,rgba(15,118,110,.9) 58%,rgba(20,184,166,.78) 100%),
+      #0f2f2c;
+    color:#fff;padding:48px 0 36px;margin-bottom:24px;border-bottom:6px solid #14b8a6;position:relative}
+  header.cover:before{content:"";position:absolute;inset:0 auto 0 0;width:8px;background:#f59e0b}
+  header.cover .wrap{position:relative;padding-bottom:0}
+  .brand-chip{display:inline-block;background:#f59e0b;color:#1c1917;padding:4px 12px;border-radius:6px;font-size:12.5px;font-weight:700;margin-bottom:14px}
+  header.cover h1{font-size:32px;font-weight:700;margin:0 0 8px;line-height:1.45}
+  header.cover .sub{margin:0;font-size:17px;opacity:.94}
+  header.cover .meta{margin-top:18px;font-size:13.5px;opacity:.9}
+  nav.toc{background:var(--card);border:1px solid var(--line);border-right:5px solid var(--accent);border-radius:10px;padding:16px 22px;margin-bottom:22px}
+  nav.toc ol{margin:0;padding-right:22px}
+  nav.toc a{color:var(--blue);text-decoration:none}
+  section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px 22px 8px;margin-bottom:22px}
+  h2{font-size:22px;margin:0 0 6px;color:var(--navy);display:flex;align-items:center;gap:10px}
+  h2 .num{background:linear-gradient(145deg,#0f766e,#134e4a);color:#fff;width:32px;height:32px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+  .sec-lead{color:var(--muted);margin:0 0 16px}
+  article.page{border:1px solid var(--line);border-radius:12px;padding:16px 18px 8px;margin:0 0 16px;background:#fff;border-top:4px solid var(--accent)}
+  article.page h3{margin:0 0 4px;font-size:18px;color:var(--navy)}
+  article.page .for{margin:0 0 10px;color:var(--muted);font-size:14.5px}
+  .now,.better{border-radius:8px;padding:10px 12px;margin:8px 0}
+  .now{background:#fafaf9;border:1px solid var(--line)}
+  .better{background:var(--green-bg);border:1px solid #b7e4c7}
+  .now b.t,.better b.t{display:block;margin-bottom:2px}
+  .better b.t{color:var(--green)}
+  .now b.t{color:var(--navy)}
+  p{margin:8px 0}
+  ul{padding-right:20px;margin:6px 0}
+  li{margin:4px 0}
+  .ltr{direction:ltr;unicode-bidi:embed;font-family:ui-monospace,Consolas,monospace;font-size:.92em}
+  .quote{background:#fff;border:1px dashed #a8a29e;border-radius:8px;padding:8px 12px;margin:8px 0;font-size:15px}
+  footer{color:var(--muted);font-size:12.5px;text-align:center;margin-top:8px}
+  @media print{
+    body{background:#fff}
+    header.cover{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    article.page{break-inside:avoid}
+  }
+  section.rule{border-right:5px solid #f59e0b}
+  section.rule h2{font-size:19px}
+  .fromto{border:1px solid #b7e4c7;background:var(--green-bg);border-radius:8px;padding:6px 12px;margin:8px 0}
+  .fromto p{margin:4px 0}
+  .fromto b{color:var(--green)}
+  .fromto p:first-child b{color:var(--amber)}
+  .why{color:var(--muted);font-size:14.5px}
+  table.tbl, table{width:100%;border-collapse:collapse;margin:8px 0 12px;font-size:14.5px}
+  th,td{border:1px solid var(--line);padding:6px 8px;text-align:right}
+  th{background:var(--sky);color:var(--navy)}
+  td.ltr{text-align:left}
+  .good{background:#eef6ff;border:1px solid #bfdbfe;border-radius:8px;padding:10px 12px;margin:8px 0}
+  .good b.t{display:block;margin-bottom:2px;color:#1d4ed8}
+  .tier{display:inline-block;background:var(--blue);color:#fff;font-size:12px;border-radius:5px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+  .tier.t2{background:#64748b}
+  .tbl td.w{color:var(--green);font-weight:700}
+  .tbl td.o{color:var(--amber);font-weight:700}
+  table.small{font-size:13.5px}
+  h3.sub{font-size:17px;color:var(--navy);margin:16px 0 4px}
+  section ul li{margin:6px 0}
+</style>
+</head>
+<body>
+<header class="cover">
+  <div class="wrap">
+    <div class="brand-chip">پارس‌پک · parspack.com</div>
+    <h1>گزارش سئو پارس‌پک</h1>
+    <p class="sub">جایگاه فعلی در گوگل، بررسی صفحه‌به‌صفحه به ترتیب اهمیت، و برنامهٔ اجرا</p>
+    <p class="meta">تاریخ گزارش: ۲ آبان ۱۴۰۵ (۲۴ اکتبر ۲۰۲۶) · بررسی زندهٔ صفحه‌ها: همان روز، ۱۱:۰۰ تا ۱۳:۲۰ به وقت تهران · گزارش ۲۶ مهر و مقایسهٔ رقبا در این نسخه ادغام شده‌اند · تهیه‌کننده: محمدعلی</p>
+  </div>
+</header>
+
+<div class="wrap">
+<nav class="toc">
+  <ol>
+    <li><a href="#sum">خلاصه برای تصمیم</a></li>
+    <li><a href="#rank">جایگاه فعلی در گوگل</a></li>
+    <li><a href="#map">نقشهٔ سایت و ترتیب اهمیت صفحه‌ها</a></li>
+    <li><a href="#t1">صفحه‌های ردهٔ ۱: صفحهٔ اصلی و هاب‌های فروش</a></li>
+    <li><a href="#t2">صفحه‌های ردهٔ ۲: زیرمحصول و لوکیشن</a></li>
+    <li><a href="#t3">ردهٔ ۳: بلاگ</a></li>
+    <li><a href="#tech">سئوی تکنیکال: وضعیت موارد ۲۶ مهر</a></li>
+    <li><a href="#off">آف‌پیج و آپدیت‌های گوگل</a></li>
+    <li><a href="#plan">برنامهٔ ۳۰ روزه</a></li>
+    <li><a href="#kpi">شاخص‌های پیگیری</a></li>
+    <li><a href="#how">منبع داده، روش و محدودیت‌ها</a></li>
+  </ol>
+</nav>
+
+<!-- ===================== 1 ===================== -->
+<section id="sum">
+  <h2><span class="num">۱</span> خلاصه برای تصمیم</h2>
+  <p>پارس‌پک روی کوئری‌های خرید جایگاه قوی دارد. در نمونهٔ ۲۲ کوئری غیربرند، ۱۵ مورد رتبهٔ ۱ و ۲۰ مورد در سه نتیجهٔ اول بود. ساختار محصول هم منظم است: هر خط محصول یک هاب دارد و هاب‌ها با کارت به زیرصفحه‌ها لینک می‌دهند.</p>
+  <p>کارهای این گزارش برای نگه داشتن و بیشتر کردن همین جایگاه است. هیچ‌کدام عنوان یا کلیدواژهٔ صفحه‌های فعلی را عوض نمی‌کند. سه گلوگاه اصلی:</p>
+  <ul>
+    <li><b>مقاله‌های صفحه‌های فروش هیچ لینک داخلی ندارند.</b> در ۱۰ صفحهٔ فروش و لوکیشن، متن مقاله بین ۱٬۹۴۰ تا ۴٬۹۱۳ کلمه است و حتی یک لینک داخل متن ندارد. نام زیرمحصول‌ها چند بار در متن آمده، ولی به صفحه‌شان لینک نشده.</li>
+    <li><b>بخش بزرگی از بلاگ فقط از راه sitemap کشف می‌شود.</b> صفحه‌های دستهٔ بلاگ ۸ پست نشان می‌دهند و بقیه را با دکمهٔ «بیشتر» بار می‌کنند. لینک صفحه‌بندی در HTML نیست. کراول با دنبال کردن لینک‌ها به ۵۹۴ پست از ۱٬۳۶۱ پست sitemap بلاگ نرسید. همان sitemap هم در robots.txt اعلام نشده است.</li>
+    <li><b>هویت برند در structured data هنوز به <span class="ltr">/new</span> اشاره می‌کند.</b> این مورد در گزارش ۲۶ مهر هم بود و هنوز باز است.</li>
+  </ul>
+
+  <table class="tbl">
+    <tr><th>#</th><th>کار</th><th>محدوده</th><th>تیم</th></tr>
+    <tr><td>۱</td><td>لینک داخلی داخل متن مقاله‌های فروش، در اولین اشاره به هر زیرمحصول</td><td>۵ هاب ردهٔ ۱ و صفحه‌های لوکیشن (بخش ۴ و ۵)</td><td>محتوا</td></tr>
+    <tr><td>۲</td><td>صفحه‌بندی HTML برای دسته‌های بلاگ و اعلام sitemap بلاگ در robots.txt</td><td>قالب بلاگ (بخش ۶)</td><td>توسعه</td></tr>
+    <tr><td>۳</td><td>اصلاح لینک‌های ۴۰۴ و ریدایرکتی</td><td>۶ صفحه و منو و فوتر بلاگ</td><td>محتوا و قالب</td></tr>
+    <tr><td>۴</td><td>اصلاح Organization و نویسنده در اسکیما؛ تعیین تکلیف <span class="ltr">/new</span>، <span class="ltr">/en</span> و ارجاع pars-next</td><td>کل سایت (بخش ۷)</td><td>توسعه</td></tr>
+    <tr><td>۵</td><td>اسکیمای صفحه‌های فروش: Product و Offer به‌جای Article</td><td>هاب‌های ردهٔ ۱</td><td>توسعه</td></tr>
+    <tr><td>۶</td><td>اصلاح غلط‌های عنوان، توضیح متا و متن</td><td>۹ صفحه، داخل کارت هر صفحه</td><td>محتوا</td></tr>
+  </table>
+</section>
+
+<!-- ===================== 2 ===================== -->
+<section id="rank">
+  <h2><span class="num">۲</span> جایگاه فعلی در گوگل</h2>
+  <p class="sec-lead">اسنپ‌شات نتایج ارگانیک گوگل با <span class="ltr">hl=fa</span> و <span class="ltr">gl=ir</span>، ۲۶ مهر ۱۴۰۵. عدد یعنی اولین نتیجهٔ هر برند در ۱۰ نتیجهٔ اول. «—» یعنی خارج از ۱۰ نتیجهٔ اول.</p>
+  <table class="tbl small">
+    <tr><th>کوئری</th><th>پارس‌پک</th><th>ایران‌سرور</th><th>میزبان‌فا</th><th>هاست‌ایران</th><th>لیمو</th><th>لیارا</th><th>آروان</th></tr>
+    <tr><td>خرید هاست</td><td class="w">۱</td><td>۴</td><td>۲</td><td>۶</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td>هاست وردپرس</td><td class="o">۳</td><td>۱</td><td>۲</td><td>—</td><td>۶</td><td>—</td><td>—</td></tr>
+    <tr><td>هاست ووکامرس</td><td class="o">۲</td><td>۳</td><td>۱</td><td>۴</td><td>۵</td><td>—</td><td>—</td></tr>
+    <tr><td>هاست لینوکس</td><td class="w">۱</td><td>۳</td><td>—</td><td>۲</td><td>—</td><td>۴</td><td>—</td></tr>
+    <tr><td>هاست ابری</td><td class="w">۱</td><td>—</td><td>۴</td><td>۲</td><td>۷</td><td>۳</td><td>—</td></tr>
+    <tr><td>هاست دانلود</td><td class="w">۱</td><td>۵</td><td>—</td><td>۲</td><td>—</td><td>—</td><td>۶</td></tr>
+    <tr><td>نمایندگی هاست</td><td class="w">۱</td><td>۳</td><td>—</td><td>۴</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td>خرید سرور مجازی</td><td class="w">۱</td><td>۳</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td>خرید VPS</td><td class="w">۱</td><td>۳</td><td>—</td><td>—</td><td>—</td><td>—</td><td>۸</td></tr>
+    <tr><td>VPS ایران</td><td class="w">۱</td><td>۷</td><td>—</td><td>۶</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td>سرور مجازی آلمان</td><td class="w">۱</td><td>۶</td><td>—</td><td>—</td><td>—</td><td>—</td><td>۵</td></tr>
+    <tr><td>سرور مجازی ترکیه</td><td class="w">۱</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>۵</td></tr>
+    <tr><td>سرور ابری</td><td class="w">۱</td><td>۹</td><td>—</td><td>—</td><td>—</td><td>—</td><td>۳</td></tr>
+    <tr><td>سرور اختصاصی</td><td class="w">۱</td><td>۴</td><td>—</td><td>۶</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td>خرید دامنه</td><td class="w">۱</td><td>۲</td><td>۸</td><td>۳</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td>ثبت دامنه</td><td class="o">۲</td><td>۱</td><td>۱۰</td><td>۴</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td>خرید CDN</td><td class="w">۱</td><td>۲</td><td>—</td><td>—</td><td>—</td><td>—</td><td>۳</td></tr>
+    <tr><td>گواهی SSL</td><td class="o">۲</td><td>۴</td><td>—</td><td>۵</td><td>—</td><td>—</td><td>۸</td></tr>
+    <tr><td>فضای ابری</td><td class="w">۱</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>۷</td></tr>
+    <tr><td>بهترین هاست ایران</td><td class="o">۹</td><td>—</td><td>—</td><td>۸</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td>هاست ارزان</td><td class="o">۲</td><td>—</td><td>۳</td><td>—</td><td>۷</td><td>۵</td><td>—</td></tr>
+    <tr><td>VPS ارزان</td><td class="o">۵</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>۸</td></tr>
+  </table>
+  <div class="good">
+    <b class="t">قوت‌هایی که باید حفظ شوند</b>
+    رتبهٔ ۱ روی «خرید هاست»، «خرید سرور مجازی»، «خرید VPS»، «سرور ابری»، «سرور اختصاصی»، «خرید دامنه» و «خرید CDN». این رتبه‌ها روی همین URLها و همین عنوان‌ها به دست آمده‌اند. برای همین، کارهای این گزارش URL و عنوان این صفحه‌ها را عوض نمی‌کنند.
+  </div>
+  <div class="better">
+    <b class="t">فرصت‌ها: کوئری‌هایی که هنوز رتبهٔ ۱ نیستند</b>
+    <ul>
+      <li><b>هاست وردپرس (۳)، هاست ووکامرس (۲):</b> مقالهٔ <span class="ltr">/host</span> سه بار از «هاست وردپرس» نام برده، ولی به <span class="ltr">/host/wordpress</span> لینک نداده. لینک داخلی از هاب، اولین قدم کم‌هزینه برای این دو کوئری است (کارت <span class="ltr">/host</span>).</li>
+      <li><b>ثبت دامنه (۲)، گواهی SSL (۲):</b> رقیب ردهٔ ۱ ایران‌سرور است. این دو کوئری بعد از اتصال Search Console با کلیک و نمایش واقعی پیگیری شوند.</li>
+      <li><b>هاست ارزان (۲)، VPS ارزان (۵):</b> صفحه‌های فعلی همین کلمه را در توضیح متا دارند. در Search Console دیده شود که کدام URL برای این دو کوئری نمایش می‌گیرد، و تقویت روی همان URL انجام شود.</li>
+      <li><b>بهترین هاست ایران (۹):</b> نیت این کوئری مقایسه است، نه خرید. یک راهنمای مقایسه‌ای در بلاگ که به <span class="ltr">/host</span> لینک بدهد، برای این نیت مناسب‌تر از تغییر صفحهٔ فروش است.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== 3 ===================== -->
+<section id="map">
+  <h2><span class="num">۳</span> نقشهٔ سایت و ترتیب اهمیت صفحه‌ها</h2>
+  <table class="tbl">
+    <tr><th>بخش</th><th>تعداد</th><th>منبع</th></tr>
+    <tr><td>صفحه‌های تجاری و سازمانی</td><td>۱۰۳</td><td><span class="ltr">page-sitemap.xml</span></td></tr>
+    <tr><td>پست‌های بلاگ</td><td>۱٬۴۴۲ ردیف، ۱٬۳۶۱ URL یکتا</td><td>هشت فایل <span class="ltr">blog/post-sitemap*.xml</span>. ۸۱ URL دو بار آمده.</td></tr>
+    <tr><td>صفحه‌های HTML که با دنبال کردن لینک‌ها دیده شدند</td><td>۱٬۰۲۲</td><td>کراول SiteOne، ۲۹ مهر ۱۴۰۵</td></tr>
+  </table>
+
+  <h3 class="sub">ساختار هاب و زیرصفحه</h3>
+  <p>هر خط محصول یک هاب دارد: <span class="ltr">/vps</span>، <span class="ltr">/host</span>، <span class="ltr">/cloud-server</span>، <span class="ltr">/dedicated-servers</span>، <span class="ltr">/domain</span>. زیرصفحه‌های لوکیشن و سیستم‌عامل زیر هر هاب هستند. <span class="ltr">/servers</span> هاب بالادستی است که همهٔ انواع سرور را کنار هم می‌گذارد. نمونهٔ آلمان:</p>
+  <table class="tbl small">
+    <tr><th>URL</th><th>عنوان صفحه</th></tr>
+    <tr><td class="ltr">/servers/foreign/germany</td><td>سرور آلمان | خرید سرور آلمان ویندوزی و لینوکسی هتزنر</td></tr>
+    <tr><td class="ltr">/vps/foreign/germany</td><td>سرور مجازی آلمان - خرید vps آلمان - لینوکس و ویندوز - پارس پک</td></tr>
+    <tr><td class="ltr">/cloud-server/foreign/germany</td><td>سرور ابری آلمان | قیمت خرید سرور ابری آلمان - پارس‌پک</td></tr>
+    <tr><td class="ltr">/dedicated-servers/foreign/germany</td><td>سرور اختصاصی آلمان | خرید سرور اختصاصی المان - پارس‌پک</td></tr>
+    <tr><td class="ltr">/host/foreign/germany</td><td>هاست آلمان | خرید هاست المان | هاست ابری آلمان - پارس‌پک</td></tr>
+  </table>
+  <p>هر صفحه کلیدواژهٔ محصول خودش را دارد. هاب <span class="ltr">/servers/foreign/germany</span> به هر چهار زیرصفحه لینک می‌دهد و <span class="ltr">/vps/foreign/germany</span> به صفحه‌های خواهر و مقالهٔ «سرور مجازی آلمان چیست» لینک می‌دهد. این ساختار درست کار می‌کند. چیزی که کم است، لینک از <b>داخل متن مقاله‌ها</b>ست؛ لینک‌های فعلی همه در کارت‌ها و بلوک‌های قالب هستند.</p>
+  <p>تنها جایی که هم‌پوشانی ممکن است، کوئری‌های عمومی مثل «سرور آلمان» یا «خرید سرور» است که هم هاب <span class="ltr">/servers</span> و هم هاب‌های محصول می‌توانند برایشان نمایش بگیرند. این را فقط Search Console نشان می‌دهد: کوئری‌هایی که دو URL برایشان نمایش دارند. تا آن داده نیامده، تغییری در ساختار پیشنهاد نمی‌شود.</p>
+
+  <h3 class="sub">ترتیب اهمیت در این گزارش</h3>
+  <p>Search Console در این نسخه وصل نیست. ترتیب بر اساس نقش تجاری صفحه و جایگاهش در سایت است. صفحهٔ اصلی به ترتیب این بخش‌ها را لینک می‌دهد: سرورها، هاست، فضای ابری، دامنه، ابزارها، و بعد لوکیشن‌های VPS.</p>
+  <ul>
+    <li><b>ردهٔ ۱:</b> صفحهٔ اصلی، <span class="ltr">/vps</span>، <span class="ltr">/host</span>، <span class="ltr">/cloud-server</span>، <span class="ltr">/servers</span>، <span class="ltr">/domain</span>.</li>
+    <li><b>ردهٔ ۲:</b> زیرصفحه‌های VPS و لوکیشن‌ها، و چند صفحهٔ تجاری دیگر که ایراد مشخص داشتند.</li>
+    <li><b>ردهٔ ۳:</b> بلاگ؛ در سطح قالب، به‌علاوهٔ مقاله‌هایی که ایراد مشخص دارند.</li>
+  </ul>
+</section>
+
+<!-- ===================== 4 ===================== -->
+<section id="t1">
+  <h2><span class="num">۴</span> صفحه‌های ردهٔ ۱: صفحهٔ اصلی و هاب‌های فروش</h2>
+  <p class="sec-lead">«کلمه» یعنی تعداد کلمهٔ متن داخل تگ <span class="ltr">main</span>. «مقاله» یعنی بلوک متنی پایین صفحه (<span class="ltr">section.section-read-more</span>). عنوان و توضیح متای این صفحه‌ها کلیدواژه‌های هدف را دارند و جز غلط تایپی تغییری لازم ندارند.</p>
+
+  <article class="page" id="p-home">
+    <h3><span class="tier">ردهٔ ۱</span> صفحهٔ اصلی <span class="ltr">/</span></h3>
+    <p class="for">عنوان: «پارس پک | ارائه خدمات ابری: خرید هاست و خرید دامنه و سرور.» · H1: «پارس‌پک، فناوری ابری به سادگی» · ۱٬۳۵۸ کلمه</p>
+    <div class="good"><b class="t">آنچه درست است</b>H1 برند است و صفحه به همهٔ هاب‌های محصول لینک می‌دهد: سرورها، هاست، فضای ابری، دامنه، VPS، PaaS، CDN و SSL.</div>
+    <div class="better">
+      <b class="t">ادیت‌ها</b>
+      <ul>
+        <li><b>توضیح متا.</b> از: «… ارائه: انواع: سرومجازی، سرور ابری، سروراختصاصی، خرید هاست، فضای ابری، ثبت دامنه از سال 1388.» به: «… ارائهٔ انواع سرور مجازی، سرور ابری، سرور اختصاصی، خرید هاست، فضای ابری و ثبت دامنه از سال 1388.»</li>
+        <li><b>og:image ندارد.</b> لینک صفحهٔ اصلی در پیام‌رسان‌ها و شبکه‌های اجتماعی بدون تصویر نمایش داده می‌شود. یک تصویر برند روی دامنهٔ اصلی تعریف شود.</li>
+        <li><b>Organization در اسکیما</b> هنوز <span class="ltr">"url":"https://parspack.com/new"</span> دارد. جزئیات در بخش ۷.</li>
+        <li><b>یک سؤال:</b> صفحهٔ اصلی به <span class="ltr">/enterprise-cloud-solutions</span> («سرویس های سازمانی») لینک می‌دهد. این صفحه <span class="ltr">noindex, nofollow</span> است. اگر عمدی نیست، noindex برداشته شود.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="page" id="p-vps">
+    <h3><span class="tier">ردهٔ ۱</span> <span class="ltr">/vps</span></h3>
+    <p class="for">عنوان: «سرور مجازی ⚡️ خرید سرور مجازی (خرید VPS) IPV6 بالاترین کیفیت» · H1: «سرور مجازی» · ۹٬۲۳۴ کلمه، که ۳٬۴۰۴ تایش مقاله است · ۲۳ H2 · آخرین ویرایش در اسکیما: ۵ مهر ۱۴۰۵</p>
+    <div class="good"><b class="t">آنچه درست است</b>ترتیب صفحه مسیر خرید را دنبال می‌کند: پلن و قیمت، انواع، ویژگی‌ها، «سرور مجازی چیست؟»، مقایسه با رقبا، «پیش از خرید بدانید»، لوکیشن‌ها، پنل، نظر مشتری، سوالات متداول. مقالهٔ تاریخچه و راهنما پایین صفحه است و جلوی تصمیم خرید را نمی‌گیرد. کارت‌های لوکیشن به هر هشت کشور لینک می‌دهند.</div>
+    <div class="now"><b class="t">الان</b>مقالهٔ ۳٬۴۰۴ کلمه‌ای <b>صفر لینک</b> دارد، در حالی که این عبارت‌ها در متنش آمده‌اند: سرور مجازی ایران، آلمان، ترکیه، کانادا و سوئد؛ سرور مجازی لینوکس و ویندوز؛ میکروتیک؛ ترافیک نامحدود؛ سرور اختصاصی. اسکیمای صفحه از نوع Article است، با نویسنده‌ای که URL صفحه‌اش ۴۰۴ می‌دهد (<span class="ltr">/new/author/sajjad/</span>).</div>
+    <div class="better">
+      <b class="t">ادیت‌ها</b>
+      <ul>
+        <li><b>لینک داخل متن، در اولین اشاره:</b> «سرور مجازی ایران» به <span class="ltr">/vps/iran</span>، «سرور مجازی آلمان» به <span class="ltr">/vps/foreign/germany</span>، «سرور مجازی ترکیه» به <span class="ltr">/vps/foreign/turkey</span>، «سرور مجازی کانادا» به <span class="ltr">/vps/foreign/canada</span>، «سرور مجازی سوئد» به <span class="ltr">/vps/foreign/sweden</span>، «سرور مجازی لینوکس» به <span class="ltr">/vps/linux</span>، «سرور مجازی ویندوز» به <span class="ltr">/vps/windows</span>، «میکروتیک» به <span class="ltr">/vps/mikrotik</span>، «ترافیک نامحدود» به <span class="ltr">/vps/unlimited-traffic</span>، و «سرور اختصاصی» به <span class="ltr">/dedicated-servers</span>.</li>
+        <li><b>اسکیما:</b> برای صفحهٔ فروش، Product با Offer برای پلن‌ها (قیمت‌ها در HTML صفحه هست) به‌جای Article با نویسندهٔ شخصی. نشانی نویسنده هم اگر می‌ماند، به صفحهٔ زنده اشاره کند.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="page" id="p-host">
+    <h3><span class="tier">ردهٔ ۱</span> <span class="ltr">/host</span></h3>
+    <p class="for">عنوان: «خرید هاست ☁️ Web Hosting اولین هاست ابری کشور» · H1: «خرید هاست» · ۵٬۰۶۲ کلمه، که ۳٬۲۰۱ تایش مقاله است · رتبهٔ ۱ برای «خرید هاست»</p>
+    <div class="good"><b class="t">آنچه درست است</b>کارت‌های «انواع هاست» به زیرصفحه‌های اصلی هاست لینک می‌دهند. مقاله با تعریف میزبانی وب شروع می‌شود و به انواع هاست می‌رسد.</div>
+    <div class="now"><b class="t">الان</b>مقاله صفر لینک دارد. هر زیرمحصول حدود چهار بار در متن آمده: نمایندگی هاست، هاست اختصاصی، هاست لینوکس، هاست دانلود، هاست ایران، هاست ابری؛ «هاست وردپرس» سه بار و «هاست خارج» دو بار.</div>
+    <div class="better">
+      <b class="t">ادیت‌ها</b>
+      <ul>
+        <li><b>لینک داخل متن، در اولین اشاره:</b> «هاست وردپرس» به <span class="ltr">/host/wordpress</span>، «هاست لینوکس» به <span class="ltr">/host/linux</span>، «هاست ایران» به <span class="ltr">/host/iran</span>، «هاست ابری» به <span class="ltr">/host/cloud-host</span>، «هاست دانلود» به <span class="ltr">/host/download-host</span>، «نمایندگی هاست» به <span class="ltr">/host/reseller</span>، «هاست اختصاصی» به <span class="ltr">/host/dedicated</span>، «هاست خارج» به <span class="ltr">/host/foreign</span>، و «دامنه» به <span class="ltr">/domain</span>. لینک هاست وردپرس مستقیم به فرصت رتبهٔ ۳ آن کوئری کمک می‌کند.</li>
+        <li><b>اسکیما:</b> مثل <span class="ltr">/vps</span>.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="page" id="p-cloud">
+    <h3><span class="tier">ردهٔ ۱</span> <span class="ltr">/cloud-server</span></h3>
+    <p class="for">H1: «خرید سرور ابری» · ۴٬۳۲۵ کلمه، که ۲٬۹۵۵ تایش مقاله است · ۳۲ H2 · رتبهٔ ۱ برای «سرور ابری»</p>
+    <div class="now"><b class="t">الان</b>مقاله برای هر کشور یک H2 دارد: سرور ابری ایران، آلمان، ترکیه، فرانسه، هلند، انگلیس و کانادا. هیچ‌کدام لینک ندارند. در page-sitemap دو صفحهٔ کشور برای سرور ابری هست: <span class="ltr">/cloud-server/iran</span> و <span class="ltr">/cloud-server/foreign/germany</span>. بقیهٔ کشورها زیر <span class="ltr">/cloud-server/foreign</span> هستند. دکمهٔ «خرید PaaS ایرانی» در اسلایدر به <span class="ltr">/cloud-server/paas</span> لینک می‌دهد، که با ۳۰۱ به <span class="ltr">/paas</span> می‌رود.</div>
+    <div class="better">
+      <b class="t">ادیت‌ها</b>
+      <ul>
+        <li><b>لینک در بخش کشورها:</b> H2 «سرور ابری ایران» به <span class="ltr">/cloud-server/iran</span>، «سرور ابری آلمان» به <span class="ltr">/cloud-server/foreign/germany</span>، و بقیهٔ کشورها به <span class="ltr">/cloud-server/foreign</span>.</li>
+        <li><b>لینک سیستم‌عامل:</b> «سرور ابری لینوکس» به <span class="ltr">/cloud-server/linux</span> و «سرور ابری ویندوز» به <span class="ltr">/cloud-server/windows</span>.</li>
+        <li><b>دکمهٔ PaaS:</b> مستقیم به <span class="ltr">/paas</span>.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="page" id="p-servers">
+    <h3><span class="tier">ردهٔ ۱</span> <span class="ltr">/servers</span></h3>
+    <p class="for">عنوان: «خرید سرور | اختصاصی، ابری، مجازی 🌍 ایران و خارج» · H1: «خرید سرور» · ۷٬۰۵۶ کلمه، که ۴٬۹۱۳ تایش مقاله است · ۲۶ H2</p>
+    <div class="good"><b class="t">آنچه درست است</b>نقش هاب روشن است: سه نوع سرور را کنار هم می‌گذارد، مقایسه می‌کند و به هر کدام کارت لینک دارد.</div>
+    <div class="now"><b class="t">الان</b>
+      <ul>
+        <li>پاسخ یکی از سوالات متداول: «… نسخه‌های متنوع ویندوز سرور از ۲۰۱۰ تا ۲۰۲۵ و ویندوز ۱۰ …». ویندوز سرور ۲۰۱۰ وجود ندارد. همین صفحه جای دیگر نوشته «Windows 10، 2016، 2019، 2022، و 2025» و جای دیگر «ویندوز ۱۱ و ۲۰۱۶، ۲۰۱۹، ۲۰۲۲ و ۲۰۲۵».</li>
+        <li>مقالهٔ ۴٬۹۱۳ کلمه‌ای صفر لینک دارد. «سرور اختصاصی» ۱۴ بار، «ترید» ۱۴ بار، «سرور مجازی» ۸ بار و «سرور گرافیکی/GPU» ۸ بار آمده‌اند.</li>
+        <li>og:image ندارد.</li>
+      </ul>
+    </div>
+    <div class="better">
+      <b class="t">ادیت‌ها</b>
+      <ul>
+        <li>«۲۰۱۰ تا ۲۰۲۵» بشود «۲۰۱۶، ۲۰۱۹، ۲۰۲۲ و ۲۰۲۵». ویندوز ۱۰ یا ۱۱ هم با تیم فنی چک شود تا هر سه جای صفحه یک چیز بگویند.</li>
+        <li>لینک در اولین اشاره: «سرور اختصاصی» به <span class="ltr">/dedicated-servers</span>، «سرور مجازی» به <span class="ltr">/vps</span>، «سرور ابری» به <span class="ltr">/cloud-server</span>، «سرور گرافیکی» به <span class="ltr">/servers/gpu</span>، و «ترید» به <span class="ltr">/vps/foreign/trade</span>.</li>
+        <li>یک og:image تعریف شود.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="page" id="p-domain">
+    <h3><span class="tier">ردهٔ ۱</span> <span class="ltr">/domain</span></h3>
+    <p class="for">عنوان: «خرید دامنه | ثبت دامنه ارزان تر از IRNIC | جستجوی دامین» · H1: «خرید دامین» · ۷٬۰۴۷ کلمه، که ۲٬۰۵۹ تایش مقاله است · رتبهٔ ۱ برای «خرید دامنه»</p>
+    <div class="now"><b class="t">الان</b>بالای صفحه یک H2 خالی هست: <span class="ltr">&lt;h2 class="title text_h2 text-EnNum"&gt;&lt;/h2&gt;</span>. مقاله صفر لینک دارد: «دامنه بین المللی» ۹ بار و «دامنه ir» ۵ بار آمده.</div>
+    <div class="better">
+      <b class="t">ادیت‌ها</b>
+      <ul>
+        <li><b>عنوان:</b> «ارزان تر» بشود «ارزان‌تر». بقیهٔ عنوان همان بماند.</li>
+        <li><b>H2 خالی:</b> در قالب حذف شود، یا متن بگیرد.</li>
+        <li><b>لینک در اولین اشاره:</b> «دامنه ir» به <span class="ltr">/domain/ir</span>، «دامنه بین المللی» به <span class="ltr">/domain/international</span>، و «هاست» به <span class="ltr">/host</span>.</li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<!-- ===================== 5 ===================== -->
+<section id="t2">
+  <h2><span class="num">۵</span> صفحه‌های ردهٔ ۲: زیرمحصول و لوکیشن</h2>
+
+  <article class="page" id="p-loc">
+    <h3><span class="tier t2">ردهٔ ۲</span> صفحه‌های لوکیشن VPS</h3>
+    <p class="for">رتبهٔ ۱ برای «VPS ایران»، «سرور مجازی آلمان» و «سرور مجازی ترکیه».</p>
+    <table class="tbl small">
+      <tr><th>URL</th><th>کلمهٔ مقاله</th><th>لینک در مقاله</th><th>ادیت مشخص</th></tr>
+      <tr><td class="ltr">/vps/iran</td><td>۲٬۰۵۰</td><td>۰</td><td>توضیح متا: «باقیمت ارزان در کنارسخت‌افزار … بروز» بشود «با قیمت ارزان در کنار سخت‌افزار … به‌روز».</td></tr>
+      <tr><td class="ltr">/vps/foreign/germany</td><td>۱٬۹۴۰</td><td>۰</td><td>توضیح متا: «سرورمجازی آلمان» بشود «سرور مجازی آلمان»، و «ارائه میشود» بشود «ارائه می‌شود».</td></tr>
+      <tr><td class="ltr">/vps/foreign/turkey</td><td>۲٬۶۷۹</td><td>۰</td><td>«ترید» ۴ بار در متن آمده؛ به <span class="ltr">/vps/foreign/trade</span> لینک شود.</td></tr>
+      <tr><td class="ltr">/vps/foreign/england</td><td>۳٬۱۹۵</td><td>۰</td><td>پاراگراف‌های مشترک با فرانسه یکتا شوند (پایین‌تر).</td></tr>
+      <tr><td class="ltr">/vps/foreign/france</td><td>۳٬۰۴۸</td><td>۰</td><td>پاراگراف‌های مشترک با انگلیس یکتا شوند.</td></tr>
+    </table>
+    <div class="better">
+      <b class="t">ادیت مشترک</b>
+      <ul>
+        <li>در هر مقاله، اولین «سرور مجازی» به <span class="ltr">/vps</span> لینک شود. هر جا «ترید» یا «سرور اختصاصی» آمده، اولین اشاره به <span class="ltr">/vps/foreign/trade</span> و <span class="ltr">/dedicated-servers</span> لینک شود. در <span class="ltr">/vps/iran</span> هم «سرور مجازی لینوکس» به <span class="ltr">/vps/linux</span> و «میکروتیک» به <span class="ltr">/vps/mikrotik</span>.</li>
+        <li><b>شباهت متن:</b> بعد از حذف بخش‌های قالب و نام کشور، متن مقاله‌های لوکیشن ۳ تا ۱۰ درصد به هم شبیه‌اند. این یعنی near-duplicate نیستند و noindex یا ادغام لازم ندارند. فقط انگلیس و فرانسه حدود ۲۹٪ شباهت دارند، بیشتر در پاراگراف‌های ثبت سفارش، انتخاب سیستم‌عامل و دسترسی root. همان پاراگراف‌ها برای هر کشور جدا نوشته شوند. (اندازه‌گیری ۲ آبان، روی <span class="ltr">/vps/iran</span> و هفت صفحهٔ لوکیشن خارجی.)</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="page" id="p-foreign">
+    <h3><span class="tier t2">ردهٔ ۲</span> <span class="ltr">/vps/foreign</span></h3>
+    <div class="fromto">
+      <p><b>عنوان، از:</b> «سرور مجازی خارج VPS خرید | NVMe اروپا با پایین ترین قیمت»</p>
+      <p><b>به:</b> «سرور مجازی خارج | خرید VPS | NVMe اروپا با پایین‌ترین قیمت»</p>
+    </div>
+    <p class="why">در عنوان فعلی «خرید» بعد از VPS آمده و در نتایج گوگل و تب مرورگر «VPS خرید» خوانده می‌شود. هر دو عبارت «سرور مجازی خارج» و «خرید VPS» در عنوان جدید هست.</p>
+  </article>
+
+  <article class="page" id="p-linux">
+    <h3><span class="tier t2">ردهٔ ۲</span> <span class="ltr">/vps/linux</span></h3>
+    <div class="fromto">
+      <p><b>توضیح متا، از:</b> «سرور مجازی لینوکس Centos ، Ubuntu وDebian پارس پک …»</p>
+      <p><b>به:</b> «سرور مجازی لینوکس CentOS، Ubuntu و Debian پارس پک …»</p>
+    </div>
+  </article>
+
+  <article class="page" id="p-sforeign">
+    <h3><span class="tier t2">ردهٔ ۲</span> <span class="ltr">/servers/foreign</span></h3>
+    <div class="now"><b class="t">الان</b>لینک کارت «سرور آلمان» این است:
+      <div class="quote ltr">&lt;a title="خرید سرور آلمان" href="/servers/goreign/germany target="_blank "&gt;سرور آلمان&lt;/a&gt;</div>
+      «goreign» غلط تایپی است. گیومهٔ بستن href هم جا افتاده. مقصد ۴۰۴ می‌دهد.</div>
+    <div class="better"><b class="t">ادیت</b>
+      <div class="quote ltr">&lt;a title="خرید سرور آلمان" href="/servers/foreign/germany" target="_blank"&gt;سرور آلمان&lt;/a&gt;</div>
+    </div>
+  </article>
+
+  <article class="page" id="p-dint">
+    <h3><span class="tier t2">ردهٔ ۲</span> <span class="ltr">/domain/international</span></h3>
+    <p>صفحه دو H1 دارد (کراول ۲۹ مهر، و دوباره در ۲ آبان). یکی H1 بماند و دیگری H2 شود.</p>
+  </article>
+</section>
+
+<!-- ===================== 6 ===================== -->
+<section id="t3">
+  <h2><span class="num">۶</span> ردهٔ ۳: بلاگ</h2>
+  <p class="sec-lead">بلاگ بزرگ‌ترین بخش سایت است. اینجا تک‌تک مقاله‌ها بررسی نمی‌شوند. اول ایرادهای قالب آمده که روی همهٔ پست‌ها اثر دارند، بعد مقاله‌هایی که ایراد مشخص دارند.</p>
+
+  <article class="page" id="b-discovery">
+    <h3>کشف پست‌ها: صفحه‌بندی و sitemap</h3>
+    <div class="now"><b class="t">الان</b>
+      <ul>
+        <li>صفحهٔ دسته، مثلاً <span class="ltr">/blog/security</span>، ۸ پست نشان می‌دهد. بقیه با دکمهٔ «بیشتر» (<span class="ltr">load-more-data</span>) بار می‌شوند. در HTML لینکی به صفحهٔ بعد نیست، در حالی که <span class="ltr">/blog/security/page/2</span> وجود دارد و ۲۰۰ می‌دهد.</li>
+        <li>گوگل صفحه را رندر می‌کند ولی روی دکمه کلیک نمی‌کند. پس پستی که فقط با «بیشتر» ظاهر می‌شود، از صفحهٔ دسته کشف نمی‌شود.</li>
+        <li>کراول ۲۹ مهر با دنبال کردن لینک‌ها به ۹۱۶ URL بلاگ رسید. از ۱٬۳۶۱ پست sitemap بلاگ، ۵۹۴ پست در این مسیر دیده نشدند. چهار نمونه را ۲ آبان باز کردم و هر چهار ۲۰۰ بودند، مثل <span class="ltr">/blog/security/otp</span> و <span class="ltr">/blog/hosting/fanava-datacenter</span>.</li>
+        <li>برای این پست‌ها sitemap مهم‌ترین راه کشف است، ولی <span class="ltr">/blog/sitemap_index.xml</span> در robots.txt اعلام نشده (مورد ۲۶ مهر). ۸۱ URL هم در sitemapهای بلاگ دو بار آمده‌اند.</li>
+      </ul>
+    </div>
+    <div class="better"><b class="t">ادیت‌ها</b>
+      <ul>
+        <li>زیر لیست پست‌ها، لینک HTML ساده به صفحه‌های بعد گذاشته شود (<span class="ltr">&lt;a href="/blog/security/page/2"&gt;</span>). دکمهٔ «بیشتر» می‌تواند بماند.</li>
+        <li>این خط به robots.txt اضافه شود: <span class="ltr">Sitemap: https://parspack.com/blog/sitemap_index.xml</span></li>
+        <li>URLهای تکراری از sitemapهای بلاگ حذف شوند.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="page" id="b-template">
+    <h3>منو و فوتر بلاگ</h3>
+    <p>«خرید PaaS ایرانی» در منوی بالا و فوتر بلاگ به <span class="ltr">/cloud-server/paas</span> لینک می‌دهد، که با ۳۰۱ به <span class="ltr">/paas</span> می‌رود. چون در قالب است، روی همهٔ پست‌ها تکرار می‌شود. در قالب به <span class="ltr">/paas</span> عوض شود.</p>
+  </article>
+
+  <article class="page" id="b-posts">
+    <h3>مقاله‌هایی با ایراد مشخص</h3>
+    <table class="tbl small">
+      <tr><th>مقاله</th><th>الان</th><th>ادیت</th></tr>
+      <tr><td class="ltr">/blog/hosting/learn-server/canada-vps</td><td>کارت «سرور ابری ایران» به <span class="ltr">/cloud-servers/iran</span> می‌رود (۴۰۴). متن همان کارت «برتریرن» نوشته. انکر «سئو» به <span class="ltr">/blog/cms/seo-search-engine-optimization</span> می‌رود (۳۰۱). انکر «IP ثابت» به <span class="ltr">/blog/hosting/static-ip</span> می‌رود (۳۰۱).</td><td>به ترتیب: <span class="ltr">/cloud-server/iran</span>؛ «برترین»؛ <span class="ltr">/blog/online-business/seo-tutorial/what-is-seo</span>؛ <span class="ltr">/blog/hosting/buy-stasic-ip</span>.</td></tr>
+      <tr><td class="ltr">/blog/controlpanel/directadmin/filter-spam-email-directadmin</td><td>«خرید هاست دایرکت ادمین» به <span class="ltr">/hosting/directadmin</span> می‌رود (۴۰۴).</td><td><span class="ltr">/host/directadmin</span></td></tr>
+      <tr><td class="ltr">/blog/security/what-is-https</td><td>بنر و انکر «خرید SSL» به <span class="ltr">/new/ab/ssl/</span> می‌روند (۴۰۴).</td><td><span class="ltr">/ssl</span></td></tr>
+      <tr><td class="ltr">/blog/programming/database-tutorial/what-is-sql-server</td><td>بنر «خرید سرور» به <span class="ltr">/new/ab/hub-server/</span> می‌رود (۴۰۴).</td><td><span class="ltr">/servers</span></td></tr>
+      <tr><td class="ltr">/blog/online-business/seo-tutorial</td><td>توضیح متا: «سئو داخی، of page, on page».</td><td>«سئو داخلی، off-page و on-page»</td></tr>
+      <tr><td class="ltr">/blog/network/what-is-cisco</td><td>۱۰ تگ H1 در یک صفحه. کراول دو مقالهٔ دیگر را هم با چند H1 نشان داده: <span class="ltr">http-error</span> و <span class="ltr">high-traffic-vs-free-hosting</span>.</td><td>یک H1، بقیه H2.</td></tr>
+    </table>
+  </article>
+</section>
+
+<!-- ===================== 7 ===================== -->
+<section id="tech">
+  <h2><span class="num">۷</span> سئوی تکنیکال: وضعیت موارد ۲۶ مهر</h2>
+  <p class="sec-lead">همهٔ ردیف‌ها ۲ آبان دوباره چک شدند.</p>
+  <table class="tbl">
+    <tr><th>مورد</th><th>وضعیت ۲ آبان</th><th>شاهد</th><th>اقدام</th></tr>
+    <tr><td>www به دامنهٔ اصلی</td><td class="w">درست شد</td><td><span class="ltr">https://www.parspack.com/</span> با ۳۰۱ به <span class="ltr">https://parspack.com/</span> می‌رود.</td><td>—</td></tr>
+    <tr><td>http به https</td><td class="w">درست</td><td>۳۰۱</td><td>—</td></tr>
+    <tr><td>sitemap بلاگ در robots.txt</td><td class="o">باز</td><td>فقط <span class="ltr">Sitemap: https://parspack.com/sitemap_index.xml</span></td><td>بخش ۶</td></tr>
+    <tr><td>Organization در اسکیما</td><td class="o">باز</td><td><span class="ltr">"@id":"https://parspack.com/new/#organization"</span> و <span class="ltr">"url":"https://parspack.com/new"</span></td><td>url و @id روی <span class="ltr">https://parspack.com/</span></td></tr>
+    <tr><td>نویسنده در اسکیمای صفحه‌های فروش</td><td class="o">باز</td><td><span class="ltr">https://parspack.com/new/author/sajjad/</span> ۴۰۴ می‌دهد.</td><td>صفحهٔ زنده یا Organization به‌عنوان ناشر</td></tr>
+    <tr><td>مسیر <span class="ltr">/new/</span></td><td class="o">باز</td><td>۲۰۰، با متای <span class="ltr">index, follow</span></td><td>۳۰۱ به دامنهٔ اصلی، یا noindex</td></tr>
+    <tr><td>مسیر <span class="ltr">/en/</span></td><td class="o">باز</td><td>کپی HTTrack از ۲۶ مرداد ۱۴۰۱ است. <span class="ltr">lang="fa"</span> دارد، canonical آن <span class="ltr">href="index.html"</span> است، متای robots آن <span class="ltr">index</span> است، و robots.txt آن را با <span class="ltr">Disallow: /en/*</span> بسته.</td><td>حذف و noindex، یا ساخت نسخهٔ انگلیسی واقعی با hreflang</td></tr>
+    <tr><td>ارجاع به pars-next.ir</td><td class="o">باز</td><td>oEmbed در HTML صفحهٔ اصلی</td><td>حذف</td></tr>
+    <tr><td>og:image</td><td class="o">باز</td><td>صفحهٔ اصلی و <span class="ltr">/servers</span> ندارند.</td><td>تصویر پیش‌فرض برند</td></tr>
+    <tr><td>اسکیمای محصول</td><td class="o">باز</td><td>صفحه‌های فروش از نوع Article هستند.</td><td>Product و Offer (بخش ۴)</td></tr>
+    <tr><td><span class="ltr">ads.txt</span></td><td class="o">باز</td><td>با ۳۰۱ به <span class="ltr">/blog</span> می‌رود.</td><td>فایل واقعی، یا ۴۰۴</td></tr>
+    <tr><td><span class="ltr">post-sitemap.xml</span> ریشه</td><td class="o">باز</td><td>۱۶ URL، آخرین lastmod در مرداد ۱۴۰۱</td><td>به‌روزرسانی یا حذف از sitemap_index</td></tr>
+  </table>
+  <p class="why">دربارهٔ FAQPage: از مرداد ۱۴۰۲ (اوت ۲۰۲۳)، گوگل نتیجهٔ غنی FAQ را فقط برای سایت‌های دولتی و سلامت نشان می‌دهد. سوالات متداول صفحه‌ها برای کاربر مفیدند و باید بمانند، ولی اسکیمای FAQPage برای پارس‌پک نتیجهٔ غنی نمی‌سازد. اولویت اسکیما با Product و Offer است.</p>
+</section>
+
+<!-- ===================== 8 ===================== -->
+<section id="off">
+  <h2><span class="num">۸</span> آف‌پیج و آپدیت‌های گوگل</h2>
+  <ul>
+    <li><b>بک‌لینک در این نسخه اندازه گرفته نشده</b>، برای همین هیچ عددی دربارهٔ آن نیامده. برای نسخهٔ بعد، خروجی Links از Search Console یا Ahrefs لازم است: دامنه‌های ارجاع‌دهنده، انکرها و صفحه‌های مقصد. یک کار مشخص هم هست: بک‌لینک‌هایی که به <span class="ltr">/new</span> اشاره می‌کنند پیدا شوند، چون آن مسیر هنوز ۲۰۰ می‌دهد.</li>
+    <li><b>Scaled content abuse:</b> شباهت ۳ تا ۱۰ درصدی مقاله‌های لوکیشن، با این سیاست گوگل جور درنمی‌آید. noindex یا ادغام صفحه‌های کشور لازم نیست.</li>
+    <li><b>بعد از هر core update یا spam update:</b> ۷ تا ۱۴ روز صبر شود. بعد هاب‌ها، صفحه‌های لوکیشن و بلاگ در Search Console جدا مقایسه شوند. اگر افت روی یک صفحه بود، همان صفحه با صفحهٔ خواهرش مقایسه شود، نه کل کاتالوگ.</li>
+  </ul>
+</section>
+
+<!-- ===================== 9 ===================== -->
+<section id="plan">
+  <h2><span class="num">۹</span> برنامهٔ ۳۰ روزه</h2>
+  <table class="tbl">
+    <tr><th>زمان</th><th>توسعه</th><th>محتوا</th></tr>
+    <tr><td>هفتهٔ ۱</td><td>sitemap بلاگ در robots.txt · صفحه‌بندی HTML دسته‌ها · Organization و نویسنده در اسکیما · حذف ارجاع pars-next · لینک PaaS در منو و فوتر بلاگ</td><td>همهٔ لینک‌های ۴۰۴ و ۳۰۱ کارت‌ها · غلط‌های عنوان و متا (۷ صفحه) · متن ویندوز در <span class="ltr">/servers</span></td></tr>
+    <tr><td>هفتهٔ ۲</td><td>تصمیم دربارهٔ <span class="ltr">/new</span> و <span class="ltr">/en</span> · og:image · H2 خالی <span class="ltr">/domain</span></td><td>لینک داخل متن در پنج هاب ردهٔ ۱</td></tr>
+    <tr><td>هفتهٔ ۳ و ۴</td><td>اسکیمای Product و Offer روی هاب‌ها · حذف URLهای تکراری sitemap بلاگ · <span class="ltr">ads.txt</span> و post-sitemap ریشه</td><td>لینک داخل متن در صفحه‌های لوکیشن · بازنویسی پاراگراف‌های مشترک انگلیس و فرانسه · H1های تکراری بلاگ</td></tr>
+  </table>
+  <p class="why">در این دوره URL و عنوان هیچ صفحه‌ای که الان رتبه دارد عوض نمی‌شود، جز اصلاح ترتیب کلمه در <span class="ltr">/vps/foreign</span> و غلط‌های تایپی.</p>
+</section>
+
+<!-- ===================== 10 ===================== -->
+<section id="kpi">
+  <h2><span class="num">۱۰</span> شاخص‌های پیگیری</h2>
+  <table class="tbl">
+    <tr><th>شاخص</th><th>الان</th><th>هدف ۴ هفته</th><th>چطور سنجیده می‌شود</th></tr>
+    <tr><td>sitemap بلاگ در robots.txt</td><td>نیست</td><td>هست</td><td>robots.txt</td></tr>
+    <tr><td>پست‌هایی که با دنبال کردن لینک دیده نمی‌شوند</td><td>۵۹۴</td><td>نزدیک صفر</td><td>کراول دوباره با همان تنظیمات</td></tr>
+    <tr><td>لینک داخل متن در مقاله‌های ۱۰ صفحهٔ فروش و لوکیشن</td><td>۰</td><td>هر زیرمحصولِ نام‌برده لینک دارد</td><td>بلوک مقالهٔ هر صفحه</td></tr>
+    <tr><td>لینک‌های ۴۰۴ و ۳۰۱ این گزارش</td><td>۱۱ لینک</td><td>۰</td><td>چک کد هر لینک</td></tr>
+    <tr><td>Organization روی <span class="ltr">/new</span></td><td>بله</td><td>خیر</td><td>کد منبع صفحهٔ اصلی</td></tr>
+    <tr><td>کلیک و نمایش هاب‌ها؛ رتبهٔ کوئری‌های بخش ۲</td><td>اندازه‌گیری نشده</td><td>ثبت خط پایه</td><td>Search Console</td></tr>
+  </table>
+</section>
+
+<!-- ===================== 11 ===================== -->
+<section id="how">
+  <h2><span class="num">۱۱</span> منبع داده، روش و محدودیت‌ها</h2>
+  <ul>
+    <li><b>بررسی زنده، ۲ آبان ۱۴۰۵، ۱۱:۰۰ تا ۱۳:۲۰ به وقت تهران.</b> HTML این صفحه‌ها کامل ذخیره و خوانده شد: صفحهٔ اصلی، پنج هاب ردهٔ ۱، پنج صفحهٔ لوکیشن و دو مقالهٔ بلاگ. عنوان و متای <span class="ltr">/vps/foreign</span>، <span class="ltr">/vps/linux</span>، <span class="ltr">/vps/cheap</span> و ۱۰ صفحهٔ لوکیشن سرور هم گرفته شد. کد هر لینک با <span class="ltr">curl</span> و بدون دنبال کردن ریدایرکت گرفته شد.</li>
+    <li><b>کراول SiteOne، ۲۹ مهر ۱۴۰۵، ۱۷:۰۲ به وقت تهران.</b> این کراول ۱٬۱۹۳ URL دید، که ۱٬۰۲۲ تایش HTML بود. جاوااسکریپت خاموش بود. هر ردیفی از کراول که در این گزارش آمده، ۲ آبان دوباره باز شده؛ مگر جایی که صریح نوشته شده «طبق کراول».</li>
+    <li><b>رتبه‌ها</b> اسنپ‌شات یک‌بارهٔ ۲۶ مهر است، از یک دستگاه، فقط ۱۰ نتیجهٔ اول ارگانیک.</li>
+    <li><b>شمارش کلمه و لینک مقاله</b> فقط روی بلوک <span class="ltr">section.section-read-more</span> است. لینک‌های کارت و قالب در این عدد نیستند.</li>
+    <li><b>شباهت متن لوکیشن‌ها</b> شباهت دنبالهٔ متن مقاله است، بعد از حذف بخش‌های قالب و نام کشور.</li>
+    <li><b>اندازه‌گیری نشده:</b> Search Console (کلیک، نمایش، ایندکس)، Core Web Vitals و بک‌لینک. با اتصال Search Console، ترتیب اهمیت صفحه‌ها بر اساس کلیک واقعی به‌روز می‌شود.</li>
+  </ul>
+</section>
+
+<footer>
+  پارس‌پک · گزارش سئو · ۲ آبان ۱۴۰۵ · ادغام گزارش ۲۶ مهر، مقایسهٔ رقبا و بررسی ۲ آبان
+</footer>
+</div>
+</body>
+</html>
