@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>پارس‌پک — گزارش سئو پارس‌پک | ۲ آبان ۱۴۰۵</title>
+<title>پارس‌پک — گزارش سئو پارس‌پک (نسخهٔ ۲) | ۳ آبان ۱۴۰۵</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -78,6 +78,7 @@
   table.small{font-size:13.5px}
   h3.sub{font-size:17px;color:var(--navy);margin:16px 0 4px}
   section ul li{margin:6px 0}
+  .new{display:inline-block;background:#f59e0b;color:#1c1917;font-size:11.5px;font-weight:700;border-radius:5px;padding:0 7px;margin:0 6px;vertical-align:middle;line-height:1.7}
 </style>
 </head>
 <body>
@@ -86,7 +87,7 @@
     <div class="brand-chip">پارس‌پک · parspack.com</div>
     <h1>گزارش سئو پارس‌پک</h1>
     <p class="sub">جایگاه فعلی در گوگل، بررسی صفحه‌به‌صفحه به ترتیب اهمیت، و کارهای پیشنهادی</p>
-    <p class="meta">تاریخ گزارش: ۲ آبان ۱۴۰۵ (۲۴ اکتبر ۲۰۲۶) · بررسی زندهٔ صفحه‌ها: همان روز، ۱۱:۰۰ تا ۱۳:۲۰ به وقت تهران · گزارش ۲۶ مهر و مقایسهٔ رقبا در این نسخه ادغام شده‌اند · تهیه‌کننده: محمدعلی</p>
+    <p class="meta">نسخهٔ ۲ · تاریخ: ۳ آبان ۱۴۰۵ (۲۵ اکتبر ۲۰۲۶) · نسخهٔ ۱: ۲ آبان ۱۴۰۵، بررسی زنده ۱۱:۰۰ تا ۱۳:۲۰ به وقت تهران · موارد تازهٔ این نسخه از کراول ۲۹ مهر آمده‌اند، ۳ آبان بین ۰۰:۱۵ تا ۰۱:۳۰ به وقت تهران روی سایت زنده دوباره چک شده‌اند، و با برچسب «تازه» مشخص شده‌اند · تهیه‌کننده: محمدعلی</p>
   </div>
 </header>
 
@@ -99,7 +100,7 @@
     <li><a href="#t1">صفحه‌های ردهٔ ۱: صفحهٔ اصلی و هاب‌های فروش</a></li>
     <li><a href="#t2">صفحه‌های ردهٔ ۲: زیرمحصول و لوکیشن</a></li>
     <li><a href="#t3">ردهٔ ۳: بلاگ</a></li>
-    <li><a href="#tech">سئوی تکنیکال: وضعیت موارد ۲۶ مهر</a></li>
+    <li><a href="#tech">سئوی تکنیکال</a></li>
     <li><a href="#off">آف‌پیج و آپدیت‌های گوگل</a></li>
   </ol>
 </nav>
@@ -120,10 +121,13 @@
     <tr><th>#</th><th>کار</th><th>محدوده</th><th>تیم</th></tr>
     <tr><td>۱</td><td>لینک درون‌متنی در مقاله‌های فروش، در اولین اشاره به هر زیرمحصول. کارت‌های فعلی می‌مانند.<br><span class="why">گوگل ارتباط صفحه‌ها را بیشتر از لینک‌های داخل متن می‌فهمد. الان متن مقاله‌ها، که کلیدواژه‌های زیرمحصول در آن آمده، به خود زیرمحصول لینک نمی‌دهد.</span></td><td>۵ هاب ردهٔ ۱ و صفحه‌های لوکیشن (بخش ۴ و ۵)</td><td>محتوا</td></tr>
     <tr><td>۲</td><td>صفحه‌بندی HTML برای دسته‌های بلاگ و اعلام sitemap بلاگ در robots.txt<br><span class="why">دسته‌ها ۸ پست نشان می‌دهند و بقیه با جاوااسکریپت بار می‌شود. گوگل لینک HTML را دنبال می‌کند، پس ۵۹۴ پست فقط از sitemap پیدا می‌شوند و همین sitemap در robots.txt معرفی نشده.</span></td><td>قالب بلاگ (بخش ۶)</td><td>توسعه</td></tr>
-    <tr><td>۳</td><td>اصلاح لینک‌های ۴۰۴ و ریدایرکتی<br><span class="why">لینک ۴۰۴ کلیک کاربر و بودجهٔ خزش را هدر می‌دهد. لینک ۳۰۱ یک مرحلهٔ اضافه می‌سازد. یکی از این لینک‌ها در منو و فوتر بلاگ است و روی همهٔ پست‌ها تکرار می‌شود.</span></td><td>۶ صفحه و منو و فوتر بلاگ (بخش ۵ و ۶)</td><td>محتوا و قالب</td></tr>
+    <tr><td>۳</td><td>اصلاح لینک‌های ۴۰۴ و ریدایرکتی <span class="new">تازه: گسترده‌تر</span><br><span class="why">لینک ۴۰۴ کلیک کاربر و بودجهٔ خزش را هدر می‌دهد. لینک ۳۰۱ یک مرحلهٔ اضافه می‌سازد. قالب بلاگ ۶ لینک خراب یا ریدایرکتی دارد (یکی ۴۰۴) که روی همهٔ پست‌ها تکرار می‌شوند. در کل، ۷۰ لینک ریدایرکتی در صفحه‌های بلاگ (شامل لینک‌های قالب) و ۲۴ لینک در صفحه‌های تجاری پیدا شد.</span></td><td>قالب بلاگ، مقاله‌ها و صفحه‌های تجاری (بخش ۵ و ۶)</td><td>محتوا و قالب</td></tr>
     <tr><td>۴</td><td>اصلاح Organization و نویسنده در اسکیما؛ تعیین تکلیف <span class="ltr">/new</span>، <span class="ltr">/en</span> و ارجاع pars-next<br><span class="why">اسکیمای برند هنوز آدرس قدیمی <span class="ltr">/new</span> را نشان می‌دهد و لینک نویسنده ۴۰۴ است. <span class="ltr">/en</span> کپی قدیمی سایت است و pars-next دامنهٔ دیگری است. این‌ها سیگنال هویت برند را برای گوگل ناهمخوان می‌کنند.</span></td><td>کل سایت (بخش ۷)</td><td>توسعه</td></tr>
     <tr><td>۵</td><td>اسکیمای صفحه‌های فروش: Product و Offer به‌جای Article<br><span class="why">صفحه‌ای که پلن و قیمت دارد صفحهٔ محصول است. Product و Offer نوع سرویس و قیمت را برای گوگل مشخص می‌کنند. Article برای صفحه‌های محتوایی است.</span></td><td>هاب‌های ردهٔ ۱ (بخش ۴ و ۷)</td><td>توسعه</td></tr>
     <tr><td>۶</td><td>اصلاح غلط‌های عنوان، توضیح متا و متن<br><span class="why">عنوان و توضیح متا در نتیجهٔ جستجو دیده می‌شوند. غلط تایپی در آن‌ها روی اعتماد کاربر و نرخ کلیک اثر می‌گذارد.</span></td><td>۹ صفحه، داخل کارت هر صفحه (بخش ۴ تا ۶)</td><td>محتوا</td></tr>
+    <tr><td>۷</td><td>متن جایگزین (alt) برای تصاویر صفحه‌های فروش <span class="new">تازه</span><br><span class="why">گوگل محتوای تصویر را از alt می‌فهمد و همین متن در جستجوی تصویر استفاده می‌شود. ۴۹۳ تصویر از ۱٬۹۰۱ تصویر صفحه‌های تجاری alt ندارند، از جمله تصویر اصلی بالای صفحه در ۴۹ صفحه.</span></td><td>۶۲ صفحه از ۱۰۳ صفحهٔ تجاری (بخش ۴)</td><td>محتوا</td></tr>
+    <tr><td>۸</td><td>پاک‌سازی sitemapها و اصلاح canonical با http <span class="new">تازه</span><br><span class="why">sitemap باید فقط صفحه‌های زنده و قابل ایندکس را معرفی کند. الان ۲۹ آدرس پست، ۱۹ صفحهٔ نویسنده و ۴ صفحهٔ تجاری در sitemap هستند که یا حذف شده‌اند یا ریدایرکت می‌شوند. ۶ صفحه هم canonical را با http اعلام کرده‌اند.</span></td><td>sitemapهای بلاگ و page-sitemap، ۶ صفحهٔ تجاری (بخش ۶ و ۷)</td><td>توسعه</td></tr>
+    <tr><td>۹</td><td>نوشتن توضیح متا برای ۹ صفحه و H1 برای ۳ صفحه <span class="new">تازه</span><br><span class="why">وقتی توضیح متا خالی است، گوگل خودش یک تکه از متن صفحه را در نتیجهٔ جستجو نشان می‌دهد. H1 هم تیتر اصلی صفحه است و موضوع صفحه را برای گوگل مشخص می‌کند.</span></td><td>فهرست در بخش ۷</td><td>محتوا</td></tr>
   </table>
 </section>
 
@@ -301,6 +305,28 @@
       </ul>
     </div>
   </article>
+
+  <article class="page" id="p-alt">
+    <h3>تصاویر صفحه‌های فروش: متن جایگزین (alt) <span class="new">تازه</span></h3>
+    <p class="for">همهٔ ۱۰۳ صفحهٔ <span class="ltr">page-sitemap.xml</span>، بررسی ۳ آبان. کراول ۲۹ مهر هم همین الگو را نشان داده بود.</p>
+    <p class="why">alt متنی است که در کد تصویر نوشته می‌شود و می‌گوید تصویر چه چیزی را نشان می‌دهد. گوگل محتوای تصویر را از همین متن می‌فهمد و در جستجوی تصویر از آن استفاده می‌کند. نرم‌افزار صفحه‌خوان هم همین متن را برای کاربر نابینا می‌خواند. ویژگی title که الان روی تصاویر هست، جای alt را نمی‌گیرد.</p>
+    <div class="now"><b class="t">الان</b>
+      <ul>
+        <li>از ۱٬۹۰۱ تصویر این ۱۰۳ صفحه، ۴۹۳ تصویر اصلاً alt ندارند. این تصاویر در ۶۲ صفحه هستند.</li>
+        <li>۶۵ صفحه یک تصویر اصلی بالای صفحه دارند (همان تصویر بزرگ کنار H1). در ۴۹ صفحه این تصویر alt ندارد. مثلاً در <span class="ltr">/vps</span> تصویر بالای صفحه فقط <span class="ltr">title="سرور مجازی پارس‌پک"</span> دارد، در <span class="ltr">/host</span> فقط <span class="ltr">title="خرید هاست"</span> و در <span class="ltr">/domain</span> فقط <span class="ltr">title="domain-header"</span>، که نام فایل است.</li>
+        <li>چند نمونه: صفحهٔ اصلی ۱۹ تصویر بدون alt از ۵۲، <span class="ltr">/vps</span> ۱۵ از ۵۰، <span class="ltr">/dedicated-servers</span> ۱۵ از ۳۶، <span class="ltr">/host</span> ۹ از ۳۳ و <span class="ltr">/servers</span> ۹ از ۲۶. بیشترین تعداد در <span class="ltr">/paas</span> است: ۸۵ تصویر.</li>
+        <li>در صفحهٔ اصلی، کارت‌های تبلیغاتی مثل «خرید هاست وردپرس»، «خرید دامنه ir» و «خرید دامنه com» تصویرشان فقط title دارد.</li>
+      </ul>
+    </div>
+    <div class="good"><b class="t">آنچه درست است</b>قالب alt را درست چاپ می‌کند، هر وقت در کتابخانهٔ رسانهٔ وردپرس پر شده باشد. مثلاً تصویر بالای <span class="ltr">/vps/foreign/germany</span> این را دارد: <span class="ltr">alt="سرور مجازی آلمان"</span>. پس مشکل در قالب نیست؛ فیلد alt این تصاویر در کتابخانهٔ رسانه خالی مانده.</div>
+    <div class="better"><b class="t">ادیت‌ها</b>
+      <ul>
+        <li>اول تصویر بالای صفحه در ۴۹ صفحه. در کتابخانهٔ رسانه، alt یک جملهٔ کوتاه دربارهٔ محتوای تصویر باشد، مثلاً «سرور مجازی پارس‌پک» برای <span class="ltr">/vps</span>.</li>
+        <li>بعد تصاویر محتوایی و کارت‌ها. نام فایل، مثل «Group 1171281060» که الان در title بعضی تصاویر <span class="ltr">/vps</span> آمده، alt مناسبی نیست.</li>
+        <li>تصاویر تزئینی، مثل آیکون‌ها و پس‌زمینه‌ها، alt خالی بگیرند (<span class="ltr">alt=""</span>) تا صفحه‌خوان آن‌ها را رد کند. منوی بلاگ همین کار را درست انجام داده.</li>
+      </ul>
+    </div>
+  </article>
 </section>
 
 <!-- ===================== 5 ===================== -->
@@ -357,6 +383,28 @@
   <article class="page" id="p-dint">
     <h3><span class="tier t2">ردهٔ ۲</span> <span class="ltr">/domain/international</span></h3>
     <p>صفحه دو H1 دارد (کراول ۲۹ مهر، و دوباره در ۲ آبان). یکی H1 بماند و دیگری H2 شود.</p>
+    <p><span class="new">تازه</span> زیر جعبهٔ «جست‌وجو دامنه بین المللی» یک بنر تصویری هست که به <span class="ltr">/sample-page/</span> لینک می‌دهد. این صفحهٔ نمونهٔ پیش‌فرض وردپرس است که به <span class="ltr">/blog/</span> ریدایرکت می‌شود. تصویر بنر هم alt ندارد. اگر بنر کمپین خاصی است، لینکش به صفحهٔ همان کمپین برود؛ اگر نه، حذف شود.</p>
+  </article>
+
+  <article class="page" id="p-redir">
+    <h3>لینک‌های ریدایرکتی در صفحه‌های تجاری <span class="new">تازه</span></h3>
+    <p class="for">منبع: فهرست «Redirected URLs» در کراول ۲۹ مهر. هر لینک ۳ آبان روی صفحهٔ زنده پیدا شد و مسیرش تا مقصد نهایی دنبال شد.</p>
+    <p class="why">صفحه باز می‌شود، چون ریدایرکت کاربر را به آدرس درست می‌برد. ولی هر ریدایرکت یک درخواست اضافه است و گوگل باید مسیر را دنبال کند. وقتی آدرس درست معلوم است، بهتر است لینک مستقیم به همان باشد. «دو ریدایرکت» یعنی لینک از دو آدرس قدیمی پشت سر هم رد می‌شود تا به صفحه برسد.</p>
+    <table class="tbl small">
+      <tr><th>صفحه و جای لینک</th><th>لینک فعلی و مسیرش</th><th>لینک درست</th></tr>
+      <tr><td>منوی بالای صفحه‌های فروش، گزینهٔ «Backup &amp; Disaster Recovery» (در هر ۶ صفحه‌ای که بررسی شد: صفحهٔ اصلی، <span class="ltr">/vps</span>، <span class="ltr">/host</span>، <span class="ltr">/domain</span>، <span class="ltr">/cloud-server</span> و <span class="ltr">/ssl</span>)</td><td><span class="ltr">/backup-and-disaster-recovery-solutions/</span>، با اسلش آخر ← ۳۰۱ به همان آدرس بدون اسلش</td><td>بدون اسلش آخر. خود این صفحه ایرادهای دیگری هم دارد (بخش ۷).</td></tr>
+      <tr><td><span class="ltr">/host/reseller</span>، بلوک «محصولاتی که شاید نیاز داشته باشید»، چهار کارت: «خرید هاست»، «هاست لینوکس»، «هاست اختصاصی»، «هاست پربازدید»</td><td><span class="ltr">/cloud-hosting</span>، <span class="ltr">/cloud-hosting/linux</span>، <span class="ltr">/cloud-hosting/dedicated</span>، <span class="ltr">/cloud-hosting/high-traffic</span> ← ۳۰۱ به نسخهٔ <span class="ltr">/host/…</span></td><td><span class="ltr">/host</span>، <span class="ltr">/host/linux</span>، <span class="ltr">/host/dedicated</span>، <span class="ltr">/host/high-traffic</span></td></tr>
+      <tr><td><span class="ltr">/host/shared-host</span>، لینک «هاست رایگان»</td><td><span class="ltr">/free-cloud-hosting/</span> ← <span class="ltr">/cloud-hosting/free-cloud-hosting</span> ← <span class="ltr">/host/free-cloud-hosting</span> (دو ریدایرکت)</td><td><span class="ltr">/host/free-cloud-hosting</span></td></tr>
+      <tr><td><span class="ltr">/host/cpanel</span>، کلمهٔ «نیک هندل» در متن، زیر تیتر «هاست رایگان»</td><td><span class="ltr">/blog/domain/change-technical-financial-irnic</span> ← <span class="ltr">/blog/domain/national/change-technical-financial-irnic</span> ← <span class="ltr">/blog/domain/national/authorized-relations-irnic</span> (دو ریدایرکت)</td><td>مقصد نهایی دربارهٔ روابط مجاز ایرنیک است. اگر منظور ساخت نیک‌هندل است، <span class="ltr">/blog/domain/national/create-nic-handle</span> (زنده، ۲۰۰) مناسب‌تر است.</td></tr>
+      <tr><td><span class="ltr">/organization</span>، کارت «ابر خصوصی» و دکمهٔ «شروع کنید» در بلوک «ابر خصوصی»</td><td><span class="ltr">/cloud-server/private-cloud</span> ← ۳۰۱ به <span class="ltr">/cloud-storage/private-cloud</span></td><td><span class="ltr">/cloud-storage/private-cloud</span>. منوی همین صفحه از قبل به آدرس درست لینک می‌دهد.</td></tr>
+      <tr><td><span class="ltr">/paas</span>، هفت کارت در بخش «سرویس‌های PaaS برای برنامه‌نویسان و توسعه‌دهندگان»</td><td><span class="ltr">/paas/n8n/</span>، <span class="ltr">/paas/nodejs/</span>، <span class="ltr">/paas/python/</span>، <span class="ltr">/paas/nextjs/</span>، <span class="ltr">/paas/matrix/</span>، <span class="ltr">/paas/mattermost/</span>، <span class="ltr">/paas/rocket-chat/</span>، همه با اسلش آخر ← ۳۰۱</td><td>همان آدرس‌ها بدون اسلش آخر</td></tr>
+      <tr><td><span class="ltr">/cdn/video-cdn</span>، تب «CDN وب‌سایت» در بالای صفحه و دکمهٔ «بیشتر بدانید» زیر آن؛ و دکمهٔ «بیشتر بدانید» زیر «CDN پخش ویدئو»</td><td><span class="ltr">/cdn/site-cdn</span> ← ۳۰۱ به <span class="ltr">/cdn</span>؛ و <span class="ltr">/cdn/video-cdn/</span> ← ۳۰۱ به خود صفحه</td><td><span class="ltr">/cdn</span> و <span class="ltr">/cdn/video-cdn</span></td></tr>
+      <tr><td><span class="ltr">/cdn</span>، لینک «CDN چیست؟» در بخش «آموزش رایگان CDN»</td><td><span class="ltr">/blog/hosting/cdn-tutorial/what-is-cdn-and-all-you-need-to-know</span> ← ۳۰۱</td><td><span class="ltr">/blog/hosting/cdn-tutorial/what-is-cdn</span></td></tr>
+      <tr><td><span class="ltr">/cloud-storage</span>، کارت «گواهینامه SSL» در «محصولاتی که شاید نیاز داشته باشید»</td><td><span class="ltr">/ssl/</span> ← ۳۰۱</td><td><span class="ltr">/ssl</span></td></tr>
+      <tr><td><span class="ltr">/cloud-server/foreign</span>، کارت «سرور ابری» در «انواع سرورهای ابری پارس‌پک»</td><td><span class="ltr">/cloud-server/</span> ← ۳۰۱</td><td><span class="ltr">/cloud-server</span></td></tr>
+      <tr><td><span class="ltr">/cloud-server/terms-and-condition</span>، لینک «قوانین و مقررات خرید از شرکت پارس پک»</td><td>آدرس فارسی «قوانین-خرید» ← ۳۰۱ به <span class="ltr">/terms</span></td><td><span class="ltr">/terms</span></td></tr>
+      <tr><td><span class="ltr">/terms</span>، کلمهٔ «مقاله» در بند «۰۴ - تعهدات سرویس‌گیرنده و سرویس‌دهنده در قبال اسپم»</td><td><span class="ltr">/blog/how-to-prevent-email-spam-yahoo-solution</span> ← ۳۰۱</td><td><span class="ltr">/blog/technology-news/how-to-prevent-email-spam-yahoo-solution</span></td></tr>
+    </table>
   </article>
 </section>
 
@@ -385,9 +433,92 @@
     </div>
   </article>
 
+  <article class="page" id="b-smdead">
+    <h3>sitemapهای بلاگ: آدرس‌هایی که دیگر صفحه نیستند <span class="new">تازه</span></h3>
+    <p class="for">همهٔ ۱۱ فایل <span class="ltr">/blog/sitemap_index.xml</span>، ۱٬۵۱۲ ردیف. وضعیت هر آدرس ۳ آبان روی سایت زنده گرفته شد.</p>
+    <p class="why">sitemap فهرستی است که به گوگل می‌گوید «این صفحه‌ها را ایندکس کن». آدرسی که حذف شده (۴۱۰ یا ۴۰۴) یا به جای دیگری می‌رود (۳۰۱) نباید در آن باشد. گوگل این آدرس‌ها را بارها دوباره چک می‌کند و اعتمادش به sitemap کم می‌شود. این مشکل برعکسِ ۶۲ پستِ جاافتادهٔ بالاست: آن‌ها زنده‌اند و در sitemap نیستند، این‌ها در sitemap هستند و زنده نیستند.</p>
+    <div class="now"><b class="t">الان</b>
+      <ul>
+        <li><b>پست‌ها:</b> از ۱٬۳۶۲ آدرس یکتای هشت فایل post-sitemap، ۲۹ آدرس صفحهٔ زنده نیستند: ۱۸ ریدایرکت (۳۰۱)، ۱۰ حذف‌شده (۴۱۰) و ۱ صفحهٔ خطا (۴۰۴). بیشترشان در <span class="ltr">post-sitemap7.xml</span> هستند (۱۲ آدرس).</li>
+        <li><b>صفحه‌های نویسنده:</b> در <span class="ltr">author-sitemap.xml</span>، ۱۹ صفحه از ۲۸ صفحهٔ نویسنده ۴۱۰ می‌دهند، مثلاً <span class="ltr">/blog/author/team</span> و <span class="ltr">/blog/author/seo</span>.</li>
+        <li><b>دسته‌ها:</b> در <span class="ltr">category-sitemap.xml</span> دستهٔ «دسته‌بندی نشده» هست که ۴۱۰ می‌دهد.</li>
+        <li><b>یک زنجیرهٔ کامل خراب:</b> <span class="ltr">/blog/hosting/learn-server/what-is-game-server</span> در <span class="ltr">post-sitemap3.xml</span> هست ولی ۴۰۴ می‌دهد. صفحهٔ فروش قدیمی <span class="ltr">/servers/game</span> هم به همین آدرس ریدایرکت می‌شود، و <span class="ltr">/servers/game</span> خودش هنوز در <span class="ltr">page-sitemap.xml</span> است (بخش ۷). یعنی گوگل از دو sitemap به یک صفحهٔ خطا می‌رسد.</li>
+        <li>دو آدرس sitemap به سایت دیگری ریدایرکت می‌شوند: <span class="ltr">/blog/hosting/learn-server/debian-mirror-parspack</span> و <span class="ltr">/blog/hosting/learn-server/ubunto-mirror</span> هر دو به <span class="ltr">docs.parspack.com</span> می‌روند.</li>
+      </ul>
+      <details><summary>فهرست ۴۹ آدرس (کد وضعیت · فایل sitemap · آدرس)</summary><ul class="ltr small">
+<li>404 · post-sitemap3.xml · /blog/hosting/learn-server/what-is-game-server</li>
+<li>410 · category-sitemap.xml · /blog/دسته‌بندی-نشده</li>
+<li>410 · author-sitemap.xml · /blog/author/ali-behmnia</li>
+<li>410 · author-sitemap.xml · /blog/author/bagheri</li>
+<li>410 · author-sitemap.xml · /blog/author/fallahi</li>
+<li>410 · author-sitemap.xml · /blog/author/haghighi</li>
+<li>410 · author-sitemap.xml · /blog/author/hamedi</li>
+<li>410 · author-sitemap.xml · /blog/author/leila-mohammdi</li>
+<li>410 · author-sitemap.xml · /blog/author/mahsa-rahmani</li>
+<li>410 · author-sitemap.xml · /blog/author/modir</li>
+<li>410 · author-sitemap.xml · /blog/author/mohadese-moradi</li>
+<li>410 · author-sitemap.xml · /blog/author/rezaei</li>
+<li>410 · author-sitemap.xml · /blog/author/rostami</li>
+<li>410 · author-sitemap.xml · /blog/author/sadat</li>
+<li>410 · author-sitemap.xml · /blog/author/sajjad-fallahi</li>
+<li>410 · author-sitemap.xml · /blog/author/sara-rasoli</li>
+<li>410 · author-sitemap.xml · /blog/author/seo</li>
+<li>410 · author-sitemap.xml · /blog/author/shirvani</li>
+<li>410 · author-sitemap.xml · /blog/author/shokoohi</li>
+<li>410 · author-sitemap.xml · /blog/author/tavakoli</li>
+<li>410 · author-sitemap.xml · /blog/author/team</li>
+<li>410 · post-sitemap7.xml · /blog/cms/what-is-google-search-console-guidelines-for-beginners-1</li>
+<li>410 · post-sitemap7.xml · /blog/cms/wordpress-browser-errors</li>
+<li>410 · post-sitemap7.xml · /blog/cms/wordpress-file-errors</li>
+<li>410 · post-sitemap7.xml · /blog/cms/wordpress/serverrelated-wordpress-errors</li>
+<li>410 · post-sitemap8.xml · /blog/hosting/cloud-container</li>
+<li>410 · post-sitemap7.xml · /blog/hosting/learn-server/czech-vps</li>
+<li>410 · post-sitemap8.xml · /blog/hosting/learn-server/enable-multiple-sessions-for-rdc</li>
+<li>410 · post-sitemap8.xml · /blog/hosting/learn-server/plesk-plan</li>
+<li>410 · post-sitemap7.xml · /blog/technology-news/تا-250-درصد-،-افزایش-حجم-ترافیک-سرورهای-ای</li>
+<li>410 · post-sitemap5.xml · /blog/technology-news/org-domain-restrictions</li>
+<li>301 · post-sitemap7.xml · /blog/cms/wordpress/what-is-wordpress-1 → /blog/cms/wordpress/what-is-wordpress</li>
+<li>301 · post-sitemap7.xml · /blog/cms/wordpress/wp-security-checklist-1 → /blog/cms/wordpress/wp-security-checklist</li>
+<li>301 · post-sitemap7.xml · /blog/controlpanel/directadmin/backup-in-directadmin-cpanel → /blog</li>
+<li>301 · post-sitemap6.xml · /blog/hosting/free-cdn → /cdn</li>
+<li>301 · post-sitemap7.xml · /blog/hosting/learn-host/buying-cloud-host-1 → /blog/hosting/learn-host/buying-cloud-host</li>
+<li>301 · post-sitemap2.xml · /blog/hosting/learn-host/guide-to-buy-wordpress-host → /blog/hosting/learn-host/best-wordpress-hosting</li>
+<li>301 · post-sitemap6.xml · /blog/hosting/learn-host/what-is-download-host → /cloud-hosting/download-host</li>
+<li>301 · post-sitemap1.xml · /blog/hosting/learn-host/woocommerce-host → /host/woocommerce</li>
+<li>301 · post-sitemap3.xml · /blog/hosting/learn-server/apache-web-server → /blog/programming/webserver-tutorial/apache-web-server</li>
+<li>301 · post-sitemap1.xml · /blog/hosting/learn-server/cheap-iran-vps → /blog/hosting/learn-server/cheap-vps</li>
+<li>301 · post-sitemap6.xml · /blog/hosting/learn-server/cheap-vps → /vps/cheap</li>
+<li>301 · post-sitemap3.xml · /blog/hosting/learn-server/debian-mirror-parspack → https://docs.parspack.com/reference/mirror/linux/debian/</li>
+<li>301 · post-sitemap3.xml · /blog/hosting/learn-server/putty-ssh → /blog/hosting/learn-server/use-putty-ssh</li>
+<li>301 · post-sitemap4.xml · /blog/hosting/learn-server/ubunto-mirror → https://docs.parspack.com/reference/mirror/linux/ubuntu/</li>
+<li>301 · post-sitemap8.xml · /blog/os/linux/linux-credit-card → /blog/os/linux</li>
+<li>301 · post-sitemap7.xml · /blog/os/linux/ubuntu/enable-and-disable-root-user-account-1 → /blog/os/linux/ubuntu/enable-and-disable-root-user-account</li>
+<li>301 · post-sitemap7.xml · /blog/os/linux/ubuntu/install-gui-in-ubuntu-1 → /blog/os/linux/ubuntu/install-gui-in-ubuntu</li>
+<li>301 · post-sitemap1.xml · /blog/technology-news/5-store-builder → /blog/cms/best-store-builder</li>
+</ul></details>
+    </div>
+    <div class="better"><b class="t">ادیت‌ها</b>
+      <ul>
+        <li>آدرس‌های ۴۱۰ و ۴۰۴ از sitemap بیرون بروند. sitemap بلاگ را افزونهٔ Yoast می‌سازد (فایل <span class="ltr">main-sitemap.xsl</span> مال Yoast است). Yoast فقط پست و نویسندهٔ منتشرشده را در sitemap می‌آورد؛ پس این آدرس‌ها در وردپرس هنوز «منتشرشده» هستند و صفحه‌شان با قانون دیگری، مثلاً ریدایرکت یا ۴۱۰ در افزونه یا سرور، بسته شده. وضعیت همان پست یا نویسنده در وردپرس اصلاح شود (پیش‌نویس، حذف، یا در مورد نویسنده‌ها، «نمایش در نتایج جستجو: خیر») تا خودبه‌خود از sitemap بیرون برود.</li>
+        <li>برای ۱۸ آدرس ۳۰۱، آدرس مقصد در sitemap بیاید، نه آدرس قدیمی.</li>
+        <li><span class="ltr">/servers/game</span>: یا مقالهٔ «سرور بازی» دوباره منتشر شود، یا ریدایرکت به صفحهٔ زندهٔ دیگری برود. در هر دو حالت، از هر دو sitemap حذف یا اصلاح شود.</li>
+      </ul>
+    </div>
+  </article>
+
   <article class="page" id="b-template">
-    <h3>منو و فوتر بلاگ</h3>
-    <p>«خرید PaaS ایرانی» در منوی بالا و فوتر بلاگ به <span class="ltr">/cloud-server/paas</span> لینک می‌دهد، که با ۳۰۱ به <span class="ltr">/paas</span> می‌رود. چون در قالب است، روی همهٔ پست‌ها تکرار می‌شود. در قالب به <span class="ltr">/paas</span> عوض شود.</p>
+    <h3>منو، فوتر و جعبهٔ خدمات بلاگ <span class="new">تازه: ۶ لینک به‌جای ۱</span></h3>
+    <p>نسخهٔ ۱ فقط یک لینک ریدایرکتی در قالب بلاگ را گفته بود. ۳ آبان ۴۰ پست تصادفی از بخش‌های مختلف بلاگ باز شد. هر ۶ لینک زیر در هر ۴۰ پست بودند؛ یعنی جزو قالب‌اند و روی همهٔ پست‌ها تکرار می‌شوند.</p>
+    <table class="tbl small">
+      <tr><th>جای لینک در پست</th><th>لینک فعلی</th><th>وضعیت</th><th>لینک درست</th></tr>
+      <tr><td>جعبهٔ «با خدمات ابری پارس پک آشنا شوید» در انتهای پست، کارت «سرور ابری ایران»</td><td class="ltr">/cloud-servers/iran</td><td class="o">۴۰۴</td><td><span class="ltr">/cloud-server/iran</span>. متن همین کارت هم «برتریرن» دارد که باید «برترین» شود.</td></tr>
+      <tr><td>منوی بالا و فوتر، «خرید PaaS ایرانی»</td><td class="ltr">/cloud-server/paas</td><td>۳۰۱</td><td class="ltr">/paas</td></tr>
+      <tr><td>فوتر، ستون هاست، «هاست ووکامرس»</td><td class="ltr">/blog/hosting/woocommerce-host</td><td>دو ریدایرکت: <span class="ltr">/blog/hosting/learn-host/woocommerce-host</span> و بعد <span class="ltr">/host/woocommerce</span></td><td class="ltr">/host/woocommerce</td></tr>
+      <tr><td>فوتر، ستون «خرید سرور»، «سرور هایبرید»</td><td class="ltr">/hybrid-server</td><td>۳۰۱</td><td class="ltr">/dedicated-servers/hybrid-server</td></tr>
+      <tr><td>فوتر، ستون «خرید سرور»، «سرور ماکرو»</td><td class="ltr">/macro-server</td><td>۳۰۱</td><td class="ltr">/dedicated-servers/macro-server</td></tr>
+      <tr><td>فوتر، ستون «خرید سرور»، «سرور برمتال»</td><td class="ltr">/baremetal-server</td><td>۳۰۱</td><td class="ltr">/dedicated-servers/baremetal-server</td></tr>
+    </table>
+    <p class="why">کارت ۴۰۴ از همه مهم‌تر است: کاربری که در پایان هر مقاله روی «سرور ابری ایران» کلیک کند، صفحهٔ خطا می‌بیند. اصلاح هر شش لینک فقط یک بار در قالب انجام می‌شود و روی همهٔ پست‌ها اعمال می‌شود.</p>
   </article>
 
   <article class="page" id="b-posts">
@@ -395,19 +526,123 @@
     <p class="why">«۴۰۴» یعنی آدرس وجود ندارد و کاربر صفحهٔ خطا می‌بیند. «۳۰۱» یعنی آدرس قدیمی است و کاربر به آدرس جدید فرستاده می‌شود؛ صفحه باز می‌شود، ولی بهتر است لینک مستقیم به آدرس جدید باشد. همهٔ موارد ۲ آبان روی سایت زنده بررسی شده‌اند.</p>
     <table class="tbl small">
       <tr><th>مقاله</th><th>ایراد</th><th>اصلاح</th></tr>
-      <tr><td class="ltr">/blog/hosting/learn-server/canada-vps</td><td><b>سه لینک و یک غلط تایپی.</b><br>۱. پایین صفحه، در بخش «با خدمات ابری پارس پک آشنا شوید»، کارتی با عنوان «سرور ابری ایران» هست که به <span class="ltr">/cloud-servers/iran</span> لینک می‌دهد. این آدرس وجود ندارد و صفحهٔ خطا (۴۰۴) باز می‌شود؛ در آدرس یک «s» اضافه آمده. متن همین کارت هم غلط تایپی دارد: «برتریرن» به‌جای «برترین».<br>۲. زیر تیتر «6. بهبود SEO»، روی کلمهٔ «سئو» لینکی هست به <span class="ltr">/blog/cms/seo-search-engine-optimization</span>. این آدرس قدیمی است و کاربر را به آدرس جدید منتقل (ریدایرکت ۳۰۱) می‌کند.<br>۳. زیر تیتر «VPS کانادا چه ویژگی‌هایی دارد؟»، روی عبارت «IP ثابت» لینکی هست به <span class="ltr">/blog/hosting/static-ip</span> که آن هم آدرس قدیمی است و ریدایرکت می‌شود.</td><td>۱. لینک کارت به <span class="ltr">/cloud-server/iran</span> و «برتریرن» به «برترین».<br>۲. لینک «سئو» مستقیم به <span class="ltr">/blog/online-business/seo-tutorial/what-is-seo</span><br>۳. لینک «IP ثابت» مستقیم به <span class="ltr">/blog/hosting/buy-stasic-ip</span></td></tr>
+      <tr><td class="ltr">/blog/hosting/learn-server/canada-vps</td><td><b>سه لینک و یک غلط تایپی.</b><br>۱. پایین صفحه، در بخش «با خدمات ابری پارس پک آشنا شوید»، کارتی با عنوان «سرور ابری ایران» هست که به <span class="ltr">/cloud-servers/iran</span> لینک می‌دهد. این آدرس وجود ندارد و صفحهٔ خطا (۴۰۴) باز می‌شود؛ در آدرس یک «s» اضافه آمده. متن همین کارت هم غلط تایپی دارد: «برتریرن» به‌جای «برترین». <span class="new">تازه</span> این کارت جزو قالب است و در همهٔ پست‌ها تکرار می‌شود (جدول «منو، فوتر و جعبهٔ خدمات بلاگ» در بالا).<br>۲. زیر تیتر «6. بهبود SEO»، روی کلمهٔ «سئو» لینکی هست به <span class="ltr">/blog/cms/seo-search-engine-optimization</span>. این آدرس قدیمی است و کاربر را به آدرس جدید منتقل (ریدایرکت ۳۰۱) می‌کند.<br>۳. زیر تیتر «VPS کانادا چه ویژگی‌هایی دارد؟»، روی عبارت «IP ثابت» لینکی هست به <span class="ltr">/blog/hosting/static-ip</span> که آن هم آدرس قدیمی است و ریدایرکت می‌شود.</td><td>۱. لینک کارت به <span class="ltr">/cloud-server/iran</span> و «برتریرن» به «برترین».<br>۲. لینک «سئو» مستقیم به <span class="ltr">/blog/online-business/seo-tutorial/what-is-seo</span><br>۳. لینک «IP ثابت» مستقیم به <span class="ltr">/blog/hosting/buy-stasic-ip</span></td></tr>
       <tr><td class="ltr">/blog/controlpanel/directadmin/filter-spam-email-directadmin</td><td>در کادر «آیا به دنبال هاست دایرکت ادمین حرفه‌ای…»، درست قبل از تیتر «گام دوم»، لینک «خرید هاست دایرکت ادمین» به <span class="ltr">/hosting/directadmin</span> می‌رود. این آدرس وجود ندارد (۴۰۴)؛ مسیر درست صفحهٔ هاست با <span class="ltr">/host</span> شروع می‌شود، نه <span class="ltr">/hosting</span>. کاربری که قصد خرید دارد به صفحهٔ خطا می‌رسد.</td><td>لینک به صفحهٔ فروش <span class="ltr">/host/directadmin</span></td></tr>
       <tr><td class="ltr">/blog/security/what-is-https</td><td>دو لینک: (۱) بنر تصویری «خرید SSL» زیر تیتر «https چیست؟»، قبل از تیتر «https چگونه کار می‌کند؟»؛ (۲) عبارت «خرید SSL» در آخرین پاراگراف بخش «با گواهی SSL پارس‌پک…»، درست قبل از «جمع‌بندی». هر دو به <span class="ltr">/new/ab/ssl/</span> می‌روند. این آدرس صفحهٔ قدیمی سایت بوده و الان ۴۰۴ می‌دهد.</td><td>هر دو لینک به صفحهٔ فروش <span class="ltr">/ssl</span></td></tr>
       <tr><td class="ltr">/blog/programming/database-tutorial/what-is-sql-server</td><td>در پایان بخش اول، درست قبل از تیتر «کاربرد SQL Server چیست؟»، یک بنر تصویری آبی هست (تصویر سرور و دکمهٔ «مشاهده و خرید»؛ متن جایگزین تصویر: «خرید سرور»). کلیک روی این بنر به <span class="ltr">/new/ab/hub-server/</span> می‌رود که آدرس قدیمی است و ۴۰۴ می‌دهد.</td><td>لینک بنر به <span class="ltr">/servers</span></td></tr>
       <tr><td class="ltr">/blog/online-business/seo-tutorial</td><td>توضیح متای صفحه (متنی که زیر عنوان در نتیجهٔ گوگل نشان داده می‌شود) غلط تایپی دارد: «سئو داخی، of page, on page». «داخی» باید «داخلی» باشد و «of page» باید «off-page».</td><td>متن درست: «سئو داخلی، off-page و on-page».</td></tr>
       <tr><td class="ltr">/blog/network/what-is-cisco</td><td>این صفحه ۱۰ تیتر H1 دارد. H1 تیتر اصلی صفحه است و هر صفحه باید فقط یکی داشته باشد تا موضوع اصلی برای گوگل روشن باشد. کراول همین ایراد را در دو مقالهٔ دیگر هم پیدا کرد: <span class="ltr">http-error</span> و <span class="ltr">high-traffic-vs-free-hosting</span></td><td>فقط عنوان مقاله H1 بماند و بقیهٔ تیترها H2 شوند.</td></tr>
+      <tr><td class="ltr">/blog/hosting/what-is-whmcs</td><td><span class="new">تازه</span> زیر تیتر «WHMCS چه کاربردی دارد؟»، در فهرست کاربردها، گزینهٔ «سرور بازی» به <span class="ltr">/servers/game</span> لینک دارد. این آدرس به مقالهٔ <span class="ltr">/blog/hosting/learn-server/what-is-game-server</span> ریدایرکت می‌شود و آن مقاله ۴۰۴ می‌دهد.</td><td>لینک برداشته شود، یا بعد از تعیین تکلیف <span class="ltr">/servers/game</span> (بخش «sitemapهای بلاگ» در بالا) به صفحهٔ زنده برود.</td></tr>
+      <tr><td class="ltr">/blog/programming/database-tutorial/what-is-data-redundancy</td><td><span class="new">تازه</span> در کادر «منابع» در انتهای مقاله، لینک «talend.com» این‌طور نوشته شده: <span class="ltr">href="talend.com/resources/what-is-data-redundancy"</span>. چون <span class="ltr">https://</span> ندارد، مرورگر آن را آدرسی داخل خود پارس‌پک می‌خواند و کاربر بعد از یک ریدایرکت به همین مقاله برمی‌گردد. منبع هیچ‌وقت باز نمی‌شود.</td><td>اول <span class="ltr">https://</span> به آدرس اضافه شود. صفحهٔ talend الان خودش به صفحهٔ محصول سایت Qlik ریدایرکت می‌شود (Talend را Qlik خریده)، پس بهتر است یک منبع زندهٔ دیگر جایش بیاید یا لینک برداشته شود.</td></tr>
     </table>
+  </article>
+
+  <article class="page" id="b-redir">
+    <h3>لینک‌های ریدایرکتی داخل مقاله‌ها <span class="new">تازه</span></h3>
+    <p class="for">منبع: فهرست «Redirected URLs» در کراول ۲۹ مهر. هر لینک ۳ آبان روی صفحهٔ زنده پیدا شد و مسیرش تا آخر دنبال شد. کراول برای هر آدرس فقط یک صفحهٔ نمونه را نشان می‌دهد؛ پس یک لینک قدیمی ممکن است در پست‌های بیشتری هم باشد.</p>
+    <div class="now"><b class="t">الان</b>
+      <p>۷۰ لینک در صفحه‌های بلاگ به آدرسی می‌روند که ریدایرکت می‌شود. سه الگو دارند:</p>
+      <ul>
+        <li><b>۳۹ لینک به آدرس قدیمی مقاله یا صفحه.</b> مقاله بعد از انتشار به دستهٔ دیگری منتقل شده و آدرسش عوض شده، ولی لینک‌های داخل پست‌های دیگر به‌روز نشده‌اند. مثلاً <span class="ltr">/blog/hosting/learn-host/guide-to-buy-wordpress-host</span> که الان <span class="ltr">/blog/hosting/learn-host/best-wordpress-hosting</span> است.</li>
+        <li><b>۲۴ لینک با اسلش آخر</b>، مثل <span class="ltr">/blog/hosting/</span> به‌جای <span class="ltr">/blog/hosting</span>. ۲۰ تایش در جملهٔ پایانی مقاله‌اند که یک الگوی ثابت دارد: «در این مقاله از بخش <u>آموزش هاست</u> بلاگ پارس‌پک…» و نام بخش به صفحهٔ دسته لینک شده. ۴ تای دیگر دکمهٔ خرید داخل مقاله‌اند که به <span class="ltr">/host/</span>، <span class="ltr">/servers/</span>، <span class="ltr">/dedicated-servers/</span> و <span class="ltr">/domain/</span> لینک می‌دهند.</li>
+        <li><b>۷ لینک با http</b> به‌جای https، مثل <span class="ltr">http://parspack.com/paas/n8n</span> در مقالهٔ <span class="ltr">/blog/ai-training/install-ai-in-n8n</span>.</li>
+      </ul>
+      <p>چهار لینک از دو ریدایرکت پشت سر هم رد می‌شوند:</p>
+      <table class="tbl small">
+        <tr><th>مقاله و جای لینک</th><th>لینک فعلی</th><th>لینک درست</th></tr>
+        <tr><td><span class="ltr">/blog/programming/frontend-tutorial/website-cache</span>، عبارت «افزایش سرعت سایت وردپرسی» زیر تیتر «کش وب‌سایت چیست؟»</td><td class="ltr">/blog/cms/wordpress-site-speed</td><td class="ltr">/blog/cms/wordpress/speed-up-wp</td></tr>
+        <tr><td><span class="ltr">/blog/hosting/learn-host/iran-vs-europe-hosting</span>، عبارت «هاست ایران چیست» زیر تیتر «پایداری هاست ایران بهتر است یا خارج؟»</td><td class="ltr">/blog/hosting/learn-host/iran-host</td><td class="ltr">/host/iran</td></tr>
+        <tr><td><span class="ltr">/blog/hosting/learn-host/shared-vs-high-traffic-hosting</span>، عبارت «هاست دانلود چیست و چه کاربردهایی دارد؟» و تصویر کنارش، زیر تیتر «آموزش فعال‌سازی SSH در هاست پربازدید سی پنل»</td><td class="ltr">/blog/hosting/learn-host/what-is-download-host</td><td class="ltr">/host/download-host</td></tr>
+        <tr><td>فوتر همهٔ پست‌ها، «هاست ووکامرس» (جدول قالب در بالا)</td><td class="ltr">/blog/hosting/woocommerce-host</td><td class="ltr">/host/woocommerce</td></tr>
+      </table>
+      <p class="why">در دو ردیف اول و سوم، لینکی که قرار بوده به مقالهٔ آموزشی برود، الان به صفحهٔ فروش می‌رسد، چون آدرس قدیمی مقاله به صفحهٔ فروش ریدایرکت شده. اگر هدف همان صفحهٔ فروش است، لینک مستقیم به آن برود؛ اگر هدف مقاله بوده، مقالهٔ جایگزین انتخاب شود.</p>
+      <details><summary>فهرست ۷۰ لینک (صفحه: لینک فعلی ← مقصد نهایی)</summary><ul class="ltr small">
+<li>/blog/: /servers/?utm_source=website&utm_medium=blogmain&utm_campaign=hubserver → /servers?utm_source=website&utm_medium=blogmain&utm_campaign=hubserver</li>
+<li>/blog/: /wp-support/?utm_source=website&utm_medium=mainblog&utm_campaign=wpsupport → /wp-services?utm_source=website&utm_medium=mainblog&utm_campaign=wpsupport</li>
+<li>/blog/ai-training/install-ai-in-n8n: http://parspack.com/paas/n8n → /paas/n8n</li>
+<li>/blog/ai-training/use-9router: /blog/ai-training/ → /blog/ai-training</li>
+<li>/blog/cms/curl-error-28: /blog/cms/web-design-wordpress → /blog/cms/wordpress/web-design-wordpress</li>
+<li>/blog/cms/elementor-pro-plugin-malware: /wp-support/?utm_source=website&utm_medium=article&utm_campaign=wpsupport&utm_content=36387 → /wp-services?utm_source=website&utm_medium=article&utm_campaign=wpsupport&utm_content=36387</li>
+<li>/blog/cms/what-is-ecommerce: /blog/technology-news/5-store-builder → /blog/cms/best-store-builder</li>
+<li>/blog/cms/what-is-wsod: http://parspack.com/blog/cms → /blog/cms</li>
+<li>/blog/cms/wordpress-backup: /blog/cms/ → /blog/cms</li>
+<li>/blog/cms/wordpress-install-introduction: /blog/cms/wordpress-cpanel-directadmin → /blog/cms/wordpress-cpanel</li>
+<li>/blog/cms/wordpress-install-introduction: /wp-support/?utm_source=website&utm_medium=article&utm_campaign=wpsupport&utm_content=3838 → /wp-services?utm_source=website&utm_medium=article&utm_campaign=wpsupport&utm_content=3838</li>
+<li>/blog/cms/wordpress/change-font-in-wordpress: /host/WORDPRESS → /host/wordpress</li>
+<li>/blog/cms/wordpress/critical-wp2shell-vulnerability: /blog/cms/wordpress/ → /blog/cms/wordpress</li>
+<li>/blog/cms/wordpress/update-wordpress: /wp-support/?utm_source=website&utm_medium=article&utm_campaign=wpsupport&utm_content=33848 → /wp-services?utm_source=website&utm_medium=article&utm_campaign=wpsupport&utm_content=33848</li>
+<li>/blog/cms/wordpress/wordpress-vulnerability-report: /wp-support?utm_source=website&utm_medium=article&utm_campaign=wpsupport&utm_content=24950 → /wp-services?utm_source=website&utm_medium=article&utm_campaign=wpsupport&utm_content=24950</li>
+<li>/blog/controlpanel/cpanel/restore-backup-in-cpanel: /host/ → /host</li>
+<li>/blog/controlpanel/directadmin/reset-direct-admin-host: /blog/cms/different-php-versions → /blog/hosting/different-php-versions</li>
+<li>/blog/controlpanel/ssl-lets-encrypt: http://parspack.com/ssl/free → /ssl/free</li>
+<li>/blog/domain/ai-domain-picker: /blog/domain/ → /blog/domain</li>
+<li>/blog/domain/what-is-ir-domain: /domain/ → /domain</li>
+<li>/blog/hosting/cloud-computing-tutorial/google-cloud-storage: /blog/hosting/xiaomi-cloud-storage → /blog/hosting/cloud-computing-tutorial/xiaomi-cloud-storage</li>
+<li>/blog/hosting/cloud-computing-tutorial/how-to-connect-parspack-cloud-space-to-jetbackup-5-in-cpanel: /blog/hosting/cloud-computing-tutorial/ → /blog/hosting/cloud-computing-tutorial</li>
+<li>/blog/hosting/learn-host/iran-vs-europe-hosting: /blog/hosting/learn-host/iran-host → /host/iran (2 redirects)</li>
+<li>/blog/hosting/learn-host/iranian-wordpress-hosting: /wp-support/?utm_source=website&utm_medium=article&utm_campaign=wpsupport&utm_content=28128 → /wp-services?utm_source=website&utm_medium=article&utm_campaign=wpsupport&utm_content=28128</li>
+<li>/blog/hosting/learn-host/shared-host-vs-cloud-host: /blog/hosting/learn-host/what-is-shared-hosting → /blog/hosting/what-is-shared-host</li>
+<li>/blog/hosting/learn-host/shared-vs-high-traffic-hosting: /blog/hosting/learn-host/what-is-download-host → /host/download-host (2 redirects)</li>
+<li>/blog/hosting/learn-host/wordpress-vs-shared-hosting: /blog/hosting/learn-host/ → /blog/hosting/learn-host</li>
+<li>/blog/hosting/learn-host/wordpress-vs-woocommerce-hosting: /blog/hosting/learn-host/guide-to-buy-wordpress-host → /blog/hosting/learn-host/best-wordpress-hosting</li>
+<li>/blog/hosting/learn-server/canada-vps: /blog/cms/seo-search-engine-optimization → /blog/online-business/seo-tutorial/what-is-seo</li>
+<li>/blog/hosting/learn-server/canada-vps: /blog/hosting/static-ip → /blog/hosting/buy-stasic-ip</li>
+<li>/blog/hosting/learn-server/e-commerce-server: /blog/hosting/learn-host/woocommerce-host → /host/woocommerce</li>
+<li>/blog/hosting/learn-server/iran-vs-foreign-cloud-server: /blog/hosting/ → /blog/hosting</li>
+<li>/blog/hosting/learn-server/netherlands-vps: /blog/hosting/buying-stasic-ip → /blog/hosting/buy-stasic-ip</li>
+<li>/blog/hosting/learn-server/vps-vs-cloud-server: /servers/ → /servers</li>
+<li>/blog/hosting/learn-server/what-is-cloud-server: /blog/hosting/learn-server/virtualization → /blog/network/virtualization-tutorial/virtualization</li>
+<li>/blog/hosting/learn-server/what-is-iran-dedicated-server: /dedicated-servers/ → /dedicated-servers</li>
+<li>/blog/hosting/learn-server/what-is-vps: /blog/hosting/learn-server/ → /blog/hosting/learn-server</li>
+<li>/blog/hosting/learn-server/what-is-vps: /blog/hosting/learn-server/cheap-vps → /vps/cheap</li>
+<li>/blog/hosting/what-is-foreign-dedicated-server: /blog/hosting/vps-vs-dedicated-server → /blog/hosting/learn-server/vps-vs-dedicated-server</li>
+<li>/blog/hosting/what-is-hosting: /blog/hosting/learn-host/what-is-host → /blog/hosting/learn-host/what-is-web-hosting</li>
+<li>/blog/hosting/what-is-whmcs: /servers/game → /blog/hosting/learn-server/what-is-game-server (ends in 404)</li>
+<li>/blog/online-business/seo-tutorial/fix-reduce-cookie-size-error-gtmetrix: /blog/online-business/seo-tutorial/ → /blog/online-business/seo-tutorial</li>
+<li>/blog/online-business/seo-tutorial/what-is-keyword: /blog/online-business/ → /blog/online-business</li>
+<li>/blog/os/dns-tutorial-os/set-or-delete-dns-on-cpanel: /blog/os/dns-tutorial-os/ → /blog/os/dns-tutorial-os</li>
+<li>/blog/os/linux/kali/what-is-kali-linux: /blog/os/linux/kali/ → /blog/os/linux/kali</li>
+<li>/blog/os/linux/ubuntu/enable-and-disable-root-user-account: /blog/os/ → /blog/os</li>
+<li>/blog/os/linux/ubuntu/install-vnstat: /blog/os/linux/ → /blog/os/linux</li>
+<li>/blog/os/linux/what-is-linux: /blog/hosting/learn-server/putty-ssh → /blog/hosting/learn-server/use-putty-ssh</li>
+<li>/blog/os/windows/docker-desktop: /blog/os/docker-desktop → /blog/os/windows/docker-desktop</li>
+<li>/blog/os/windows/what-is-windows: /blog/os/windows/ → /blog/os/windows</li>
+<li>/blog/programming/devops-tutorial/what-is-terraform: /blog/os/linux/ubuntu/ansible-ubuntu → /blog/network/what-is-ansible</li>
+<li>/blog/programming/frontend-tutorial/website-cache: /blog/cms/wordpress-site-speed → /blog/cms/wordpress/speed-up-wp (2 redirects)</li>
+<li>/blog/programming/webserver-tutorial/what-is-nginx: /blog/hosting/learn-server/apache-web-server → /blog/programming/webserver-tutorial/apache-web-server</li>
+<li>/blog/programming/what-is-framework: http://parspack.com/paas/python → /paas/python</li>
+<li>/blog/programming/what-is-framework: /blog/programming/ → /blog/programming</li>
+<li>/blog/programming/what-is-nodejs: http://parspack.com/paas/nodejs → /paas/nodejs</li>
+<li>/blog/security/host-security-tutorial/web-hosting-security: /blog/hosting/learn-host/wordpress-linux-host-vs-windows → /blog/hosting/learn-host/linux-vs-windows</li>
+<li>/blog/security/how-to-renew-ssl-certificate: /blog/security/ → /blog/security</li>
+<li>/blog/security/install-modsecurity-rules-custombuild: /server → /servers</li>
+<li>/blog/security/smime: http://parspack.com/blog/security → /blog/security</li>
+<li>/blog/security/ssl/redirect-http-https: /blog/controlpanel/ → /blog/controlpanel</li>
+<li>/blog/security/ssl/what-is-tls-error: /blog/hosting/what-is-tls → /blog/security/what-is-tls</li>
+<li>/blog/security/ssl/what-is-tls-error: /blog/security/ssl/ → /blog/security/ssl</li>
+<li>/blog/security/what-is-ssl: /baremetal-server → /dedicated-servers/baremetal-server</li>
+<li>/blog/security/what-is-ssl: /blog/hosting/woocommerce-host → /host/woocommerce (2 redirects)</li>
+<li>/blog/security/what-is-ssl: /cloud-server/paas → /paas</li>
+<li>/blog/security/what-is-ssl: /hybrid-server → /dedicated-servers/hybrid-server</li>
+<li>/blog/security/what-is-ssl: /macro-server → /dedicated-servers/macro-server</li>
+<li>/blog/technology-news/create-chatgpt-account: /blog/technology-news/ → /blog/technology-news</li>
+<li>/blog/technology-news/install-n8n-locally-and-server: http://parspack.com/blog/technology-news → /blog/technology-news</li>
+</ul></details>
+    </div>
+    <div class="better"><b class="t">ادیت‌ها</b>
+      <ul>
+        <li>اول چهار لینکِ دو ریدایرکتی و شش لینک قالب. بعد ۷ لینک http و ۳۹ لینک قدیمی، با فهرست بالا.</li>
+        <li>جملهٔ پایانی «در این مقاله از بخش…» را نویسنده‌ها دستی می‌نویسند. در راهنمای نگارش بلاگ ثبت شود که لینک دسته بدون اسلش آخر باشد، تا در پست‌های جدید تکرار نشود.</li>
+        <li>اگر افزونهٔ Redirection یا نسخهٔ Premium افزونهٔ Yoast در وردپرس فعال است، گزارش ریدایرکت‌هایش فهرست کامل لینک‌های قدیمی را نشان می‌دهد. بعضی افزونه‌ها هم لینک‌های داخلی را خودکار با آدرس جدید عوض می‌کنند.</li>
+      </ul>
+    </div>
   </article>
 </section>
 
 <!-- ===================== 7 ===================== -->
 <section id="tech">
-  <h2><span class="num">۷</span> سئوی تکنیکال: وضعیت موارد ۲۶ مهر</h2>
+  <h2><span class="num">۷</span> سئوی تکنیکال</h2>
+  <h3 class="sub">وضعیت موارد ۲۶ مهر</h3>
   <p class="sec-lead">این جدول موارد فنی گزارش ۲۶ مهر را دوباره بررسی می‌کند. «درست شد» یعنی بعد از گزارش قبلی اصلاح شده، و «باز» یعنی هنوز همان وضعیت را دارد. زیر نام هر مورد یک خط توضیح آمده که آن مورد چیست و چرا مهم است. همهٔ ردیف‌ها ۲ آبان روی سایت زنده دوباره چک شدند.</p>
   <table class="tbl">
     <tr><th>مورد</th><th>وضعیت ۲ آبان</th><th>شاهد</th><th>اقدام</th></tr>
@@ -425,6 +660,27 @@
     <tr><td><span class="ltr">post-sitemap.xml</span> ریشه<br><span class="why">یک sitemap قدیمی در ریشهٔ سایت هنوز در فهرست sitemapها معرفی شده. ۱۶ آدرس دارد و آخرین تغییرشان مرداد ۱۴۰۱ است. sitemap کهنه اطلاعات قدیمی به گوگل می‌دهد.</span></td><td class="o">باز</td><td>۱۶ URL، آخرین lastmod در مرداد ۱۴۰۱</td><td>به‌روزرسانی یا حذف از sitemap_index</td></tr>
   </table>
   <p class="why">دربارهٔ FAQPage: از مرداد ۱۴۰۲ (اوت ۲۰۲۳)، گوگل نتیجهٔ غنی FAQ را فقط برای سایت‌های دولتی و سلامت نشان می‌دهد. سوالات متداول صفحه‌ها برای کاربر مفیدند و باید بمانند، ولی اسکیمای FAQPage برای پارس‌پک نتیجهٔ غنی نمی‌سازد. اولویت اسکیما با Product و Offer است.</p>
+
+  <h3 class="sub">موارد تازه از کراول ۲۹ مهر <span class="new">تازه</span></h3>
+  <p class="sec-lead">این موارد در گزارش ۲۶ مهر نبودند. منبع اولیه فایل کراول ۲۹ مهر است و هر ردیف ۳ آبان روی سایت زنده دوباره چک شد.</p>
+  <table class="tbl">
+    <tr><th>مورد</th><th>وضعیت ۳ آبان</th><th>شاهد</th><th>اقدام</th></tr>
+    <tr><td>canonical با http<br><span class="why">canonical به گوگل می‌گوید نسخهٔ اصلی صفحه کدام آدرس است. این ۶ صفحه نسخهٔ http را اصلی اعلام کرده‌اند، در حالی که http به https ریدایرکت می‌شود. یعنی صفحه به گوگل می‌گوید «نسخهٔ اصلی من آدرسی است که خودش ریدایرکت می‌شود».</span></td><td class="o">باز</td><td><span class="ltr">/backup-and-disaster-recovery-solutions</span>، <span class="ltr">/last-faq-and-status</span>، <span class="ltr">/paas/n8n</span>، <span class="ltr">/paas/nodejs</span>، <span class="ltr">/paas/python</span>، <span class="ltr">/paas/nextjs</span>. مثلاً: <span class="ltr">&lt;link rel="canonical" href="http://parspack.com/paas/n8n"&gt;</span>. بقیهٔ صفحه‌های زنده و قابل ایندکس page-sitemap، canonical درست با https دارند.</td><td>canonical روی نسخهٔ https. احتمالاً آدرس سایت در تنظیمات همین صفحه‌ها یا در افزونهٔ سئو با http ذخیره شده.</td></tr>
+    <tr><td>آدرس‌های ریدایرکتی در <span class="ltr">page-sitemap.xml</span><br><span class="why">sitemap صفحه‌های تجاری هم باید فقط صفحه‌های زنده را داشته باشد. ۴ آدرس از ۱۰۳ آدرس آن ریدایرکت می‌شوند.</span></td><td class="o">باز</td><td><span class="ltr">/servers/game</span> ← مقالهٔ <span class="ltr">what-is-game-server</span> که ۴۰۴ است (بخش ۶)؛ <span class="ltr">/cdn/site-cdn</span> ← <span class="ltr">/cdn</span>؛ <span class="ltr">/jobs-new</span> ← <span class="ltr">/jobs</span>؛ آدرس فارسی «قوانین مالکیت سرویس» ← <span class="ltr">/terms</span>.</td><td>حذف از sitemap؛ برای <span class="ltr">/servers/game</span> تعیین تکلیف مقصد</td></tr>
+    <tr><td>توضیح متای خالی<br><span class="why">وقتی صفحه توضیح متا ندارد، گوگل خودش یک تکه از متن صفحه را زیر عنوان نشان می‌دهد که ممکن است ربطی به نیت جستجوگر نداشته باشد.</span></td><td class="o">باز</td><td>۹ صفحهٔ قابل ایندکس: <span class="ltr">/faq</span>، <span class="ltr">/terms</span>، <span class="ltr">/abuse-report</span>، <span class="ltr">/cdn/file-cdn</span>، <span class="ltr">/backup-and-disaster-recovery-solutions</span>، <span class="ltr">/last-faq-and-status</span>، و سه صفحهٔ دستهٔ بلاگ: <span class="ltr">/blog/technology-news</span>، <span class="ltr">/blog/os/dns-tutorial-os</span>، <span class="ltr">/blog/os/linux/kali</span>.</td><td>نوشتن توضیح متا. <span class="ltr">/cdn/file-cdn</span> صفحهٔ فروش است و اولویت دارد.</td></tr>
+    <tr><td>صفحه‌های بدون H1<br><span class="why">H1 تیتر اصلی صفحه است. این صفحه‌ها تیتر اصلی‌شان را با H2 نوشته‌اند یا اصلاً تیتر ندارند.</span></td><td class="o">باز</td><td><span class="ltr">/about-us</span>: اولین تیتر H2 است («از دل ابرها تا پارس‌پک»). <span class="ltr">/jobs</span>: اولین تیتر H2 است («فرصت‌های شغلی فعال»). <span class="ltr">/abuse-report</span>: هیچ تیتری ندارد. در کراول هیچ صفحهٔ قابل ایندکس دیگری بدون H1 نبود.</td><td>تیتر اول هر صفحه H1 شود</td></tr>
+    <tr><td>هدر HSTS<br><span class="why">هدری که به مرورگر می‌گوید این سایت را همیشه فقط با https باز کند. بیشتر موضوع امنیتی است تا سئو؛ اثر مستقیمی روی رتبه ندارد. ریدایرکت http به https الان درست کار می‌کند.</span></td><td class="o">باز</td><td>روی هیچ‌کدام از ۱٬۰۶۲ آدرس کراول نبود. پاسخ صفحهٔ اصلی در ۳ آبان هم <span class="ltr">Strict-Transport-Security</span> ندارد.</td><td>اولویت پایین؛ با تیم زیرساخت</td></tr>
+    <tr><td>یک مقالهٔ آموزشی noindex<br><span class="why">noindex یعنی صفحه در نتایج گوگل نمی‌آید. این مقاله در sitemap هم نیست.</span></td><td class="o">سؤال</td><td><span class="ltr">/blog/technology-news/registration-in-shahkar-from-parspack</span> («ثبت سرور در سامانهٔ شاهکار از طریق پنل پارس‌پک») متای <span class="ltr">noindex</span> دارد و canonical ندارد.</td><td>اگر عمدی نیست، index شود و به sitemap برگردد</td></tr>
+  </table>
+
+  <div class="good"><b class="t">بررسی شد و ایرادی نیست</b>
+    <ul>
+      <li><b>عنوان و توضیح متای تکراری:</b> کراول چند عنوان تکراری گزارش کرده بود، مثل ۶ صفحه با عنوان «خدمات افزایش سرعت وردپرس…». همه نسخه‌های یک صفحه با پارامتر UTM هستند، مثل <span class="ltr">/wp-services?utm_source=…</span>. canonical همهٔ این نسخه‌ها به آدرس بدون پارامتر اشاره می‌کند، پس برای گوگل یک صفحه‌اند. فقط برای دقت آمار بازدید، بهتر است لینک‌های داخلی سایت UTM نداشته باشند؛ UTM برای کمپین‌های بیرون از سایت است.</li>
+      <li><b>لینک‌های ۴۰۴ در کراول:</b> کراول ۴۰ آدرس ۴۰۴ ثبت کرده بود. ۳۵ تا لینک‌هایی هستند که اول آدرسشان فاصله آمده (مثل <span class="ltr">href=" /host/wordpress"</span>). مرورگر و گوگل این فاصله را حذف می‌کنند و لینک درست باز می‌شود. یکی هم آدرس داخلی Cloudflare برای مخفی کردن ایمیل است. ۴ لینکِ خرابِ باقی‌مانده همان‌هایی هستند که در بخش ۵ و ۶ آمده‌اند.</li>
+      <li><b>صفحه‌های کند:</b> کراول دو پست را بیش از ۲ دقیقه کند ثبت کرده بود (<span class="ltr">/blog/security/how-to-buy-ssl</span> و <span class="ltr">/blog/domain/studio</span>). ۳ آبان هر دو در کمتر از ۳ ثانیه باز شدند. کندی آن لحظه موقتی بوده.</li>
+      <li><b>صفحه‌های تکراری با اسلش:</b> لینک‌های اسلش‌دار در صفحه‌های VPS، مثل <span class="ltr">/vps/foreign/germany/</span>، فقط لینک مخفی «لغو پاسخ» فرم نظرات هستند و <span class="ltr">nofollow</span> دارند. ایرادی ندارند.</li>
+    </ul>
+  </div>
 </section>
 
 <!-- ===================== 8 ===================== -->
@@ -438,7 +694,7 @@
 </section>
 
 <footer>
-  پارس‌پک · گزارش سئو · ۲ آبان ۱۴۰۵ · ادغام گزارش ۲۶ مهر، مقایسهٔ رقبا و بررسی ۲ آبان
+  پارس‌پک · گزارش سئو، نسخهٔ ۲ · ۳ آبان ۱۴۰۵ · نسخهٔ ۱ (۲ آبان) به‌علاوهٔ یافته‌های کراول ۲۹ مهر، بررسی‌شده در ۳ آبان
 </footer>
 </div>
 </body>
