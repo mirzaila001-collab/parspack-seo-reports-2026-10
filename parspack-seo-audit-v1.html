@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>پارس‌پک — ممیزی سئو، نسخهٔ ۱ | ۲ آبان ۱۴۰۵</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2f2c; --blue:#0f766e; --sky:#e6f4f2; --green:#15803d; --green-bg:#e8f7ee;
+    --red:#c2410c; --red-bg:#fff1e8; --amber:#b45309; --amber-bg:#fff7e8;
+    --ink:#1c1917; --muted:#57534e; --line:#d6d3d1; --bg:#f3f6f5; --card:#fff;
+    --accent:#14b8a6;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:"IBM Plex Sans Arabic",Tahoma,sans-serif;background:var(--bg);color:var(--ink);line-height:1.95;font-size:16px;direction:rtl;text-align:right}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px 64px}
+  header.cover{background:
+      linear-gradient(115deg,rgba(15,47,44,.94) 0%,rgba(15,118,110,.9) 58%,rgba(20,184,166,.78) 100%),
+      repeating-linear-gradient(-55deg,rgba(255,255,255,.04) 0 12px,transparent 12px 24px),
+      #0f2f2c;
+    color:#fff;padding:52px 0 40px;margin-bottom:28px;border-bottom:6px solid #14b8a6;position:relative}
+  header.cover:before{content:"";position:absolute;inset:0 auto 0 0;width:8px;background:#f59e0b}
+  header.cover .wrap{position:relative;padding-bottom:0}
+  .brand-chip{display:inline-block;background:#f59e0b;color:#1c1917;padding:4px 12px;border-radius:6px;font-size:12.5px;font-weight:700;margin-bottom:14px}
+  header.cover h1{font-size:32px;font-weight:700;margin:0 0 8px;line-height:1.45}
+  header.cover .sub{margin:0;font-size:17px;opacity:.94}
+  header.cover .meta{margin-top:20px;display:flex;gap:18px 28px;flex-wrap:wrap;font-size:13.5px;opacity:.9}
+  nav.toc{background:var(--card);border:1px solid var(--line);border-right:5px solid var(--accent);border-radius:10px;padding:16px 22px;margin-bottom:22px}
+  nav.toc ol{margin:0;padding-right:22px;columns:2;column-gap:36px}
+  nav.toc a{color:var(--blue);text-decoration:none}
+  section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:26px 28px;margin-bottom:22px}
+  h2{font-size:22px;margin:0 0 8px;color:var(--navy);display:flex;align-items:center;gap:10px}
+  h2 .num{background:linear-gradient(145deg,#0f766e,#134e4a);color:#fff;width:32px;height:32px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+  h3{font-size:17.5px;color:var(--navy);margin:22px 0 8px}
+  p{margin:8px 0}
+  ul,ol{padding-right:22px;margin:8px 0}
+  li{margin:5px 0}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+  .kpi{border:1px solid var(--line);border-radius:10px;padding:14px 14px 12px;background:#f7fbfa;border-top:3px solid var(--accent)}
+  .kpi .label{font-size:12.5px;color:var(--muted);line-height:1.55}
+  .kpi .value{font-size:26px;font-weight:700;color:var(--navy);line-height:1.35;margin-top:4px}
+  .kpi .hint{font-size:12px;color:var(--muted);margin-top:2px}
+  table{width:100%;border-collapse:collapse;margin:12px 0 6px;font-size:13.5px}
+  th,td{border-bottom:1px solid var(--line);padding:8px 8px;text-align:right;vertical-align:top}
+  th{background:#e6f4f2;color:var(--navy);font-weight:600}
+  td.n,th.n{text-align:center;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .ltr{direction:ltr;unicode-bidi:embed}
+  code,.ltr{font-family:ui-monospace,Consolas,monospace;font-size:.9em}
+  .callout{border-radius:10px;padding:12px 16px;margin:14px 0;border-right:5px solid}
+  .callout.good{background:var(--green-bg);border-color:var(--green)}
+  .callout.bad{background:var(--red-bg);border-color:var(--red)}
+  .callout.warn{background:var(--amber-bg);border-color:var(--amber)}
+  .callout.info{background:var(--sky);border-color:var(--blue)}
+  .callout b.t{display:block;margin-bottom:4px}
+  .quote{background:#fafaf9;border:1px dashed #a8a29e;border-radius:10px;padding:12px 16px;margin:12px 0}
+  .quote .src{display:block;color:var(--muted);font-size:12.5px;margin-bottom:4px}
+  .actions{display:grid;gap:10px;margin-top:8px}
+  .action{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:linear-gradient(180deg,#f7fbfa,#fff)}
+  .action b{color:var(--navy)}
+  footer{color:var(--muted);font-size:12.5px;text-align:center;margin-top:8px}
+  @media(max-width:800px){.kpis{grid-template-columns:1fr 1fr}nav.toc ol{columns:1}header.cover h1{font-size:26px}}
+  @media print{
+    body{background:#fff;font-size:12px}
+    header.cover{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    section{break-inside:avoid}
+    a{color:inherit;text-decoration:none}
+  }
+</style>
+</head>
+<body>
+<header class="cover">
+  <div class="wrap">
+    <div class="brand-chip">پارس‌پک · parspack.com</div>
+    <h1>ممیزی سئو، نسخهٔ ۱</h1>
+    <p class="sub">کیفیت محتوا، نیت جست‌وجو، و اثری که همین محتوا روی ایندکس می‌گذارد.</p>
+    <div class="meta">
+      <span>بررسی زنده: ۲ آبان ۱۴۰۵ (۲۴ اکتبر ۲۰۲۶)، حدود ۱۱:۰۰ تا ۱۱:۱۰ به وقت تهران</span>
+      <span>کراول SiteOne: ۲۹ مهر ۱۴۰۵، ساعت ۱۷:۰۲ به وقت تهران</span>
+      <span>Search Console، بک‌لینک و Core Web Vitals در این فایل نیست</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<nav class="toc">
+  <ol>
+    <li><a href="#s1">نتیجه و سه کار اول</a></li>
+    <li><a href="#s2">روش شمارش</a></li>
+    <li><a href="#s3">صفحات فروش</a></li>
+    <li><a href="#s4">صفحات لوکیشن</a></li>
+    <li><a href="#s5">بلاگ</a></li>
+    <li><a href="#s6">هم‌پوشانی نیت</a></li>
+    <li><a href="#s7">ایندکس، فقط جایی که به این محتوا مربوط است</a></li>
+    <li><a href="#s8">کار بعدی</a></li>
+  </ol>
+</nav>
+
+<section id="s1">
+  <h2><span class="num">۱</span> نتیجه</h2>
+  <p>صفحات کشور، عنوان و H1 جدا دارند و مقالهٔ هر کشور با مقالهٔ کشور دیگر یکی نیست. مشکل محتوا جای دیگری است: عنوان چند صفحهٔ فروش همان کوئری را چند بار می‌نویسد، مقالهٔ دامنه نام محصول را در هر جمله تکرار می‌کند، و چند سیگنال فنی جلوی دیده‌شدن همین محتوا را می‌گیرد.</p>
+
+  <div class="kpis">
+    <div class="kpi">
+      <div class="label">«دامنه» در مقالهٔ <span class="ltr">/domain</span></div>
+      <div class="value">۱۱۸</div>
+      <div class="hint">در ۱۱٬۲۰۴ نویسه</div>
+    </div>
+    <div class="kpi">
+      <div class="label">«هاست» در مقالهٔ <span class="ltr">/host</span></div>
+      <div class="value">۱۰۴</div>
+      <div class="hint">در ۱۸٬۴۴۶ نویسه</div>
+    </div>
+    <div class="kpi">
+      <div class="label">VPS در مقالهٔ <span class="ltr">/vps</span></div>
+      <div class="value">۳۸</div>
+      <div class="hint">در کل HTML خام همین صفحه: ۳۹۹</div>
+    </div>
+    <div class="kpi">
+      <div class="label">شباهت ترتیبی مقالهٔ انگلیس و فرانسه</div>
+      <div class="value">۰٫۲۹۲</div>
+      <div class="hint">بعد از حذف نام کشور</div>
+    </div>
+  </div>
+
+  <div class="callout good">
+    <b class="t">آنچه سر جایش است</b>
+    عنوان و H1 صفحات انگلیس، فرانسه، آلمان، ترکیه و ایران کشور را مشخص می‌کند و canonical هر کدام مطلق و مخصوص همان URL است. مقالهٔ <span class="ltr">/cloud-server</span> روی «سرور ابری» می‌ماند: در متن مقاله VPS صفر بار آمده. مقالهٔ «سرور مجازی کانادا چیست» به <span class="ltr">/vps</span>، <span class="ltr">/vps/foreign/canada</span>، <span class="ltr">/host</span> و <span class="ltr">/cloud-server</span> لینک دارد.
+  </div>
+  <div class="callout bad">
+    <b class="t">آنچه به نیت جست‌وجو یا به دیده‌شدن همین متن ضربه می‌زند</b>
+    عنوان <span class="ltr">/vps</span> «سرور مجازی» را دو بار و VPS را یک بار دیگر می‌نویسد، و توضیح متا «خرید vps ارزان» را هم دارد؛ صفحهٔ <span class="ltr">/vps/cheap</span> همان «ارزان» را در عنوان خود دارد. مقالهٔ دامنه در یک پاراگراف ۱۲ بار «دامنه» یا «دامین» دارد. <span class="ltr">/en/</span> یک خروجی HTTrack از ۲۶ مرداد ۱۴۰۱ است، با canonical نسبی <span class="ltr">index.html</span>. در sitemap اعلام‌شده هیچ نشانی <span class="ltr">/blog/</span> نیست. داخل مقالهٔ کانادا لینک <span class="ltr">/cloud-servers/iran</span> هنوز ۴۰۴ است.
+  </div>
+
+  <h3>سه کار اول</h3>
+  <div class="actions">
+    <div class="action"><b>۱. عنوان و توضیح متا.</b> از <span class="ltr">/vps</span>، <span class="ltr">/domain</span>، <span class="ltr">/vps/linux</span> و <span class="ltr">/vps/foreign</span> شروع شود. هر عنوان یک کوئری را یک بار بگوید. «ارزان» فقط روی <span class="ltr">/vps/cheap</span> بماند. عنوان مقالهٔ کانادا «خرید VPS کانادا» را برندارد و سؤال «چیست» را نگه دارد.</div>
+    <div class="action"><b>۲. بلوک مشترک لوکیشن.</b> پاراگراف توزیع‌های لینوکس و فهرست انواع پلن در انگلیس و فرانسه جمله‌به‌جمله یکی است و فقط نام کشور عوض شده. همان بلوک با دیتاسنتر، کاربری و محدودیت واقعی همان کشور عوض شود. این صفحات near-duplicate نیستند؛ ادغام یا noindex به‌خاطر شباهت توصیه نمی‌شود.</div>
+    <div class="action"><b>۳. سه مانع ایندکس همین محتوا.</b> canonical و زبان <span class="ltr">/en/</span>، نشانی Organization که هنوز <span class="ltr">parspack.com/new</span> است، و نبود <span class="ltr">/blog/</span> در sitemap اعلام‌شده. همراه این‌ها، href شکستهٔ <span class="ltr">/cloud-servers/iran</span> در مقالهٔ کانادا به <span class="ltr">/cloud-server/iran</span> اصلاح شود.</div>
+  </div>
+</section>
+
+<section id="s2">
+  <h2><span class="num">۲</span> روش</h2>
+  <p>صفحات با <span class="ltr">curl --compressed</span> در ۲ آبان ۱۴۰۵ گرفته شده‌اند. وضعیت HTTP با <span class="ltr">--max-redirs 0</span> حدود ساعت ۱۱:۰۵ به وقت تهران دوباره خوانده شد. کراول SiteOne نسخهٔ ۱.۰.۸ فقط برای فهرست ۴۰۴ خام استفاده شد؛ مهر آن ۲۱ اکتبر ۲۰۲۶، ساعت ۱۳:۳۲:۲۰ به وقت UTC است، یعنی ۲۹ مهر ۱۴۰۵، ساعت ۱۷:۰۲ به وقت تهران.</p>
+  <p>متن فروش از تگ <span class="ltr">section.section-read-more</span> جدا شده است. این همان مقاله است. تگ <span class="ltr">main</span> کارت قیمت، ویژگی‌ها و بقیهٔ ماژول محصول را هم دارد. هدر و فوتر بیرون main مانده‌اند. برای دو نمونهٔ بلاگ این سکشن وجود ندارد و عدد، متن داخل <span class="ltr">main</span> است.</p>
+  <div class="callout info">
+    <b class="t">طریقهٔ شمردن، تا عدد قابل‌بازشماری باشد</b>
+    تجزیه‌گر: BeautifulSoup با lxml. متن با <span class="ltr">get_text</span> و فاصله به‌عنوان جداکننده، بعد یکی‌کردن فاصله‌های پیاپی. شمارش، تعداد زیررشته است و به بزرگی و کوچکی حروف حساس نیست؛ <span class="ltr">VPS</span> و <span class="ltr">vps</span> یک عددند. جست‌وجو در view-source با عدد مقاله یکی نیست. در <span class="ltr">/vps</span> زیررشتهٔ vps در HTML خام ۳۹۹ بار است، در متن قابل‌مشاهدهٔ کل صفحه (بعد از حذف script و style) ۱۳۴ بار، داخل main ۱۳۳ بار، و داخل مقاله ۳۸ بار.
+  </div>
+  <p>شباهت دو مقاله با <span class="ltr">difflib.SequenceMatcher</span> روی همین متن مقاله حساب شده، بعد از حذف این واژه‌ها: انگلیس، انگلستان، بریتانیا، فرانسه، آلمان، ترکیه، ایران، کانادا، هلند، سوئد، لندن، پاریس. نسبت ۰٫۲۹۲ یعنی اشتراک ترتیب نویسه‌ها، نه درصد صفحات تکراری. قطعهٔ مشترک یعنی <span class="ltr">p</span>، <span class="ltr">li</span>، <span class="ltr">h2</span> یا <span class="ltr">h3</span> با حداقل ۴۰ نویسه که بعد از همان حذف، با قطعهٔ صفحهٔ دیگر یکی است.</p>
+  <p>در این فایل عدد Search Console، رتبه، بک‌لینک، سرعت و Core Web Vitals نیامده، چون در این بررسی اندازه‌گیری نشده‌اند. اسکیما فقط برای URLهایی نقل شده که HTMLشان باز شده است.</p>
+</section>
+
+<section id="s3">
+  <h2><span class="num">۳</span> صفحات فروش</h2>
+  <p>هر پنج URL کد ۲۰۰، canonical مطلقِ خود صفحه، و <span class="ltr">meta robots</span> برابر <span class="ltr">follow, index</span> دارند. اسکیمای هر پنج تا Organization و WebSite و WebPage و Article و Person است. Product و FAQPage در این پنج HTML نیست.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>URL</th>
+        <th>H1</th>
+        <th class="n">نویسهٔ مقاله</th>
+        <th class="n">عبارت در مقاله</th>
+        <th class="n">همان عبارت در main</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="ltr">/vps</td>
+        <td>سرور مجازی</td>
+        <td class="n">۱۹٬۹۶۴</td>
+        <td class="n">VPS ۳۸<br>سرور مجازی ۴۰</td>
+        <td class="n">VPS ۱۳۳<br>سرور مجازی ۹۸</td>
+      </tr>
+      <tr>
+        <td class="ltr">/host</td>
+        <td>خرید هاست</td>
+        <td class="n">۱۸٬۴۴۶</td>
+        <td class="n">هاست ۱۰۴</td>
+        <td class="n">هاست ۱۷۸</td>
+      </tr>
+      <tr>
+        <td class="ltr">/cloud-server</td>
+        <td>خرید سرور ابری</td>
+        <td class="n">۱۸٬۶۷۰</td>
+        <td class="n">سرور ابری ۶۳<br>VPS ۰</td>
+        <td class="n">سرور ابری ۱۰۱<br>سرور مجازی ۲</td>
+      </tr>
+      <tr>
+        <td class="ltr">/domain</td>
+        <td>خرید دامین</td>
+        <td class="n">۱۱٬۲۰۴</td>
+        <td class="n">دامنه ۱۱۸<br>دامین ۱۸</td>
+        <td class="n">دامنه ۲۰۲<br>دامین ۲۰</td>
+      </tr>
+      <tr>
+        <td class="ltr">/servers</td>
+        <td>خرید سرور</td>
+        <td class="n">۲۹٬۱۴۷</td>
+        <td class="n">سرور اختصاصی ۱۴<br>سرور مجازی ۸<br>VPS ۴</td>
+        <td class="n">سرور اختصاصی ۲۴<br>سرور مجازی ۱۹</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>اختلاف main و مقاله در <span class="ltr">/vps</span> از ماژول محصول می‌آید: صفحه ۲۳ عنوان H2 و ۱۵۸ عنوان H3 دارد و از این‌ها فقط ۸ و ۲۷ تا داخل مقاله است. شمارش خریدار باید ستون مقاله باشد.</p>
+
+  <h3>عنوان‌ها کوئری را یک بار نمی‌گویند</h3>
+  <p>عنوان <span class="ltr">/vps</span> این است: «سرور مجازی ⚡️ خرید سرور مجازی (خرید VPS) IPV6 بالاترین کیفیت». H1 فقط «سرور مجازی» است. توضیح متا با «خرید vps ارزان» شروع می‌شود. اولین پاراگراف مقاله تاریخچهٔ ماشین‌های IBM است، نه جواب به کسی که می‌خواهد VPS بخرد. مقاله حدود ۲۰ هزار نویسه توضیح دارد؛ عنوان و پاراگراف اول این توضیح را نمایندگی نمی‌کنند.</p>
+  <p>عنوان <span class="ltr">/domain</span> «خرید دامنه | ثبت دامنه ارزان تر از IRNIC | جستجوی دامین» است و H1 «خرید دامین». دو املا در عنوان و H1 کنار هم‌اند. در مقاله، این پاراگراف ۱۲ بار «دامنه» یا «دامین» دارد:</p>
+  <div class="quote">
+    <span class="src">parspack.com/domain · بخش مقاله · ۲۴ اکتبر ۲۰۲۶</span>
+    دامنه در حقیقت آدرس وب‌سایت و کسب‌وکارهای اینترنتی است. … برای اتصال کاربران به این IP و مشاهده محتوای آن، به یک آدرس نیاز داریم که دامین (Domain) این کار را انجام می‌دهد. با خرید دامنه از پارس‌پک، علاوه‌بر تخفیف روی قیمت دامنه‌ها…
+  </div>
+  <p>عنوان <span class="ltr">/host</span> «خرید هاست ☁️ Web Hosting اولین هاست ابری کشور» است. ۱۰۴ بار «هاست» در مقالهٔ ۱۸٬۴۴۶ نویسه‌ای برای صفحهٔ محصول غریب نیست، چون موضوع خود هاست است؛ دو بار آمدن «هاست» در عنوان، و یک بار Web Hosting، همان کوئری را در اسنیپت تکرار می‌کند. مقالهٔ هاست با تعریف میزبانی وب شروع می‌شود و به درد خریدار می‌خورد. کار این صفحه اصلاح عنوان است، نه بازنویسی کل متن.</p>
+  <p>توضیح متا <span class="ltr">/cloud-server</span> می‌گوید «خرید سرور مجازی ابری» و «سرور ابری رایگان»، در حالی که H1 «خرید سرور ابری» است و داخل مقاله VPS صفر بار است. بدنه روی محصول درست ایستاده؛ اسنیپت محصول را با سرور مجازی و با «رایگان» قاطی می‌کند. درستی ادعای تست رایگان در این بررسی سنجیده نشد.</p>
+  <p><span class="ltr">/servers</span> هاب است. عنوان و H1 هر دو «خرید سرور» است و مقاله هر سه خانواده را با شمارش کم نام می‌برد. این صفحه با <span class="ltr">/vps</span> یک کوئری را نمی‌خواهد.</p>
+
+  <h3>سه عنوان دیگر که همین روز باز شد</h3>
+  <p>بدنهٔ این سه تا شمرده نشده. فقط عنوان و H1 و کد ۲۰۰ ثبت شده است.</p>
+  <ul>
+    <li><span class="ltr">/vps/linux</span> — عنوان: «سرور مجازی لینوکس (خرید VPS لینوکس وی پی اس لینوکس) - پارس پک». H1: «سرور مجازی لینوکس».</li>
+    <li><span class="ltr">/vps/foreign</span> — عنوان: «سرور مجازی خارج VPS خرید | NVMe اروپا با پایین ترین قیمت». H1: «VPS خارج».</li>
+    <li><span class="ltr">/vps/cheap</span> — عنوان: «سرور مجازی ارزان ⚡ خرید VPS ارزان در موقعیت ایران و خارج - پارس‌پک». H1: «سرور مجازی ارزان».</li>
+  </ul>
+  <p>عنوان لینوکس یک محصول را با سه املا می‌نویسد. عنوان خارج ترتیب جمله را به هم ریخته. عنوان ارزان و توضیح متا <span class="ltr">/vps</span> هر دو روی کلمهٔ «ارزان» ایستاده‌اند؛ جزئیات در بخش هم‌پوشانی است.</p>
+</section>
+
+<section id="s4">
+  <h2><span class="num">۴</span> صفحات لوکیشن</h2>
+  <p>پنج URL زیر ۲۰۰ هستند، canonical مطلق خودشان را دارند، و H1 کشور را در نام محصول آورده است. اسکیما همان ترکیب Article است؛ Product و FAQPage در این پنج تا نیست.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>URL</th>
+        <th>عنوان</th>
+        <th>H1</th>
+        <th class="n">نویسهٔ مقاله</th>
+        <th class="n">سرور مجازی در مقاله</th>
+        <th class="n">VPS در مقاله</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="ltr">/vps/foreign/england</td>
+        <td>VPS انگلیس | سرور مجازی انگلیس ویندوز و لینوکس</td>
+        <td>سرور مجازی انگلیس</td>
+        <td class="n">۱۸٬۱۹۶</td>
+        <td class="n">۶۱</td>
+        <td class="n">۳</td>
+      </tr>
+      <tr>
+        <td class="ltr">/vps/foreign/france</td>
+        <td>خرید سرور مجازی فرانسه | خرید VPS فرانسه</td>
+        <td>سرور مجازی فرانسه</td>
+        <td class="n">۱۷٬۴۶۷</td>
+        <td class="n">۵۸</td>
+        <td class="n">۲</td>
+      </tr>
+      <tr>
+        <td class="ltr">/vps/foreign/germany</td>
+        <td>سرور مجازی آلمان - خرید vps آلمان - لینوکس و ویندوز - پارس پک</td>
+        <td>سرور مجازی آلمان</td>
+        <td class="n">۱۱٬۳۷۶</td>
+        <td class="n">۳۷</td>
+        <td class="n">۲</td>
+      </tr>
+      <tr>
+        <td class="ltr">/vps/foreign/turkey</td>
+        <td>خرید سرور مجازی ترکیه | VPS ترکیه با IP ثابت</td>
+        <td>سرور مجازی ترکیه</td>
+        <td class="n">۱۵٬۳۷۵</td>
+        <td class="n">۵۴</td>
+        <td class="n">۳</td>
+      </tr>
+      <tr>
+        <td class="ltr">/vps/iran</td>
+        <td>خرید VPS ایران | سرور مجازی ایران لینوکس، ویندوز - پارس‌پک</td>
+        <td>سرور مجازی ایران</td>
+        <td class="n">۱۲٬۱۵۵</td>
+        <td class="n">۳۵</td>
+        <td class="n">۱۷</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>نسبت SequenceMatcher مقاله، بعد از حذف نام کشور:</p>
+  <table>
+    <thead><tr><th>جفت</th><th class="n">نسبت</th></tr></thead>
+    <tbody>
+      <tr><td>انگلیس و فرانسه</td><td class="n">۰٫۲۹۲</td></tr>
+      <tr><td>ترکیه و فرانسه</td><td class="n">۰٫۱۸۸</td></tr>
+      <tr><td>آلمان و ترکیه</td><td class="n">۰٫۱۰۲</td></tr>
+      <tr><td>آلمان و انگلیس</td><td class="n">۰٫۰۹۷</td></tr>
+      <tr><td>ایران و آلمان</td><td class="n">۰٫۰۳۱</td></tr>
+      <tr><td>مقالهٔ <span class="ltr">/vps</span> و مقالهٔ ایران</td><td class="n">۰٫۰۱۵</td></tr>
+    </tbody>
+  </table>
+  <p>از ۷۸ قطعهٔ انگلیس، ۱۸ قطعه بعد از حذف نام کشور با فرانسه یکی بود. بالاترین جفت بعدی در همین روش، ترکیه و فرانسه با ۰٫۱۸۸ است. ایران با آلمان ۰٫۰۳۱ است. این الگو یک قالب مشترک روی بخش سیستم‌عامل و انواع سرویس است، نه کپی کامل صفحه.</p>
+  <div class="quote">
+    <span class="src">همین پاراگراف، بدون تفاوت، در مقالهٔ انگلیس و فرانسه</span>
+    ما در پارس‌پک، طیف وسیعی از توزیع‌های محبوب لینوکس را ارائه می‌دهیم که هر کدام برای کاربردهای خاصی بهینه شده‌اند. از جمله این سیستم‌عامل‌ها می‌توان به Debian، Ubuntu و Alma Linux اشاره کرد. این توزیع‌ها به دلیل پایداری بالا، امنیت قوی و متن‌باز (Open Source) بودن، انتخابی ایده‌آل برای توسعه‌دهندگان وب، مدیران سرور، اپلیکیشن‌های تحت وب، پایگاه‌های داده و هرگونه فعالیت مبتنی بر لینوکس محسوب می‌شوند.
+  </div>
+  <div class="quote">
+    <span class="src">فهرست انواع سرویس؛ فقط نام کشور عوض شده</span>
+    سرور مجازی مدیریت‌شده انگلیس : مدیریت کامل سرور توسط تیم پشتیبانی پارس‌پک.<br>
+    سرور مجازی مدیریت‌شده فرانسه: مدیریت کامل سرور توسط تیم پشتیبانی پارس‌پک.
+  </div>
+  <p>کنار همین بلوک، انگلیس تعریف خودش را دارد. این جمله در مقالهٔ انگلیس هست و نزدیک‌ترین پاراگراف فرانسه به آن، نسبت ۰٫۰۹ داشت:</p>
+  <div class="quote">
+    <span class="src">parspack.com/vps/foreign/england · مقاله</span>
+    سرور مجازی انگلیس (England VPS) یک محیط میزبانی قدرتمند است که با استفاده از فناوری مجازی‌سازی مانند KVM، منابع یک سرور فیزیکی را به چند ماشین مجازی مستقل تقسیم می‌کند.
+  </div>
+  <p>پس صفحهٔ کشور ارزش جدا ماندن دارد. جمله‌ای که در هر کشور عین همان است به خریدار آن کشور چیزی اضافه نمی‌کند و باید با واقعیت همان لوکیشن عوض شود. عنوان آلمان «سرور مجازی» و «vps آلمان» را هر دو در title آورده؛ همان اصلاح عنوان صفحات فروش این‌جا هم لازم است، با شدت کمتر از <span class="ltr">/vps/linux</span>.</p>
+</section>
+
+<section id="s5">
+  <h2><span class="num">۵</span> بلاگ</h2>
+  <p>دو URL باز شد. هر دو <span class="ltr">follow, index</span> هستند و عبارت قدیمی <span class="ltr">noydir, noodp</span> هم در robots هست. canonical هر دو مطلق و درست است.</p>
+  <h3>بایگانی آموزش سئو، مقاله نیست</h3>
+  <p><span class="ltr">/blog/online-business/seo-tutorial</span> عنوان «آموزش سئو | آموزش رایگان سئو SEO - بلاگ پارس پک» و H1 «آموزش سئو» دارد. متن main برابر ۲٬۷۰۳ نویسه است، H2 ندارد و ۱۱ عنوان H3 دارد که هر کدام عنوان یک نوشتهٔ فرزند است. از ۳۶ لینک داخلی main، هیچ‌کدام به <span class="ltr">/vps</span>، <span class="ltr">/host</span>، <span class="ltr">/domain</span>، <span class="ltr">/cloud-server</span> یا <span class="ltr">/servers</span> نمی‌رود. اسکیما Person و WebSite و BreadcrumbList است؛ BlogPosting نیست، چون صفحه آرشیو است.</p>
+  <p>توضیح متا این است: «آموزش رایگان SEO به صورت کامل و کاربردی سئو خارجی، سئو داخی، of page, on page در وبلاگ پارس پک.» دو اشکال در خود جمله است: «داخلی» به صورت «داخی» نوشته شده، و به‌جای off-page آمده of page. صفحه با این توضیح ادعا می‌کند آموزش کامل است، در حالی که بدنه فهرست لینک است.</p>
+  <h3>مقالهٔ کانادا به صفحهٔ فروش وصل است، با یک href غلط</h3>
+  <p><span class="ltr">/blog/hosting/learn-server/canada-vps</span> عنوان «سرور مجازی کانادا چیست+ خرید VPS کانادا - بلاگ پارس پک» و H1 «سرور مجازی کانادا چیست و چه کاربردی دارد؟» دارد. متن main برابر ۱۰٬۸۰۸ نویسه است، با ۲۲ عنوان H2 و ۱۶ عنوان H3. اسکیما BlogPosting و FAQPage دارد. در main این لینک‌های فروش دیده شد: <span class="ltr">/vps/foreign/canada</span> (۲۰۰)، <span class="ltr">/vps</span>، <span class="ltr">/vps/windows</span> (۲۰۰)، <span class="ltr">/servers</span>، <span class="ltr">/host</span> (۲۰۰)، <span class="ltr">/host/wordpress</span> (۲۰۰)، <span class="ltr">/cloud-server</span> (۲۰۰). وضعیت <span class="ltr">/vps/foreign/trade</span> در این نوبت جدا گرفته نشد، هرچند href آن در مقاله هست.</p>
+  <p>همان مقاله به <span class="ltr">https://parspack.com/cloud-servers/iran</span> لینک می‌دهد. این نشانی ۲۴ اکتبر، ساعت ۱۱:۰۵ به وقت تهران، کد ۴۰۴ داد. نشانی زنده <span class="ltr">https://parspack.com/cloud-server/iran</span> است و همان ساعت ۲۰۰ بود؛ عنوانش «خرید سرور ابری ایران با سیستم عامل لینوکس و ویندوز - پارس پک» و H1 آن «سرور ابری ایران» است.</p>
+  <h3>sitemap بلاگ را معرفی نمی‌کند</h3>
+  <p><span class="ltr">robots.txt</span> فقط <span class="ltr">https://parspack.com/sitemap_index.xml</span> را اعلام می‌کند. ایندکس ۲۴ اکتبر سه فرزند داشت: <span class="ltr">post-sitemap.xml</span> با ۱۶ نشانی، <span class="ltr">page-sitemap.xml</span> با ۱۰۳ نشانی، و <span class="ltr">local-sitemap.xml</span> با یک نشانی KML. در هیچ <span class="ltr">loc</span> این سه فایل رشتهٔ <span class="ltr">/blog/</span> نبود. نوشته‌های بلاگ index,follow هستند و در سایتمپی که ربات‌ها از robots می‌خوانند نیستند. اگر سایتمپ دیگری روی هاست باشد، در robots اعلام نشده است.</p>
+</section>
+
+<section id="s6">
+  <h2><span class="num">۶</span> هم‌پوشانی نیت</h2>
+  <p>هم‌پوشانی این‌جا یعنی عنوان یا H1 دو URL همان کوئری را بخواهند. هاب و صفحهٔ فرزند، اگر کوئری‌شان فرق کند، هم‌پوشانی حساب نشده است.</p>
+  <p><span class="ltr">/vps</span>، <span class="ltr">/cloud-server</span> و <span class="ltr">/servers</span> سه H1 مختلف دارند: «سرور مجازی»، «خرید سرور ابری»، «خرید سرور». این سه تا را نباید یکی کرد. نشت نیت در توضیح متا سرور ابری است که «سرور مجازی ابری» نوشته، نه در H1.</p>
+  <p>دو مورد واقعاً روی یک کوئری ایستاده‌اند.</p>
+  <div class="callout warn">
+    <b class="t">ارزان، روی دو URL</b>
+    توضیح متا <span class="ltr">/vps</span> شامل «خرید vps ارزان» است. عنوان <span class="ltr">/vps/cheap</span> «سرور مجازی ارزان» و «خرید VPS ارزان» است و H1 آن «سرور مجازی ارزان» است. کوئری ارزان باید مال صفحهٔ دوم بماند و از متا صفحهٔ مادر حذف شود.
+  </div>
+  <div class="callout warn">
+    <b class="t">خرید VPS کانادا، هم در مقاله هم در صفحهٔ فروش</b>
+    عنوان مقاله «سرور مجازی کانادا چیست+ خرید VPS کانادا» است. عنوان صفحهٔ فروش <span class="ltr">/vps/foreign/canada</span> این است: «خرید VPS کانادا | خرید سرور مجازی کانادا با IP اختصاصی و منابع قدرتمند»، با H1 «سرور مجازی کانادا». H1 مقاله هنوز سؤالی است و لینک به صفحهٔ فروش وجود دارد. خود عنوان مقاله وارد کوئری خرید شده. عنوان مقاله روی «چیست» بماند.
+  </div>
+  <p>عنوان <span class="ltr">/vps/foreign</span> کوئری «سرور مجازی خارج» است و H1 کشورها «سرور مجازی» به‌اضافهٔ نام کشور. این تفکیک درستی است، به شرطی که ترتیب کلمات عنوان هاب خوانا شود. نمونهٔ عنوان کانادا نشان می‌دهد صفحهٔ کشور می‌تواند کوئری خرید را روشن بگوید بدون اینکه مقالهٔ «چیست» همان عنوان را تکرار کند.</p>
+</section>
+
+<section id="s7">
+  <h2><span class="num">۷</span> ایندکس، فقط جایی که به این محتوا مربوط است</h2>
+  <p>این بخش فهرست هشدار کراولر نیست. فقط سیگنال‌هایی آمده که روی همین صفحات فروش، لوکیشن و بلاگ اثر دارند.</p>
+  <h3>فاصلهٔ اول نشانی، صفحهٔ خراب نیست</h3>
+  <p>کراول ۲۹ مهر، ۴۰ ردیف با وضعیت ۴۰۴ ثبت کرده است. ۳۴ ردیف مسیر داخلی هستند که فقط یک <span class="ltr">%20</span> قبل از مسیر واقعی دارند. قاعده این است که آن فاصله جزء نشانی نیست. نمونهٔ بازبینی‌شده در ۲۴ اکتبر: <span class="ltr">https://parspack.com/host/%20/host</span> کد ۴۰۴ داد و <span class="ltr">https://parspack.com/host</span> کد ۲۰۰. ۳۳ ردیف دیگرِ همین الگو در این نوبت یکی‌یکی باز نشدند و صفحهٔ شکسته حساب نمی‌شوند. یک ردیف هم فاصله را به ابتدای یک URL بیرونی چسبانده (<span class="ltr">techtarget.com</span> از مقالهٔ cmd) و صفحهٔ گم‌شدهٔ پارس‌پک نیست. <span class="ltr">/cdn-cgi/l/email-protection</span> مکانیسم ایمیل Cloudflare است، نه یک URL محتوا.</p>
+  <p>چهار مقصد در همان فهرست، ۲۴ اکتبر هنوز ۴۰۴ بودند. مبدأ را کراول ۲۹ مهر دیده و در این نوبت دوباره باز نشد:</p>
+  <ul>
+    <li><span class="ltr">/servers/goreign/germany</span> از <span class="ltr">/servers/foreign</span>. املای foreign غلط است. <span class="ltr">/servers/foreign/germany</span> همان ساعت ۲۰۰ بود.</li>
+    <li><span class="ltr">/hosting/directadmin</span> از مقالهٔ فیلتر اسپم دایرکت‌ادمین.</li>
+    <li><span class="ltr">/new/ab/ssl/</span> از مقالهٔ HTTPS.</li>
+    <li><span class="ltr">/new/ab/hub-server/</span> از مقالهٔ SQL Server.</li>
+  </ul>
+  <p>لینک ۴۰۴ مقالهٔ کانادا به <span class="ltr">/cloud-servers/iran</span> در این فهرست کراول نبود؛ در HTML زندهٔ خود مقاله دیده شد.</p>
+
+  <h3>www به apex برمی‌گردد</h3>
+  <p><span class="ltr">https://www.parspack.com/</span> در ۲۴ اکتبر کد ۳۰۱ داد و Location آن <span class="ltr">https://parspack.com/</span> بود. canonical و og:url صفحهٔ اصلی هر دو <span class="ltr">https://parspack.com/</span> است. عنوان صفحهٔ اصلی: «پارس پک | ارائه خدمات ابری: خرید هاست و خرید دامنه و سرور.» H1: «پارس‌پک، فناوری ابری به سادگی».</p>
+
+  <h3>Organization هنوز میزبان /new است</h3>
+  <p><span class="ltr">https://parspack.com/new</span> به <span class="ltr">/new/</span> کد ۳۰۱ می‌دهد. <span class="ltr">/new/</span> خودش ۲۰۰ است، meta آن <span class="ltr">follow, index</span> است، و canonical و og:url هر دو به <span class="ltr">https://parspack.com/</span> اشاره دارند. در <span class="ltr">robots.txt</span> قانون <span class="ltr">Disallow: /new/*</span> هست و استثنای <span class="ltr">Allow: /new/wp-content/</span> جداگانه آمده. در اسکیمای Organization، هم روی صفحهٔ اصلی و هم روی <span class="ltr">/new/</span>، مقدار url برابر <span class="ltr">https://parspack.com/new</span> است، <span class="ltr">@id</span> برابر <span class="ltr">https://parspack.com/new/#organization</span> است، و لوگو زیر <span class="ltr">/new/wp-content/uploads/2023/11/parspack-logo.png</span> است. رشتهٔ <span class="ltr">parspack.com/new</span> در HTML هر دو صفحه ۱۲۲ بار آمده. دو فایل بایت‌به‌بایت یکی نیستند.</p>
+  <p>نویسندهٔ Article در <span class="ltr">/vps</span> در اسکیما «sajjad fallahi» است و url آن <span class="ltr">https://parspack.com/new/author/sajjad/</span> است؛ این مسیر زیر همان Disallow است. برای صفحهٔ فروش، هویت نویسنده به میزبانی اشاره می‌کند که robots بسته است.</p>
+  <p>روی صفحهٔ اصلی، <span class="ltr">/vps</span>، <span class="ltr">/host</span>، <span class="ltr">/cloud-server</span>، <span class="ltr">/domain</span>، <span class="ltr">/servers</span> و پنج لوکیشنِ همین گزارش، دو لینک <span class="ltr">alternate</span> از نوع oEmbed هست که پارامتر url آن‌ها میزبان <span class="ltr">new.pars-next.ir</span> است، با مسیر همان صفحه. نمونه از <span class="ltr">/vps</span>: <span class="ltr">https://new.pars-next.ir/vps/</span>. این hreflang نیست. نام میزبان استیجینگ داخل HTML عمومی صفحات فروش مانده است.</p>
+
+  <h3>/en/ یک آینهٔ قدیمی است</h3>
+  <p><span class="ltr">https://parspack.com/en/</span> کد ۲۰۰ می‌دهد. خط اول سند این است: <span class="ltr">lang="fa"</span> و <span class="ltr">dir="rtl"</span>، با این کامنت: «Mirrored from parspack.com/ by HTTrack Website Copier/3.x [XR&amp;CO'2014], Wed, 17 Aug 2022 06:21:01 GMT». این مهر برابر ۲۶ مرداد ۱۴۰۱ است. عنوان صفحه انگلیسی است: «Parspack: cloud services، servers، hosting، CDN و SSL| parspack». meta می‌گوید <span class="ltr">index, follow</span>. تگ canonical در سورس این است: <span class="ltr">rel=" canonical" href="index.html"</span> — قبل از کلمهٔ canonical یک فاصله هست و مقصد، مسیر نسبی <span class="ltr">index.html</span> است. og:url هم <span class="ltr">index.html</span> است. <span class="ltr">robots.txt</span> همزمان <span class="ltr">Disallow: /en/*</span> دارد. نتیجه برای این گزارش: نسخهٔ انگلیسیِ قابل‌ایندکس، یک کپی ایستا از چهار سال پیش است و canonical آن به یک فایل نسبی اشاره می‌کند، نه به یک URL زبان‌دار.</p>
+</section>
+
+<section id="s8">
+  <h2><span class="num">۸</span> کار بعدی</h2>
+  <p>ترتیب، همان ترتیب خواندن این فایل است. هر ردیف بدون ابزار تازه قابل انجام است.</p>
+  <table>
+    <thead>
+      <tr><th class="n">ترتیب</th><th>کار</th><th>سنجش انجام‌شدن</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="n">۱</td>
+        <td>عنوان <span class="ltr">/vps</span> یک بار «سرور مجازی» بگوید. «ارزان» از توضیح متا حذف شود. پاراگراف اول مقاله به خرید جواب بدهد، نه به تاریخ IBM.</td>
+        <td>title و meta و پاراگراف اول، بعد از انتشار، با همین روش دوباره خوانده شود.</td>
+      </tr>
+      <tr>
+        <td class="n">۲</td>
+        <td>عنوان <span class="ltr">/domain</span> و H1 یک املا داشته باشند. پاراگراف ۱۲تکراره کوتاه شود. عنوان <span class="ltr">/host</span> «هاست» را یک بار بگوید. عنوان <span class="ltr">/vps/linux</span> و <span class="ltr">/vps/foreign</span> بازنویسی شود.</td>
+        <td>شمارش «دامنه» در مقالهٔ دامنه پایین بیاید و H1 با عنوان یکی شود.</td>
+      </tr>
+      <tr>
+        <td class="n">۳</td>
+        <td>پاراگراف Debian/Ubuntu/Alma و فهرست انواع پلن در لوکیشن‌ها با متن مخصوص همان کشور عوض شود. URL کشور سر جایش بماند.</td>
+        <td>آن پاراگراف دیگر عین هم در انگلیس و فرانسه پیدا نشود. نسبت کل مقاله لازم نیست به صفر برسد.</td>
+      </tr>
+      <tr>
+        <td class="n">۴</td>
+        <td>عنوان مقالهٔ کانادا روی «چیست» بماند. href به <span class="ltr">/cloud-servers/iran</span> به <span class="ltr">/cloud-server/iran</span> تغییر کند. توضیح متا بایگانی آموزش سئو با متن واقعی صفحه یکی شود.</td>
+        <td>عنوان مقاله دیگر «خرید VPS کانادا» نداشته باشد و آن href کد ۴۰۴ ندهد.</td>
+      </tr>
+      <tr>
+        <td class="n">۵</td>
+        <td>نوشته‌های <span class="ltr">/blog/</span> داخل sitemap اعلام‌شده در robots بیایند. url و <span class="ltr">@id</span> سازمان و url نویسنده از <span class="ltr">/new</span> به نشانی canonical صفحهٔ اصلی و نویسنده منتقل شود. oEmbed به <span class="ltr">new.pars-next.ir</span> از HTML عمومی حذف شود. <span class="ltr">/en/</span> یا از ایندکس خارج شود یا canonical مطلق و lang درست بگیرد؛ به شکل HTTrack فعلی نماند.</td>
+        <td>یک loc بلاگ در sitemap دیده شود، Organization دیگر <span class="ltr">/new</span> نگوید، و سورس <span class="ltr">/en/</span> کامنت HTTrack نداشته باشد.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="callout info">
+    <b class="t">عمداً بیرون این نسخه مانده</b>
+    رتبهٔ کلمات، مقایسهٔ رقبا، Core Web Vitals، بک‌لینک، و توصیهٔ noindex یا ادغام برای صفحات کشور. هر کدام فایل و تاریخ جدا می‌خواهد. عدد این فایل فقط از HTML و وضعیت HTTP همین دو تاریخ است.
+  </div>
+</section>
+
+<footer>
+  پارس‌پک — ممیزی سئو، نسخهٔ ۱ · بررسی زنده ۲ آبان ۱۴۰۵ · کراول SiteOne ۲۹ مهر ۱۴۰۵، ساعت ۱۷:۰۲ به وقت تهران
+</footer>
+</div>
+</body>
+</html>
