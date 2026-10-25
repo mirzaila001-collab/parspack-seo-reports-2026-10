@@ -125,7 +125,7 @@
     <tr><td>۴</td><td>اصلاح Organization و نویسنده در اسکیما؛ تعیین تکلیف <span class="ltr">/new</span>، <span class="ltr">/en</span> و ارجاع pars-next<br><span class="why">اسکیمای برند هنوز آدرس قدیمی <span class="ltr">/new</span> را نشان می‌دهد و لینک نویسنده ۴۰۴ است. <span class="ltr">/en</span> کپی قدیمی سایت است و pars-next دامنهٔ دیگری است. این‌ها سیگنال هویت برند را برای گوگل ناهمخوان می‌کنند.</span></td><td>کل سایت (بخش ۷)</td><td>توسعه</td></tr>
     <tr><td>۵</td><td>اسکیمای صفحه‌های فروش: Product و Offer به‌جای Article<br><span class="why">صفحه‌ای که پلن و قیمت دارد صفحهٔ محصول است. Product و Offer نوع سرویس و قیمت را برای گوگل مشخص می‌کنند. Article برای صفحه‌های محتوایی است.</span></td><td>هاب‌های ردهٔ ۱ (بخش ۴ و ۷)</td><td>توسعه</td></tr>
     <tr><td>۶</td><td>اصلاح غلط‌های عنوان، توضیح متا و متن<br><span class="why">عنوان و توضیح متا در نتیجهٔ جستجو دیده می‌شوند. غلط تایپی در آن‌ها روی اعتماد کاربر و نرخ کلیک اثر می‌گذارد.</span></td><td>۹ صفحه، داخل کارت هر صفحه (بخش ۴ تا ۶)</td><td>محتوا</td></tr>
-    <tr><td>۷</td><td>متن جایگزین (alt) برای تصاویر صفحه‌های فروش <span class="new" dir="ltr">V2</span><br><span class="why">گوگل محتوای تصویر را از alt می‌فهمد و همین متن در جستجوی تصویر استفاده می‌شود. ۴۹۳ تصویر از ۱٬۹۰۱ تصویر صفحه‌های تجاری alt ندارند، از جمله تصویر اصلی بالای صفحه در ۴۹ صفحه.</span></td><td>۶۲ صفحه از ۱۰۳ صفحهٔ تجاری (بخش ۴)</td><td>محتوا</td></tr>
+    <tr><td>۷</td><td>متن جایگزین (alt) برای تصاویر صفحه‌های فروش <span class="new" dir="ltr">V2</span><br><span class="why">گوگل محتوای تصویر را از alt می‌فهمد و همین متن در جستجوی تصویر استفاده می‌شود. ۴۹۳ تصویر از ۱٬۹۰۱ تصویر صفحه‌های تجاری alt ندارند، از جمله تصویر اصلی بالای صفحه در ۴۴ صفحه.</span></td><td>۶۲ صفحه از ۱۰۳ صفحهٔ تجاری (بخش ۴)</td><td>محتوا</td></tr>
     <tr><td>۸</td><td>پاک‌سازی sitemapها و اصلاح canonical با http <span class="new" dir="ltr">V2</span><br><span class="why">sitemap باید فقط صفحه‌های زنده و قابل ایندکس را معرفی کند. الان ۲۹ آدرس پست، ۱۹ صفحهٔ نویسنده و ۴ صفحهٔ تجاری در sitemap هستند که یا حذف شده‌اند یا ریدایرکت می‌شوند. ۶ صفحه هم canonical را با http اعلام کرده‌اند.</span></td><td>sitemapهای بلاگ و page-sitemap، ۶ صفحهٔ تجاری (بخش ۶ و ۷)</td><td>توسعه</td></tr>
     <tr><td>۹</td><td>نوشتن توضیح متا برای ۹ صفحه و H1 برای ۳ صفحه <span class="new" dir="ltr">V2</span><br><span class="why">وقتی توضیح متا خالی است، گوگل خودش یک تکه از متن صفحه را در نتیجهٔ جستجو نشان می‌دهد. H1 هم تیتر اصلی صفحه است و موضوع صفحه را برای گوگل مشخص می‌کند.</span></td><td>فهرست در بخش ۷</td><td>محتوا</td></tr>
   </table>
@@ -312,18 +312,102 @@
     <p class="why">alt متنی است که در کد تصویر نوشته می‌شود و می‌گوید تصویر چه چیزی را نشان می‌دهد. گوگل محتوای تصویر را از همین متن می‌فهمد و در جستجوی تصویر از آن استفاده می‌کند. نرم‌افزار صفحه‌خوان هم همین متن را برای کاربر نابینا می‌خواند. ویژگی title که الان روی تصاویر هست، جای alt را نمی‌گیرد.</p>
     <div class="now"><b class="t">الان</b>
       <ul>
-        <li>از ۱٬۹۰۱ تصویر این ۱۰۳ صفحه، ۴۹۳ تصویر اصلاً alt ندارند. این تصاویر در ۶۲ صفحه هستند.</li>
-        <li>۶۵ صفحه یک تصویر اصلی بالای صفحه دارند (همان تصویر بزرگ کنار H1). در ۴۹ صفحه این تصویر alt ندارد. مثلاً در <span class="ltr">/vps</span> تصویر بالای صفحه فقط <span class="ltr">title="سرور مجازی پارس‌پک"</span> دارد، در <span class="ltr">/host</span> فقط <span class="ltr">title="خرید هاست"</span> و در <span class="ltr">/domain</span> فقط <span class="ltr">title="domain-header"</span>، که نام فایل است.</li>
-        <li>چند نمونه: صفحهٔ اصلی ۱۹ تصویر بدون alt از ۵۲، <span class="ltr">/vps</span> ۱۵ از ۵۰، <span class="ltr">/dedicated-servers</span> ۱۵ از ۳۶، <span class="ltr">/host</span> ۹ از ۳۳ و <span class="ltr">/servers</span> ۹ از ۲۶. بیشترین تعداد در <span class="ltr">/paas</span> است: ۸۵ تصویر.</li>
-        <li>در صفحهٔ اصلی، کارت‌های تبلیغاتی مثل «خرید هاست وردپرس»، «خرید دامنه ir» و «خرید دامنه com» تصویرشان فقط title دارد.</li>
+        <li>از ۱٬۹۰۱ تصویر این ۱۰۳ صفحه، ۴۹۳ تصویر اصلاً ویژگی alt ندارند. این تصاویر در ۶۲ صفحه هستند. شمارش دو بار انجام شد: یک بار روی HTML صفحه و یک بار روی صفحهٔ رندرشده در مرورگر Chrome، بعد از اجرای جاوااسکریپت. برای <span class="ltr">/vps</span> و <span class="ltr">/host</span> هر دو روش یک عدد دادند (۱۵ و ۹). نسخه‌های تکراری تصویر داخل <span class="ltr">&lt;noscript&gt;</span> شمرده نشده‌اند.</li>
+        <li><b>این ۴۹۳ تصویر چه هستند:</b> ۴۴ تصویر اصلی بالای صفحه (کنار H1)؛ ۷۷ لوگوی سرویس در صفحهٔ <span class="ltr">/paas</span>؛ ۳۵ عکس مشتری در بخش «نظر تعدادی از مشتریان ما در 17 سال گذشته» (۷ عکس در هر کدام از ۵ صفحه)؛ و ۳۳۷ تصویر محتوایی دیگر، مثل تصویرسازی بخش‌ها، اسکرین‌شات پنل و بنرها.</li>
+        <li><b>تصویر اصلی بالای صفحه:</b> در قالب با کلاس <span class="ltr">image-intro-fig</span> مشخص می‌شود. ۵۷ صفحه این تصویر را دارند و در ۴۴ صفحه alt ندارد. بیشتر این تصاویر فقط title دارند و در بعضی، title همان نام فایل است.</li>
+      </ul>
+      <p><b>نمونه‌ها با جای دقیق.</b> «بعد از تیتر» یعنی تصویر در کد صفحه بعد از همان تیتر آمده.</p>
+      <table class="tbl small">
+        <tr><th>صفحه</th><th>جای تصویر</th><th>نام فایل</th><th>آنچه در کد هست</th></tr>
+        <tr><td class="ltr">/vps</td><td>تصویر اصلی کنار H1 «سرور مجازی»</td><td class="ltr">Mask-group-1.png</td><td>فقط <span class="ltr">title="سرور مجازی پارس‌پک"</span></td></tr>
+        <tr><td class="ltr">/vps</td><td>بعد از تیتر «سرور مجازی چیست؟»</td><td class="ltr">Group-1171281060.png</td><td>فقط <span class="ltr">title="Group 1171281060"</span></td></tr>
+        <tr><td class="ltr">/vps</td><td>بعد از تیتر «پنل کاربری پیشرفته سرور مجازی»، پنج اسکرین‌شات پنل</td><td class="ltr">1.png تا 5.png</td><td>فقط <span class="ltr">title="1"</span> تا <span class="ltr">title="5"</span></td></tr>
+        <tr><td class="ltr">/host</td><td>تصویر اصلی کنار H1 «خرید هاست»</td><td class="ltr">header-hub-host.png</td><td>فقط <span class="ltr">title="خرید هاست"</span></td></tr>
+        <tr><td class="ltr">/host</td><td>بعد از تیتر «چرا هاست پارس‌پک؟»</td><td class="ltr">illustration-why-choose-parspack-hosting.png</td><td>فقط title، همان نام فایل</td></tr>
+        <tr><td class="ltr">/host</td><td>بعد از تیتر «پنل اختصاصی هاست پارس‌پک»، چهار اسکرین‌شات</td><td class="ltr">image1.jpg، image3.jpg، image4.jpg، image5.jpg</td><td>فقط <span class="ltr">title="image1"</span> و مانند آن</td></tr>
+        <tr><td>صفحهٔ اصلی</td><td>کارت‌های تبلیغاتی «خرید هاست وردپرس»، «خرید دامنه ir» و «خرید دامنه com»</td><td class="ltr">WP-Host.png، ir.png، com.png</td><td>فقط title، مثلاً <span class="ltr">title="خرید هاست وردپرس"</span></td></tr>
+        <tr><td>صفحهٔ اصلی</td><td>بعد از تیتر «چرا پارس‌پک؟»</td><td class="ltr">illustration-why-choose-us.png</td><td>فقط title، همان نام فایل</td></tr>
+        <tr><td class="ltr">/domain</td><td>تصویر اصلی بالای صفحه</td><td class="ltr">domain-header.png</td><td>فقط <span class="ltr">title="domain-header"</span></td></tr>
+        <tr><td class="ltr">/paas</td><td>شبکهٔ لوگوها در بخش «سرویس‌های PaaS برای برنامه‌نویسان و توسعه‌دهندگان»</td><td class="ltr">nodejs.webp، n8n.webp، python.webp، …</td><td>نه alt دارند، نه title</td></tr>
+        <tr><td>صفحهٔ اصلی، <span class="ltr">/vps</span>، <span class="ltr">/dedicated-servers</span>، <span class="ltr">/paas</span>، <span class="ltr">/about-us</span></td><td>بخش «نظر تعدادی از مشتریان ما در 17 سال گذشته»، عکس کنار نام هر مشتری</td><td class="ltr">testimonial1.png تا testimonial7.png</td><td>نه alt دارند، نه title</td></tr>
+      </table>
+      <details><summary>تعداد تصاویر بدون alt در هر کدام از ۶۲ صفحه (بدون alt / کل تصاویر)</summary><ul class="ltr small">
+<li>/paas: 85 / 104</li>
+<li>/: 19 / 52</li>
+<li>/vps/foreign/trade: 18 / 40</li>
+<li>/vps: 15 / 50</li>
+<li>/dedicated-servers: 15 / 36</li>
+<li>/backup-and-disaster-recovery-solutions: 13 / 25</li>
+<li>/vps/linux: 11 / 27</li>
+<li>/enterprise-cloud-solutions: 11 / 23</li>
+<li>/vps/foreign: 10 / 32</li>
+<li>/vps/mikrotik: 10 / 25</li>
+<li>/host: 9 / 33</li>
+<li>/about-us: 9 / 31</li>
+<li>/vps/unlimited-traffic: 9 / 29</li>
+<li>/servers: 9 / 26</li>
+<li>/host/linux: 9 / 23</li>
+<li>/dedicated-servers/iran: 9 / 23</li>
+<li>/cloud-server/windows: 9 / 22</li>
+<li>/cloud-server/linux: 9 / 22</li>
+<li>/cloud-server/foreign: 9 / 22</li>
+<li>/vps/iran: 8 / 33</li>
+<li>/vps/foreign/turkey: 8 / 32</li>
+<li>/vps/windows: 8 / 23</li>
+<li>/dedicated-servers/macro-server: 8 / 23</li>
+<li>/dedicated-servers/hybrid-server: 8 / 23</li>
+<li>/host/reseller: 8 / 21</li>
+<li>/host/iran: 8 / 21</li>
+<li>/host/cloud-host: 8 / 21</li>
+<li>/vps/foreign/england: 7 / 34</li>
+<li>/vps/foreign/germany: 7 / 32</li>
+<li>/vps/foreign/canada: 7 / 32</li>
+<li>/vps/foreign/netherlands: 7 / 28</li>
+<li>/cloud-server: 7 / 20</li>
+<li>/vps/foreign/france: 6 / 34</li>
+<li>/dedicated-servers/baremetal-server: 6 / 24</li>
+<li>/host/wordpress: 6 / 22</li>
+<li>/vps/foreign/sweden: 5 / 30</li>
+<li>/cloud-server/iran: 5 / 26</li>
+<li>/cloud-server/foreign/germany: 5 / 20</li>
+<li>/paas/matrix: 5 / 17</li>
+<li>/host/download-host: 5 / 17</li>
+<li>/paas/rocket-chat: 5 / 15</li>
+<li>/paas/mattermost: 5 / 15</li>
+<li>/host/woocommerce: 4 / 26</li>
+<li>/ssl/code-signing-certificate: 4 / 17</li>
+<li>/paas/python: 4 / 17</li>
+<li>/paas/nodejs: 4 / 17</li>
+<li>/host/dedicated: 4 / 17</li>
+<li>/cloud-storage: 4 / 17</li>
+<li>/host/free-cloud-hosting: 4 / 14</li>
+<li>/host/high-traffic: 3 / 17</li>
+<li>/ssl/s-mime-email-certificate: 3 / 16</li>
+<li>/domain: 3 / 16</li>
+<li>/cloud-server/free-server: 3 / 13</li>
+<li>/domain/ir: 2 / 18</li>
+<li>/paas/nextjs: 2 / 16</li>
+<li>/paas/n8n: 2 / 15</li>
+<li>/contact-us: 2 / 12</li>
+<li>/cloud-storage/free-cloud-storage: 1 / 25</li>
+<li>/ssl: 1 / 17</li>
+<li>/cdn/file-cdn: 1 / 13</li>
+<li>/terms: 1 / 11</li>
+<li>/faq: 1 / 11</li>
+</ul></details>
+    </div>
+    <div class="good"><b class="t">روش بررسی برای خواننده</b>
+      <ul>
+        <li><b>با مرورگر:</b> صفحه را باز کنید، کلید F12 را بزنید و در تب Console این خط را اجرا کنید. فهرست تصاویر بدون alt همان صفحه نمایش داده می‌شود:<div class="quote ltr">[...document.images].filter(i =&gt; !i.hasAttribute('alt')).map(i =&gt; i.src)</div></li>
+        <li><b>با کد صفحه:</b> با Ctrl+U کد صفحه را باز کنید و نام فایل را جستجو کنید، مثلاً <span class="ltr">Mask-group-1.png</span> در <span class="ltr">/vps</span>. نام فایل چند بار در کد می‌آید، مثلاً در og:image و اسکیما. موردی که با <span class="ltr">&lt;img</span> شروع می‌شود همان تصویر روی صفحه است: title دارد ولی alt ندارد.</li>
       </ul>
     </div>
     <div class="good"><b class="t">آنچه درست است</b>قالب alt را درست چاپ می‌کند، هر وقت در کتابخانهٔ رسانهٔ وردپرس پر شده باشد. مثلاً تصویر بالای <span class="ltr">/vps/foreign/germany</span> این را دارد: <span class="ltr">alt="سرور مجازی آلمان"</span>. پس مشکل در قالب نیست؛ فیلد alt این تصاویر در کتابخانهٔ رسانه خالی مانده.</div>
     <div class="better"><b class="t">ادیت‌ها</b>
       <ul>
-        <li>اول تصویر بالای صفحه در ۴۹ صفحه. در کتابخانهٔ رسانه، alt یک جملهٔ کوتاه دربارهٔ محتوای تصویر باشد، مثلاً «سرور مجازی پارس‌پک» برای <span class="ltr">/vps</span>.</li>
+        <li>اول تصویر اصلی بالای صفحه در ۴۴ صفحه. در کتابخانهٔ رسانه، alt یک جملهٔ کوتاه دربارهٔ محتوای تصویر باشد، مثلاً «سرور مجازی پارس‌پک» برای <span class="ltr">/vps</span>.</li>
         <li>بعد تصاویر محتوایی و کارت‌ها. نام فایل، مثل «Group 1171281060» که الان در title بعضی تصاویر <span class="ltr">/vps</span> آمده، alt مناسبی نیست.</li>
-        <li>تصاویر تزئینی، مثل آیکون‌ها و پس‌زمینه‌ها، alt خالی بگیرند (<span class="ltr">alt=""</span>) تا صفحه‌خوان آن‌ها را رد کند. منوی بلاگ همین کار را درست انجام داده.</li>
+        <li>لوگوهای <span class="ltr">/paas</span> alt برابر نام سرویس بگیرند، مثلاً «Node.js». عکس مشتری‌ها alt برابر نام همان مشتری. تصاویر تزئینی، مثل آیکون‌ها و پس‌زمینه‌ها، alt خالی بگیرند (<span class="ltr">alt=""</span>) تا صفحه‌خوان آن‌ها را رد کند. منوی بلاگ همین کار را درست انجام داده.</li>
       </ul>
     </div>
   </article>
