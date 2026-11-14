@@ -10,3 +10,4 @@ Static HTML client deliverables (RTL). Open each `.html` file in a browser.
 | `parspack-wordpress-host-seo-V2.html` | بازنویسی محافظه‌کارانهٔ همان صفحه |
 | `parspack-wordpress-host-seo-V3.html` | نسخهٔ مفصل با مقایسهٔ رقبا و ۲۴محور |
 | `parspack-wordpress-host-seo-cursor-V4.html` | نسخهٔ کوتاه کارفرمایی: کارت ایراد + بدون تکرار |
+| `audit-findings.html` | لیست ۱۵ ایراد قابل رفع صفحهٔ هاست وردپرس (۸ الزامی + ۷ پیشنهادی) — نسخهٔ تمیز UI |
