@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>لیست ایرادات — هاست وردپرس پارس‌پک</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f5f9;
+  --card:#ffffff;
+  --ink:#142033;
+  --muted:#5c6678;
+  --line:#e2e7ef;
+  --navy:#0b1f44;
+  --accent:#1f5eff;
+  --accent-soft:#eaf0ff;
+  --must:#b42318;
+  --must-bg:#fef3f2;
+  --must-line:#f0b4ae;
+  --rec:#6b7280;
+  --rec-bg:#f3f4f6;
+  --rec-line:#d3d9e0;
+  --soft:#f7f9fc;
+  --quote:#eef6ff;
+  --quote-line:#cfe2fb;
+  --radius:14px;
+  --shadow:0 1px 2px rgba(15,23,42,.04);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Vazirmatn,"Segoe UI",Tahoma,sans-serif;
+  font-size:15px;
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent); text-decoration:none}
+a:hover{text-decoration:underline}
+code{
+  background:#eef2f7;
+  border:1px solid #e0e6ee;
+  border-radius:5px;
+  padding:1px 6px;
+  font-family:Consolas,"Cascadia Mono",monospace;
+  font-size:12.5px;
+  direction:ltr;
+  display:inline-block;
+}
+pre{
+  background:#0f172a;
+  color:#e2e8f0;
+  padding:14px 16px;
+  border-radius:10px;
+  overflow:auto;
+  direction:ltr;
+  text-align:left;
+  font-size:12.5px;
+  line-height:1.65;
+  margin:0;
+}
+pre code{background:none; border:0; color:inherit; padding:0}
+
+.shell{
+  display:grid;
+  grid-template-columns:240px minmax(0,1fr);
+  gap:22px;
+  max-width:1220px;
+  margin:0 auto;
+  padding:22px 16px 72px;
+}
+
+/* ── Sidebar ── */
+.sidebar{
+  position:sticky;
+  top:18px;
+  align-self:start;
+  max-height:calc(100vh - 36px);
+  overflow:auto;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:16px 12px;
+  box-shadow:var(--shadow);
+}
+.sidebar h5{
+  margin:0 0 10px;
+  padding:0 6px;
+  font-size:11.5px;
+  color:var(--muted);
+  font-weight:700;
+  letter-spacing:.02em;
+}
+.sidebar .group{margin:0 0 14px}
+.sidebar .group:last-child{margin:0}
+.sidebar a{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 8px;
+  border-radius:8px;
+  color:#2b3444;
+  font-size:13px;
+  border-inline-start:3px solid transparent;
+  text-decoration:none;
+}
+.sidebar a:hover{background:#f2f5f9; text-decoration:none}
+.sidebar a .fid{
+  font-family:Consolas,monospace;
+  font-size:11.5px;
+  font-weight:700;
+  color:var(--muted);
+  min-width:34px;
+}
+.sidebar a.must .fid{color:var(--must)}
+.sidebar a.rec .fid{color:var(--rec)}
+.sidebar a:hover{border-inline-start-color:var(--accent)}
+
+/* ── Main ── */
+.main{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:28px 32px 40px;
+  min-width:0;
+  box-shadow:var(--shadow);
+}
+.tools{display:flex; gap:8px; margin-bottom:14px}
+.tools button{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:9px;
+  padding:7px 14px;
+  font-family:inherit;
+  font-size:13px;
+  cursor:pointer;
+  color:#3b4452;
+}
+.tools button:hover{border-color:#c7cfdb; background:#fafbfd}
+
+/* ── Cover ── */
+.cover{
+  margin:0 0 18px;
+  padding:28px 28px 24px;
+  border-radius:16px;
+  color:#fff;
+  background:linear-gradient(135deg,#0b1f44 0%,#163a7a 55%,#1f5eff 120%);
+}
+.cover .eyebrow{
+  margin:0 0 8px;
+  font-size:12.5px;
+  opacity:.85;
+  font-weight:500;
+}
+.cover h1{
+  margin:0 0 10px;
+  font-size:24px;
+  line-height:1.45;
+  font-weight:700;
+  color:#fff;
+}
+.cover p{margin:0 0 4px; color:#d7e3ff; font-size:13.5px}
+.cover .url{
+  display:inline-block;
+  margin-top:12px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.22);
+  color:#fff;
+  padding:4px 10px;
+  border-radius:7px;
+  font-family:Consolas,monospace;
+  font-size:12.5px;
+  direction:ltr;
+}
+
+/* ── KPI ── */
+.kpi{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin:0 0 22px;
+}
+.kpi .box{
+  background:var(--soft);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:14px 16px;
+}
+.kpi .box b{
+  display:block;
+  font-size:26px;
+  color:var(--navy);
+  margin-bottom:2px;
+  font-weight:700;
+  line-height:1.2;
+}
+.kpi .box.must-kpi b{color:var(--must)}
+.kpi .box.rec-kpi b{color:#4b5563}
+.kpi .box span{color:var(--muted); font-size:12.5px}
+
+/* ── Section heads ── */
+.sec-head{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  flex-wrap:wrap;
+  margin:28px 0 14px;
+  padding-bottom:10px;
+  border-bottom:2px solid #e6ecf3;
+}
+.sec-head:first-of-type{margin-top:8px}
+.sec-head h2{
+  margin:0;
+  font-size:18px;
+  font-weight:700;
+}
+.sec-head .count{
+  font-size:13px;
+  color:var(--muted);
+  font-weight:500;
+}
+.sec-head .pill{
+  font-size:11.5px;
+  font-weight:700;
+  padding:2px 10px;
+  border-radius:999px;
+  border:1px solid;
+}
+.sec-head .pill.must{color:var(--must); border-color:var(--must-line); background:var(--must-bg)}
+.sec-head .pill.rec{color:var(--rec); border-color:var(--rec-line); background:var(--rec-bg)}
+
+/* ── Finding card ── */
+.finding{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:18px 20px;
+  margin:0 0 16px;
+  border-inline-start:4px solid var(--line);
+}
+.finding.must{border-inline-start-color:var(--must); background:linear-gradient(90deg,var(--must-bg),#fff 22%)}
+.finding.rec{border-inline-start-color:#9ca3af; background:linear-gradient(90deg,#f9fafb,#fff 22%)}
+.finding .fhead{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+.finding .fid{
+  font-family:Consolas,monospace;
+  font-weight:700;
+  background:var(--navy);
+  color:#fff;
+  padding:3px 10px;
+  border-radius:7px;
+  font-size:12.5px;
+  direction:ltr;
+  flex:none;
+  margin-top:2px;
+}
+.finding .badge{
+  font-size:11.5px;
+  font-weight:700;
+  padding:3px 10px;
+  border-radius:999px;
+  border:1px solid;
+  flex:none;
+  margin-top:2px;
+}
+.finding .badge.must{color:var(--must); border-color:var(--must-line); background:var(--must-bg)}
+.finding .badge.rec{color:var(--rec); border-color:var(--rec-line); background:var(--rec-bg)}
+.finding h3{
+  margin:0;
+  font-size:15.5px;
+  font-weight:700;
+  line-height:1.55;
+  flex:1 1 200px;
+}
+
+.simple{
+  background:var(--quote);
+  border:1px solid var(--quote-line);
+  border-radius:10px;
+  padding:10px 14px;
+  margin:0 0 12px;
+  font-size:13.5px;
+  color:#12314f;
+}
+.simple b{font-weight:700}
+
+.meta-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin:0 0 14px;
+}
+.meta-grid .m{
+  background:rgba(255,255,255,.7);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:10px 12px;
+}
+.meta-grid .m .label{
+  display:block;
+  font-size:11.5px;
+  color:var(--muted);
+  font-weight:600;
+  margin-bottom:3px;
+}
+.meta-grid .m .val{font-size:13px; line-height:1.7; color:#243044}
+
+.part{margin:12px 0 0}
+.part > h4{
+  margin:0 0 6px;
+  font-size:12.5px;
+  color:var(--muted);
+  font-weight:700;
+}
+.quote{
+  background:var(--soft);
+  border-inline-start:3px solid var(--accent);
+  padding:10px 14px;
+  border-radius:0 10px 10px 0;
+  font-size:13.5px;
+  color:#1f2937;
+}
+.action{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:10px 14px;
+  font-size:13.5px;
+}
+
+details.fix-box{
+  margin:12px 0 0;
+  border:1px dashed #d7dee7;
+  border-radius:10px;
+  background:#fbfcfe;
+  overflow:hidden;
+}
+details.fix-box > summary{
+  cursor:pointer;
+  padding:10px 14px;
+  font-size:13.5px;
+  font-weight:600;
+  color:var(--navy);
+  list-style:none;
+  user-select:none;
+}
+details.fix-box > summary::-webkit-details-marker{display:none}
+details.fix-box > summary::before{
+  content:"◀";
+  display:inline-block;
+  margin-inline-end:8px;
+  font-size:10px;
+  color:var(--accent);
+  transition:transform .15s;
+}
+details.fix-box[open] > summary::before{transform:rotate(-90deg)}
+details.fix-box .copy{padding:4px 16px 16px}
+details.fix-box .copy h5{
+  margin:14px 0 8px;
+  font-size:13.5px;
+  font-weight:700;
+  color:var(--navy);
+}
+details.fix-box .copy h5:first-child{margin-top:4px}
+details.fix-box .copy p{margin:0 0 10px; font-size:13.5px}
+details.fix-box .copy ul, details.fix-box .copy ol{margin:0 0 10px; padding-inline-start:22px}
+details.fix-box .copy li{margin:3px 0; font-size:13.5px}
+details.fix-box .copy blockquote{
+  margin:8px 0 12px;
+  padding:10px 14px;
+  background:#fff8e6;
+  border:1px solid #f2d38a;
+  border-radius:8px;
+  font-size:13px;
+  color:#5c4a1a;
+}
+
+.accept{
+  margin:12px 0 0;
+  padding:10px 14px;
+  background:#ecfdf3;
+  border:1px solid #abefc6;
+  border-radius:10px;
+  font-size:13px;
+}
+.accept .label{
+  display:block;
+  font-size:11.5px;
+  font-weight:700;
+  color:#067647;
+  margin-bottom:2px;
+}
+
+.tablewrap{
+  overflow-x:auto;
+  margin:8px 0 12px;
+  border:1px solid var(--line);
+  border-radius:10px;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px;
+  background:#fff;
+}
+th{
+  background:#f4f6fa;
+  text-align:right;
+  padding:8px 10px;
+  font-weight:700;
+  font-size:12.5px;
+  border-bottom:1px solid var(--line);
+  color:#3b4452;
+  white-space:nowrap;
+}
+td{
+  padding:8px 10px;
+  border-bottom:1px solid #eef1f5;
+  vertical-align:top;
+  line-height:1.7;
+}
+tr:last-child td{border-bottom:0}
+
+.legend{
+  margin:28px 0 0;
+  padding:18px 20px;
+  background:var(--soft);
+  border:1px solid var(--line);
+  border-radius:14px;
+}
+.legend h2{margin:0 0 10px; font-size:16px}
+.legend ul{margin:0; padding-inline-start:20px}
+.legend li{margin:6px 0; font-size:13.5px; color:#243044}
+
+.notes{
+  margin:28px 0 0;
+  padding:18px 20px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+}
+.notes h2{margin:0 0 6px; font-size:16px}
+.notes .intro{margin:0 0 14px; color:var(--muted); font-size:13.5px}
+.note-card{
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:12px 14px;
+  margin:0 0 10px;
+  background:var(--soft);
+}
+.note-card:last-child{margin:0}
+.note-card h3{margin:0 0 6px; font-size:14px}
+.note-card p{margin:0 0 6px; font-size:13.5px}
+.note-card p:last-child{margin:0}
+
+footer.doc{
+  margin:24px 0 0;
+  padding-top:14px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:12px;
+}
+
+.top{
+  position:fixed;
+  inset-inline-start:18px;
+  bottom:18px;
+  background:var(--ink);
+  color:#fff;
+  border:0;
+  border-radius:99px;
+  width:42px;
+  height:42px;
+  font-size:18px;
+  cursor:pointer;
+  box-shadow:0 6px 20px rgba(0,0,0,.18);
+  opacity:0;
+  pointer-events:none;
+  transition:.2s;
+}
+.top.show{opacity:1; pointer-events:auto}
+
+@media (max-width:900px){
+  .shell{grid-template-columns:1fr; padding:12px}
+  .sidebar{position:static; max-height:none; order:2}
+  .main{padding:20px 16px 32px; order:1}
+  .cover h1{font-size:20px}
+  .kpi,.meta-grid{grid-template-columns:1fr}
+  .kpi{grid-template-columns:1fr 1fr}
+}
+@media (max-width:520px){
+  .kpi{grid-template-columns:1fr}
+}
+@media print{
+  body{background:#fff}
+  .sidebar,.tools,.top{display:none!important}
+  .shell{display:block; max-width:none; padding:0}
+  .main{border:0; padding:0; box-shadow:none}
+  .finding, .cover, .legend, .notes{break-inside:avoid}
+  .finding.must, .finding.rec{background:#fff}
+  a{color:inherit}
+  details.fix-box[open] .copy, details.fix-box .copy{display:block!important}
+  details.fix-box{border-style:solid}
+  @page{margin:12mm}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<aside class="sidebar" aria-label="فهرست ایرادات">
+  <div class="group">
+    <h5>الزامی</h5>
+    <a class="must" href="#f-02"><span class="fid">F-02</span>قیمت sticky</a>
+    <a class="must" href="#f-03"><span class="fid">F-03</span>alt تکراری</a>
+    <a class="must" href="#f-04"><span class="fid">F-04</span>بدون alt</a>
+    <a class="must" href="#f-08"><span class="fid">F-08</span>موقعیت اروپا</a>
+    <a class="must" href="#f-09"><span class="fid">F-09</span>نام لوکیشن</a>
+    <a class="must" href="#f-10"><span class="fid">F-10</span>دایرکت‌ادمین</a>
+    <a class="must" href="#f-11"><span class="fid">F-11</span>فرکانس بکاپ</a>
+    <a class="must" href="#f-14"><span class="fid">F-14</span>hreflang</a>
+  </div>
+  <div class="group">
+    <h5>پیشنهادی</h5>
+    <a class="rec" href="#f-05"><span class="fid">F-05</span>عنوان پلن‌ها</a>
+    <a class="rec" href="#f-06"><span class="fid">F-06</span>dir تکراری</a>
+    <a class="rec" href="#f-07"><span class="fid">F-07</span>scope جدول</a>
+    <a class="rec" href="#f-12"><span class="fid">F-12</span>بازگردانی/انتقال</a>
+    <a class="rec" href="#f-13"><span class="fid">F-13</span>JSON-LD</a>
+    <a class="rec" href="#f-15"><span class="fid">F-15</span>طول عنوان</a>
+    <a class="rec" href="#f-16"><span class="fid">F-16</span>تکرار عنوان</a>
+  </div>
+  <div class="group">
+    <h5>پیوست</h5>
+    <a href="#notes"><span class="fid">N</span>یادداشت‌های فنی</a>
+    <a href="#legend"><span class="fid">✓</span>راهنمای تحویل</a>
+  </div>
+</aside>
+
+<main class="main">
+  <div class="tools">
+    <button type="button" onclick="window.print()">چاپ / PDF</button>
+    <button type="button" id="expandAll">باز کردن همهٔ اصلاحات</button>
+    <button type="button" id="collapseAll">بستن همهٔ اصلاحات</button>
+  </div>
+
+  <header class="cover">
+    <p class="eyebrow">ممیزی محتوا و سئو · نسخهٔ تمیز · ۱۴ نوامبر ۲۰۲۶</p>
+    <h1>لیست ایرادات قابل رفع — هاست وردپرس پارس‌پک</h1>
+    <p>هر مورد: متن عیناً · اقدام · معیار پذیرش · روش تأیید</p>
+    <p>شاهد: سورس view-source (۱۹٬۹۵۰ خط)</p>
+    <span class="url">https://parspack.com/host/wordpress</span>
+  </header>
+
+  <div class="kpi" aria-label="خلاصه آمار">
+    <div class="box"><b>۱۵</b><span>کل ایرادات</span></div>
+    <div class="box must-kpi"><b>۸</b><span>الزامی — اولویت ۱</span></div>
+    <div class="box rec-kpi"><b>۷</b><span>پیشنهادی — اولویت ۲</span></div>
+  </div>
+
+  <!-- ══════════ الزامی ══════════ -->
+  <div class="sec-head" id="must">
+    <h2>الزامی</h2>
+    <span class="pill must">اولویت ۱</span>
+    <span class="count">۸ مورد</span>
+  </div>
+
+  <!-- F-02 -->
+  <article class="finding must" id="f-02">
+    <header class="fhead">
+      <span class="fid">F-02</span>
+      <span class="badge must">الزامی</span>
+      <h3>باکس قیمت sticky: جای عدد خالی است (متن «شروع قیمت از … تومان/ماهانه» بدون قیمت)</h3>
+    </header>
+    <div class="simple"><b>به زبان ساده:</b> در باکس قیمتی که پایین صفحه می‌چسبد، جای عدد خالی است؛ فقط نوشته «شروع قیمت از» و «تومان/ماهانه» — عدد ندارد.</div>
+    <div class="meta-grid">
+      <div class="m"><span class="label">قطعیت</span><span class="val">✅ تأیید کاربر (2026-11-14): «اون تو قسمت استیکی هست که قیمت‌ها جاش خالیه؛ تو قسمت مربوط به سکشن قیمت‌ها قیمت وجود داره» + دکمه/اسکرول درست کار می‌کند</span></div>
+      <div class="m"><span class="label">مالک</span><span class="val">توسعه + محتوا</span></div>
+      <div class="m"><span class="label">محل</span><span class="val">L15593–15608 (<code>.sticky-price</code> / <code>.box__price</code>)</span></div>
+    </div>
+    <div class="part"><h4>متن فعلی (عیناً از سورس)</h4>
+      <div class="quote"><code>&lt;div class="box__price-title"&gt;شروع قیمت از&lt;/div&gt; &lt;div class="box__price"&gt;&lt;/div&gt; &lt;div class="box__price-label"&gt;تومان / ماهانه&lt;/div&gt;</code> و <code>&lt;a href="" class="button type--primary size--medium"&gt;</code> با متن دکمهٔ خالی</div>
+    </div>
+    <div class="part"><h4>اقدام مورد نیاز</h4>
+      <div class="action">مقداردهی <code>box__price</code> با همان قیمت نقطهٔ ورود (۱٬۱۰۰٬۰۰۰ تومان/ماهانه — ایران) به‌صورت سروری/fallback؛ <strong>به رفتار اسکرول دکمه دست نزنید</strong></div>
+    </div>
+    <details class="fix-box">
+      <summary>متن اصلاحی پیشنهادی (قبل → بعد)</summary>
+      <div class="copy">
+        <h5>این ایراد چه می‌گوید (به زبان ساده)</h5>
+        <p>در باکس قیمت پایین صفحه نوشته «شروع قیمت از» و «تومان / ماهانه»، ولی <strong>وسطش خالی است</strong> — عدد ندارد. کاربر این جمله را می‌خواند و جوابی نمی‌گیرد. (در سکشن قیمت‌ها عددها سالم‌اند؛ فقط همین باکس ناقص است.)</p>
+        <p>دکمه/اسکرول با JS کار می‌کند و <strong>به آن دست نمی‌زنیم</strong>.</p>
+        <h5>اقدام (قبل → بعد)</h5>
+        <p>قبل: <code>&lt;div class="box__price"&gt;&lt;/div&gt;</code> (خالی)</p>
+        <p>بعد: <code>&lt;div class="box__price"&gt;۱٬۱۰۰٬۰۰۰&lt;/div&gt;</code> (همان قیمت نقطهٔ ورود ایران/ماهانه — مطابق مگا منو L2100 و پلن L14499)</p>
+        <p>نکته‌ها:</p>
+        <ul>
+          <li>اگر JS از قبل عدد را تزریق می‌کند، همین مقدار را به‌عنوان fallback سروری بگذارید (جلوگیری از فلش خالی).</li>
+          <li>دکمه (<code>href=""</code> + متن خالی) رفتارش درست است؛ فقط اگر خواستید متن دکمه هم داشته باشد: <code>&lt;a href="#plans" …&gt;&lt;span class="button__text text"&gt;مشاهده پلن‌ها&lt;/span&gt;</code> — اجباری نیست و نباید هندلر اسکرول را بشکند.</li>
+        </ul>
+        <h5>معیار پذیرش</h5>
+        <p>با بازدید صفحه: در باکس sticky عدد «۱٬۱۰۰٬۰۰۰» دیده شود و کلیک دکمه همچنان به سکشن قیمت‌ها اسکرول کند.</p>
+      </div>
+    </details>
+    <div class="accept"><span class="label">معیار پایان</span>در باکس sticky عدد قیمت دیده شود؛ اسکرول دکمه به سکشن قیمت‌ها مثل قبل کار کند</div>
+  </article>
+
+  <!-- F-03 -->
+  <article class="finding must" id="f-03">
+    <header class="fhead">
+      <span class="fid">F-03</span>
+      <span class="badge must">الزامی</span>
+      <h3>۷ تصویر با alt برابر «image_alt» (placeholder)</h3>
+    </header>
+    <div class="simple"><b>به زبان ساده:</b> هفت عکس، «متن جایگزین» (alt) دارند که یک عبارت بی‌معنی و تکراری «image_alt» است — نه توضیح واقعی عکس.</div>
+    <div class="meta-grid">
+      <div class="m"><span class="label">قطعیت</span><span class="val">مشاهده‌شده</span></div>
+      <div class="m"><span class="label">مالک</span><span class="val">محتوا</span></div>
+      <div class="m"><span class="label">محل</span><span class="val">L1518، L1550، L1582، L1614، L1646، L1678، L1710 (<code>alt="image_alt"</code>)</span></div>
+    </div>
+    <div class="part"><h4>متن فعلی (عیناً از سورس)</h4>
+      <div class="quote"><code>alt="image_alt"</code> ×۷</div>
+    </div>
+    <div class="part"><h4>اقدام مورد نیاز</h4>
+      <div class="action">alt یکتا و توصیفی مبتنی بر محتوای تصویر/بافت کارت</div>
+    </div>
+    <details class="fix-box">
+      <summary>متن اصلاحی پیشنهادی (قبل → بعد)</summary>
+      <div class="copy">
+        <ol>
+          <li>what-is-gpu-server.jpg → <code>alt="سرور GPU چیست؟ راهنمای خرید سرور گرافیکی"</code></li>
+          <li>server.jpg → <code>alt="سرور چیست؟ همه چیز درباره قلب تپنده اینترنت"</code></li>
+          <li>what-is-web-hosting-1.jpg → <code>alt="هاست چیست؟ نحوه کار و انواع هاست به زبان ساده"</code></li>
+          <li>17355-1.jpg (کارت SSL) → <code>alt="SSL چیست و چرا باید از آن استفاده کنیم؟"</code></li>
+          <li>17355-1.jpg (کارت CDN) → <code>alt="CDN چیست و چرا باید از آن استفاده کنید؟"</code></li>
+          <li>17696-1.jpg (فضای ابری) → <code>alt="فضای ابری چیست و چه مزایایی دارد؟"</code></li>
+          <li>17696-1.jpg (دامنه) → <code>alt="دامنه چیست؟ کلید ورود به دنیای آنلاین"</code></li>
+        </ol>
+      </div>
+    </details>
+    <div class="accept"><span class="label">معیار پایان</span>هیچ <code>alt="image_alt"</code> در صفحه نماند؛ هر تصویر alt یکتا داشته باشد</div>
+  </article>
+
+  <!-- F-04 -->
+  <article class="finding must" id="f-04">
+    <header class="fhead">
+      <span class="fid">F-04</span>
+      <span class="badge must">الزامی</span>
+      <h3>۶ تصویر بدون صفت alt</h3>
+    </header>
+    <div class="simple"><b>به زبان ساده:</b> شش عکس هیچ متن جایگزینی ندارند؛ صفحه‌خوان نمی‌تواند بگوید عکس چه چیزی است.</div>
+    <div class="meta-grid">
+      <div class="m"><span class="label">قطعیت</span><span class="val">مشاهده‌شده</span></div>
+      <div class="m"><span class="label">مالک</span><span class="val">محتوا</span></div>
+      <div class="m"><span class="label">محل</span><span class="val">L2556 (Mask-group-1.png)، L18795 (pic3.png)، L19157 (image1.jpg)، L19173 (image4.jpg)، L19189 (image5.jpg)، L19205 (image3.jpg)</span></div>
+    </div>
+    <div class="part"><h4>متن فعلی (عیناً از سورس)</h4>
+      <div class="quote"><code>&lt;img … src="…Mask-group-1.png" … /&gt;</code> بدون alt؛ <code>pic3.png</code> تنها <code>title="موقعیت جغرافیایی"</code>؛ image1..5 تنها <code>title="image1"…</code></div>
+    </div>
+    <div class="part"><h4>اقدام مورد نیاز</h4>
+      <div class="action">افزودن alt توصیفی (مثلاً «نقشهٔ موقعیت هاست اروپا/آلمان»، «پنل مدیریت بکاپ»)</div>
+    </div>
+    <details class="fix-box">
+      <summary>متن اصلاحی پیشنهادی (قبل → بعد)</summary>
+      <div class="copy">
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>تصویر</th><th>بعد</th></tr></thead>
+            <tbody>
+              <tr><td>Mask-group-1.png (L2556)</td><td><code>alt="هاست وردپرس پارس‌پک"</code></td></tr>
+              <tr><td>pic3.png (L18795)</td><td><code>alt="موقعیت جغرافیایی هاست وردپرس (اروپا - آلمان)"</code> — مشروط به F-08</td></tr>
+              <tr><td>image1.jpg (L19157)</td><td><code>alt="دریافت بکاپ دستی در پنل کاربری هاست وردپرس"</code></td></tr>
+              <tr><td>image4.jpg (L19173)</td><td><code>alt="بکاپ خودکار هفتگی و ماهانه هاست وردپرس"</code> — با سیاست F-11 هم‌سو شود</td></tr>
+              <tr><td>image5.jpg (L19189)</td><td><code>alt="دریافت گواهی SSL برای سایت وردپرسی"</code></td></tr>
+              <tr><td>image3.jpg (L19205)</td><td><code>alt="نمودار مصرف منابع در پنل کاربری هاست"</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+    <div class="accept"><span class="label">معیار پایان</span>۲۲/۲۲ تصویر alt غیرخالی و یکتا</div>
+  </article>
+
+  <!-- F-08 -->
+  <article class="finding must" id="f-08">
+    <header class="fhead">
+      <span class="fid">F-08</span>
+      <span class="badge must">الزامی</span>
+      <h3>C1: «ارائه فقط در اروپا(آلمان)» در برابر واقعیت «ایران هم فعال است»</h3>
+    </header>
+    <div class="simple"><b>به زبان ساده:</b> متن بلوک موقعیت می‌گوید سرویس فقط در اروپا (آلمان) ارائه می‌شود؛ ولی ایران هم فعال است و فروخته می‌شود.</div>
+    <div class="meta-grid">
+      <div class="m"><span class="label">قطعیت</span><span class="val">✅ تأیید محصول (2026-11-14): «فعاله؛ تب مخصوص خودش رو در قسمت سفارش داره و به فروش هم می‌رسه»</span></div>
+      <div class="m"><span class="label">مالک</span><span class="val">محتوا</span></div>
+      <div class="m"><span class="label">محل</span><span class="val">بلوک موقعیت L18793 در برابر رادیوی location L13041–13047 و data-product پلن 237 L14413</span></div>
+    </div>
+    <div class="part"><h4>متن فعلی (عیناً از سورس)</h4>
+      <div class="quote">بلوک: «هاست وردپرس پارس‌پک، در موقعیت اروپا (آلمان) به کاربران ارائه می‌شود…» / فرم: <code>&lt;input type="radio" name="location" value="1" checked&gt;</code> «ایران» / data: <code>"location":{"id":1}</code> با قیمت ۱٬۱۰۰٬۰۰۰ تومان/ماهانه (L14499)</div>
+    </div>
+    <div class="part"><h4>اقدام مورد نیاز</h4>
+      <div class="action">بازنویسی بلوک موقعیت به نسخهٔ «ایران و اروپا» (متن دقیق: step6 F-08)؛ فرم و پلن‌ها فعلاً درست‌اند</div>
+    </div>
+    <details class="fix-box">
+      <summary>متن اصلاحی پیشنهادی (قبل → بعد)</summary>
+      <div class="copy">
+        <p>وضعیت: محصول تأیید کرد سرویس ایران فعال است («تب مخصوص خودش رو در قسمت سفارش داره و به فروش هم می‌رسه»). شاخهٔ «ایران+اروپا» نهایی است.</p>
+        <p>قبل: «هاست وردپرس پارس‌پک، در موقعیت اروپا (آلمان) به کاربران ارائه می‌شود…»</p>
+        <p>بعد: «هاست وردپرس پارس‌پک در دو موقعیت ایران و اروپا (آلمان) به کاربران ارائه می‌شود تا کسب‌وکارهایی که به سرورهای قدرتمند، منابع مقیاس‌پذیر، تجربه کاربری بهتر و پیشرفت سریع در زمینه سئو نیاز دارند، از ویژگی‌های این هاست بهره‌مند شوند. همچنین با تهیه این سرویس، دسترسی کاملی به بازارهای جهانی خواهید داشت.»</p>
+        <p>(شاخهٔ «فقط اروپا» منتفی شد — هیچ تغییر دیگری در فرم/پلن‌ها لازم نیست.)</p>
+      </div>
+    </details>
+    <div class="accept"><span class="label">معیار پایان</span>متن بلوک هر دو لوکیشن را اعلام کند و با پیش‌فرض «ایران» فرم هم‌خوان باشد</div>
+  </article>
+
+  <!-- F-09 -->
+  <article class="finding must" id="f-09">
+    <header class="fhead">
+      <span class="fid">F-09</span>
+      <span class="badge must">الزامی</span>
+      <h3>C2: یک مفهوم با سه اسم مختلف در صفحه («المان»، «اروپا»، «ایران و اروپا»)</h3>
+    </header>
+    <div class="simple"><b>به زبان ساده:</b> یک مفهوم با سه اسم مختلف نوشته شده: «المان»، «اروپا»، «ایران و اروپا» — کاربر فکر می‌کند سه گزینهٔ متفاوت است.</div>
+    <div class="meta-grid">
+      <div class="m"><span class="label">قطعیت</span><span class="val">✅ تأیید شده (2026-11-14): فرمت واحد = «اروپا (آلمان)»</span></div>
+      <div class="m"><span class="label">مالک</span><span class="val">محتوا</span></div>
+      <div class="m"><span class="label">محل</span><span class="val">meta L37؛ title L36؛ بلوک موقعیت L18793؛ سلکت location (لِیبل «اروپا»)</span></div>
+    </div>
+    <div class="part"><h4>متن فعلی (عیناً از سورس)</h4>
+      <div class="quote">meta: «در منطقه ایران و خارج (المان).» / title: «در ایران و اروپا» / بلوک: «اروپا (آلمان)» / سلکت: «اروپا»</div>
+    </div>
+    <div class="part"><h4>اقدام مورد نیاز</h4>
+      <div class="action">همهٔ محل‌ها با فرمت «اروپا (آلمان)» یکسان شوند (meta و سلکت اصلاح؛ بلوک و title دست‌نخورده بمانند)</div>
+    </div>
+    <details class="fix-box">
+      <summary>متن اصلاحی پیشنهادی (قبل → بعد)</summary>
+      <div class="copy">
+        <h5>این ایراد چه می‌گوید (به زبان ساده)</h5>
+        <p>در صفحه <strong>چهار جا</strong> دربارهٔ محل قرارگیری سرور صحبت شده، ولی هر جا با یک اسم متفاوت:</p>
+        <ol>
+          <li><strong>توضیح زیر عنوان صفحه (meta):</strong> «خارج (المان)» — «المان» یک املا/اصطلاح قدیمی است.</li>
+          <li><strong>عنوان صفحه (title):</strong> «ایران و اروپا» — فقط «اروپا»، بدون نام کشور.</li>
+          <li><strong>منوی انتخاب لوکیشن در فرم سفارش:</strong> «اروپا» — فقط «اروپا».</li>
+          <li><strong>بخش «موقعیت جغرافیایی»:</strong> «اروپا (آلمان)» — کامل‌ترین عبارت.</li>
+        </ol>
+        <p>چرا مهم است؟</p>
+        <ul>
+          <li>خواننده ممکن است فکر کند «المان» و «اروپا» دو گزینهٔ متفاوت‌اند یا «اروپا» یعنی کل قاره با کشورهای دیگر.</li>
+          <li>وقتی یک مفهوم با چند اسم نوشته می‌شود، هم اعتماد کاربر کم می‌شود، هم از نظر سئو <strong>سیگنال پراکنده</strong> به موتور جستجو می‌رسد: گوگل نمی‌تواند مطمئن شود صفحه دقیقاً دربارهٔ «هاست اروپا (آلمان)» است یا نه.</li>
+        </ul>
+        <h5>تصمیم شما (2026-11-14)</h5>
+        <p>فرمت واحد: <strong>«اروپا (آلمان)»</strong> — تأیید شد.</p>
+        <h5>اقدام (قبل → بعد)</h5>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>کجای صفحه</th><th>متن فعلی (عیناً)</th><th>متن پیشنهادی</th></tr></thead>
+            <tbody>
+              <tr><td>meta (L37)</td><td>«در منطقه ایران و خارج (المان).»</td><td>«در منطقه ایران و خارج (آلمان).»</td></tr>
+              <tr><td>سلکت لوکیشن (گزینهٔ اروپا)</td><td>«اروپا»</td><td>«اروپا (آلمان)»</td></tr>
+              <tr><td>بلوک موقعیت (L18793)</td><td>«اروپا (آلمان)»</td><td>بدون تغییر — این یکی مرجع درست است</td></tr>
+              <tr><td>title (L36)</td><td>«در ایران و اروپا»</td><td>بدون تغییر (به‌خاطر طول عنوان — F-15)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h5>نتیجهٔ مورد انتظار</h5>
+        <p>سه تغییر کوچک (دو جای کلمه + یک برچسب گزینه) کافی است تا کاربر در همهٔ قسمت‌ها یک عبارت ثابت ببیند: «اروپا (آلمان)».</p>
+      </div>
+    </details>
+    <div class="accept"><span class="label">معیار پایان</span>در متا، سلکت، بلوک، عنوان صفحه هیچ دو برچسب متفاوتی برای مقصد اروپایی نباشد؛ همگی «اروپا (آلمان)» (یا در title فقط «اروپا» به‌عمد — مطابق F-15)</div>
+  </article>
+
+  <!-- F-10 -->
+  <article class="finding must" id="f-10">
+    <header class="fhead">
+      <span class="fid">F-10</span>
+      <span class="badge must">الزامی</span>
+      <h3>C3: «دایرکت‌ادمین» در سه‌متای صفحه و فرم هست، ولی محصول فقط سی‌پنل می‌فروشد</h3>
+    </header>
+    <div class="simple"><b>به زبان ساده:</b> متای صفحه و فرم سفارش وعدهٔ «دایرکت‌ادمین» می‌دهند؛ ولی محصول فقط سی‌پنل دارد.</div>
+    <div class="meta-grid">
+      <div class="m"><span class="label">قطعیت</span><span class="val">✅ تأیید محصول (2026-11-14): «دایرکت ادمین اصلا ندارن و الان فقط سی پنل می فروشن»</span></div>
+      <div class="m"><span class="label">مالک</span><span class="val">توسعه + محتوا</span></div>
+      <div class="m"><span class="label">محل</span><span class="val">meta description L37، og:description L43، twitter:description L55؛ رادیو L12992؛ آپشن L13015؛ FAQ L19465/19473 (تنها محل مجاز — مقایسهٔ آموزشی)</span></div>
+    </div>
+    <div class="part"><h4>متن فعلی (عیناً از سورس)</h4>
+      <div class="quote">«دایرکت ادمین و سی پنل لینوکس» ×۳ (متاها) / <code>&lt;div class="title"&gt;دایرکت‌ادمین&lt;/div&gt;</code> + <code>&lt;option&gt;دایرکت‌ادمین&lt;/option&gt;</code> / FAQ: «در حال حاضر هاست وردپرس پارس‌پک با کنترل‌پنل سی‌پنل ارائه می‌شود.»</div>
+    </div>
+    <div class="part"><h4>اقدام مورد نیاز</h4>
+      <div class="action">حذف رادیو و آپشن «دایرکت‌ادمین» از فرم؛ اصلاح هر ۳ متا به «سی پنل لینوکس»؛ FAQ بدون تغییر (درست و آموزشی است)</div>
+    </div>
+    <details class="fix-box">
+      <summary>متن اصلاحی پیشنهادی (قبل → بعد)</summary>
+      <div class="copy">
+        <h5>این ایراد چه می‌گوید (به زبان ساده)</h5>
+        <p>متن صفحه (در ۳ متا) و منوی فرم سفارش، گزینهٔ «دایرکت‌ادمین» را نشان می‌دهد؛ اما محصول در واقع <strong>فقط سی‌پنل</strong> می‌فروشد. کاربر دلش می‌خواهد دایرکت‌ادمین بخرد، در فرم انتخابش می‌کند و بعد می‌فهمد چنین چیزی موجود نیست.</p>
+        <h5>تصمیم شما (2026-11-14)</h5>
+        <p>«دایرکت ادمین اصلا ندارن و الان فقط سی پنل می فروشن» → گزینه و ادعا باید حذف شود.</p>
+        <h5>اقدام (قبل → بعد)</h5>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>کجای صفحه</th><th>متن فعلی (عیناً)</th><th>متن پیشنهادی</th></tr></thead>
+            <tbody>
+              <tr><td>meta description (L37)</td><td>«… دایرکت ادمین و سی پنل لینوکس …»</td><td>«… سی پنل لینوکس …»</td></tr>
+              <tr><td>og:description (L43)</td><td>«… دایرکت ادمین و سی پنل لینوکس …»</td><td>«… سی پنل لینوکس …»</td></tr>
+              <tr><td>twitter:description (L55)</td><td>«… دایرکت ادمین و سی پنل لینوکس …»</td><td>«… سی پنل لینوکس …»</td></tr>
+              <tr><td>رادیو کنترل‌پنل (L12992)</td><td><code>&lt;div class="title"&gt;دایرکت‌ادمین&lt;/div&gt;</code></td><td>حذف کامل رادیو (توسعه)</td></tr>
+              <tr><td>آپشن سلکت (L13015)</td><td><code>&lt;option&gt;دایرکت‌ادمین&lt;/option&gt;</code></td><td>حذف کامل (توسعه)</td></tr>
+              <tr><td>FAQ L19465/19473</td><td>پرسش و پاسخ مقایسهٔ سی‌پنل/دایرکت‌ادمین</td><td><strong>بدون تغییر</strong> — آموزشی است و پاسخ «در حال حاضر … با کنترل‌پنل سی‌پنل ارائه می‌شود» درست است</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h5>نتیجهٔ مورد انتظار</h5>
+        <p>جستجوی «دایرکت» در سورس فقط در FAQ پیدا شود؛ هیچ فرم یا متایی وعدهٔ محصول موجودنبود را ندهد.</p>
+      </div>
+    </details>
+    <div class="accept"><span class="label">معیار پایان</span>در متاها و فرم هیچ اشاره‌ای به دایرکت‌ادمین نماند؛ با grep «دایرکت» فقط FAQ پرسش/پاسخ باقی بماند</div>
+  </article>
+
+  <!-- F-11 -->
+  <article class="finding must" id="f-11">
+    <header class="fhead">
+      <span class="fid">F-11</span>
+      <span class="badge must">الزامی</span>
+      <h3>C4: فرکانس بکاپ «هفتگی» در برابر «هفتگی و ماهانه» — فقط «ماهانه» باز است</h3>
+    </header>
+    <div class="simple"><b>به زبان ساده:</b> در یک جا نوشته بکاپ «هفتگی» است، در جای دیگر «هفتگی و ماهانه» — و معلوم نیست ماهانه چند ماه نگه داشته می‌شود.</div>
+    <div class="meta-grid">
+      <div class="m"><span class="label">قطعیت</span><span class="val">نیمه‌تأیید (2026-11-14): «دیتابیس روزانه + سایت هفتگی» درست است؛ تنها نکته: «ماهانه» و مدت نگهداری آن نامشخص</span></div>
+      <div class="m"><span class="label">مالک</span><span class="val">محصول + محتوا</span></div>
+      <div class="m"><span class="label">محل</span><span class="val">کارت «بکاپ‌گیری خودکار» L18327–18343؛ کپشن L19181؛ FAQ L19639</span></div>
+    </div>
+    <div class="part"><h4>متن فعلی (عیناً از سورس)</h4>
+      <div class="quote">«بک‌آپ‌گیری رایگان به صورت روزانه از دیتابیس و به صورت هفتگی از کل وب‌سایت» / «بکاپ خودکار از کل سایت به صورت هفتگی و ماهانه»</div>
+    </div>
+    <div class="part"><h4>اقدام مورد نیاز</h4>
+      <div class="action">از تیم محصول بپرسید: بکاپ ماهانه هست یا نه؟ اگر بله، <strong>مدت نگهداری (مثلاً ۳ یا ۶ ماه)</strong> را بگیرید و در متن بیاورید؛ اگر نه، کلمهٔ «ماهانه» از کپشن حذف شود</div>
+    </div>
+    <details class="fix-box">
+      <summary>متن اصلاحی پیشنهادی (قبل → بعد)</summary>
+      <div class="copy">
+        <h5>این ایراد چه می‌گوید (به زبان ساده)</h5>
+        <ul>
+          <li>کارت «بکاپ‌گیری خودکار» می‌گوید: «روزانه از دیتابیس و هفتگی از کل وب‌سایت» — ✅ تأیید شد.</li>
+          <li>ولی کپشن بخش پنل اختصاصی می‌گوید: «هفتگی <strong>و ماهانه</strong>» — یعنی ادعای یک بکاپ اضافه که دو سؤال دارد: آیا وجود دارد؟ و اگر دارد، چند ماه نگه داشته می‌شود؟</li>
+        </ul>
+        <h5>تصمیم شما (2026-11-14)</h5>
+        <p>«دیتابیس روزانه … هفتگی هم گفته. می‌مونه فقط ماهانه — اونم بخوایم اشاره کنیم باید بخوایم بنویسند که تا چند ماه رو نگه می‌داره.»</p>
+        <h5>سؤال لازم از تیم محصول (قبل از نوشتن متن)</h5>
+        <blockquote>«بکاپ ماهانه دارید؟ اگر بله، تا چند ماه نگهداری می‌شود؟»</blockquote>
+        <h5>اقدام (قبل → بعد)</h5>
+        <p>شاخهٔ الف — اگر ماهانه ندارد:</p>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>محل</th><th>متن فعلی</th><th>متن پیشنهادی</th></tr></thead>
+            <tbody>
+              <tr><td>کپشن L19181</td><td>«بکاپ خودکار از کل سایت به صورت هفتگی و ماهانه»</td><td>«بکاپ خودکار از کل سایت به صورت هفتگی»</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>شاخهٔ ب — اگر ماهانه دارد (با مدت نگهداری که محصول اعلام می‌کند):</p>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>محل</th><th>متن فعلی</th><th>متن پیشنهادی</th></tr></thead>
+            <tbody>
+              <tr><td>کپشن L19181</td><td>«بکاپ خودکار از کل سایت به صورت هفتگی و ماهانه»</td><td>«بکاپ خودکار از کل سایت به صورت هفتگی و ماهانه (نگهداری X ماه)»</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>و برای هر دو شاخه، متن کارت L18343 بماند: «بک‌آپ‌گیری رایگان به صورت روزانه از دیتابیس و به صورت هفتگی از کل وب‌سایت».</p>
+        <p>(اختیاری) FAQ L19639 → «نسخه‌های پشتیبان روزانه از دیتابیس و هفتگی از کل سایت تهیه می‌شوند» + جملهٔ ماهانه/نگهداری مطابق تصمیم.</p>
+      </div>
+    </details>
+    <div class="accept"><span class="label">معیار پایان</span>در کل صفحه یک جملهٔ واحد دربارهٔ بکاپ: «روزانه از دیتابیس، هفتگی از کل سایت» (+ اگر هست: «ماهانه با نگهداری X ماه»)</div>
+  </article>
+
+  <!-- F-14 -->
+  <article class="finding must" id="f-14">
+    <header class="fhead">
+      <span class="fid">F-14</span>
+      <span class="badge must">الزامی</span>
+      <h3>hreflang صفر مورد، در حالی که نسخهٔ انگلیسی هم وجود دارد</h3>
+    </header>
+    <div class="simple"><b>به زبان ساده:</b> نسخهٔ انگلیسی سایت هم هست، ولی صفحهٔ فارسی هیچ تگ hreflang ندارد؛ گوگل نمی‌فهمد این دو صفحه جفت‌اند.</div>
+    <div class="meta-grid">
+      <div class="m"><span class="label">قطعیت</span><span class="val">✅ تأیید کاربر (2026-11-14): «سایت یه نسخه انگلیسی داره با محتوا مختصر تر»</span></div>
+      <div class="m"><span class="label">مالک</span><span class="val">توسعه</span></div>
+      <div class="m"><span class="label">محل</span><span class="val">کل سورس (<code>hreflang</code> = ۰)؛ نسخهٔ انگلیسی: صفحهٔ معادلِ <strong>URL آن باید تأیید شود</strong></span></div>
+    </div>
+    <div class="part"><h4>متن فعلی (عیناً از سورس)</h4>
+      <div class="quote">«یافت نشد»</div>
+    </div>
+    <div class="part"><h4>اقدام مورد نیاز</h4>
+      <div class="action">افزودن تگ‌های hreflang دوطرفه در <strong>هر دو صفحه</strong> (فارسی + انگلیسی) با <code>x-default</code>؛ هر دو صفحه باید به هم اشاره کنند</div>
+    </div>
+    <details class="fix-box">
+      <summary>متن اصلاحی پیشنهادی (قبل → بعد)</summary>
+      <div class="copy">
+        <h5>این ایراد چه می‌گوید (به زبان ساده)</h5>
+        <p>سایت <strong>نسخهٔ انگلیسی</strong> هم دارد (به گفتهٔ شما با محتوای مختصرتر). در صفحهٔ فارسی هیچ تگ <code>hreflang</code> نیست؛ یعنی به گوگل و مرورگر نمی‌گوییم «این صفحه نسخهٔ فارسیِ همان صفحه است که نسخهٔ انگلیسی‌اش هم اینجاست». نتیجه: ممکن است در جستجوی انگلیسی، نسخهٔ فارسی یا نسخهٔ اشتباه نمایش داده شود.</p>
+        <h5>پیش‌نیاز: URL نسخهٔ انگلیسی</h5>
+        <p>قبل از نوشتن کد، <strong>آدرس دقیق صفحهٔ انگلیسی</strong> لازم است (مثلاً <code>https://parspack.com/en/host/wordpress</code> یا زیردامنه‌ای دیگر). بدون آن، کد hreflang دقیق نوشته نمی‌شود.</p>
+        <h5>اقدام (قبل → بعد) — افزودن به <code>&lt;head&gt;</code> هر دو صفحه</h5>
+        <p>در صفحهٔ فارسی:</p>
+<pre><code>&lt;link rel="alternate" hreflang="fa-IR" href="https://parspack.com/host/wordpress" /&gt;
+&lt;link rel="alternate" hreflang="en" href="&lt;URL-انگلیسی-تأییدشده&gt;" /&gt;
+&lt;link rel="alternate" hreflang="x-default" href="&lt;URL-انگلیسی-تأییدشده&gt;" /&gt;</code></pre>
+        <p>و <strong>به‌صورت متقابل</strong> در صفحهٔ انگلیسی:</p>
+<pre><code>&lt;link rel="alternate" hreflang="en" href="&lt;URL-انگلیسی-تأییدشده&gt;" /&gt;
+&lt;link rel="alternate" hreflang="fa-IR" href="https://parspack.com/host/wordpress" /&gt;
+&lt;link rel="alternate" hreflang="x-default" href="&lt;URL-انگلیسی-تأییدشده&gt;" /&gt;</code></pre>
+        <h5>معیار پذیرش</h5>
+        <ul>
+          <li>هر دو صفحه به هم اشاره می‌کنند (bidirectional) و <code>x-default</code> دارند.</li>
+          <li>اعتبارسنجی با ابزار hreflang بدون خطا.</li>
+          <li>«محتوا مختصرتر بودن» نسخهٔ انگلیسی ایرادی نیست (نسخهٔ خلاصهٔ ترجمه‌شده قابل قبول است) — فقط حتماً باید hreflang داشته باشد.</li>
+        </ul>
+      </div>
+    </details>
+    <div class="accept"><span class="label">معیار پایان</span>هر دو صفحه hreflang متقابل دارند (fa-IR، en، x-default) و ابزار ولیدیتور خطا نمی‌دهد</div>
+  </article>
+
+  <!-- ══════════ پیشنهادی ══════════ -->
+  <div class="sec-head" id="rec">
+    <h2>پیشنهادی</h2>
+    <span class="pill rec">اولویت ۲</span>
+    <span class="count">۷ مورد</span>
+  </div>
+
+  <!-- F-05 -->
+  <article class="finding rec" id="f-05">
+    <header class="fhead">
+      <span class="fid">F-05</span>
+      <span class="badge rec">پیشنهادی</span>
+      <h3>سرتیترهای پلن‌ها تکراری و بدون برچسب تمایز</h3>
+    </header>
+    <div class="simple"><b>به زبان ساده:</b> هر هشت کارت پلن عنوان یکسان دارند («وردپرس 1» تا «وردپرس 4» دو بار) — معلوم نیست کدام مال ایران است و کدام مال اروپا.</div>
+    <div class="meta-grid">
+      <div class="m"><span class="label">قطعیت</span><span class="val">مشاهده‌شده</span></div>
+      <div class="m"><span class="label">مالک</span><span class="val">محتوا</span></div>
+      <div class="m"><span class="label">محل</span><span class="val">L13323/L13600/L13897/L14204 و L14473/L14750/L15047/L15354 — همه «وردپرس 1…4»</span></div>
+    </div>
+    <div class="part"><h4>متن فعلی (عیناً از سورس)</h4>
+      <div class="quote">«وردپرس 1» … «وردپرس 4» (دو بار پشت‌سرهم)</div>
+    </div>
+    <div class="part"><h4>اقدام مورد نیاز</h4>
+      <div class="action">پیشوند تمایز: «وردپرس 1 — لوکیشن ایران» / «وردپرس 1 — لوکیشن اروپا»</div>
+    </div>
+    <details class="fix-box">
+      <summary>متن اصلاحی پیشنهادی (قبل → بعد)</summary>
+      <div class="copy">
+        <h5>این ایراد چه می‌گوید (به زبان ساده)</h5>
+        <p>در صفحه ۸ کارت پلن هست: ۴ تا برای اروپا و ۴ تا برای ایران. ولی عنوان همه «وردپرس 1» تا «وردپرس 4» است — یعنی دو عنوان <strong>عیناً تکراری</strong> برای دو پلن متفاوت. خواننده (و موتور جستجو) نمی‌فهمد کدام کدام است.</p>
+        <h5>پیشنهاد شما (2026-11-14) + تحلیل</h5>
+        <blockquote>«کنار 'وردپرس' جدا از عدد، اگر یکی از ویژگی‌ها مثل میزان حافظه باشد بهتر نیست؟»</blockquote>
+        <p>جواب: <strong>برای توصیفی‌تر شدن، بله خوب است</strong> — ولی به‌تنهایی کافی نیست:</p>
+        <ul>
+          <li>در دو گروه (ایران/اروپا) مشخصات یکسان‌اند (هر دو: ۴، ۸، ۱۲، ۲۰ گیگ رم). پس «وردپرس 1 — ۴ گیگ رم» هنوز <strong>دو بار</strong> تکرار می‌شود.</li>
+          <li>برای یکتایی کامل باید مولفهٔ لوکیشن هم بیاید؛ یا لوکیشن در عنوان تب بیاید (نه در h3).</li>
+        </ul>
+        <h5>گزینه‌ها (یکی را انتخاب کنید)</h5>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>گزینه</th><th>نمونه عنوان h3</th><th>مزیت</th><th>عیب</th></tr></thead>
+            <tbody>
+              <tr><td><strong>الف — عدد + رم (پیشنهاد شما)</strong></td><td><code>وردپرس 1 — ۴ گیگ رم</code></td><td>کاربر مشخصات را در عنوان می‌بیند؛ کلیدواژهٔ «هارد ۴ گیگ» اضافه</td><td>هنوز بین ایران/اروپا تکراری</td></tr>
+              <tr><td><strong>ب — عدد + لوکیشن + رم (توصیهٔ من)</strong></td><td><code>وردپرس 1 (ایران) — ۴ گیگ رم</code></td><td>یکتا در کل صفحه + توصیفی + لوکیشن</td><td>عنوان کمی بلندتر</td></tr>
+              <tr><td><strong>ج — عدد + لوکیشن (ساده‌ترین)</strong></td><td><code>وردپرس 1 (ایران)</code></td><td>حداقل تغییر؛ یکتا</td><td>مشخصات در عنوان نیست</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>نکتهٔ فنی: متن h3 فقط برای نمایش است؛ <strong>نام پلن در فرآیند سفارش/فاکتور («وردپرس 1») دست نمی‌خورد</strong>؛ هیچ ریسکی برای سیستم خرید ندارد.</p>
+        <h5>اقدام (قبل → بعد) — برای گزینهٔ ب</h5>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>پلن</th><th>قبل</th><th>بعد</th></tr></thead>
+            <tbody>
+              <tr><td>Europe 1</td><td>«وردپرس 1»</td><td>«وردپرس 1 (اروپا) — ۴ گیگ رم»</td></tr>
+              <tr><td>Europe 2</td><td>«وردپرس 2»</td><td>«وردپرس 2 (اروپا) — ۸ گیگ رم»</td></tr>
+              <tr><td>Europe 3</td><td>«وردپرس 3»</td><td>«وردپرس 3 (اروپا) — ۱۲ گیگ رم»</td></tr>
+              <tr><td>Europe 4</td><td>«وردپرس 4»</td><td>«وردپرس 4 (اروپا) — ۲۰ گیگ رم»</td></tr>
+              <tr><td>Iran 1</td><td>«وردپرس 1»</td><td>«وردپرس 1 (ایران) — ۴ گیگ رم»</td></tr>
+              <tr><td>Iran 2</td><td>«وردپرس 2»</td><td>«وردپرس 2 (ایران) — ۸ گیگ رم»</td></tr>
+              <tr><td>Iran 3</td><td>«وردپرس 3»</td><td>«وردپرس 3 (ایران) — ۱۲ گیگ رم»</td></tr>
+              <tr><td>Iran 4</td><td>«وردپرس 4»</td><td>«وردپرس 4 (ایران) — ۲۰ گیگ رم»</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>(مقادیر رم از مشخصات همان کارت‌ها است: 4/8/12/20 GB RAM — L16459…L16792)</p>
+      </div>
+    </details>
+    <div class="accept"><span class="label">معیار پایان</span>هر ۸ h3 یکتا و حاوی لوکیشن</div>
+  </article>
+
+  <!-- F-06 -->
+  <article class="finding rec" id="f-06">
+    <header class="fhead">
+      <span class="fid">F-06</span>
+      <span class="badge rec">پیشنهادی</span>
+      <h3><code>dir="rtl"</code> دوبار روی <code>&lt;html&gt;</code></h3>
+    </header>
+    <div class="simple"><b>به زبان ساده:</b> در تگ html، صفت dir="rtl" دو بار تکرار شده است.</div>
+    <div class="meta-grid">
+      <div class="m"><span class="label">قطعیت</span><span class="val">مشاهده‌شده</span></div>
+      <div class="m"><span class="label">مالک</span><span class="val">توسعه</span></div>
+      <div class="m"><span class="label">محل</span><span class="val">L2</span></div>
+    </div>
+    <div class="part"><h4>متن فعلی (عیناً از سورس)</h4>
+      <div class="quote"><code>&lt;html dir="rtl" dir="rtl" lang="fa-IR" prefix="og: https://ogp.me/ns#"&gt;</code></div>
+    </div>
+    <div class="part"><h4>اقدام مورد نیاز</h4>
+      <div class="action">حذف تکرار</div>
+    </div>
+    <details class="fix-box">
+      <summary>متن اصلاحی پیشنهادی (قبل → بعد)</summary>
+      <div class="copy">
+        <p>قبل: <code>&lt;html dir="rtl" dir="rtl" lang="fa-IR" prefix="og: https://ogp.me/ns#"&gt;</code></p>
+        <p>بعد: <code>&lt;html dir="rtl" lang="fa-IR" prefix="og: https://ogp.me/ns#"&gt;</code></p>
+      </div>
+    </details>
+    <div class="accept"><span class="label">معیار پایان</span>تگ html یک dir داشته باشد</div>
+  </article>
+
+  <!-- F-07 -->
+  <article class="finding rec" id="f-07">
+    <header class="fhead">
+      <span class="fid">F-07</span>
+      <span class="badge rec">پیشنهادی</span>
+      <h3>۵ th جدول «جزئیات و آنالیز» بدون scope</h3>
+    </header>
+    <div class="simple"><b>به زبان ساده:</b> در جدول «جزئیات و آنالیز»، سرستون‌ها به صفحه‌خوان نمی‌گویند هر عدد مال کدام ستون است.</div>
+    <div class="meta-grid">
+      <div class="m"><span class="label">قطعیت</span><span class="val">مشاهده‌شده</span></div>
+      <div class="m"><span class="label">مالک</span><span class="val">توسعه</span></div>
+      <div class="m"><span class="label">محل</span><span class="val">L16452، L16459، L16570، L16681، L16792</span></div>
+    </div>
+    <div class="part"><h4>متن فعلی (عیناً از سورس)</h4>
+      <div class="quote"><code>&lt;th class="…" &gt;جزئیات و آنالیز&lt;/th&gt;</code> … (بدون <code>scope</code>)</div>
+    </div>
+    <div class="part"><h4>اقدام مورد نیاز</h4>
+      <div class="action">افزودن <code>scope="col"</code> (یا "row" برای ستون ویژگی/پلن)</div>
+    </div>
+    <details class="fix-box">
+      <summary>متن اصلاحی پیشنهادی (قبل → بعد)</summary>
+      <div class="copy">
+        <h5>scope چیست و چه فایده‌ای دارد (به زبان ساده)</h5>
+        <p>در جدول HTML دو نوع سلول داریم: <strong>هدر</strong> (<code>&lt;th&gt;</code>) و <strong>داده</strong> (<code>&lt;td&gt;</code>). مرورگر ظاهراً می‌فهمد کدام هدر است، ولی <strong>نرم‌افزار صفحه‌خوان</strong> (برای کاربران نابینا) نمی‌داند هر هدر به کدام سمت «حکومت» می‌کند. صفت <code>scope</code> این را صریح می‌کند:</p>
+        <ul>
+          <li><code>scope="col"</code> → این هدر مالِ <strong>ستون زیرش</strong> است.</li>
+          <li><code>scope="row"</code> → این هدر مالِ <strong>سطر کنارش</strong> است.</li>
+        </ul>
+        <p>مثال: کاربر صفحه‌خوان روی سلول «۸ گیگ رم» (سطر وردپرس 2) کیبورد بزند، اگر scope باشد می‌شنود: «وردپرس 2 — ۸ گیگ رم». اگر نباشد ممکن است فقط «۸ گیگ» بشنود و نداند مال کدام پلن است.</p>
+        <p>فایده‌ها: دسترس‌پذیری (WCAG 1.3.1)، درک بهتر برای ابزارهای کمکی، خوانایی جدول. <strong>اثر مستقیم روی رتبهٔ گوگل ندارد</strong> (بخشی از a11y است، نه سیگنال رتبه).</p>
+        <h5>اقدام (قبل → بعد)</h5>
+        <p>بعد: افزودن <code>scope="col"</code> به همهٔ ۵ سرسلول «جزئیات و آنالیز» (L16452) و ۴ سرسلول پلن (L16459، 16570، 16681، 16792).</p>
+        <p>نکته: جدول مقایسه (L19026–19125) از قبل <code>scope="col"</code>/<code>scope="row"</code> درست دارد — دست نزنید.</p>
+      </div>
+    </details>
+    <div class="accept"><span class="label">معیار پایان</span>همهٔ thها scope داشته باشند</div>
+  </article>
+
+  <!-- F-12 -->
+  <article class="finding rec" id="f-12">
+    <header class="fhead">
+      <span class="fid">F-12</span>
+      <span class="badge rec">پیشنهادی</span>
+      <h3>C6: «بازگردانی» در برابر «انتقال» در کارت</h3>
+    </header>
+    <div class="simple"><b>به زبان ساده:</b> عنوان کارت «بازگردانی» است، ولی توضیحش دربارهٔ «انتقال» حرف می‌زند — دو مفهوم متفاوت.</div>
+    <div class="meta-grid">
+      <div class="m"><span class="label">قطعیت</span><span class="val">مشاهده‌شده</span></div>
+      <div class="m"><span class="label">مالک</span><span class="val">محتوا</span></div>
+      <div class="m"><span class="label">محل</span><span class="val">کارت L18428–18431</span></div>
+    </div>
+    <div class="part"><h4>متن فعلی (عیناً از سورس)</h4>
+      <div class="quote">h3: «امکان بازگردانی هاست» / desc: «امکان انتقال هاست از طریق لینک فول بک‌آپ یا بارگذاری فایل بک‌آپ»</div>
+    </div>
+    <div class="part"><h4>اقدام مورد نیاز</h4>
+      <div class="action">یا عنوان «بازگردانی/انتقال» یا توضیح «بازگردانی» با ذکر لینک فول بک‌آپ</div>
+    </div>
+    <details class="fix-box">
+      <summary>متن اصلاحی پیشنهادی (قبل → بعد)</summary>
+      <div class="copy">
+        <p>قبل: عنوان «امکان بازگردانی هاست» + توضیح «امکان انتقال هاست از طریق لینک فول بک‌آپ یا بارگذاری فایل بک‌آپ»</p>
+        <p>بعد: عنوان بماند؛ توضیح → «امکان بازگردانی هاست از طریق لینک فول بک‌آپ یا بارگذاری فایل بک‌آپ در پنل کاربری»</p>
+        <blockquote>⚠️ <strong>یادداشت SERP:</strong> این اقدام رتبه در گوگل را بهبود نمی‌دهد (FAQ rich result محدود شده). ارزش: خوانایی برای Bing و AI crawlers.</blockquote>
+      </div>
+    </details>
+    <div class="accept"><span class="label">معیار پایان</span>عنوان و توضیح یک مفهوم واحد</div>
+  </article>
+
+  <!-- F-13 -->
+  <article class="finding rec" id="f-13">
+    <header class="fhead">
+      <span class="fid">F-13</span>
+      <span class="badge rec">پیشنهادی</span>
+      <h3>هیچ داده ساختاریافته (JSON-LD) در صفحه نیست</h3>
+    </header>
+    <div class="simple"><b>به زبان ساده:</b> صفحه هیچ «داده ساختاریافته» (JSON-LD) ندارد — یعنی امکانات ریچ‌ریزالت از دست رفته.</div>
+    <div class="meta-grid">
+      <div class="m"><span class="label">قطعیت</span><span class="val">مشاهده‌شده (۰ مورد <code>ld+json</code>)</span></div>
+      <div class="m"><span class="label">مالک</span><span class="val">توسعه</span></div>
+      <div class="m"><span class="label">محل</span><span class="val">کل سورس (<code>application/ld+json</code> = ۰، <code>FAQPage</code> = ۰)</span></div>
+    </div>
+    <div class="part"><h4>متن فعلی (عیناً از سورس)</h4>
+      <div class="quote">«یافت نشد»</div>
+    </div>
+    <div class="part"><h4>اقدام مورد نیاز</h4>
+      <div class="action">افزودن FAQPage برای ۷ سؤال موجود + Organization/WebPage/Product بر اساس سیاست پارس‌پک</div>
+    </div>
+    <details class="fix-box">
+      <summary>متن اصلاحی پیشنهادی (قبل → بعد)</summary>
+      <div class="copy">
+<pre><code>&lt;script type="application/ld+json"&gt;
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"آیا هاست وردپرس از کش سرور و CDN اختصاصی پشتیبانی می‌کند؟","acceptedAnswer":{"@type":"Answer","text":"بله، هاست‌های حرفه‌ای وردپرس معمولا به کش‌سرورهای پیشرفته مانند LiteSpeed Cache و CDNهای داخلی یا جهانی مجهز هستند…"}},
+{"@type":"Question","name":"آیا امکان ارتقا به هاست قوی‌تر بدون جابه‌جایی فایل‌ها وجود دارد؟","acceptedAnswer":{"@type":"Answer","text":"بله، هاست وردپرس پارس‌پک، از ویژگی مقیاس‌پذیری برخوردار است…"}},
+{"@type":"Question","name":"هاست وردپرس پارس‌پک چه تفاوتی با هاست معمولی دارد؟","acceptedAnswer":{"@type":"Answer","text":"هاست وردپرس به‌طور اختصاصی برای میزبانی سایت‌های وردپرسی بهینه‌سازی شده…"}},
+{"@type":"Question","name":"مزایای خرید هاست وردپرس چیست؟","acceptedAnswer":{"@type":"Answer","text":"هاست وردپرس ارزان پارس‌پک با زیرساخت ابری قدرتمند…"}},
+{"@type":"Question","name":"هاست وردپرس سی پنل و دایرکت ادمین چه تفاوتی با هم دارند؟","acceptedAnswer":{"@type":"Answer","text":"هاست سی‌پنل به دلیل رابط کاربری مدرن‌تر، امکانات گرافیکی گسترده و سهولت استفاده…"}},
+{"@type":"Question","name":"هاست وردپرس ایران بهتر است یا اروپا؟","acceptedAnswer":{"@type":"Answer","text":"هاست اروپا به دلیل پایداری بسیار بالاتر زیرساخت… انتخابی مطمئن‌تر و استانداردتر است."}},
+{"@type":"Question","name":"کدام پلن هاست برای سایت من مناسب‌تر است؟","acceptedAnswer":{"@type":"Answer","text":"اگر از میزان دقیق منابع… از پلن اول (پایه) شروع کنید…"}}
+]}
+&lt;/script&gt;</code></pre>
+        <p>(متن Answerها باید عیناً همان متن FAQ صفحه باشد؛ «…» فقط برای کوتاهی در این سند است.)</p>
+      </div>
+    </details>
+    <div class="accept"><span class="label">معیار پایان</span>اسکیمای معتبر در Rich Results Test برای URL هدف</div>
+  </article>
+
+  <!-- F-15 -->
+  <article class="finding rec" id="f-15">
+    <header class="fhead">
+      <span class="fid">F-15</span>
+      <span class="badge rec">پیشنهادی</span>
+      <h3>طول عنوان ۶۶–۶۷ کاراکتر</h3>
+    </header>
+    <div class="simple"><b>به زبان ساده:</b> عنوان صفحه ۶۶ کاراکتر است (کمی از حدود رایج ۶۰ بیشتر) — با waiver (سند استثنا) پذیرفته شد.</div>
+    <div class="meta-grid">
+      <div class="m"><span class="label">قطعیت</span><span class="val">✅ تصمیم نهایی: waiver (سند استثنا) — E-03 (2026-11-14)</span></div>
+      <div class="m"><span class="label">مالک</span><span class="val">محتوا</span></div>
+      <div class="m"><span class="label">محل</span><span class="val">L36</span></div>
+    </div>
+    <div class="part"><h4>متن فعلی (عیناً از سورس)</h4>
+      <div class="quote">«هاست وردپرس - خرید هاست وردپرس ارزان ⚡️ در ایران و اروپا - پارس‌پک» (۶۶ کاراکتر؛ با شمارش واحدهای UTF-16)</div>
+    </div>
+    <div class="part"><h4>اقدام مورد نیاز</h4>
+      <div class="action">بدون اقدام؛ ثبت E-03 در استثناها</div>
+    </div>
+    <details class="fix-box">
+      <summary>متن اصلاحی پیشنهادی (قبل → بعد)</summary>
+      <div class="copy">
+        <h5>waiver (سند استثنا) یعنی چه؟ (به زبان ساده)</h5>
+        <p>«waiver (سند استثنا)» = <strong>سند استثنا/چشم‌پوشی مستند</strong>. یعنی به‌جای اصلاح، رسماً می‌نویسیم: «این ایراد را دیدیم و آگاهانه تصمیم گرفتیم همان‌طور بماند — به این دلیل، با تأیید فلان شخص، در تاریخ فلان».</p>
+        <p>waiver (سند استثنا) سه کار می‌کند:</p>
+        <ol>
+          <li><strong>مخفی نگه‌داشتن تنبلی نیست</strong> — دلیل و تأییدکننده دارد؛ دفعهٔ بعد کسی نمی‌گوید «چرا این اصلاً بررسی نشده؟»</li>
+          <li><strong>جلوگیری از کار تکراری</strong> — ممیز بعدی همان ایراد را دوباره باز نمی‌کند.</li>
+          <li><strong>شفافیت</strong> — تصمیمِ «آگاهانه پذیرفتیم» از تصمیمِ «یادمان رفت» جدا می‌شود.</li>
+        </ol>
+        <p>در این پروژه، همهٔ استثناها در <code>step4-approved.md</code> با کد <strong>E-01، E-02، …</strong> ثبت شده‌اند (مثلاً E-01 برای «مشاوره رایگان»).</p>
+        <h5>این ایراد: عنوان ۶۶ کاراکتر</h5>
+        <ul>
+          <li><strong>قبل:</strong> «هاست وردپرس - خرید هاست وردپرس ارزان ⚡️ در ایران و اروپا - پارس‌پک» (۶۶)</li>
+          <li><strong>گزینهٔ الف — کوتاه‌سازی:</strong> «هاست وردپرس ارزان | خرید در ایران و اروپا — پارس‌پک» (~۴۵)</li>
+          <li><strong>گزینهٔ ب — waiver (سند استثنا):</strong> ثبت استثنا مثل:</li>
+        </ul>
+        <blockquote>«E-03 (F-15): عنوان فعلی حفظ می‌شود؛ دلیل: [مثلاً حفظ برند/کدام کلمهٔ کلیدی]؛ تأییدکننده: [نام]; تاریخ: [تاریخ]»</blockquote>
+        <h5>✅ تصمیم نهایی (2026-11-14): گزینهٔ ب — waiver (سند استثنا)</h5>
+        <p><strong>بدون تغییر در عنوان.</strong> رکورد نهایی در <code>step4-approved.md</code>:</p>
+        <blockquote><strong>E-03 (F-15):</strong> عنوان فعلی («هاست وردپرس - خرید هاست وردپرس ارزان ⚡️ در ایران و اروپا - پارس‌پک») حفظ می‌شود.<br>- دلیل: حفظ عبارت کلیدی «خرید هاست وردپرس ارزان» و نام برند در عنوان<br>- تأییدکننده: مالک پروژه (کاربر)<br>- تاریخ: 2026-11-14<br>- ریسک پذیرفته‌شده: احتمال بریده‌شدن انتهای عنوان در برخی نتایج</blockquote>
+        <p>(اگر دلیل را متفاوت می‌خواهید — مثلاً «به‌خاطر تست A/B» یا «چون کلمهٔ کلیدی مهم است» — همان بنویسید تا در رکورد عوض شود.)</p>
+      </div>
+    </details>
+    <div class="accept"><span class="label">معیار پایان</span>E-03 ثبت شده باشد (انجام شد)</div>
+  </article>
+
+  <!-- F-16 -->
+  <article class="finding rec" id="f-16">
+    <header class="fhead">
+      <span class="fid">F-16</span>
+      <span class="badge rec">پیشنهادی</span>
+      <h3>تکرار عبارت «هاست وردپرس چیست؟» به دو سطح متفاوت</h3>
+    </header>
+    <div class="simple"><b>به زبان ساده:</b> چند عنوان شبیه هم داریم. فقط عنوان بخش اصلی «هاست وردپرس چیست؟» می‌ماند؛ بقیه عنوان متفاوت می‌گیرند (جزئیات در همین کارت).</div>
+    <div class="meta-grid">
+      <div class="m"><span class="label">قطعیت</span><span class="val">مشاهده‌شده</span></div>
+      <div class="m"><span class="label">مالک</span><span class="val">محتوا</span></div>
+      <div class="m"><span class="label">محل</span><span class="val">h3 L19335 و h2 L19619</span></div>
+    </div>
+    <div class="part"><h4>متن فعلی (عیناً از سورس)</h4>
+      <div class="quote">«هاست وردپرس چیست؟» (h3) + «هاست وردپرس چیست؟» (h2)</div>
+    </div>
+    <div class="part"><h4>اقدام مورد نیاز</h4>
+      <div class="action">یکی بازنویسی شود (مثلاً h3: «معرفی هاست وردپرس در آموزش‌ها»)</div>
+    </div>
+    <details class="fix-box">
+      <summary>متن اصلاحی پیشنهادی (قبل → بعد)</summary>
+      <div class="copy">
+        <h5>مشکل (به زبان ساده)</h5>
+        <p>در صفحه چند عنوان هست که <strong>همان حرف را می‌زنند</strong>؛ یکیشان «هاست وردپرس چیست؟» است و یکی دو مورد دیگر شبیهش. خواننده و گوگل نمی‌فهمند این‌ها بخش‌های متفاوت‌اند.</p>
+        <h5>تصمیم: یکی می‌ماند، بقیه عنوان متفاوت می‌گیرند</h5>
+        <p>فهرست زیر «محل دقیق → عنوان فعلی → عنوان جدید» است. عنوان‌هایی که «بدون تغییر» خورده‌اند، دقیقاً با بقیه یکی نیستند و فقط عبارت مشترک دارند — تغییرشان لازم نیست.</p>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>#</th><th>محل دقیق (کجای صفحه)</th><th>عنوان فعلی (عیناً)</th><th>عنوان جدید پیشنهادی</th></tr></thead>
+            <tbody>
+              <tr><td>۱</td><td><strong>h2 بخش متن پایین صفحه</strong> — L19619 (بخش معرفی اصلی)</td><td>«هاست وردپرس چیست؟»</td><td><strong>بدون تغییر</strong> — همین یک مورد می‌ماند (مرجع اصلی)</td></tr>
+              <tr><td>۲</td><td><strong>h3 روی کارت «آموزش‌های مرتبط»</strong> — L19335 (لینک به مقالهٔ دانشنامه)</td><td>«هاست وردپرس چیست؟»</td><td><strong>«آموزش هاست وردپرس»</strong></td></tr>
+              <tr><td>۳</td><td><strong>h2 بخش متن پایین</strong> — L19625 (لیست مزایا: کرون‌جاب، سرعت، امنیت…)</td><td>«مزایای هاست وردپرس چیست؟»</td><td><strong>«مزایای هاست وردپرس پارس‌پک»</strong> — چون محتوای زیرش مزایای همین سرویس است</td></tr>
+              <tr><td>۴</td><td><strong>h3 سؤال پنجم FAQ</strong> — L19453</td><td>«مزایای خرید هاست وردپرس چیست؟»</td><td><strong>بدون تغییر</strong> — سؤال FAQ است و با شمارهٔ ۳ یکی نیست</td></tr>
+              <tr><td>۵</td><td><strong>h2 بخش متن پایین</strong> — L19645 (مراحل خرید)</td><td>«راهنمای خرید بهترین هاست وردپرس»</td><td><strong>بدون تغییر</strong> — یکتاست</td></tr>
+              <tr><td>۶</td><td><strong>h3 روی کارت «آموزش‌های مرتبط»</strong> — L19308 (لینک به مقالهٔ بهترین هاست)</td><td>«بهترین هاست وردپرس»</td><td><strong>«راهنمای انتخاب بهترین هاست وردپرس»</strong> — تا با عنوان شمارهٔ ۵ قاطی نشود</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h5>متن دقیق برای تغییر (قبل → بعد)</h5>
+        <ol>
+          <li>L19335 → <code>&lt;h3 …&gt;&lt;a …&gt;هاست وردپرس چیست؟&lt;/a&gt;&lt;/h3&gt;</code> ⟶ <code>&lt;h3 …&gt;&lt;a …&gt;آموزش هاست وردپرس&lt;/a&gt;&lt;/h3&gt;</code></li>
+          <li>L19625 → <code>&lt;h2&gt;مزایای هاست وردپرس چیست؟&lt;/h2&gt;</code> ⟶ <code>&lt;h2&gt;مزایای هاست وردپرس پارس‌پک&lt;/h2&gt;</code></li>
+          <li>L19308 → <code>&lt;h3 …&gt;&lt;a …&gt;بهترین هاست وردپرس&lt;/a&gt;&lt;/h3&gt;</code> ⟶ <code>&lt;h3 …&gt;&lt;a …&gt;راهنمای انتخاب بهترین هاست وردپرس&lt;/a&gt;&lt;/h3&gt;</code></li>
+        </ol>
+        <h5>معیار پذیرش</h5>
+        <ul>
+          <li>عبارت «هاست وردپرس چیست؟» در صفحه <strong>فقط یک بار</strong> (روی h2 L19619) بیاید.</li>
+          <li>هیچ دو عنوان h2/h3 با متن یکسان یا شبه‌یکسان («... چیست؟» پشت‌سرهم) نماند.</li>
+          <li>شماره‌های ۴ و ۵ عمداً دست‌نخورده‌اند (یکتا هستند).</li>
+        </ul>
+      </div>
+    </details>
+    <div class="accept"><span class="label">معیار پایان</span>عنوان یکتا در دو سطح</div>
+  </article>
+
+  <!-- Notes N-1..N-4 extracted for cleanliness -->
+  <section class="notes" id="notes" aria-labelledby="notes-title">
+    <h2 id="notes-title">یادداشت‌های فنی (N-1 تا N-4)</h2>
+    <p class="intro">این چهار مورد <strong>ایراد نیستند</strong>؛ چیزهایی هستند که در اطلاعات فنی مخفی داخل صفحه دیده شد و برای آن‌ها نباید حدس زد.</p>
+
+    <div class="note-card">
+      <h3>N-1 — عدد «۲» در تنظیمات بکاپ</h3>
+      <p><strong>چه دیدم:</strong> در داده‌های فنی داخل صفحه نوشته شده <code>full_backup_daily_count: 2</code> و <code>database_backup_daily_count: 2</code>.</p>
+      <p><strong>یعنی چه:</strong> یک عدد ۲، ولی معلوم نیست «۲ نسخه در روز» است یا «۲ روز نگهداری» یا چیز دیگر.</p>
+      <p><strong>چه کار کنیم:</strong> وقتی از تیم محصول دربارهٔ بکاپ سؤال می‌پرسید، این را هم اضافه کنید: «این ۲ یعنی چند نسخه/چند روز؟»</p>
+    </div>
+    <div class="note-card">
+      <h3>N-2 — عدد «120000» در تنظیمات قیمت</h3>
+      <p><strong>چه دیدم:</strong> در همان داده نوشته شده <code>minimum_prices: [{"currency_code":"IRT","price":"120000"}]</code>.</p>
+      <p><strong>یعنی چه:</strong> «کمترین قیمت» با واحد IRT برابر ۱۲۰٬۰۰۰. ولی <code>IRT</code> معلوم نیست ریال است یا تومان یا واحد دیگری؛ و صفحه ۱٬۱۱۰٬۰۰۰ تومان نشان می‌دهد.</p>
+      <p><strong>چه کار کنیم:</strong> <strong>هیچ ادعایی نکنیم.</strong> فقط از تیم فنی بپرسید: «این 120000 IRT دقیقاً چیست؟»</p>
+    </div>
+    <div class="note-card">
+      <h3>N-3 — جمله‌ای در FAQ دربارهٔ «موقعیت خارج»</h3>
+      <p><strong>چه دیدم:</strong> در FAQ چهارم نوشته: «بهترین هاست وردپرس در موقعیت خارج ارائه می‌شود…».</p>
+      <p><strong>یعنی چه:</strong> این جمله با «ارائه فقط در اروپا»ی بلوک موقعیت هم‌جهت است و همان مشکل F-08 را تأیید می‌کند.</p>
+      <p><strong>چه کار کنیم:</strong> در همان اصلاح F-08 (تغییر متن به «ایران و اروپا») این جمله هم دیده شود.</p>
+    </div>
+    <div class="note-card">
+      <h3>N-4 — خالی بودن «selected_location»</h3>
+      <p><strong>چه دیدم:</strong> در دادهٔ فنی <code>pp-ch-flow</code> نوشته <code>"selected_location":""</code> (خالی).</p>
+      <p><strong>یعنی چه:</strong> انتخاب پیش‌فرض لوکیشن در آن داده خالی است؛ ولی در خود HTML رادیو «ایران» انتخاب‌شده است.</p>
+      <p><strong>چه کار کنیم:</strong> کاری لازم نیست؛ چون مقدار با جاوااسکریپت تنظیم می‌شود. فقط ثبت شد.</p>
+    </div>
+
+    <div class="tablewrap" style="margin-top:14px">
+      <table>
+        <thead><tr><th>مورد</th><th>نوع</th><th>اقدام لازم</th></tr></thead>
+        <tbody>
+          <tr><td>N-1</td><td>سؤال از محصول</td><td>پرسیدن معنی عدد ۲ (بکاپ)</td></tr>
+          <tr><td>N-2</td><td>سؤال از محصول/فنی</td><td>پرسیدن معنی 120000 IRT</td></tr>
+          <tr><td>N-3</td><td>هماهنگ با F-08</td><td>در ویرایش همان متن لحاظ شود</td></tr>
+          <tr><td>N-4</td><td>بی‌اثر</td><td>هیچ</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="legend" id="legend" aria-labelledby="legend-title">
+    <h2 id="legend-title">راهنمای تحویل</h2>
+    <ul>
+      <li>موارد «F-08، F-09، F-10، F-11» تا تأیید محصول (ایران فعال؟ دایرکت‌ادمین؟ سیاست بکاپ؟ نام رسمی لوکیشن؟) اجرا نشوند — فقط متن آماده است. <em>(چند مورد همین الان تأیید شده‌اند؛ متن آمادهٔ اجراست.)</em></li>
+      <li>پس از هر اصلاح: <code>view-source</code> تازه + اجرای شرط پذیرش همان ردیف. نقل‌قول «یافت نشد» فقط تا قبل از رفع معنا دارد.</li>
+      <li>هیچ تغییری بیرون از متن «قبل → بعد» مجاز نیست؛ اگر وسط رفع، تناقض تازه دیدید فقط گزارش کنید.</li>
+      <li>تحویل نهایی: جدول ۱۳ شرط grep در فایل <code>step5-plan.md</code> همه باید سبز باشند.</li>
+    </ul>
+  </section>
+
+  <footer class="doc">ساخته‌شده از step3-findings.md و step6-copy.md — همهٔ نقل‌قول‌ها عیناً و با شماره خط · نسخهٔ تمیز UI</footer>
+</main>
+</div>
+
+<button class="top" id="toTop" type="button" aria-label="بازگشت به بالا">↑</button>
+
+<script>
+(function(){
+  var topBtn = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    topBtn.classList.toggle('show', window.scrollY > 400);
+  });
+  topBtn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+
+  document.getElementById('expandAll').addEventListener('click', function(){
+    document.querySelectorAll('details.fix-box').forEach(function(d){ d.open = true; });
+  });
+  document.getElementById('collapseAll').addEventListener('click', function(){
+    document.querySelectorAll('details.fix-box').forEach(function(d){ d.open = false; });
+  });
+})();
+</script>
+</body>
+</html>
