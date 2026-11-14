@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>گزارش سئوی هاست وردپرس پارس‌پک — Cursor V4</title>
+<style>
+:root{
+  --bg:#f4f6f9; --card:#fff; --ink:#142033; --muted:#5c6678; --line:#e2e7ef;
+  --navy:#0b1f44; --accent:#1f5eff; --accent-soft:#eaf0ff;
+  --crit:#c62828; --crit-bg:#fdecea; --warn:#b54708; --warn-bg:#fff7e8;
+  --good:#067647; --good-bg:#ecfdf3; --soft:#f7f9fc;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'Vazirmatn','IRANSansX','IRANSans','Segoe UI',Tahoma,sans-serif;
+  font-size:16px; line-height:1.9; -webkit-font-smoothing:antialiased;
+}
+.wrap{display:grid; grid-template-columns:250px minmax(0,1fr); gap:24px;
+  max-width:1280px; margin:0 auto; padding:24px 18px 80px;}
+nav{position:sticky; top:20px; align-self:start; max-height:calc(100vh - 40px); overflow:auto;
+  background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:14px 12px;}
+nav h5{margin:0 0 10px; font-size:12px; color:var(--muted); font-weight:700}
+nav a{display:flex; gap:8px; align-items:baseline; padding:7px 8px; border-radius:8px; color:#2b3444;
+  text-decoration:none; font-size:13.5px; border-inline-start:3px solid transparent}
+nav a span{color:var(--muted); font-size:11px; min-width:14px}
+nav a:hover{background:#f2f5f9}
+nav a.active{background:var(--accent-soft); color:var(--accent); border-inline-start-color:var(--accent); font-weight:600}
+main{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:36px 40px 48px; min-width:0}
+.cover{
+  margin:0 0 8px; padding:28px 28px 24px; border-radius:16px; color:#fff;
+  background:linear-gradient(135deg,#0b1f44 0%,#163a7a 55%,#1f5eff 120%);
+}
+.cover h1{margin:0 0 8px; font-size:28px; line-height:1.45; color:#fff}
+.cover p{margin:0; color:#d7e3ff}
+.cover code{background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); color:#fff; padding:2px 8px; border-radius:6px; direction:ltr; display:inline-block; margin-top:10px}
+.meta{display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 8px}
+.chip{background:#f3f5f9; border:1px solid var(--line); border-radius:99px; padding:4px 12px; font-size:12.5px; color:var(--muted)}
+.tools{display:flex; gap:10px; margin-bottom:8px}
+.tools button{background:var(--card); border:1px solid var(--line); border-radius:9px; padding:8px 14px;
+  font-family:inherit; font-size:13px; cursor:pointer; color:#3b4452}
+.tools button:hover{border-color:#c7cfdb; background:#fafbfd}
+h2{font-size:21px; line-height:1.5; margin:0 0 12px; display:flex; gap:12px; align-items:flex-start}
+h3{font-size:17px; margin:0 0 8px}
+.num{flex:none; display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px;
+  border-radius:10px; background:var(--accent-soft); color:var(--accent); font-size:13px; font-weight:700}
+section.sec{margin:0; padding:24px 0 4px}
+section.sec + section.sec{border-top:1px solid var(--line); margin-top:10px}
+p{margin:0 0 12px; color:#243044}
+a{color:var(--accent)}
+strong{font-weight:700}
+code{background:#eef1f6; border:1px solid #e2e7ef; padding:1px 5px; border-radius:6px;
+  font-family:'Cascadia Mono',Consolas,monospace; font-size:13px; direction:ltr; display:inline-block}
+blockquote{margin:12px 0 0; padding:12px 16px; background:var(--soft); border:1px solid var(--line);
+  border-inline-start:4px solid var(--accent); border-radius:0 10px 10px 0; color:#1f2937}
+ul,ol{margin:0 0 12px; padding-inline-start:22px}
+li{margin:4px 0}
+.tablewrap{overflow-x:auto; margin:12px 0 16px; border:1px solid var(--line); border-radius:12px}
+table{width:100%; border-collapse:collapse; font-size:14.5px; background:var(--card)}
+th{background:#f4f6fa; text-align:start; padding:10px 12px; font-weight:700; font-size:13px;
+  border-bottom:1px solid var(--line); color:#3b4452}
+td{padding:10px 12px; border-bottom:1px solid #eef1f5; vertical-align:top; line-height:1.75}
+tr:last-child td{border-bottom:0}
+.kpi{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:14px 0 18px}
+.kpi .box{background:var(--soft); border:1px solid var(--line); border-radius:12px; padding:14px 16px}
+.kpi .box b{display:block; font-size:22px; color:var(--navy); margin-bottom:4px}
+.kpi .box span{color:var(--muted); font-size:13px}
+.defect{
+  border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin:0 0 14px; background:#fff;
+  border-inline-start:5px solid var(--line);
+}
+.defect.p1{border-inline-start-color:var(--crit); background:linear-gradient(90deg,var(--crit-bg),#fff 28%)}
+.defect.p2{border-inline-start-color:var(--warn); background:linear-gradient(90deg,var(--warn-bg),#fff 28%)}
+.defect .head{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:0 0 10px}
+.badge{font-size:12px; font-weight:700; border-radius:99px; padding:3px 10px}
+.badge.p1{background:var(--crit-bg); color:var(--crit)}
+.badge.p2{background:var(--warn-bg); color:var(--warn)}
+.badge.ok{background:var(--good-bg); color:var(--good)}
+.grid4{display:grid; grid-template-columns:1fr 1fr; gap:10px 16px}
+.grid4 dt{font-size:12px; color:var(--muted); font-weight:700; margin:0}
+.grid4 dd{margin:0 0 6px; color:#243044}
+.now{background:#0e1117; color:#d7e0ea; border-radius:10px; padding:10px 12px; font-size:13px;
+  direction:ltr; text-align:left; overflow-x:auto; margin:8px 0 0; font-family:Consolas,monospace; line-height:1.6}
+.note{font-size:13.5px; color:var(--muted); margin:0 0 12px}
+.codeblock{margin:12px 0 8px; border:1px solid #dbe1ea; border-radius:12px; overflow:hidden; background:#0e1117}
+.codebar{display:flex; justify-content:space-between; align-items:center; padding:8px 14px;
+  background:#161b24; border-bottom:1px solid #263041}
+.codebar .lang{color:#8b98ad; font-size:12px; font-family:Consolas,monospace}
+.copy{background:#222c3b; color:#c7d2e2; border:1px solid #33404f; border-radius:7px;
+  font-family:inherit; font-size:12px; padding:4px 12px; cursor:pointer}
+pre{margin:0; padding:14px 16px; overflow-x:auto; direction:ltr; text-align:left}
+pre code{background:none; border:0; padding:0; color:#d7e0ea; font-size:12.8px; line-height:1.7; display:block; white-space:pre}
+.top{position:fixed; inset-inline-start:18px; bottom:18px; background:var(--ink); color:#fff;
+  border:0; border-radius:99px; width:42px; height:42px; font-size:18px; cursor:pointer;
+  box-shadow:0 6px 20px rgba(0,0,0,.18); opacity:0; pointer-events:none; transition:.2s}
+.top.show{opacity:1; pointer-events:auto}
+@media (max-width:900px){
+  .wrap{grid-template-columns:1fr; padding:12px}
+  nav{position:static; max-height:none; order:2}
+  main{padding:22px 16px 36px; order:1}
+  .cover h1{font-size:22px}
+  .kpi,.grid4{grid-template-columns:1fr}
+  h2{font-size:18px}
+}
+@media print{
+  body{background:#fff}
+  nav,.tools,.top,.copy{display:none!important}
+  .wrap{display:block; max-width:none; padding:0}
+  main{border:0; padding:0}
+  .defect,.tablewrap,.cover{break-inside:avoid}
+  a{color:inherit}
+  @page{margin:14mm}
+}
+section{scroll-margin-top:24px}
+.hash{max-width:100%; overflow-wrap:anywhere; white-space:normal}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav aria-label="فهرست گزارش">
+  <h5>فهرست</h5>
+  <a href="#summary" data-target="summary"><span>1</span>خلاصهٔ ۳۰ثانیه‌ای</a>
+  <a href="#defects" data-target="defects"><span>2</span>کارت‌های ایراد</a>
+  <a href="#competitors" data-target="competitors"><span>3</span>شکاف با رقبا</a>
+  <a href="#keep" data-target="keep"><span>4</span>چه چیزی حفظ شود</a>
+  <a href="#plan" data-target="plan"><span>5</span>برنامهٔ اجرا</a>
+  <a href="#copy" data-target="copy"><span>6</span>متن پیشنهادی</a>
+  <a href="#appendix" data-target="appendix"><span>7</span>پیوست شواهد</a>
+</nav>
+
+<main>
+<div class="tools"><button class="printbtn" type="button">چاپ / PDF</button></div>
+
+<div class="cover">
+  <h1>گزارش سئوی صفحهٔ هاست وردپرس پارس‌پک</h1>
+  <p>نسخهٔ Cursor V4 — کوتاه، بدون تکرار، با محل دقیق هر ایراد</p>
+  <code>https://parspack.com/host/wordpress</code>
+</div>
+
+<div class="meta">
+  <span class="chip">Cursor V4</span>
+  <span class="chip">بازنویسی وضوح: ۱۴ نوامبر ۲۰۲۶</span>
+  <span class="chip">مبنای بررسی صفحه: ۱۰ نوامبر ۲۰۲۶</span>
+</div>
+
+<section class="sec" aria-labelledby="summary">
+  <h2 id="summary"><span class="num">1</span><span>خلاصهٔ ۳۰ثانیه‌ای</span></h2>
+  <p>صفحه الان در نتایج برتر دیده می‌شود؛ نیاز به بازنویسی کامل نیست. مشکل اصلی، <strong>ناسازگاری و ابهام اطلاعات محصول</strong> است؛ نه کمبود حجم متن.</p>
+
+  <div class="kpi">
+    <div class="box"><b>۸</b><span>ایراد مشخص با محل دقیق</span></div>
+    <div class="box"><b>۵</b><span>اولویت فوری (P1)</span></div>
+    <div class="box"><b>۳</b><span>شکاف قابل اقدام نسبت به رقبا</span></div>
+  </div>
+
+  <p class="note">اگر فقط یک صفحه بخوانید، همین بخش و کارت‌های ایراد کافی است.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>اولویت</th><th>ایراد به زبان ساده</th><th>کجا</th></tr></thead>
+      <tbody>
+        <tr><td>P1</td><td>کنترل‌پنل در متا/فرم/FAQ یکسان نیست</td><td>متا، فرم سفارش، FAQ</td></tr>
+        <tr><td>P1</td><td>لوکیشن ایران/اروپا ناسازگار و ادعای سئو دارد</td><td>عنوان، بلوک لوکیشن، FAQ</td></tr>
+        <tr><td>P1</td><td>متا غلط تایپی و وعدهٔ مبهم دارد</td><td>meta description</td></tr>
+        <tr><td>P1</td><td>محدودیت منابع و شرایط انتقال روشن نیست</td><td>جدول پلن / متن انتقال</td></tr>
+        <tr><td>P1</td><td>راهنمای انتخاب وردپرس/ووکامرس مبهم است</td><td>راهنمای انتخاب پلن</td></tr>
+        <tr><td>P2</td><td>سه بخش مزایا/ویژگی هم‌پوشانی دارند</td><td>سه H2 محتوایی</td></tr>
+        <tr><td>P2</td><td>ادعاهای کلی بدون شاهد</td><td>متن مزایا و جدول مقایسه</td></tr>
+        <tr><td>P2</td><td>alt تصاویر ناقص یا جای‌نگهدار است</td><td>۲۲ تگ img</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <blockquote>
+    این نسخه عمداً کوتاه است. جزئیات روش، ۲۴محور ممیزی و disclaimerهای تکراری حذف شده‌اند تا تیم محصول/محتوا بداند دقیقاً چه چیزی را اصلاح کند.
+  </blockquote>
+</section>
+
+<section class="sec" aria-labelledby="defects">
+  <h2 id="defects"><span class="num">2</span><span>کارت‌های ایراد — کجا، چیست، چه کار کنیم</span></h2>
+  <p>هر کارت فقط یک بار آمده است. FAQهای مرتبط داخل همان کارت جمع شده‌اند تا تکرار نشود.</p>
+
+  <article class="defect p1">
+    <div class="head">
+      <span class="badge p1">P1</span>
+      <h3>۱. تناقض کنترل‌پنل</h3>
+    </div>
+    <dl class="grid4">
+      <dt>کجا</dt><dd>meta description + فرم سفارش (<code>control_panel</code>) + FAQ سی‌پنل/دایرکت‌ادمین</dd>
+      <dt>الان چه می‌گوید</dt><dd>متا هر دو را نام می‌برد؛ فرم هر دو گزینه را دارد؛ FAQ می‌گوید فعلاً با سی‌پنل ارائه می‌شود.</dd>
+      <dt>مشکل</dt><dd>خریدار و موتور جست‌وجو پیام واحد نمی‌گیرند. معلوم نیست واقعاً چه چیزی قابل سفارش است.</dd>
+      <dt>کار</dt><dd>محصول لیست کنترل‌پنل قابل سفارش را بدهد؛ سپس متا، فرم و FAQ دقیقاً همان لیست را بنویسند.</dd>
+    </dl>
+    <div class="now">&lt;option value="5" selected&gt;سی‌پنل&lt;/option&gt;
+&lt;option value="4"&gt;دایرکت‌ادمین&lt;/option&gt;</div>
+  </article>
+
+  <article class="defect p1">
+    <div class="head">
+      <span class="badge p1">P1</span>
+      <h3>۲. ناسازگاری لوکیشن + ادعای سئو</h3>
+    </div>
+    <dl class="grid4">
+      <dt>کجا</dt><dd>title / پلن‌ها / بلوک موقعیت جغرافیایی / FAQ «ایران یا اروپا»</dd>
+      <dt>الان چه می‌گوید</dt><dd>عنوان و پلن‌ها ایران و اروپا را می‌گویند؛ بلوک لوکیشن بیشتر اروپا (آلمان) را معرفی می‌کند؛ FAQ اروپا را «مطمئن‌تر» و مرتبط با سئوی بهتر معرفی می‌کند.</dd>
+      <dt>مشکل</dt><dd>معیار انتخاب لوکیشن روشن نیست و ادعای سئو از کشور سرور قابل دفاع نیست.</dd>
+      <dt>کار</dt><dd>لوکیشن‌های قابل سفارش را ثابت کنید. معیار انتخاب را بگذارید روی مخاطب، تأخیر، پایداری و اتصال سرویس‌ها — نه «سئوی بهتر به‌خاطر آلمان».</dd>
+    </dl>
+  </article>
+
+  <article class="defect p1">
+    <div class="head">
+      <span class="badge p1">P1</span>
+      <h3>۳. متای ضعیف و غلط تایپی</h3>
+    </div>
+    <dl class="grid4">
+      <dt>کجا</dt><dd>title و meta description</dd>
+      <dt>الان چه می‌گوید</dt><dd>«المان» به‌جای «آلمان»؛ «ارزان» دو بار؛ وعدهٔ کنترل‌پنل مبهم.</dd>
+      <dt>مشکل</dt><dd>اسنیپت جست‌وجو غیردقیق و غیرحرفه‌ای است.</dd>
+      <dt>کار</dt><dd>متا را با مشخصات تأییدشده بازنویسی کنید (پیشنهاد آماده در بخش ۶).</dd>
+    </dl>
+    <div class="now">... در منطقه ایران و خارج (المان).</div>
+  </article>
+
+  <article class="defect p1">
+    <div class="head">
+      <span class="badge p1">P1</span>
+      <h3>۴. محدودیت منابع و شرایط انتقال ناقص</h3>
+    </div>
+    <dl class="grid4">
+      <dt>کجا</dt><dd>جدول مشخصات پلن + متن انتقال سایت</dd>
+      <dt>الان چه می‌گوید</dt><dd>CPU/RAM/فضا هست؛ توضیح هم‌سطح I/O، IOPS و مدل تخصیص کم‌رنگ است. انتقال با فایل/بکاپ گفته شده، ولی هزینه، مسئول و دامنهٔ کار روشن نیست.</dd>
+      <dt>مشکل</dt><dd>در مقایسهٔ خرید، اطلاعات تصمیم‌ساز کم است (رقبا بخشی از این‌ها را صریح‌تر می‌نویسند).</dd>
+      <dt>کار</dt><dd>سقف منابع واقعی هر پلن + شرایط انتقال (مسئول، هزینه، سازگاری، احتمال وقفه) را از محصول بگیرید و در جدول/متن بگذارید. رایگان بودن را بدون تأیید وعده ندهید.</dd>
+    </dl>
+  </article>
+
+  <article class="defect p1">
+    <div class="head">
+      <span class="badge p1">P1</span>
+      <h3>۵. راهنمای انتخاب پلن مبهم است</h3>
+    </div>
+    <dl class="grid4">
+      <dt>کجا</dt><dd>راهنمای انتخاب پلن + FAQ انتخاب پلن</dd>
+      <dt>الان چه می‌گوید</dt><dd>شروع از پلن پایه و آستانهٔ حدود ۵۰٪ مصرف؛ شاخص و بازه روشن نیست. مرز وردپرس / ووکامرس / سرویس قوی‌تر واضح نیست.</dd>
+      <dt>مشکل</dt><dd>خریدار نمی‌فهمد برای فروشگاه یا ترافیک بالاتر چه زمانی باید پلن/سرویس دیگری بگیرد.</dd>
+      <dt>کار</dt><dd>یک بلوک کوتاه بنویسید: نوع سایت → نیاز منابع → محدودیت‌ها → لینک سرویس مناسب. آستانهٔ ۵۰٪ را فقط اگر سیاست فنی مستند دارد نگه دارید.</dd>
+    </dl>
+  </article>
+
+  <article class="defect p2">
+    <div class="head">
+      <span class="badge p2">P2</span>
+      <h3>۶. هم‌پوشانی سه بخش محتوا</h3>
+    </div>
+    <dl class="grid4">
+      <dt>کجا</dt><dd>«ویژگی‌های هاست وردپرس پارس‌پک» / «مزایای هاست وردپرس پارس‌پک» / «مزایای هاست وردپرس چیست؟»</dd>
+      <dt>الان چه می‌گوید</dt><dd>سرعت، نصب، امنیت و بکاپ در چند بخش تکرار مفهومی دارند.</dd>
+      <dt>مشکل</dt><dd>خواندن سخت می‌شود؛ ارزش اطلاعاتی اضافه نمی‌آید.</dd>
+      <dt>کار</dt><dd>یک بخش ویژگی محصول + یک راهنمای کوتاه تصمیم. اشاره در جدول/FAQ اگر تصمیم‌ساز است، بماند.</dd>
+    </dl>
+  </article>
+
+  <article class="defect p2">
+    <div class="head">
+      <span class="badge p2">P2</span>
+      <h3>۷. ادعاهای کلی و جدول «سایر هاستینگ‌ها»</h3>
+    </div>
+    <dl class="grid4">
+      <dt>کجا</dt><dd>متن مزایا + جدول مقایسه + چند پاسخ FAQ (کش/CDN، تفاوت با هاست معمولی، مزایای خرید)</dd>
+      <dt>الان چه می‌گوید</dt><dd>عبارت‌هایی مثل امنیت تضمین‌شده، آپ‌تایم ۹۹.۹٪، بهینه‌ترین وب‌سرور؛ ستون کلی «سایر هاستینگ‌ها».</dd>
+      <dt>مشکل</dt><dd>ادعا بدون دامنه و شاهد، اعتماد را ضعیف می‌کند.</dd>
+      <dt>کار</dt><dd>هر ادعای مقایسه‌ای یا عدددار را به سند/روش وصل کنید؛ وگرنه فقط قابلیت خود محصول را بنویسید.</dd>
+    </dl>
+  </article>
+
+  <article class="defect p2">
+    <div class="head">
+      <span class="badge p2">P2</span>
+      <h3>۸. تصاویر بدون alt درست</h3>
+    </div>
+    <dl class="grid4">
+      <dt>کجا</dt><dd>۲۲ تگ <code>img</code></dd>
+      <dt>الان چه می‌گوید</dt><dd>۷ مورد <code>alt="image_alt"</code>؛ ۶ مورد بدون ویژگی alt.</dd>
+      <dt>مشکل</dt><dd>دسترس‌پذیری و وضوح رسانه ضعیف است.</dd>
+      <dt>کار</dt><dd>تصویر معنادار → alt توصیفی؛ تصویر تزئینی → <code>alt=""</code>.</dd>
+    </dl>
+  </article>
+</section>
+
+<section class="sec" aria-labelledby="competitors">
+  <h2 id="competitors"><span class="num">3</span><span>شکاف با رقبا — فقط موارد قابل اقدام</span></h2>
+  <p>رقبای بررسی‌شده: <a href="https://mihanwebhost.com/my/wordpress-web-host">میهن‌وب‌هاست</a> و <a href="https://mizbanfa.net/wordpress-web-hosting">میزبان‌فا</a>. صفحهٔ هاست‌ایران در زمان بررسی قابل خواندن نبود.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>شکاف</th><th>رقیب چه دارد</th><th>کار پارس‌پک</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>جزئیات محدودیت منابع</td>
+          <td>IOPS / I/O و توضیح محدودیت‌ها در جدول</td>
+          <td>همان کارت ایراد ۴ — یک‌بار در جدول پلن تکمیل شود</td>
+        </tr>
+        <tr>
+          <td>راهنمای انتخاب کاربردی</td>
+          <td>توضیح تناسب با ووکامرس و نیاز به منابع بیشتر</td>
+          <td>همان کارت ایراد ۵</td>
+        </tr>
+        <tr>
+          <td>شواهد اختصاصی</td>
+          <td>لینک به تجهیزات / کنترل کیفیت / توضیح امکانات</td>
+          <td>برای ۱–۲ مزیت واقعی، سند یا آزمون با تاریخ اضافه شود</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">نبود JSON-LD در HTML اولیهٔ پارس‌پک ثبت شد؛ به‌تنهایی دلیل اختلاف رتبه فرض نمی‌شود. جزئیات اسکیما فقط در صورت اجرای فنی لازم است (پیوست).</p>
+</section>
+
+<section class="sec" aria-labelledby="keep">
+  <h2 id="keep"><span class="num">4</span><span>چه چیزی حفظ شود</span></h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>جزء</th><th>وضعیت</th></tr></thead>
+      <tbody>
+        <tr><td>یک H1 با موضوع هاست وردپرس</td><td><span class="badge ok">حفظ</span></td></tr>
+        <tr><td>پلن‌ها، قیمت‌ها و جدول مشخصات</td><td><span class="badge ok">حفظ + تکمیل محدودیت‌ها</span></td></tr>
+        <tr><td>ساختار FAQ (هفت پرسش)</td><td><span class="badge ok">حفظ قالب؛ اصلاح پاسخ‌ها</span></td></tr>
+        <tr><td>canonical خودارجاع</td><td><span class="badge ok">حفظ</span></td></tr>
+        <tr><td>محتوای اصلی در HTML اولیه</td><td><span class="badge ok">نقطهٔ قوت فنی نسبی</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="plan">
+  <h2 id="plan"><span class="num">5</span><span>برنامهٔ اجرا</span></h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>مرحله</th><th>کار</th><th>مالک</th><th>تمام وقتی که…</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>۱</td>
+          <td>تأیید لیست واقعی: کنترل‌پنل، لوکیشن، محدودیت منابع، انتقال، بکاپ، کش</td>
+          <td>محصول + فنی</td>
+          <td>یک شیت مشخصات بدون وعدهٔ تأییدنشده آماده باشد</td>
+        </tr>
+        <tr>
+          <td>۲</td>
+          <td>اعمال کارت‌های P1 روی متا، معرفی، فرم، جدول، FAQ</td>
+          <td>محتوا + محصول</td>
+          <td>همان اطلاعات در همهٔ بخش‌ها یکی باشد</td>
+        </tr>
+        <tr>
+          <td>۳</td>
+          <td>ادغام بخش‌های هم‌پوشان + اصلاح alt + یک شاهد اختصاصی</td>
+          <td>محتوا (+ فنی برای شاهد)</td>
+          <td>هر بخش یک نقش داشته باشد؛ altها درست باشند</td>
+        </tr>
+        <tr>
+          <td>۴</td>
+          <td>پایش هم‌شرایط کوئری «هاست وردپرس» قبل/بعد</td>
+          <td>سئو</td>
+          <td>سهم رتبهٔ ۱ و نوسان با خط پایه مقایسه شود</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">ورودی ضروری همین الان: شیت مشخصات محصول. GSC/CWV/بک‌لینک برای شروع اصلاح متن اجباری نیست.</p>
+</section>
+
+<section class="sec" aria-labelledby="copy">
+  <h2 id="copy"><span class="num">6</span><span>متن پیشنهادی (بعد از تأیید محصول)</span></h2>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>جزء</th><th>پیشنهاد</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Title</td>
+          <td>خرید هاست وردپرس با LiteSpeed؛ پلن ایران و آلمان | پارس‌پک</td>
+        </tr>
+        <tr>
+          <td>Meta</td>
+          <td>خرید هاست وردپرس پارس‌پک با LiteSpeed؛ مقایسهٔ پلن‌ها، منابع و قیمت‌ها. کنترل‌پنل، بکاپ و شرایط سرویس را پیش از سفارش بررسی کنید.</td>
+        </tr>
+        <tr>
+          <td>H1</td>
+          <td>هاست وردپرس پارس‌پک</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <blockquote>
+    هاست وردپرس پارس‌پک برای میزبانی سایت‌های وردپرسی ارائه می‌شود. پلن‌ها را بر اساس فضای ذخیره‌سازی، پردازنده، رم و قیمت مقایسه کنید و پیش از سفارش، لوکیشن، کنترل‌پنل و شرایط بکاپ هر گزینه را بررسی کنید.
+  </blockquote>
+
+  <p class="note">نام کنترل‌پنل و جزئیات LiteSpeed/بکاپ فقط پس از تأیید محصول در متن نهایی قفل شود.</p>
+</section>
+
+<section class="sec" aria-labelledby="appendix">
+  <h2 id="appendix"><span class="num">7</span><span>پیوست — شواهد و محدودیت‌ها</span></h2>
+
+  <h3>شواهد صفحه (۱۰ نوامبر ۲۰۲۶)</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>داده</th><th>مقدار</th></tr></thead>
+      <tbody>
+        <tr><td>HTTP</td><td>۲۰۰</td></tr>
+        <tr><td>H1 / H2 / H3</td><td>۱ / ۲۰ / ۴۹</td></tr>
+        <tr><td>جدول / img</td><td>۲ / ۲۲</td></tr>
+        <tr><td>alt تصویر</td><td>۷× <code>image_alt</code> ؛ ۶× بدون alt</td></tr>
+        <tr><td>Title</td><td>هاست وردپرس - خرید هاست وردپرس ارزان ⚡️ در ایران و اروپا - پارس‌پک</td></tr>
+        <tr><td>Meta</td><td>۱۳۶ کاراکتر؛ «ارزان» دو بار؛ «المان»</td></tr>
+        <tr><td>Canonical</td><td>https://parspack.com/host/wordpress</td></tr>
+        <tr><td>JSON-LD / itemtype در HTML اولیه</td><td>مشاهده نشد</td></tr>
+        <tr><td>اندازهٔ HTML بررسی‌شده</td><td>1,050,802 بایت</td></tr>
+        <tr><td>SHA-256</td><td><code class="hash">1ec33c939160f379802a17431af30a1655fcc3b844a23d64b1449e93b21e1acb</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>اسکیما — فقط اگر اجرا شد</h3>
+  <ul>
+    <li>FAQ rich result گوگل از مه ۲۰۲۶ متوقف شده؛ برای گرفتن FAQ در نتایج گوگل اضافه نکنید.</li>
+    <li>AggregateOffer را برای مجموعهٔ پلن/واریانت بدون مدل درست به کار نبرید.</li>
+    <li>BreadcrumbList بعد از تأیید مسیر واقعی قابل افزودن است:</li>
+  </ul>
+  <div class="codeblock">
+    <div class="codebar"><span class="lang">json-ld</span><button class="copy" type="button">کپی</button></div>
+    <pre><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"خانه","item":"https://parspack.com/"},
+    {"@type":"ListItem","position":2,"name":"هاست","item":"https://parspack.com/host"},
+    {"@type":"ListItem","position":3,"name":"هاست وردپرس","item":"https://parspack.com/host/wordpress"}
+  ]
+}
+&lt;/script&gt;</code></pre>
+  </div>
+
+  <h3>محدودیت این بررسی</h3>
+  <ul>
+    <li>رتبهٔ مستقل هم‌شرایط، GSC، CWV، بک‌لینک و تست سفارش انجام نشده است.</li>
+    <li>وجود گزینه در HTML به‌معنی قابل سفارش بودن قطعی نیست؛ به همین دلیل کارت ۱ با تأیید محصول شروع می‌شود.</li>
+    <li>هدف این V4 وضوح اجرایی برای کارفرماست؛ جایگزین ممیزی کل‌سایت نیست.</li>
+  </ul>
+
+  <h3>منابع</h3>
+  <ul>
+    <li><a href="https://developers.google.com/search/updates#deprecating-the-faq-rich-result-feature">Google — FAQ rich result deprecation</a></li>
+    <li><a href="https://developers.google.com/search/docs/appearance/structured-data/product-snippet#aggregateoffer">Google — AggregateOffer</a></li>
+    <li><a href="https://developers.google.com/search/docs/appearance/structured-data/sd-policies">Google — Structured data policies</a></li>
+    <li>نسخهٔ قبلی مفصل: <a href="parspack-wordpress-host-seo-V3.html">V3</a></li>
+  </ul>
+</section>
+</main>
+</div>
+
+<button class="top" type="button" title="بالا">↑</button>
+<script>
+const links=[...document.querySelectorAll('nav a')];
+const ids=links.map(a=>a.dataset.target);
+const obs=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      links.forEach(l=>l.classList.toggle('active',l.dataset.target===e.target.id));
+    }
+  });
+},{rootMargin:'-10% 0px -75% 0px',threshold:0});
+ids.forEach(id=>{const el=document.getElementById(id); if(el) obs.observe(el);});
+document.querySelectorAll('.copy').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const code=b.closest('.codeblock').querySelector('code').innerText;
+    navigator.clipboard.writeText(code).then(()=>{
+      const t=b.textContent; b.textContent='کپی شد ✓'; setTimeout(()=>b.textContent=t,1400);
+    }).catch(()=>{});
+  });
+});
+const backToTop=document.querySelector('.top');
+addEventListener('scroll',()=>backToTop.classList.toggle('show',scrollY>600),{passive:true});
+backToTop.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+document.querySelector('.printbtn').addEventListener('click',()=>print());
+</script>
+</body>
+</html>
